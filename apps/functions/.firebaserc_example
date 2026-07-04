@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "prod": "your-project-id"
+  },
+  "targets": {},
+  "etags": {}
+}

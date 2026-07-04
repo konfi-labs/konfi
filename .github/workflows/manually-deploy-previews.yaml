@@ -1,0 +1,19 @@
+name: Manually Deploy Preview to Vercel
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: ${{ vars.KONFI_DEPLOY_REPOSITORY != '' && github.repository == vars.KONFI_DEPLOY_REPOSITORY }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    environment: preview-deploy
+    steps:
+      - name: Trigger Store Deploy Hook
+        run: |
+          curl -X POST "${{ secrets.VERCEL_MANUALLY_DEPLOY_PREVIEW_STORE_HOOK_URL }}"
+      - name: Trigger Admin Deploy Hook
+        run: |
+          curl -X POST "${{ secrets.VERCEL_MANUALLY_DEPLOY_PREVIEW_ADMIN_HOOK_URL }}"

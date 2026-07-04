@@ -1,0 +1,54 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ESNext", "dom", "dom.iterable"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "allowJs": true,
+    "noEmit": true,
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "app/*": ["./app/*"],
+      "@/components/*": ["./app/[lng]/components/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/theme/*": ["./theme/*"],
+      "@/hooks/*": ["./hooks/*"],
+      "@/context/*": ["./context/*"],
+      "@/actions": ["./app/actions/index"],
+      "@konfi/components": ["../../packages/components/dist"],
+      "@konfi/firebase": ["../../packages/firebase/dist"],
+      "@konfi/google": ["../../packages/google/dist"],
+      "@konfi/utils": ["../../packages/utils/dist"],
+      "@konfi/types": ["../../packages/types/dist"],
+      "@/i18n/*": ["./app/i18n/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "app/.well-known/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mdx",
+    ".next/types/**/*.ts",
+    "../../mdx-components.tsx",
+    "../../apps/admin/lib/ai/usage-metering.ts",
+    "../../packages/utils/src/server/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "vitest.config.ts",
+    "**/*.stories.ts",
+    "**/*.stories.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/__tests__/**"
+  ]
+}

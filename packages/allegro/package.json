@@ -1,0 +1,36 @@
+{
+  "name": "@konfi/allegro",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "repository": "https://github.com/konfi-labs/konfi/tree/main/packages/allegro",
+  "files": [
+    "out"
+  ],
+  "type": "module",
+  "main": "out/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "transpile": "tsc",
+    "start": "pnpm run build && node out/index.js",
+    "generate-sdks": "kiota generate -l TypeScript -c AllegroClient -d ./allegro-api.yaml -o ./client --co"
+  },
+  "dependencies": {
+    "@microsoft/kiota-abstractions": "catalog:",
+    "@microsoft/kiota-bundle": "catalog:",
+    "@microsoft/kiota-http-fetchlibrary": "catalog:",
+    "@microsoft/kiota-serialization-form": "catalog:",
+    "@microsoft/kiota-serialization-json": "catalog:",
+    "@microsoft/kiota-serialization-multipart": "catalog:",
+    "@microsoft/kiota-serialization-text": "catalog:"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "catalog:",
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

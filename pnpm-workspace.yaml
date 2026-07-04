@@ -1,0 +1,131 @@
+packages:
+  - apps/*
+  - packages/*
+
+catalog:
+  "@ai-sdk/devtools": 1.0.0
+  "@ai-sdk/google": 4.0.0
+  "@ai-sdk/google-vertex": 5.0.0
+  "@ai-sdk/react": 4.0.0
+  "@ai-sdk/workflow": 1.0.0
+  "@workflow/serde": 4.1.2
+  "@chakra-ui/charts": 3.36.0
+  "@chakra-ui/cli": 3.36.0
+  "@chakra-ui/react": 3.36.0
+  "@emotion/react": ^11.14.0
+  "@firebase/rules-unit-testing": ^5.0.1
+  "@hookform/resolvers": ^5.2.2
+  "@manypkg/cli": ^0.25.1
+  "@mdx-js/mdx": ^3.1.1
+  "@microsoft/kiota-abstractions": 1.0.0-preview.102
+  "@microsoft/kiota-bundle": ^1.0.0-preview.100
+  "@microsoft/kiota-http-fetchlibrary": 1.0.0-preview.102
+  "@microsoft/kiota-serialization-form": 1.0.0-preview.100
+  "@microsoft/kiota-serialization-json": 1.0.0-preview.100
+  "@microsoft/kiota-serialization-multipart": 1.0.0-preview.102
+  "@microsoft/kiota-serialization-text": 1.0.0-preview.100
+  "@modelcontextprotocol/sdk": 1.29.0
+  "@next/third-parties": 16.3.0-preview.5
+  "@sentry/nextjs": 10.48.0
+  "@tanstack/react-table": ^8.21.3
+  "@tanstack/table-core": ^8.21.3
+  "@testing-library/dom": ^10.4.1
+  "@testing-library/jest-dom": ^6.9.1
+  "@testing-library/react": ^16.3.2
+  "@testing-library/user-event": ^14.6.1
+  "@tsconfig/node20": ^20.1.9
+  "@types/node": ^24.2.1
+  "@types/react": 19.2.14
+  "@types/react-dom": 19.2.3
+  "@vitejs/plugin-react": ^5.0.2
+  ai: 7.0.0
+  babel-plugin-react-compiler: 1.0.0
+  better-all: ^0.0.7
+  cross-env: ^10.1.0
+  dotenv-cli: ^11.0.0
+  es-toolkit: 1.47.1
+  eslint-plugin-turbo: ^2.9.6
+  firebase: 12.14.0
+  firebase-admin: ^13.10.0
+  i18next: 26.0.2
+  jsdom: ^29.0.1
+  next: 16.3.0-preview.5
+  next-mdx-remote: ^6.0.0
+  oxfmt: ^0.48.0
+  oxlint: ^1.63.0
+  react: 19.2.6
+  react-dom: 19.2.6
+  react-hook-form: ^7.72.1
+  react-i18next: 17.0.2
+  react-images-uploading: ^3.1.7
+  react-swipeable: ^7.0.2
+  resend: ^6.10.0
+  streamdown: 2.5.0
+  stripe: ^20.0.0
+  swr: 2.4.2
+  turbo: ^2.9.14
+  typescript: ~6.0.3
+  vitest: ^4.1.8
+  vitest-axe: ^0.1.0
+  workflow: 4.5.0
+  yup: ^1.7.1
+  zod: ^4.3.6
+
+overrides:
+  # Konfi uses MDXEditor without Sandpack/code-runner plugins; keep the unused
+  # Sandpack stack out of the install graph to avoid CodeSandbox Nodebox.
+  "@mdxeditor/editor>@codesandbox/sandpack-react": "-"
+  "@google-shopping/products>google-gax": 5.0.3
+  "@modelcontextprotocol/sdk>express-rate-limit": 8.5.2
+  vite: 7.3.2
+  "undici@>=7.0.0 <7.24.0": ">=7.24.0"
+  "path-to-regexp@>=8.0.0 <8.4.0": ">=8.4.0"
+  "devalue@>=4.0.0 <5.8.1": ">=5.8.1"
+  "webpack@>=5.0.0 <5.104.0": ">=5.104.0"
+
+allowBuilds:
+  "@firebase/util": true
+  "@nestjs/core": true
+  "@sentry/cli": true
+  "@swc/core": true
+  cbor-extract: true
+  electron: true
+  electron-winstaller: true
+  es5-ext: true
+  esbuild: true
+  protobufjs: true
+  re2: true
+  sharp: true
+
+ignoredBuiltDependencies:
+  - electron
+
+minimumReleaseAge: 2880
+
+minimumReleaseAgeExclude:
+  - "@next/env@16.3.0-preview.5"
+  - "@next/swc-darwin-arm64@16.3.0-preview.5"
+  - "@next/swc-darwin-x64@16.3.0-preview.5"
+  - "@next/swc-linux-arm64-gnu@16.3.0-preview.5"
+  - "@next/swc-linux-arm64-musl@16.3.0-preview.5"
+  - "@next/swc-linux-x64-gnu@16.3.0-preview.5"
+  - "@next/swc-linux-x64-musl@16.3.0-preview.5"
+  - "@next/swc-win32-arm64-msvc@16.3.0-preview.5"
+  - "@next/swc-win32-x64-msvc@16.3.0-preview.5"
+  - "@next/third-parties@16.3.0-preview.5"
+  - "next@16.3.0-preview.5"
+  - "@ai-sdk/anthropic@4.0.0"
+  - "@ai-sdk/devtools@1.0.0"
+  - "@ai-sdk/gateway@4.0.0"
+  - "@ai-sdk/google@4.0.0"
+  - "@ai-sdk/google-vertex@5.0.0"
+  - "@ai-sdk/mcp@2.0.0"
+  - "@ai-sdk/openai-compatible@3.0.0"
+  - "@ai-sdk/provider@4.0.0"
+  - "@ai-sdk/provider-utils@5.0.0"
+  - "@ai-sdk/react@4.0.0"
+  - "@ai-sdk/workflow@1.0.0"
+  - "@chakra-ui/charts@3.36.0"
+  - "@chakra-ui/cli@3.36.0"
+  - "@chakra-ui/react@3.36.0"
+  - "ai@7.0.0"

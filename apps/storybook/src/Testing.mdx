@@ -1,0 +1,73 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Guides/Testing" />
+
+# Component testing in Storybook
+
+This Storybook is wired up for component, interaction, and accessibility
+testing. This page documents what is installed and how to use it.
+
+## Installed addons
+
+| Addon | Purpose |
+| --- | --- |
+| `@storybook/addon-docs` | Auto-generated docs pages (`autodocs` tag is enabled globally) and MDX pages like this one. |
+| `@storybook/addon-themes` | Light/dark class switching via the toolbar. |
+| `@storybook/addon-a11y` | Runs axe accessibility checks per story; results appear in the **Accessibility** panel and in test runs. |
+| `@storybook/addon-vitest` | Turns every story into a Vitest browser-mode component test, runnable from the sidebar test widget or the CLI. |
+| `@storybook/addon-mcp` | Exposes this Storybook to AI agents over MCP. |
+
+## Running component tests
+
+Every story is a test. Stories with a `play` function also assert behavior
+(see `AdminAgentInteractionPanel.stories.tsx` for an example).
+
+- **In the UI:** use the test widget at the bottom of the sidebar to run all
+  tests, or run a single story/component from its context menu.
+- **From the CLI** (repo root):
+
+```bash
+# All workspace tests, including the storybook project
+pnpm test
+
+# Only the storybook component tests
+pnpm vitest run --config vitest.workspace.ts --project storybook
+
+# With a coverage report
+pnpm vitest run --config vitest.workspace.ts --project storybook --coverage
+```
+
+Tests run headless in Chromium via Playwright. One-time local setup:
+
+```bash
+pnpm --filter @konfi/storybook exec playwright install chromium
+```
+
+## Accessibility
+
+Accessibility violations are reported with `test: "todo"` severity
+(configured in `.storybook/preview.tsx`): they show up in the test UI and the
+**Accessibility** panel without failing runs. Flip it to `"error"` per story,
+per component, or globally once a surface is meant to stay clean:
+
+```ts
+export const SomeStory = {
+  parameters: { a11y: { test: "error" } },
+};
+```
+
+## Writing stories
+
+- Theme/provider setup (Chakra system for admin/store, color mode, toaster)
+  is applied globally in `.storybook/preview.tsx` — don't wrap stories in
+  providers manually.
+- Use the **Konfi Chakra system** toolbar item to switch between the admin
+  and store theme, or pin one with `parameters: { appTheme: "store" }`.
+- Import test helpers from `storybook/test` (not the deprecated
+  `@storybook/test` package).
+
+## CI
+
+`.github/workflows/tests.yml` installs the Playwright browser and runs
+`pnpm test`, which includes the storybook component tests, and builds the
+static Storybook (`storybook build`) to catch broken stories.

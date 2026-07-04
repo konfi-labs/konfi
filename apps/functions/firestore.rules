@@ -1,0 +1,1646 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSuperAdmin()
+        || isSignedIn()
+          && request.auth.token.admin == true
+          && request.auth.token.accessLevel >= 1;
+    }
+
+    function isSuperAdmin() {
+      return isSignedIn()
+        && request.auth.token.admin == true
+        && request.auth.token.accessLevel == 9999;
+    }
+
+    function isLegacyDedicatedAdmin() {
+      return isSignedIn()
+        && request.auth.token.admin == true
+        && request.auth.token.accessLevel == 5000;
+    }
+
+    function isCourier() {
+      return isSignedIn() && request.auth.token.courier == true;
+    }
+
+    function isUser(customerId) {
+      return isSignedIn() && request.auth.uid == customerId;
+    }
+
+    function isSignedInOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function membershipPath(tenantId) {
+      return /databases/$(database)/documents/tenantMemberships/$(tenantId + "_" + request.auth.uid);
+    }
+
+    function hasTenantId(data) {
+      return data.keys().hasAny(["tenantId"])
+        && data.tenantId is string
+        && data.tenantId.size() > 0;
+    }
+
+    function hasSourceTenantId(data) {
+      return data.keys().hasAny(["sourceTenantId"])
+        && data.sourceTenantId is string
+        && data.sourceTenantId.size() > 0;
+    }
+
+    function hasTargetTenantId(data) {
+      return data.keys().hasAny(["targetTenantId"])
+        && data.targetTenantId is string
+        && data.targetTenantId.size() > 0;
+    }
+
+    function hasSameTenantId() {
+      return hasTenantId(resource.data)
+        && hasTenantId(request.resource.data)
+        && request.resource.data.tenantId == resource.data.tenantId;
+    }
+
+    function isDedicatedDefaultTenant(tenantId) {
+      return tenantId == "default";
+    }
+
+    function isLegacyDedicatedTenantDocument(data) {
+      return !hasTenantId(data) || isDedicatedDefaultTenant(data.tenantId);
+    }
+
+    function canLegacyDedicatedAdminAccess(data) {
+      return isLegacyDedicatedAdmin() && isLegacyDedicatedTenantDocument(data);
+    }
+
+    function hasActiveTenantMembership(tenantId) {
+      return isSignedIn()
+        && tenantId is string
+        && exists(membershipPath(tenantId))
+        && get(membershipPath(tenantId)).data.status == "ACTIVE";
+    }
+
+    function membershipHasFullTenantScope(membership) {
+      return membership.role == "OWNER"
+        || !membership.keys().hasAny(["channelIds"])
+        || membership.channelIds.size() == 0;
+    }
+
+    function membershipCanAccessChannel(membership, channelId) {
+      return membershipHasFullTenantScope(membership)
+        || membership.keys().hasAny(["channelIds"])
+          && membership.channelIds.hasAny([channelId]);
+    }
+
+    function hasTenantAdminMembership(tenantId) {
+      return isAdmin()
+        && hasActiveTenantMembership(tenantId)
+        && get(membershipPath(tenantId)).data.role in ["OWNER", "ADMIN"];
+    }
+
+    function hasTenantOwnerMembership(tenantId) {
+      return isAdmin()
+        && hasActiveTenantMembership(tenantId)
+        && get(membershipPath(tenantId)).data.role == "OWNER";
+    }
+
+    function hasTenantStaffMembership(tenantId) {
+      return isAdmin()
+        && hasActiveTenantMembership(tenantId)
+        && get(membershipPath(tenantId)).data.role in [
+          "OWNER",
+          "ADMIN",
+          "MEMBER",
+          "COURIER",
+        ];
+    }
+
+    function hasFullTenantAdminMembership(tenantId) {
+      return isAdmin()
+        && hasActiveTenantMembership(tenantId)
+        && get(membershipPath(tenantId)).data.role in ["OWNER", "ADMIN"]
+        && membershipHasFullTenantScope(get(membershipPath(tenantId)).data);
+    }
+
+    function hasFullTenantStaffMembership(tenantId) {
+      return isAdmin()
+        && hasActiveTenantMembership(tenantId)
+        && get(membershipPath(tenantId)).data.role in [
+          "OWNER",
+          "ADMIN",
+          "MEMBER",
+          "COURIER",
+        ]
+        && membershipHasFullTenantScope(get(membershipPath(tenantId)).data);
+    }
+
+    function hasTenantChannelAdminMembership(tenantId, channelId) {
+      return isAdmin()
+        && hasActiveTenantMembership(tenantId)
+        && get(membershipPath(tenantId)).data.role in ["OWNER", "ADMIN"]
+        && membershipCanAccessChannel(
+          get(membershipPath(tenantId)).data,
+          channelId
+        );
+    }
+
+    function hasTenantChannelStaffMembership(tenantId, channelId) {
+      return isAdmin()
+        && hasActiveTenantMembership(tenantId)
+        && get(membershipPath(tenantId)).data.role in [
+          "OWNER",
+          "ADMIN",
+          "MEMBER",
+          "COURIER",
+        ]
+        && membershipCanAccessChannel(
+          get(membershipPath(tenantId)).data,
+          channelId
+        );
+    }
+
+    function membershipDataHasPermission(membership, permission) {
+      return membership.role == "OWNER"
+        || membership.role == "ADMIN"
+          && (
+            !membership.keys().hasAny(["permissions"])
+            || membership.permissions.hasAny([permission])
+          );
+    }
+
+    function hasTenantWidePermission(tenantId, permission) {
+      return isSuperAdmin()
+        || isAdmin()
+          && hasActiveTenantMembership(tenantId)
+          && membershipHasFullTenantScope(get(membershipPath(tenantId)).data)
+          && membershipDataHasPermission(
+            get(membershipPath(tenantId)).data,
+            permission
+          );
+    }
+
+    function hasTenantPermission(tenantId, permission) {
+      return isSuperAdmin()
+        || isAdmin()
+          && hasActiveTenantMembership(tenantId)
+          && membershipDataHasPermission(
+            get(membershipPath(tenantId)).data,
+            permission
+          );
+    }
+
+    function hasTenantChannelPermission(tenantId, channelId, permission) {
+      return isSuperAdmin()
+        || isAdmin()
+          && hasActiveTenantMembership(tenantId)
+          && membershipCanAccessChannel(
+            get(membershipPath(tenantId)).data,
+            channelId
+          )
+          && membershipDataHasPermission(
+            get(membershipPath(tenantId)).data,
+            permission
+          );
+    }
+
+    function canAdminReadTenantDocument(data) {
+      return isSuperAdmin()
+        || canLegacyDedicatedAdminAccess(data)
+        || isAdmin()
+          && hasTenantId(data)
+          && hasFullTenantStaffMembership(data.tenantId);
+    }
+
+    function hasPaidCooperationPlans(data) {
+      return data.sourcePlanId in ["starter", "pro", "enterprise"]
+        && data.targetPlanId in ["starter", "pro", "enterprise"];
+    }
+
+    function canAdminReadCooperationDocument(data) {
+      return isSuperAdmin()
+        || isAdmin()
+          && hasPaidCooperationPlans(data)
+          && (
+            (
+              hasSourceTenantId(data)
+              && hasTenantStaffMembership(data.sourceTenantId)
+            )
+            || (
+              hasTargetTenantId(data)
+              && hasTenantStaffMembership(data.targetTenantId)
+            )
+          );
+    }
+
+    function canAdminReadFulfillmentRequest(data) {
+      return canAdminReadTenantDocument(data)
+        || (
+          hasSourceTenantId(data)
+          && hasTenantStaffMembership(data.sourceTenantId)
+        )
+        || (
+          hasTargetTenantId(data)
+          && hasTenantStaffMembership(data.targetTenantId)
+        );
+    }
+
+    function canAdminWriteTenantDocument(data) {
+      return isSuperAdmin()
+        || canLegacyDedicatedAdminAccess(data)
+        || isAdmin()
+          && hasTenantId(data)
+          && hasFullTenantAdminMembership(data.tenantId);
+    }
+
+    function canUpdateTenantDocument() {
+      return isSuperAdmin()
+        || canLegacyDedicatedAdminAccess(resource.data)
+          && canLegacyDedicatedAdminAccess(request.resource.data)
+        || hasSameTenantId()
+          && canAdminWriteTenantDocument(request.resource.data);
+    }
+
+    function canAdminCreateTenantDocumentWithPermission(data, permission) {
+      return isSuperAdmin()
+        || canLegacyDedicatedAdminAccess(data)
+        || hasTenantId(data) && hasTenantWidePermission(data.tenantId, permission);
+    }
+
+    function canAdminCreateCustomer(data) {
+      return canAdminCreateTenantDocumentWithPermission(
+        data,
+        "customers.manage"
+      )
+        || canAdminCreateTenantDocumentWithPermission(data, "orders.manage");
+    }
+
+    function canAdminUpdateTenantDocumentWithPermission(permission) {
+      return isSuperAdmin()
+        || canLegacyDedicatedAdminAccess(resource.data)
+          && canLegacyDedicatedAdminAccess(request.resource.data)
+        || hasSameTenantId()
+          && hasTenantWidePermission(request.resource.data.tenantId, permission);
+    }
+
+    function isValidNumberCounter(data) {
+      return data.keys().hasOnly(["nextNumber", "tenantId"])
+        && data.nextNumber is int
+        && data.nextNumber >= 0;
+    }
+
+    function channelPath(channelId) {
+      return /databases/$(database)/documents/channels/$(channelId);
+    }
+
+    function getChannelData(channelId) {
+      return get(channelPath(channelId)).data;
+    }
+
+    function orderPath(channelId, orderId) {
+      return /databases/$(database)/documents/channels/$(channelId)/orders/$(orderId);
+    }
+
+    function getOrderData(channelId, orderId) {
+      return get(orderPath(channelId, orderId)).data;
+    }
+
+    function hasSameTenantAsChannel(channelId, data) {
+      return exists(channelPath(channelId))
+        && (
+          hasTenantId(data)
+            && hasTenantId(getChannelData(channelId))
+            && data.tenantId == getChannelData(channelId).tenantId
+          || hasTenantId(data)
+            && isDedicatedDefaultTenant(data.tenantId)
+            && isLegacyDedicatedTenantDocument(getChannelData(channelId))
+          || !hasTenantId(data)
+            && isLegacyDedicatedTenantDocument(getChannelData(channelId))
+        );
+    }
+
+    function hasSameTenantAsOrder(channelId, orderId, data) {
+      return exists(orderPath(channelId, orderId))
+        && (
+          hasTenantId(data)
+            && hasTenantId(getOrderData(channelId, orderId))
+            && data.tenantId == getOrderData(channelId, orderId).tenantId
+          || hasTenantId(data)
+            && isDedicatedDefaultTenant(data.tenantId)
+            && isLegacyDedicatedTenantDocument(getOrderData(channelId, orderId))
+          || !hasTenantId(data)
+            && isLegacyDedicatedTenantDocument(getOrderData(channelId, orderId))
+        );
+    }
+
+    function canAdminReadChannelDocument(channelId, data) {
+      return isSuperAdmin()
+        || canLegacyDedicatedAdminAccess(data)
+        || hasSameTenantAsChannel(channelId, data)
+          && hasTenantId(getChannelData(channelId))
+          && hasTenantChannelStaffMembership(
+            getChannelData(channelId).tenantId,
+            channelId
+          );
+    }
+
+    function canAdminWriteChannelDocument(channelId, data) {
+      return isSuperAdmin()
+        || canLegacyDedicatedAdminAccess(data)
+        || hasSameTenantAsChannel(channelId, data)
+          && hasTenantId(getChannelData(channelId))
+          && hasTenantChannelAdminMembership(
+            getChannelData(channelId).tenantId,
+            channelId
+          );
+    }
+
+    function canUpdateChannelDocument(channelId) {
+      return isSuperAdmin()
+        || canLegacyDedicatedAdminAccess(resource.data)
+          && canLegacyDedicatedAdminAccess(request.resource.data)
+        || hasSameTenantId()
+          && canAdminWriteChannelDocument(channelId, request.resource.data);
+    }
+
+    function canAdminCreateChannelDocumentWithPermission(channelId, data, permission) {
+      return isSuperAdmin()
+        || canLegacyDedicatedAdminAccess(data)
+        || hasSameTenantAsChannel(channelId, data)
+          && hasTenantId(getChannelData(channelId))
+          && hasTenantChannelPermission(
+            getChannelData(channelId).tenantId,
+            channelId,
+            permission
+          );
+    }
+
+    function canAdminUpdateChannelDocumentWithPermission(channelId, permission) {
+      return isSuperAdmin()
+        || canLegacyDedicatedAdminAccess(resource.data)
+          && canLegacyDedicatedAdminAccess(request.resource.data)
+        || hasSameTenantId()
+          && hasSameTenantAsChannel(channelId, request.resource.data)
+          && hasTenantId(getChannelData(channelId))
+          && hasTenantChannelPermission(
+            getChannelData(channelId).tenantId,
+            channelId,
+            permission
+          );
+    }
+
+    function canAdminReadDefaultNumberCounter(counterId) {
+      return counterId == "orders"
+          && hasTenantPermission("default", "orders.manage")
+        || counterId == "quotes"
+          && hasTenantPermission("default", "quotes.manage");
+    }
+
+    function canAdminReadNumberCounter(channelId, counterId) {
+      return counterId in ["orders", "quotes"]
+        && exists(channelPath(channelId))
+        && (
+          canAdminReadChannelDocument(channelId, getChannelData(channelId))
+          || isLegacyDedicatedTenantDocument(getChannelData(channelId))
+            && canAdminReadDefaultNumberCounter(counterId)
+        );
+    }
+
+    function canAdminCreateNumberCounter(data, channelId, counterId) {
+      return isValidNumberCounter(data)
+        && exists(channelPath(channelId))
+        && (
+          counterId == "orders"
+            && (
+              hasTenantId(getChannelData(channelId))
+                && hasTenantId(data)
+                && data.tenantId == getChannelData(channelId).tenantId
+                && hasTenantChannelPermission(
+                  getChannelData(channelId).tenantId,
+                  channelId,
+                  "orders.manage"
+                )
+              || isLegacyDedicatedTenantDocument(getChannelData(channelId))
+                && hasTenantId(data)
+                && isDedicatedDefaultTenant(data.tenantId)
+                && hasTenantPermission("default", "orders.manage")
+            )
+          || counterId == "quotes"
+            && (
+              hasTenantId(getChannelData(channelId))
+                && hasTenantId(data)
+                && data.tenantId == getChannelData(channelId).tenantId
+                && hasTenantChannelPermission(
+                  getChannelData(channelId).tenantId,
+                  channelId,
+                  "quotes.manage"
+                )
+              || isLegacyDedicatedTenantDocument(getChannelData(channelId))
+                && hasTenantId(data)
+                && isDedicatedDefaultTenant(data.tenantId)
+                && hasTenantPermission("default", "quotes.manage")
+            )
+        );
+    }
+
+    function canAdminUpdateNumberCounter(channelId, counterId) {
+      return isValidNumberCounter(request.resource.data)
+        && exists(channelPath(channelId))
+        && (
+          counterId == "orders"
+            && (
+              hasTenantId(getChannelData(channelId))
+                && hasSameTenantAsChannel(channelId, request.resource.data)
+                && hasTenantChannelPermission(
+                  getChannelData(channelId).tenantId,
+                  channelId,
+                  "orders.manage"
+                )
+              || isLegacyDedicatedTenantDocument(getChannelData(channelId))
+                && hasSameTenantAsChannel(channelId, request.resource.data)
+                && hasTenantPermission("default", "orders.manage")
+            )
+          || counterId == "quotes"
+            && (
+              hasTenantId(getChannelData(channelId))
+                && hasSameTenantAsChannel(channelId, request.resource.data)
+                && hasTenantChannelPermission(
+                  getChannelData(channelId).tenantId,
+                  channelId,
+                  "quotes.manage"
+                )
+              || isLegacyDedicatedTenantDocument(getChannelData(channelId))
+                && hasSameTenantAsChannel(channelId, request.resource.data)
+                && hasTenantPermission("default", "quotes.manage")
+            )
+        );
+    }
+
+    function canManageTenantMembership(data) {
+      return isSuperAdmin()
+        || hasTenantId(data)
+          && hasTenantOwnerMembership(data.tenantId);
+    }
+
+    function canManageAiInstructions(data) {
+      return isSuperAdmin()
+        || canLegacyDedicatedAdminAccess(data)
+        || hasTenantId(data)
+          && hasTenantOwnerMembership(data.tenantId);
+    }
+
+    function customerPath(customerId) {
+      return /databases/$(database)/documents/customers/$(customerId);
+    }
+
+    function customerExists(customerId) {
+      return exists(customerPath(customerId));
+    }
+
+    function channelProductPath(channelId, productId) {
+      return /databases/$(database)/documents/channels/$(channelId)/products/$(productId);
+    }
+
+    function getChannelProductData(channelId, productId) {
+      return get(channelProductPath(channelId, productId)).data;
+    }
+
+    function canAdminReadChannelProduct(channelId, productId) {
+      return exists(channelProductPath(channelId, productId))
+        && canAdminReadChannelDocument(channelId, getChannelProductData(channelId, productId));
+    }
+
+    function canAdminWriteChannelProduct(channelId, productId) {
+      return exists(channelProductPath(channelId, productId))
+        && canAdminWriteChannelDocument(channelId, getChannelProductData(channelId, productId));
+    }
+
+    function isValidProductImageGenerationConfig(channelId, productId, data) {
+      return data.keys().hasOnly([
+        "enabled",
+        "promptEnhancement",
+        "tenantId",
+        "updatedAt",
+        "updatedBy",
+      ])
+        && data.enabled is bool
+        && (!data.keys().hasAny(["promptEnhancement"])
+          || data.promptEnhancement is string)
+        && (!data.keys().hasAny(["tenantId"])
+          || data.tenantId == getChannelProductData(channelId, productId).tenantId);
+    }
+
+    function customerHasTenant(customerId, tenantId) {
+      return isUser(customerId)
+        && tenantId is string
+        && exists(customerPath(customerId))
+        && (
+          get(customerPath(customerId)).data.tenantId == tenantId
+          || !hasTenantId(get(customerPath(customerId)).data)
+            && isDedicatedDefaultTenant(tenantId)
+        );
+    }
+
+    function canCustomerReadTenantDocument(data, customerId) {
+      return isUser(customerId)
+        && (!hasTenantId(data) || customerHasTenant(customerId, data.tenantId));
+    }
+
+    function canCustomerWriteTenantDocument(userId) {
+      return isUser(userId)
+        && (
+          !hasTenantId(request.resource.data)
+          || customerHasTenant(userId, request.resource.data.tenantId)
+        );
+    }
+
+    function canCustomerReadCartDocument(data, userId) {
+      return isUser(userId)
+        && (
+          isLegacyDedicatedTenantDocument(data)
+          || customerHasTenant(userId, data.tenantId)
+        );
+    }
+
+    function canCustomerWriteCartDocument(userId) {
+      return isUser(userId)
+        && (
+          isLegacyDedicatedTenantDocument(request.resource.data)
+          || customerHasTenant(userId, request.resource.data.tenantId)
+        );
+    }
+
+    function canCustomerUpdateCartDocument(userId) {
+      return isUser(userId)
+        && (
+          isLegacyDedicatedTenantDocument(resource.data)
+          || hasSameTenantId()
+        )
+        && (
+          isLegacyDedicatedTenantDocument(request.resource.data)
+          || customerHasTenant(userId, request.resource.data.tenantId)
+        );
+    }
+
+    function canCustomerDeleteCartDocument(userId) {
+      return isUser(userId)
+        && (
+          isLegacyDedicatedTenantDocument(resource.data)
+          || customerHasTenant(userId, resource.data.tenantId)
+        );
+    }
+
+    function cartItemPath(userId, itemId) {
+      return /databases/$(database)/documents/carts/$(userId)/items/$(itemId);
+    }
+
+    function canCustomerGetCartItem(data, userId, itemId) {
+      return isUser(userId)
+        && (
+          !exists(cartItemPath(userId, itemId))
+          || canCustomerReadCartDocument(data, userId)
+        );
+    }
+
+    function isInCustomerOrders() {
+      return isSignedIn()
+        && resource.data.customer is map
+        && resource.data.customer.id == request.auth.uid;
+    }
+
+    function canCustomerReadOrder() {
+      return isInCustomerOrders()
+        && (!hasTenantId(resource.data)
+          || customerHasTenant(request.auth.uid, resource.data.tenantId));
+    }
+
+    function canCustomerReadRmaRequest(data) {
+      return isSignedIn()
+        && data.customerId == request.auth.uid
+        && (!hasTenantId(data) || customerHasTenant(request.auth.uid, data.tenantId));
+    }
+
+    function canCourierReadTenantDocument(data) {
+      return isCourier()
+        && (!hasTenantId(data) || hasFullTenantStaffMembership(data.tenantId));
+    }
+
+    function canCourierReadChannelDocument(channelId, data) {
+      return isCourier()
+        && (!hasTenantId(data)
+          || hasTenantChannelStaffMembership(data.tenantId, channelId));
+    }
+
+    function canCustomerUpdateReview() {
+      return isSignedIn()
+        && request.auth.uid == resource.data.userId
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          "rating",
+          "comment",
+          "isRated",
+        ])
+        && request.resource.data.rating is int
+        && request.resource.data.rating >= 1
+        && request.resource.data.rating <= 5
+        && request.resource.data.isRated is bool
+        && (!request.resource.data.keys().hasAny(["comment"])
+          || (request.resource.data.comment is string
+            && request.resource.data.comment.size() <= 2000));
+    }
+
+    function canCreateB2BInquiry() {
+      return isSignedIn()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.userId is string
+        && request.resource.data.businessDescription is string
+        && request.resource.data.businessDescription.size() <= 10000
+        && request.resource.data.billing is map
+        && request.resource.data.status == "NEW"
+        && request.resource.data.id is string
+        && request.resource.data.createdBy is map
+        && request.resource.data.updatedBy is map
+        && request.resource.data.createdAt is timestamp
+        && request.resource.data.updatedAt is timestamp
+        && (!hasTenantId(request.resource.data)
+          || customerHasTenant(request.auth.uid, request.resource.data.tenantId))
+        && request.resource.data.keys().hasOnly([
+          "id",
+          "tenantId",
+          "userId",
+          "businessDescription",
+          "billing",
+          "status",
+          "createdBy",
+          "updatedBy",
+          "createdAt",
+          "updatedAt",
+        ]);
+    }
+
+    function canCreateAssistantConversation() {
+      return isSignedIn()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.userId is string
+        && request.resource.data.title is string
+        && request.resource.data.title.size() <= 200
+        && request.resource.data.channelId is string
+        && request.resource.data.channelId.size() <= 128
+        && request.resource.data.modelId is string
+        && request.resource.data.modelId.size() <= 128
+        && request.resource.data.messageCount is int
+        && request.resource.data.messageCount >= 0
+        && request.resource.data.lastMessageAt is timestamp
+        && request.resource.data.createdAt is timestamp
+        && request.resource.data.updatedAt is timestamp
+        && request.resource.data.active is bool
+        && (!hasTenantId(request.resource.data)
+          || customerHasTenant(request.auth.uid, request.resource.data.tenantId))
+        && request.resource.data.keys().hasOnly([
+          "title",
+          "tenantId",
+          "userId",
+          "channelId",
+          "modelId",
+          "messageCount",
+          "lastMessageAt",
+          "createdAt",
+          "updatedAt",
+          "active",
+        ]);
+    }
+
+    function canUpdateAssistantConversation() {
+      return isSignedIn()
+        && request.auth.uid == resource.data.userId
+        && (!hasTenantId(resource.data)
+          || customerHasTenant(request.auth.uid, resource.data.tenantId))
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          "title",
+          "active",
+          "updatedAt",
+          "lastMessageAt",
+          "messageCount",
+        ])
+        && request.resource.data.title is string
+        && request.resource.data.title.size() <= 200
+        && request.resource.data.active is bool
+        && request.resource.data.messageCount is int
+        && request.resource.data.messageCount >= resource.data.messageCount
+        && request.resource.data.updatedAt is timestamp
+        && request.resource.data.lastMessageAt is timestamp;
+    }
+
+    function isAssistantConversationOwner(conversationId) {
+      return isSignedIn()
+        && request.auth.uid == get(/databases/$(database)/documents/assistantConversations/$(conversationId)).data.userId;
+    }
+
+    match /tenants/{tenantId} {
+      allow read: if isSuperAdmin() || hasTenantStaffMembership(tenantId);
+      allow write: if isSuperAdmin();
+    }
+
+    match /tenantDomains/{hostname} {
+      allow read: if isAdmin();
+      allow write: if isSuperAdmin();
+    }
+
+    match /tenantMemberships/{membershipId} {
+      allow read: if isSuperAdmin()
+        || isSignedIn() && resource.data.uid == request.auth.uid
+        || hasTenantAdminMembership(resource.data.tenantId);
+      allow create: if canManageTenantMembership(request.resource.data);
+      allow update: if canManageTenantMembership(resource.data)
+        && request.resource.data.tenantId == resource.data.tenantId
+        && request.resource.data.uid == resource.data.uid;
+      allow delete: if canManageTenantMembership(resource.data);
+    }
+
+    match /agents/{runId} {
+      allow get: if canAdminReadTenantDocument(resource.data);
+      allow list, create, update, delete: if isSuperAdmin();
+    }
+
+    match /agentMemories/{memoryId} {
+      allow read: if resource.data.status == "active"
+        && canAdminReadTenantDocument(resource.data);
+      allow create, update, delete: if false;
+    }
+
+    match /users/{userId}/imageGenerations/{generationId} {
+      allow read: if isUser(userId);
+      allow write: if false;
+    }
+
+    match /b2bInquiries/{b2bInquiryId} {
+      allow read: if canAdminReadTenantDocument(resource.data)
+        || isSignedInOwner(resource.data.userId);
+      allow create: if canCreateB2BInquiry();
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /productTypes/{productTypeId} {
+      allow read: if true;
+      allow create: if canAdminCreateTenantDocumentWithPermission(
+        request.resource.data,
+        "catalog.productTypes.create"
+      );
+      allow update: if canAdminUpdateTenantDocumentWithPermission(
+        "catalog.productTypes.update"
+      );
+      allow delete: if isSuperAdmin();
+    }
+
+    match /attributes/{attributeId} {
+      allow read: if true;
+      allow create: if canAdminCreateTenantDocumentWithPermission(
+        request.resource.data,
+        "catalog.attributes.create"
+      );
+      allow update: if canAdminUpdateTenantDocumentWithPermission(
+        "catalog.attributes.update"
+      );
+      allow delete: if isSuperAdmin();
+
+      match /{path=**}/translations/{translationId} {
+        allow read: if true;
+        allow create: if canAdminCreateTenantDocumentWithPermission(
+          request.resource.data,
+          "catalog.attributes.create"
+        );
+        allow update: if canAdminUpdateTenantDocumentWithPermission(
+          "catalog.attributes.update"
+        );
+        allow delete: if isSuperAdmin();
+      }
+    }
+
+    match /promotions/{promotionId} {
+      allow read: if true;
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /campaigns/{campaignId} {
+      allow read: if true;
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /customerGroups/{customerGroupId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminCreateTenantDocumentWithPermission(
+        request.resource.data,
+        "customers.manage"
+      );
+      allow update: if canAdminUpdateTenantDocumentWithPermission(
+        "customers.manage"
+      );
+      allow delete: if isSuperAdmin();
+    }
+
+    match /priceLists/{priceListId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminCreateTenantDocumentWithPermission(
+        request.resource.data,
+        "configuration.settings.manage"
+      );
+      allow update: if canAdminUpdateTenantDocumentWithPermission(
+        "configuration.settings.manage"
+      );
+      allow delete: if isSuperAdmin();
+    }
+
+    match /changes/{changeId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /tenantCooperations/{cooperationId} {
+      allow read: if canAdminReadCooperationDocument(resource.data);
+      allow create, update, delete: if isSuperAdmin();
+    }
+
+    match /newsletter/{userId} {
+      allow read: if canAdminReadTenantDocument(resource.data) || isUser(userId);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /{path=**}/orders/{orderId} {
+      allow read: if canAdminReadTenantDocument(resource.data)
+        || canCustomerReadOrder();
+      allow create: if canAdminCreateTenantDocumentWithPermission(
+        request.resource.data,
+        "orders.manage"
+      );
+      allow update: if canAdminUpdateTenantDocumentWithPermission(
+        "orders.manage"
+      );
+      allow delete: if isSuperAdmin();
+    }
+
+    match /{path=**}/fulfillmentRequests/{fulfillmentRequestId} {
+      allow read: if canAdminReadFulfillmentRequest(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /{path=**}/fakturowniaAutomation/{automationId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create, update, delete: if isSuperAdmin();
+    }
+
+    match /{path=**}/fakturownia/config/fiscalPrinters/{fiscalPrinterId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create, update, delete: if isSuperAdmin();
+    }
+
+    match /{path=**}/ratings/{ratingId} {
+      allow read: if true;
+      allow create, delete: if isSuperAdmin();
+      allow update: if isSuperAdmin() || canCustomerUpdateReview();
+    }
+
+    match /{path=**}/products/{productId} {
+      allow read: if true;
+      allow create: if canAdminCreateTenantDocumentWithPermission(
+        request.resource.data,
+        "catalog.products.create"
+      );
+      allow update: if canAdminUpdateTenantDocumentWithPermission(
+        "catalog.products.update"
+      );
+      allow delete: if isSuperAdmin();
+    }
+
+    match /{path=**}/categories/{categoryId} {
+      allow read: if true;
+      allow create: if canAdminCreateTenantDocumentWithPermission(
+        request.resource.data,
+        "catalog.categories.create"
+      );
+      allow update: if canAdminUpdateTenantDocumentWithPermission(
+        "catalog.categories.update"
+      );
+      allow delete: if isSuperAdmin();
+    }
+
+    match /{path=**}/scanEvents/{eventId} {
+      allow read: if canAdminReadTenantDocument(resource.data)
+        || canCourierReadTenantDocument(resource.data);
+      allow create: if isCourier()
+        && (!hasTenantId(request.resource.data)
+          || hasTenantStaffMembership(request.resource.data.tenantId));
+      allow update: if isCourier()
+        && hasSameTenantId()
+        && (!hasTenantId(request.resource.data)
+          || hasTenantStaffMembership(request.resource.data.tenantId));
+      allow delete: if isSuperAdmin();
+    }
+
+    match /{path=**}/couriers/{courierId} {
+      allow read: if canAdminReadTenantDocument(resource.data)
+        || canCourierReadTenantDocument(resource.data);
+      allow create: if isCourier()
+        && (!hasTenantId(request.resource.data)
+          || hasTenantStaffMembership(request.resource.data.tenantId));
+      allow update: if isCourier()
+        && hasSameTenantId()
+        && (!hasTenantId(request.resource.data)
+          || hasTenantStaffMembership(request.resource.data.tenantId));
+      allow delete: if isSuperAdmin();
+    }
+
+    match /customers/{customerId} {
+      allow get: if customerExists(customerId)
+        && (
+          canAdminReadTenantDocument(resource.data)
+          || canCustomerReadTenantDocument(resource.data, customerId)
+        )
+        || !customerExists(customerId) && isAdmin();
+      allow list: if canAdminReadTenantDocument(resource.data)
+        || canCustomerReadTenantDocument(resource.data, customerId);
+      allow create: if canAdminCreateCustomer(request.resource.data)
+        || canCustomerWriteTenantDocument(customerId);
+      allow update: if canAdminUpdateTenantDocumentWithPermission(
+        "customers.manage"
+      )
+        || isUser(customerId) && hasSameTenantId();
+      allow delete: if isSuperAdmin();
+
+      match /fakturowniaAutomation/{automationId} {
+        allow read: if canAdminReadTenantDocument(resource.data)
+          || isUser(customerId);
+        allow create, update, delete: if isSuperAdmin();
+      }
+
+      match /storeCreditTransactions/{transactionId} {
+        allow read: if canAdminReadTenantDocument(
+          get(customerPath(customerId)).data
+        );
+        allow create: if request.resource.data.customerId == customerId
+          && canAdminCreateTenantDocumentWithPermission(
+            request.resource.data,
+            "customers.manage"
+          );
+        allow update: if resource.data.customerId == customerId
+          && request.resource.data.customerId == customerId
+          && canAdminUpdateTenantDocumentWithPermission(
+            "customers.manage"
+          );
+        allow delete: if isSuperAdmin();
+      }
+    }
+
+    match /impositionWorkflows/{impositionWorkflowId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /fcmTokens/{userId} {
+      allow read: if isSuperAdmin()
+        || isSignedInOwner(userId)
+          && canAdminReadTenantDocument(resource.data);
+      allow create: if isSignedInOwner(userId)
+        && canAdminWriteTenantDocument(request.resource.data);
+      allow update: if isSignedInOwner(userId) && canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /notifications/{notificationId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /schedules/{scheduleId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /scheduleRules/{ruleId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /shiftRequests/{shiftRequestId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /teamMessages/{teamMessageId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /teamChatChannels/{teamChatChannelId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /teamChatThreads/{teamChatThreadId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /channelChatMeta/{channelChatMetaId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /storageAttachments/{storageAttachmentId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+    }
+
+    match /notes/{notesId} {
+      allow read: if canAdminReadTenantDocument(resource.data)
+        || canCourierReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data)
+        || isCourier()
+          && (!hasTenantId(request.resource.data)
+            || hasTenantStaffMembership(request.resource.data.tenantId));
+      allow update: if canUpdateTenantDocument()
+        || isCourier()
+          && hasSameTenantId()
+          && hasTenantStaffMembership(request.resource.data.tenantId);
+      allow delete: if isSuperAdmin();
+    }
+
+    match /generatedOrderItems/{generatedOrderItemsId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /externalProducts/{externalProductId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /channels/{channelId} {
+      allow read: if canAdminReadChannelDocument(channelId, resource.data)
+        || canCourierReadChannelDocument(channelId, resource.data);
+      allow create: if canAdminCreateTenantDocumentWithPermission(
+        request.resource.data,
+        "configuration.channels.create"
+      );
+      allow update: if canAdminUpdateChannelDocumentWithPermission(
+        channelId,
+        "configuration.channels.update"
+      );
+      allow delete: if isSuperAdmin();
+
+      match /storefront/{documentId} {
+        allow read: if true;
+        allow write: if false;
+      }
+
+      match /dynamicPricingPresets/{presetId} {
+        allow read: if canAdminReadChannelDocument(channelId, resource.data);
+        allow create: if canAdminWriteChannelDocument(channelId, request.resource.data)
+          && request.resource.data.keys().hasAll(["id", "label", "kind"])
+          && request.resource.data.kind in ["attribute", "global"]
+          && (!("basePrice" in request.resource.data)
+            || request.resource.data.basePrice >= 0);
+        allow update: if canUpdateChannelDocument(channelId)
+          && request.resource.data.keys().hasAll(["id", "label", "kind"])
+          && request.resource.data.kind in ["attribute", "global"]
+          && (!("basePrice" in request.resource.data)
+            || request.resource.data.basePrice >= 0);
+        allow delete: if isSuperAdmin();
+      }
+
+      match /counters/{counterId} {
+        allow read: if canAdminReadNumberCounter(channelId, counterId);
+        allow create: if canAdminCreateNumberCounter(
+          request.resource.data,
+          channelId,
+          counterId
+        );
+        allow update: if canAdminUpdateNumberCounter(channelId, counterId);
+        allow delete: if isSuperAdmin();
+      }
+
+      match /orders/{orderId} {
+        allow read: if canAdminReadChannelDocument(channelId, resource.data)
+          || canCustomerReadOrder();
+        allow create: if canAdminCreateChannelDocumentWithPermission(
+          channelId,
+          request.resource.data,
+          "orders.manage"
+        );
+        allow update: if canAdminUpdateChannelDocumentWithPermission(
+          channelId,
+          "orders.manage"
+        );
+        allow delete: if isSuperAdmin();
+
+        match /{path=**}/scanEvents/{eventId} {
+          allow read: if canAdminReadChannelDocument(channelId, resource.data)
+            || canCourierReadChannelDocument(channelId, resource.data);
+          allow create: if isCourier()
+            && (!hasTenantId(request.resource.data)
+              || hasTenantChannelStaffMembership(request.resource.data.tenantId, channelId));
+          allow update: if isCourier()
+            && hasSameTenantId()
+            && (!hasTenantId(request.resource.data)
+              || hasTenantChannelStaffMembership(request.resource.data.tenantId, channelId));
+          allow delete: if isSuperAdmin();
+        }
+
+        match /impositionTemplateSuggestions/latest {
+          allow read: if exists(orderPath(channelId, orderId))
+            && canAdminReadChannelDocument(channelId, getOrderData(channelId, orderId));
+          allow create: if exists(orderPath(channelId, orderId))
+            && canAdminWriteChannelDocument(channelId, getOrderData(channelId, orderId))
+            && hasSameTenantAsOrder(
+              channelId,
+              orderId,
+              request.resource.data
+            );
+          allow update: if exists(orderPath(channelId, orderId))
+            && canAdminWriteChannelDocument(channelId, getOrderData(channelId, orderId))
+            && hasSameTenantAsOrder(
+              channelId,
+              orderId,
+              request.resource.data
+            );
+          allow delete: if isSuperAdmin();
+        }
+      }
+
+      match /complaints/{complaintId} {
+        allow read: if canAdminReadChannelDocument(channelId, resource.data);
+        allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+        allow update: if canUpdateChannelDocument(channelId);
+        allow delete: if isSuperAdmin();
+      }
+
+      match /rmaRequests/{rmaRequestId} {
+        allow read: if canAdminReadChannelDocument(channelId, resource.data)
+          || canCustomerReadRmaRequest(resource.data);
+        allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+        allow update: if canUpdateChannelDocument(channelId);
+        allow delete: if isSuperAdmin();
+
+        match /resolutionEvents/{eventId} {
+          allow read: if canAdminReadChannelDocument(channelId, resource.data);
+          allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+          allow update: if canUpdateChannelDocument(channelId);
+          allow delete: if isSuperAdmin();
+        }
+      }
+
+      match /quotes/{quoteId} {
+        allow read: if canAdminReadChannelDocument(channelId, resource.data);
+        allow create: if canAdminCreateChannelDocumentWithPermission(
+          channelId,
+          request.resource.data,
+          "quotes.manage"
+        );
+        allow update: if canAdminUpdateChannelDocumentWithPermission(
+          channelId,
+          "quotes.manage"
+        );
+        allow delete: if isSuperAdmin();
+      }
+
+      match /products/{productId} {
+        allow read: if true;
+        allow create: if canAdminCreateChannelDocumentWithPermission(
+          channelId,
+          request.resource.data,
+          "catalog.products.create"
+        );
+        allow update: if canAdminUpdateChannelDocumentWithPermission(
+          channelId,
+          "catalog.products.update"
+        );
+        allow delete: if isSuperAdmin();
+
+        match /impositionTemplates/{id} {
+          allow read: if canAdminReadChannelDocument(channelId, resource.data);
+          allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+          allow update: if canUpdateChannelDocument(channelId);
+          allow delete: if isSuperAdmin();
+        }
+
+        match /dynamicPricing/config {
+          allow read: if canAdminReadChannelDocument(channelId, resource.data);
+          allow create: if canAdminWriteChannelDocument(channelId, request.resource.data)
+            && request.resource.data.basePrice >= 0
+            && request.resource.data.enabled is bool;
+          allow update: if canUpdateChannelDocument(channelId)
+            && request.resource.data.basePrice >= 0
+            && request.resource.data.enabled is bool;
+          allow delete: if isSuperAdmin();
+        }
+
+        match /imageGeneration/config {
+          allow get: if canAdminReadChannelProduct(channelId, productId);
+          allow list: if false;
+          allow create, update: if canAdminWriteChannelProduct(channelId, productId)
+            && isValidProductImageGenerationConfig(
+              channelId,
+              productId,
+              request.resource.data
+            );
+          allow delete: if canAdminWriteChannelProduct(channelId, productId);
+        }
+
+        match /{path=**}/ratings/{ratingId} {
+          allow read: if true;
+          allow create, delete: if isSuperAdmin();
+          allow update: if isSuperAdmin() || canCustomerUpdateReview();
+        }
+
+        match /{path=**}/prices/{priceId} {
+          allow read: if true;
+          allow create: if canAdminCreateChannelDocumentWithPermission(
+            channelId,
+            request.resource.data,
+            "catalog.products.create"
+          );
+          allow update: if canAdminUpdateChannelDocumentWithPermission(
+            channelId,
+            "catalog.products.update"
+          );
+          allow delete: if isSuperAdmin();
+        }
+
+        match /{path=**}/externalImports/{externalProductId} {
+          allow read: if true;
+          allow create: if canAdminCreateChannelDocumentWithPermission(
+            channelId,
+            request.resource.data,
+            "catalog.products.create"
+          );
+          allow update: if canAdminUpdateChannelDocumentWithPermission(
+            channelId,
+            "catalog.products.update"
+          );
+          allow delete: if isSuperAdmin();
+        }
+
+        match /{path=**}/templates/{templateId} {
+          allow read: if true;
+          allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+          allow update: if canUpdateChannelDocument(channelId);
+          allow delete: if isSuperAdmin();
+        }
+
+        match /{path=**}/translations/{translationId} {
+          allow read: if true;
+          allow create: if canAdminCreateChannelDocumentWithPermission(
+            channelId,
+            request.resource.data,
+            "catalog.products.create"
+          );
+          allow update: if canAdminUpdateChannelDocumentWithPermission(
+            channelId,
+            "catalog.products.update"
+          );
+          allow delete: if isSuperAdmin();
+        }
+      }
+
+      match /indexes/{indexId} {
+        allow read: if true;
+        allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+        allow update: if canUpdateChannelDocument(channelId);
+        allow delete: if isSuperAdmin();
+      }
+
+      match /categories/{categoryId} {
+        allow read: if true;
+        allow create: if canAdminCreateChannelDocumentWithPermission(
+          channelId,
+          request.resource.data,
+          "catalog.categories.create"
+        );
+        allow update: if canAdminUpdateChannelDocumentWithPermission(
+          channelId,
+          "catalog.categories.update"
+        );
+        allow delete: if isSuperAdmin();
+
+        match /{path=**}/translations/{translationId} {
+          allow read: if true;
+          allow create: if canAdminCreateChannelDocumentWithPermission(
+            channelId,
+            request.resource.data,
+            "catalog.categories.create"
+          );
+          allow update: if canAdminUpdateChannelDocumentWithPermission(
+            channelId,
+            "catalog.categories.update"
+          );
+          allow delete: if isSuperAdmin();
+        }
+      }
+
+      match /settings/{settingId} {
+        allow read: if settingId != "aiInstructions"
+          || canManageAiInstructions(resource.data);
+        allow create: if (
+          settingId == "aiInstructions"
+          && canManageAiInstructions(request.resource.data)
+        ) || (
+          settingId != "aiInstructions"
+          && canAdminCreateChannelDocumentWithPermission(
+            channelId,
+            request.resource.data,
+            "configuration.settings.manage"
+          )
+        );
+        allow update: if (
+          settingId == "aiInstructions"
+          && canManageAiInstructions(request.resource.data)
+          && hasSameTenantId()
+        ) || (
+          settingId != "aiInstructions"
+          && canAdminUpdateChannelDocumentWithPermission(
+            channelId,
+            "configuration.settings.manage"
+          )
+        );
+        allow delete: if isSuperAdmin();
+
+        match /revisions/{revisionId} {
+          allow read: if settingId == "aiInstructions"
+            && canManageAiInstructions(resource.data);
+          allow write: if false;
+        }
+
+        match /translations/{translationId} {
+          allow read: if settingId != "aiInstructions";
+          allow create: if settingId != "aiInstructions"
+            && canAdminCreateChannelDocumentWithPermission(
+              channelId,
+              request.resource.data,
+              "configuration.settings.manage"
+            );
+          allow update: if settingId != "aiInstructions"
+            && canAdminUpdateChannelDocumentWithPermission(
+              channelId,
+              "configuration.settings.manage"
+            );
+          allow delete: if isSuperAdmin();
+        }
+      }
+
+      match /cms/{cmsId} {
+        allow read: if true;
+        allow create: if canAdminCreateChannelDocumentWithPermission(
+          channelId,
+          request.resource.data,
+          "configuration.cms.manage"
+        );
+        allow update: if canAdminUpdateChannelDocumentWithPermission(
+          channelId,
+          "configuration.cms.manage"
+        );
+        allow delete: if isSuperAdmin();
+
+        match /{path=**}/translations/{translationId} {
+          allow read: if true;
+          allow create: if canAdminCreateChannelDocumentWithPermission(
+            channelId,
+            request.resource.data,
+            "configuration.cms.manage"
+          );
+          allow update: if canAdminUpdateChannelDocumentWithPermission(
+            channelId,
+            "configuration.cms.manage"
+          );
+          allow delete: if isSuperAdmin();
+        }
+      }
+
+      match /metadata/{routeId} {
+        allow read: if true;
+        allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+        allow update: if canUpdateChannelDocument(channelId);
+        allow delete: if isSuperAdmin();
+
+        match /{path=**}/translations/{translationId} {
+          allow read: if true;
+          allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+          allow update: if canUpdateChannelDocument(channelId);
+          allow delete: if isSuperAdmin();
+        }
+      }
+
+      match /pages/{routeId} {
+        allow read: if true;
+        allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+        allow update: if canUpdateChannelDocument(channelId);
+        allow delete: if isSuperAdmin();
+
+        match /{path=**}/translations/{translationId} {
+          allow read: if true;
+          allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+          allow update: if canUpdateChannelDocument(channelId);
+          allow delete: if isSuperAdmin();
+        }
+      }
+
+      match /warehouses/{warehouseId} {
+        allow read: if canAdminReadChannelDocument(channelId, resource.data);
+        allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+        allow update: if canUpdateChannelDocument(channelId);
+        allow delete: if isSuperAdmin();
+
+        match /{path=**}/stock/{stockId} {
+          allow read: if canAdminReadChannelDocument(channelId, resource.data);
+          allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+          allow update: if canUpdateChannelDocument(channelId);
+          allow delete: if isSuperAdmin();
+        }
+
+        match /{path=**}/fulfillmentRequests/{fulfillmentRequestId} {
+          allow read: if canAdminReadFulfillmentRequest(resource.data);
+          allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+          allow update: if canUpdateChannelDocument(channelId);
+          allow delete: if isSuperAdmin();
+        }
+
+        match /{path=**}/attributeStock/{attributeStockId} {
+          allow read: if canAdminReadChannelDocument(channelId, resource.data);
+          allow create: if canAdminWriteChannelDocument(channelId, request.resource.data);
+          allow update: if canUpdateChannelDocument(channelId);
+          allow delete: if isSuperAdmin();
+        }
+      }
+
+      match /couriers/{courierId} {
+        allow read: if canAdminReadChannelDocument(channelId, resource.data)
+          || canCourierReadTenantDocument(resource.data);
+        allow create: if isCourier()
+          && (!hasTenantId(request.resource.data)
+            || hasTenantChannelStaffMembership(request.resource.data.tenantId, channelId));
+        allow update: if isCourier()
+          && hasSameTenantId()
+          && (!hasTenantId(request.resource.data)
+            || hasTenantChannelStaffMembership(request.resource.data.tenantId, channelId));
+        allow delete: if isSuperAdmin();
+      }
+    }
+
+    match /members/{memberId} {
+      allow read: if canAdminReadTenantDocument(resource.data)
+        || canCourierReadTenantDocument(resource.data);
+      allow create: if canAdminCreateTenantDocumentWithPermission(
+        request.resource.data,
+        "configuration.members.manage"
+      );
+      allow update: if canAdminUpdateTenantDocumentWithPermission(
+        "configuration.members.manage"
+      );
+      allow delete: if isSuperAdmin();
+    }
+
+    match /warehouses/{warehouseId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /designatedPickupAreas/{designatedPickupAreaId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /suppliers/{supplierId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /fakturowniaCostEvidence/{costEvidenceId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /fakturowniaCostMappings/{costMappingId} {
+      allow read: if canAdminReadTenantDocument(resource.data);
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+    }
+
+    match /blogPosts/{blogPostId} {
+      allow read: if true;
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+
+      match /{path=**}/translations/{translationId} {
+        allow read: if true;
+        allow create: if canAdminWriteTenantDocument(request.resource.data);
+        allow update: if canUpdateTenantDocument();
+        allow delete: if isSuperAdmin();
+      }
+    }
+
+    match /blogCategories/{blogCategoryId} {
+      allow read: if true;
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+
+      match /{path=**}/translations/{translationId} {
+        allow read: if true;
+        allow create: if canAdminWriteTenantDocument(request.resource.data);
+        allow update: if canUpdateTenantDocument();
+        allow delete: if isSuperAdmin();
+      }
+    }
+
+    match /blogTags/{blogTagId} {
+      allow read: if true;
+      allow create: if canAdminWriteTenantDocument(request.resource.data);
+      allow update: if canUpdateTenantDocument();
+      allow delete: if isSuperAdmin();
+
+      match /{path=**}/translations/{translationId} {
+        allow read: if true;
+        allow create: if canAdminWriteTenantDocument(request.resource.data);
+        allow update: if canUpdateTenantDocument();
+        allow delete: if isSuperAdmin();
+      }
+    }
+
+    match /carts/{userId} {
+      match /items/{itemId} {
+        allow get: if canCustomerGetCartItem(resource.data, userId, itemId);
+        allow list: if isUser(userId);
+        allow create: if canCustomerWriteCartDocument(userId);
+        allow update: if canCustomerUpdateCartDocument(userId);
+        allow delete: if canCustomerDeleteCartDocument(userId);
+      }
+
+      match /preflight/{jobId} {
+        allow read: if canCustomerReadCartDocument(resource.data, userId);
+        allow write: if false;
+      }
+    }
+
+    match /assistantConversations/{conversationId} {
+      allow read: if isSignedInOwner(resource.data.userId)
+        && (!hasTenantId(resource.data)
+          || customerHasTenant(request.auth.uid, resource.data.tenantId));
+      allow create: if canCreateAssistantConversation();
+      allow update: if canUpdateAssistantConversation();
+      allow delete: if false;
+
+      match /messages/{messageId} {
+        allow read: if isAssistantConversationOwner(conversationId);
+        allow create: if isAssistantConversationOwner(conversationId)
+          && request.resource.data.conversationId == conversationId
+          && request.resource.data.role in ["user", "system", "assistant"]
+          && request.resource.data.parts is list;
+        allow update: if isAssistantConversationOwner(conversationId)
+          && request.resource.data.conversationId == resource.data.conversationId
+          && request.resource.data.role == resource.data.role;
+        allow delete: if false;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "functions": {
+    "source": "apps/functions",
+    "runtime": "nodejs24",
+    "predeploy": "pnpm --dir apps/functions build"
+  },
+  "firestore": {
+    "rules": "apps/functions/firestore.rules",
+    "indexes": "apps/functions/firestore-indexes.json"
+  },
+  "storage": {
+    "rules": "apps/functions/storage.rules"
+  },
+  "emulators": {
+    "singleProjectMode": true,
+    "auth": {
+      "host": "127.0.0.1",
+      "port": 9099
+    },
+    "firestore": {
+      "host": "127.0.0.1",
+      "port": 8080
+    },
+    "functions": {
+      "host": "127.0.0.1",
+      "port": 5001
+    },
+    "storage": {
+      "host": "127.0.0.1",
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true,
+      "host": "127.0.0.1",
+      "port": 4000
+    }
+  }
+}

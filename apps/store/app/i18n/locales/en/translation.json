@@ -1,0 +1,2189 @@
+{
+  "account": {
+    "basic": "Basic",
+    "changePassword": "Change Password",
+    "changePasswordDescription": "Easily and securely change your account password.",
+    "confirmEmail": "Confirm email address",
+    "confirmEmailDescription": "A verification link has been sent to the provided email address",
+    "confirmNewPassword": "Confirm new password",
+    "confirmRemoveAccount": "Are you sure you want to remove your account?",
+    "created": "Account created",
+    "createdDescription": "We have created an account for you",
+    "generations": {
+      "cardDescription": "Browse, preview, and download graphics you generated with AI.",
+      "description": "Review the graphics you generated, reopen them in full size, and download the final files again whenever you need them.",
+      "downloadButton": "Download",
+      "emptyDescription": "Generated graphics from the product page and cart will appear here after they finish.",
+      "emptyTitle": "No saved generations yet",
+      "label": "AI generations",
+      "loadError": "We couldn't load your saved AI generations right now.",
+      "previewButton": "Preview",
+      "previewTitle": "Generated graphic preview",
+      "singleSide": "Single side",
+      "title": "AI generations",
+      "unknownDate": "Unknown date",
+      "unnamedProduct": "Generated graphic"
+    },
+    "newPassword": "New Password",
+    "newsletter": "Newsletter",
+    "oldPassword": "Old Password",
+    "passwordPlaceholder": "6 or more characters",
+    "removeAccount": "Remove Account",
+    "removeAccountDescription": "Easily and securely remove your account and all your data.",
+    "removeAccountTitle": "Remove Account",
+    "removeAccountWarning": "All your information will be removed from our database. This operation cannot be undone, so make sure you really want to remove your account.",
+    "resetPassword": "Reset your password",
+    "settings": "Settings",
+    "unsubscribeFromNewsletter": "Unsubscribe from newsletter"
+  },
+  "discount": {
+    "withCode": "With code \"{{code}}\" cheaper by"
+  },
+  "actions": {
+    "cancelChanges": "Cancel changes",
+    "copied": "Copied!",
+    "copy": "Copy",
+    "createImposition": "Create imposition",
+    "discardChanges": "Discard changes",
+    "importTable": "Import table",
+    "loadTemplate": "Load",
+    "save": "Save",
+    "saveChanges": "Save changes"
+  },
+  "active": "Active",
+  "ActivityStatus": {
+    "EMAIL_SENT": "Email sent to:",
+    "FILES_STATUS_UPDATE": "Files status update to",
+    "ORDER_STATUS_UPDATE": "Order status update to",
+    "PAYMENT_METHOD_CHANGED": "Payment method changed to",
+    "PAYMENT_STATUS_UPDATE": "Payment status update to"
+  },
+  "ActivityStatusShort": {
+    "EMAIL_SENT": "Email",
+    "FILES_STATUS_UPDATE": "Files Status",
+    "ORDER_STATUS_UPDATE": "Order Status",
+    "PAYMENT_METHOD_CHANGED": "Payment Method Changed",
+    "PAYMENT_STATUS_UPDATE": "Payment Status"
+  },
+  "AddressTypeEnum": {
+    "BILLING": "Billing address",
+    "SHIPPING": "Shipping address"
+  },
+  "ApplicationMethodAllocation": {
+    "ACROSS": "For all items together",
+    "EACH": "For each item separately"
+  },
+  "ApplicationMethodTargetTypes": {
+    "ITEMS": "Cart items",
+    "ORDER": "Entire order",
+    "SHIPPING_METHODS": "Shipping methods"
+  },
+  "ApplicationMethodTypes": {
+    "FIXED": "Fixed amount",
+    "PERCENTAGE": "Percentage"
+  },
+  "AttributeInputTypeEnum": {
+    "ADVANCED_FINISHING": "Advanced finishing",
+    "DROPDOWN": "Dropdown list",
+    "DROPDOWN_COLOR": "Dropdown list with colors",
+    "RADIO_GROUP": "Radio buttons",
+    "RADIO_GROUP_COLOR": "Radio buttons with colors",
+    "RADIO_GROUP_IMAGE": "Radio buttons with images"
+  },
+  "auth": {
+    "accountDisabled": "Account has been disabled.",
+    "accountNotFound": "Account with the provided email address does not exist.",
+    "emailAlreadyExists": "An account with the provided email already exists.",
+    "forgot": {
+      "heroHeading": "Bring your ideas to life with us today!",
+      "submitButton": "Submit",
+      "title": "Reset your password"
+    },
+    "google": {
+      "accountExistsWithDifferentProvider": "An account with this email already exists. Sign in with your existing method to continue.",
+      "button": "Continue with Google",
+      "credentialAlreadyInUse": "This Google account is already linked to another profile. Sign in with Google to continue.",
+      "divider": "or continue with email",
+      "notEnabled": "Google sign-in isn't enabled for this store yet.",
+      "popupBlocked": "Google sign-in was blocked by your browser. Allow pop-ups and try again.",
+      "unauthorizedDomain": "This domain isn't authorized for Google sign-in yet.",
+      "unavailable": "Google sign-in is unavailable right now. Please try again later."
+    },
+    "internalError": "Authentication server encountered an unexpected error while processing the request.",
+    "invalidCredentials": "Invalid credentials",
+    "loggedIn": "Logged in",
+    "loggedInDescription": "You have successfully logged in.",
+    "loggedOut": "Logged out",
+    "loggedOutDescription": "You have been logged out.",
+    "login": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "example@mail.com",
+      "forgotPasswordLink": "Forgot your password?",
+      "loginButton": "Login",
+      "noAccountText": "Don't have an account yet? Sign up.",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "6 or more characters",
+      "registerLink": "Sign up",
+      "tagline": "Bring your ideas to life with us today!",
+      "title": "Login"
+    },
+    "loginError": "Login error",
+    "noAuthorization": "No authorization",
+    "noCustomerData": "No customer data",
+    "passwordChanged": "Password changed",
+    "passwordChangedDescription": "Your password has been successfully changed.",
+    "register": {
+      "andText": "and",
+      "displayNameLabel": "Full Name",
+      "displayNamePlaceholder": "John Doe",
+      "emailLabel": "Email",
+      "emailPlaceholder": "example@mail.com",
+      "loginLink": "Sign in",
+      "passwordHelperText": "One uppercase letter, one lowercase letter, one digit and one special character",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "6 or more characters",
+      "privacyPolicyLink": "privacy policy",
+      "registerButton": "Sign up",
+      "tagline": "Bring your ideas to life with us today!",
+      "termsLink": "terms of service",
+      "termsText": "By clicking the button above, you accept the",
+      "title": "Sign up"
+    },
+    "unknownError": "Something went wrong, please contact the administrator. Error code: {{errorCode}}",
+    "weakPassword": "Password should have at least 6 characters."
+  },
+  "BackPageRotation": {
+    "ROTATION_0": "None",
+    "ROTATION_180": "Rotate 180°",
+    "ROTATION_270": "Rotate 270°",
+    "ROTATION_90": "Rotate 90°"
+  },
+  "billingAddress": {
+    "notSavedError": "Billing address was not saved, error code: {{error}}",
+    "notSavedNotCustomer": "Billing address was not saved, user is not a customer"
+  },
+  "BindingEdge": {
+    "BOTTOM": "Bottom",
+    "LEFT": "Left",
+    "RIGHT": "Right",
+    "TOP": "Top"
+  },
+  "BleedType": {
+    "BLEED_INCLUDED": "File includes bleed",
+    "DIFFERENTIAL_DIFFUSION": "Generate bleed",
+    "NO_BLEED": "No bleed",
+    "ONE_POINT_FIVE_MM_SCALE": "Add 1.5mm (scaling)",
+    "TWO_MM_MIRROR": "Add 2mm (mirror reflection)"
+  },
+  "blog": {
+    "backToBlog": "Back to Blog",
+    "empty": "No blog posts found.",
+    "emptyDescription": "Try adjusting your filters or check back later.",
+    "loading": "Loading...",
+    "minRead": "min read",
+    "notFound": "Blog post not found.",
+    "relatedPosts": "Related Posts",
+    "views": "views"
+  },
+  "CampaignAvailabilityTypeEnum": {
+    "ONLINE": "Online",
+    "POS": "Point of sale"
+  },
+  "CampaignBudgetTypes": {
+    "SPEND": "Amount",
+    "USAGE": "Usage"
+  },
+  "cart": {
+    "addProductAgain": "Add product to cart again",
+    "addProducts": "Add products to cart",
+    "discountRemoved": "Promotion code {{code}} has been removed",
+    "empty": "Cart is empty",
+    "error": {
+      "cantAddProduct": "Cannot add product to cart",
+      "cantContinueAsGuest": "Cannot continue as guest"
+    },
+    "full": "Cart is full (max. 10 products)",
+    "goToStore": "Go to store",
+    "guest": {
+      "acceptTerms": {
+        "part1": "By clicking the above button you accept",
+        "part2": "the terms of service",
+        "part3": "and",
+        "part4": "the privacy policy"
+      },
+      "cantContinueAsGuest": "To add a product to the cart and place an order, you must log in, register, or you can continue shopping as a guest.",
+      "continueAsGuest": "Continue as a guest",
+      "loginOrRegister": "Log in or register",
+      "shouldContinueAsGuest": "Do you want to place an order as a guest?"
+    },
+    "invalidPrice": "Price of product {{productName}} - {{description}} is invalid",
+    "itemRemoved": "Item has been removed from cart",
+    "label": "Cart",
+    "missingFiles": {
+      "action": "Attach files",
+      "description": "This product has no print files attached. Add your artwork before placing the order — and if files disappear after reloading the page, please attach them again.",
+      "title": "No files attached"
+    },
+    "noPaymentOptions": "No available payment options",
+    "noShippingOptions": "No available shipping options",
+    "priceCheckError": "Error occurred while checking price of product {{productName}} - {{description}}",
+    "preflightChecking": {
+      "description": "We are generating the preview and checking print issues in the background.",
+      "title": "Checking uploaded file"
+    },
+    "productAdded": "Product has been added to cart",
+    "productUnavailable": "Product is no longer available",
+    "removeProduct": "Remove product from cart",
+    "validationError": "An error occurred while validating cart",
+    "goToCart": "Go to cart"
+  },
+  "category": {
+    "created": "Category created",
+    "createdDescription": "Successfully created new category",
+    "notCreated": "Category was not created, error code: {{error}}",
+    "notUpdated": "Category was not updated, error code: {{error}}",
+    "updated": "Category updated",
+    "updatedDescription": "Successfully updated category {{name}}"
+  },
+  "combination": {
+    "configuration": "Configuration",
+    "faq": {
+      "customSize": {
+        "answer": "Yes — many products support custom dimensions. Enable the custom format option in the configurator to enter your own width and height.",
+        "question": "Can I order a custom size?"
+      },
+      "fileRequirements": {
+        "answer": "We accept PDF, PNG, JPEG, and TIFF files. For best results, supply vector-based PDFs with fonts outlined and 3 mm bleed.",
+        "question": "What file formats do you accept?"
+      },
+      "minimumOrder": {
+        "answer": "Minimum quantities vary by product. Check the quantity selector on the product page for the lowest available amount.",
+        "question": "Is there a minimum order quantity?"
+      },
+      "shipping": {
+        "answer": "We ship via tracked courier across Poland and the EU. Shipping cost is calculated at checkout based on order weight and destination.",
+        "question": "How does shipping work?"
+      },
+      "turnaround": {
+        "answer": "Estimated delivery dates are displayed next to each quantity option in the quantity selector and in the cart, so you can pick the timeline that suits you.",
+        "question": "How long does production take?"
+      },
+      "viewAll": "View all frequently asked questions"
+    },
+    "specialNotes": "Information",
+    "tabs": {
+      "description": "Description",
+      "faq": "FAQ",
+      "reviews": "Reviews"
+    }
+  },
+  "common": {
+    "accept": "Accept",
+    "add": "Add",
+    "addresses": "Addresses",
+    "back": "Back",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "create": "Create",
+    "delete": "Delete",
+    "edit": "Edit",
+    "email": "Email",
+    "error": "Error",
+    "gross": "Gross",
+    "info": "Information",
+    "invoice": "Invoice",
+    "itemsSelected": "{{count}} items selected",
+    "loading": "Loading...",
+    "loadMore": "Load more",
+    "moreItems": "+{{count}} more",
+    "net": "Net",
+    "new": "NEW",
+    "next": "Next",
+    "no": "No",
+    "noAddresses": "No addresses",
+    "noAddressesDescription": "You don't have any saved addresses at the moment.",
+    "noBillingAddress": "No invoice",
+    "noOptionsAvailable": "No options available",
+    "noOrder": "No order",
+    "noOrders": "No orders",
+    "noOrdersDescription": "You don't have any orders at the moment.",
+    "noRatingsDescription": "You don't have any ratings to add at the moment.",
+    "noRatingsToAdd": "No ratings to add",
+    "orderBy": "Order by",
+    "orders": "Orders",
+    "password": "Password",
+    "pleaseWait": "Please wait",
+    "preview": "Preview",
+    "ratings": "Ratings",
+    "remove": "Remove",
+    "save": "Save",
+    "saved": "Saved!",
+    "selectLanguage": "Select language",
+    "selectPlaceholder": "Select {{attributeName}}...",
+    "submit": "Submit",
+    "success": "Success",
+    "tryAgain": "Please try again later",
+    "unavailable": "Unavailable",
+    "update": "Update",
+    "warning": "Warning",
+    "yes": "Yes"
+  },
+  "complaint": {
+    "created": "Complaint created",
+    "createdDescription": "Successfully created new complaint",
+    "createdDev": "Complaint created without saving (DEV)",
+    "createdDevDescription": "Successfully created new complaint",
+    "notCreated": "Complaint was not created",
+    "notCreatedError": "Complaint was not created, error code: {{error}}",
+    "notFound": "Complaint not found for editing"
+  },
+  "ComplaintStatus": {
+    "NEW": "New",
+    "PROCESSING": "Processing",
+    "RESOLVED": "Resolved"
+  },
+  "ConsentSettings": {
+    "ad_personalization": "Consent to personalized ads",
+    "ad_storage": "Enables storage of data such as cookies related to advertising",
+    "ad_user_data": "Consent to send user data to Google for advertising purposes",
+    "analytics_storage": "Enables storage of analytics, e.g. visit time (Required)",
+    "functionality_storage": "Enables storage of site functions, e.g. language settings (Required)",
+    "personalization_storage": "Enables storage of personalization, e.g. video recommendations",
+    "security_storage": "Enables storage related to security, e.g. authentication (Required)"
+  },
+  "contact": {
+    "notSavedError": "Contact was not saved, error code: {{error}}",
+    "notSavedNotCustomer": "Contact was not saved, user is not a customer"
+  },
+  "Currency": {
+    "EUR": "€",
+    "GBP": "£",
+    "PLN": "PLN",
+    "USD": "$"
+  },
+  "CUSTOM_FORMAT_PARAMETERS": "Custom format parameters",
+  "customer": {
+    "notSavedError": "Customer was not saved, error code: {{error}}"
+  },
+  "customFormatInput": {
+    "addedSizes": "Added sizes ({{count}})",
+    "addSize": "Add size",
+    "heading": "Size",
+    "height": "Height",
+    "heightRange": "Height (from {{minHeight}} to {{maxHeight}})",
+    "ratioDescription": "Ratio is calculated based on width and height.",
+    "ratioHeading": "Ratio",
+    "ratioRange": "Ratio (from {{minRatio}} to {{maxRatio}})",
+    "totalArea": "Total area",
+    "width": "Width",
+    "widthRange": "Width (from {{minWidth}} to {{maxWidth}})"
+  },
+  "deliveryInfo": {
+    "heading": "Available Delivery Options"
+  },
+  "designSpec": {
+    "bleed": "Bleed",
+    "colors": "Color scheme",
+    "downloadTemplate": "Download template {{name}}",
+    "grossFormat": "Gross format (before trimming)",
+    "heading": "How to prepare files?",
+    "minResolution": "Minimum resolution",
+    "netFormat": "Net format (after trimming)",
+    "templates": "Templates"
+  },
+  "DiscountTypeEnum": {
+    "FIXED": "Fixed amount",
+    "PERCENTAGE": "Percentage"
+  },
+  "DuplexMode": {
+    "DUPLEX_LONG_EDGE": "Duplex (long edge)",
+    "DUPLEX_SHORT_EDGE": "Duplex (short edge)",
+    "SIMPLEX": "Simplex"
+  },
+  "error": {
+    "cannotCreateOrderStoreChannel": "Cannot create order on store channel",
+    "categoryNotFound": "Category not found for editing",
+    "missingEmail": "Missing email address",
+    "missingEmailStripe": "Cannot create payment session without email address",
+    "permissionDenied": "Permission denied",
+    "somethingWrong": "Something went wrong"
+  },
+  "ERROR": {
+    "ANONYMOUS_SHIPPING_DOMESTIC_ONLY": "Anonymous package shipping is only available for domestic shipping.",
+    "BUYING_DISABLED": "Order processing is not available",
+    "INCOMPLETE_ORDER_DATA": "Incomplete order data",
+    "INVALID_PRICES": "Invalid prices, add products to cart again",
+    "INVALID_PRODUCTS": "Invalid products, add products to cart again",
+    "INVALID_STORE_CREDIT_CURRENCY": "Store credit can only be used in the store credit currency.",
+    "INSUFFICIENT_STOCK": "Some cart items are no longer available in the requested quantity.",
+    "NOT_FOUND": "Not found",
+    "ORDER_CREATION_FAILED": "Order creation failed",
+    "STOCK_CHECK_FAILED": "We could not verify stock availability. Please try again.",
+    "STOCK_NOT_FOUND": "Some cart items are missing stock records.",
+    "STORE_CREDIT_EXCEEDS_BALANCE": "Store credit amount exceeds the available balance.",
+    "UNAUTHENTICATED": "No permissions",
+    "UNAUTHORIZED": "No permissions",
+    "WRONG_USER": "Wrong user"
+  },
+  "errors": {
+    "fileProcessingError": "Error processing file",
+    "somethingWentWrong": "Something went wrong",
+    "valueLabelPairsError": "Error creating value-label pairs"
+  },
+  "false": "No",
+  "file": {
+    "exportedSuccessfully": "File exported successfully",
+    "exporting": "Exporting...",
+    "importedSuccessfully": "File imported successfully",
+    "processingError": "Error processing file",
+    "processingErrorDetail": "Error processing file: {{error}}"
+  },
+  "forgotPassword": {
+    "sent": "Message has been sent",
+    "sentDescription": "A password reset link has been sent to the provided email address"
+  },
+  "forms": {
+    "anonymousPackageLabelAddress": {
+      "city": "City",
+      "cityPlaceholder": "City",
+      "company": "Company",
+      "companyPlaceholder": "Company",
+      "description": "Optional. If you fill these fields, this sender address can be used on the parcel label instead of our default one.",
+      "email": "Email",
+      "emailPlaceholder": "Email",
+      "labelName": "Label address name",
+      "labelNamePlaceholder": "e.g. Sender on label",
+      "name": "Full name",
+      "namePlaceholder": "First and last name",
+      "phone": "Phone",
+      "phonePlaceholder": "Phone",
+      "street": "Street",
+      "streetPlaceholder": "Street and number",
+      "zip": "Postal code",
+      "zipPlaceholder": "Postal code"
+    },
+    "anonymousPackageShipping": {
+      "description": "If you choose anonymous package shipping, Our company will not appear on the shipment labeling.",
+      "heading": "Do you want the package shipping to be anonymous?",
+      "internationalUnavailable": "Anonymous package shipping is not available for international shipping.",
+      "label": "Anonymous package shipping",
+      "tooltip": "Depending on the courier company handling the shipment, the sender will appear as the provided address or the courier's logistics center. The shipping provider, such as InPost or DHL, will be chosen based on anonymous shipping availability. Anonymous package shipping is not available with cash on delivery or international shipping."
+    },
+    "b2b": {
+      "labels": {
+        "businessDescription": "Business Description",
+        "city": "City",
+        "companyName": "Company Name",
+        "nip": "NIP (Tax ID)",
+        "postalCode": "Postal Code",
+        "street": "Street"
+      },
+      "placeholders": {
+        "city": "City",
+        "companyName": "Company name",
+        "min_150Max_500Chars": "min. 150 characters, max. 500 characters",
+        "nip": "NIP",
+        "postalCode": "Postal code",
+        "street": "Street"
+      }
+    },
+    "headings": {
+      "address": "Address",
+      "addresses": "Addresses",
+      "basicInformation": "Basic Information",
+      "billingAddress": "Billing Address",
+      "businessInformation": "Business information",
+      "contact": "Contact",
+      "contacts": "Contacts",
+      "customSizes": "Custom Sizes",
+      "delivery": "Delivery",
+      "deliveryNotes": "Delivery and Notes",
+      "filePreparation": "File Preparation",
+      "fileVerification": "File Verification",
+      "freeShipping": "Free Shipping",
+      "locker": "Locker",
+      "options": "Options",
+      "postalCodeMachine": "Postal Code Machine",
+      "price": "Price",
+      "priceRanges": "Price Ranges",
+      "promotionRules": "Promotion rules",
+      "quantities": "Quantities",
+      "realization": "Realization",
+      "settings": "Settings",
+      "shipping": "Shipping",
+      "shippingAddress": "Shipping Address",
+      "shippingCosts": "Shipping Costs",
+      "shippingNotes": "Delivery and Notes",
+      "specification": "Specification",
+      "tracking": "Package Tracking",
+      "verification": "File Verification",
+      "volumes": "Volumes"
+    },
+    "help": {
+      "pageCount": "Choose from {{minimum}} to {{maximum}} in steps of {{step}}. Cover pages (+{{coverPages}}) are fixed."
+    },
+    "helperTexts": {
+      "invoiceNotes": "These notes will be visible on the invoice.",
+      "invoiceRecipientEnabled": "Use when a recipient other than the buyer should appear on the invoice.",
+      "jstRecipientEnabled": "Use when a Polish local government unit should appear as the invoice recipient."
+    },
+    "invoiceRecipientRoleOptions": {
+      "additionalBuyer": "Additional buyer",
+      "employee": "Employee",
+      "jst": "Local government unit",
+      "other": "Other role",
+      "payer": "Paying party",
+      "recipient": "Recipient",
+      "vatGroupMember": "VAT group member"
+    },
+    "pageCountBreakdown": "{{innerPages}} (inner) + {{coverPages}} (cover)",
+    "labels": {
+      "active": "Active",
+      "addressType": "Address Type",
+      "apartment": "Apartment",
+      "attribute": "Attribute",
+      "availableDeliveryTypes": "Available delivery types",
+      "b2b": "B2B",
+      "billingAddress": "Billing address",
+      "carriedOutBy": "Carried out by",
+      "categories": "Categories",
+      "category": "Category",
+      "chooseParcelLocker": "Choose parcel locker",
+      "city": "City",
+      "color": "Color",
+      "companyData": "Company Data",
+      "companyName": "Company Name",
+      "contact": "Contact",
+      "contactName": "Contact Name",
+      "cost": "Cost",
+      "country": "Country",
+      "currencies": "Currencies",
+      "currency": "Currency",
+      "customer": "Customer",
+      "customSizeName": "Custom size name",
+      "deadline": "Deadline",
+      "defaultOrder": "Default Order",
+      "delivery": "Delivery",
+      "deliveryAddress": "Delivery address",
+      "description": "Description",
+      "difficulty": "Difficulty",
+      "discount": "Discount",
+      "dpi": "Dpi",
+      "email": "Email",
+      "expirationDate": "Expiration date",
+      "express": "Express",
+      "files": "Files",
+      "filesStatus": "Files status",
+      "fileVerification": "File Verification",
+      "fullName": "Full Name",
+      "height": "Height",
+      "heightStep": "Height Step",
+      "identifier": "Identifier",
+      "invoice": "Invoice",
+      "invoiceNotes": "Invoice notes",
+      "invoiceRecipientCity": "Recipient city",
+      "invoiceRecipientEnabled": "Invoice recipient",
+      "invoiceRecipientName": "Recipient name",
+      "invoiceRecipientNip": "Recipient NIP",
+      "invoiceRecipientPostalCode": "Recipient postal code",
+      "invoiceRecipientRole": "Recipient role",
+      "invoiceRecipientRoleDescription": "Role description",
+      "invoiceRecipientStreet": "Recipient street",
+      "jstRecipientCity": "JST recipient city",
+      "jstRecipientEnabled": "Polish JST recipient",
+      "jstRecipientName": "JST recipient name",
+      "jstRecipientNip": "JST recipient NIP",
+      "jstRecipientPostalCode": "JST recipient postal code",
+      "jstRecipientStreet": "JST recipient street",
+      "label": "Label",
+      "likeCompany": "Like Company",
+      "likeHome": "Like Home",
+      "link": "Link",
+      "locale": "Locale",
+      "locker": "Locker",
+      "mailLink": "Mail Link",
+      "markup": "Markup",
+      "maximumHeight": "Maximum Height",
+      "maximumOrder": "Maximum Order",
+      "maximumPurchaseValue": "Maximum purchase value",
+      "maximumRatio": "Maximum ratio",
+      "maximumWidth": "Maximum Width",
+      "message": "Message",
+      "minimumHeight": "Minimum Height",
+      "minimumOrder": "Minimum Order",
+      "minimumPurchaseValue": "Minimum purchase value",
+      "minimumRatio": "Minimum ratio",
+      "minimumWidth": "Minimum Width",
+      "name": "Name",
+      "nip": "Tax ID",
+      "notes": "Notes",
+      "number": "Number",
+      "operator": "Operator",
+      "orderNotes": "Order Notes",
+      "pageCount": "Number of pages",
+      "pages": "Pages",
+      "paymentDocument": "Payment document",
+      "paymentStatus": "Payment status",
+      "paymentType": "Payment type",
+      "person": "Person",
+      "personName": "Full Name",
+      "phone": "Phone",
+      "photo": "Photo",
+      "photos": "Photos",
+      "postalCode": "Postal Code",
+      "preferredUnit": "Preferred unit",
+      "priceType": "Price Type",
+      "printingMethods": "Printing methods",
+      "printType": "Print type",
+      "priority": "Priority",
+      "processingType": "Processing Type",
+      "product": "Product",
+      "products": "Products",
+      "promotionRules": "Promotion Rules",
+      "publicationDate": "Publication date",
+      "quantityStep": "Quantity Step",
+      "sameAsBilling": "Same as billing address",
+      "saveBillingAddress": "Save billing address",
+      "saveContact": "Save Contact",
+      "saveCustomer": "Save Customer",
+      "saveShippingAddress": "Save shipping address",
+      "shippingAddress": "Shipping address",
+      "shippingOption": "Shipping Option",
+      "slug": "Slug",
+      "specialNotes": "Special Notes",
+      "standard": "Standard",
+      "status": "Status",
+      "step": "Step",
+      "street": "Street",
+      "subtitle": "Subtitle",
+      "threshold": "Threshold",
+      "title": "Title",
+      "trackingNumber": "Tracking Number",
+      "translation": "Translation",
+      "unit": "Unit",
+      "unitsPerSheet": "Units per sheet",
+      "value": "Value",
+      "verification": "File Verification",
+      "wantInvoice": "I want to receive an invoice",
+      "warehouses": "Warehouses",
+      "width": "Width",
+      "widthStep": "Width Step",
+      "zip": "Zip"
+    },
+    "placeholders": {
+      "3dModelPreview": "3D preview template",
+      "active": "Active",
+      "allowCustomPrice": "Allow custom price",
+      "allowCustomSize": "Allow custom size",
+      "apartment": "1",
+      "attributeAffectsPrice": "Attribute affects price",
+      "attributeContainsSizes": "Attribute contains sizes",
+      "availableForPurchase": "Available for purchase",
+      "bleed": "Bleed",
+      "city": "City",
+      "comments": "Comments",
+      "companyName": "Company Name",
+      "contactName": "Contact Name",
+      "country": "Country",
+      "currency": "Currency",
+      "customDimension": "Custom dimension",
+      "customSizeName": "Custom size name",
+      "deadline": "Deadline",
+      "decidesRequiredPages": "Decides on the number of required pages",
+      "defaultOrder": "Default order",
+      "description": "Description",
+      "difficulty": "Difficulty",
+      "difficulty_1_10": "Difficulty from 1 to 10",
+      "domainEmail": "name@domain",
+      "dpi": "Dpi",
+      "email": "Email",
+      "enableBuying": "Enable buying?",
+      "enableFreeShipping": "Enable free shipping?",
+      "enableUnderConstruction": "Enable under construction mode?",
+      "enterHeight": "Enter height...",
+      "enterLink": "Enter Link",
+      "enterOptionCost": "Enter option cost...",
+      "enterPageCount": "Enter number of pages...",
+      "enterRuleDescription": "Enter rule description",
+      "enterUnitsPerSheet": "Enter units per sheet...",
+      "enterWidth": "Enter width...",
+      "exactTime": "Exact time",
+      "example_5000": "5000",
+      "example_500000": "500000",
+      "example_5000000": "5000000",
+      "exampleA4": "A4",
+      "exampleA4Lowercase": "a4",
+      "exampleStreet": "Example",
+      "fullName": "Full Name",
+      "height": "Height",
+      "heightStep": "Height step",
+      "hideOption": "Hide option",
+      "home": "Home",
+      "identifier": "Identifier",
+      "includeBleed": "Include bleed",
+      "isTest": "Is test",
+      "janKowalski": "John Smith",
+      "jstRecipientName": "Local government unit name",
+      "likeCompany": "e.g. Company",
+      "likeHome": "e.g. Home",
+      "link": "Link",
+      "locale": "Select locale...",
+      "markup": "Markup",
+      "maximumHeight": "Maximum height",
+      "maximumOrder": "Maximum order",
+      "maximumRatio": "Maximum ratio",
+      "maximumWidth": "Maximum width",
+      "minimumHeight": "Minimum height",
+      "minimumOrder": "Minimum order",
+      "minimumRatio": "Minimum ratio",
+      "minimumWidth": "Minimum width",
+      "mySubtitle": "My Subtitle",
+      "myTitle": "My Title",
+      "name": "Name",
+      "nameDomainPl": "name@domain.com",
+      "nip": "Nip",
+      "nipNumber": "0000000000",
+      "invoiceNotes": "Notes visible on the invoice",
+      "invoiceRecipientName": "Recipient name",
+      "invoiceRecipientRole": "Select recipient role",
+      "invoiceRecipientRoleDescription": "Enter recipient role",
+      "notes": "Notes",
+      "number": "1",
+      "paymentDocument": "Payment document",
+      "phone": "123456789",
+      "poland": "Poland",
+      "postalCode": "00-000",
+      "price": "Price",
+      "priceType": "Price type",
+      "printType": "Print type",
+      "priority": "Priority",
+      "published": "Published",
+      "recommendOnHomepage": "Recommend on homepage",
+      "requireThisAttribute": "Require this attribute",
+      "saveAddress": "Save address",
+      "saveAsNewBillingAddress": "Save as new billing address",
+      "saveAsNewContact": "Save as new contact",
+      "saveAsNewCustomer": "Save as new customer",
+      "saveShippingAddress": "Save shipping address",
+      "search": "Search...",
+      "selectAddressType": "Select address type...",
+      "selectAttribute": "Select attribute...",
+      "selectAttributeType": "Select attribute type...",
+      "selectBillingAddress": "Select billing address...",
+      "selectCarriedOutBy": "Select carried out by",
+      "selectCategory": "Select category",
+      "selectContact": "Select contact...",
+      "selectCurrencies": "Select currencies...",
+      "selectCurrency": "Select currency...",
+      "selectDelivery": "Select delivery option...",
+      "selectDeliveryAddress": "Select delivery address",
+      "selectDeliveryTypes": "Select delivery types",
+      "selectFilesStatus": "Select files status",
+      "selectModel": "Select model...",
+      "selectOperator": "Select operator",
+      "selectPaymentStatus": "Select payment status",
+      "selectPaymentType": "Select payment type",
+      "selectPrintingMethods": "Select printing methods...",
+      "selectShippingAddress": "Select shipping address...",
+      "selectStatus": "Select status...",
+      "selectWarehouses": "Select warehouses...",
+      "shippingPossible": "Shipping possible",
+      "siteUnderConstruction": "Site is under construction",
+      "slug": "slug",
+      "specialNotes": "Special notes",
+      "step": "Step",
+      "street": "Street",
+      "streetAndNumber": "Street and number, apartment, unit",
+      "taxId": "Tax ID",
+      "threshold": "Threshold",
+      "title": "Title",
+      "trackingNumber": "Tracking Number",
+      "underConstruction": "Site is under construction",
+      "validateRatio": "Validate Ratio",
+      "value": "Value",
+      "verification": "File Verification",
+      "wantInvoice": "I want to receive an invoice",
+      "warsaw": "Warsaw",
+      "width": "Width",
+      "widthStep": "Width Step",
+      "zero": "Zero",
+      "zip": "Zip"
+    }
+  },
+  "FormTypes": {
+    "CONVERT": "Convert",
+    "CREATE": "Create",
+    "DUPLICATE": "Copy",
+    "UPDATE": "Edit"
+  },
+  "languages": {
+    "cs": "Čeština",
+    "de": "Deutsch",
+    "en": "English",
+    "fr": "Français",
+    "pl": "Polski",
+    "sk": "Slovenčina",
+    "uk": "Українська"
+  },
+  "LayoutType": {
+    "BOOKLET": "Booklet",
+    "CUT_STACK": "Cut Stack",
+    "DUTCH_CUT": "Dutch Cut",
+    "N_UP": "N-Up",
+    "SHUFFLE": "Shuffle",
+    "STEP_AND_REPEAT": "Step and repeat"
+  },
+  "login": {
+    "guestSuccess": "You have been logged in as a guest",
+    "success": "Logged in",
+    "successDescription": "You have been logged into your account"
+  },
+  "logout": {
+    "success": "Logged out",
+    "successDescription": "You have been logged out of your account"
+  },
+  "mfa": {
+    "description": "Add an extra layer of security to your account by enabling two-factor authentication using an authenticator app.",
+    "emailVerification": {
+      "description": "Check your inbox for a verification link. MFA can be enabled after your email is verified.",
+      "resend": "Resend verification email",
+      "sendFailed": "Failed to send verification email",
+      "sentDescription": "Check your inbox and follow the link to verify your email address.",
+      "sentTitle": "Verification email sent",
+      "title": "Verify your email to enable MFA"
+    },
+    "enable": "Enable Two-Factor Authentication",
+    "enrolledOn": "Enrolled on {{date}}",
+    "errors": {
+      "codeLength": "Please enter a 6-digit code.",
+      "emailNotVerified": "Email not verified",
+      "emailNotVerifiedDescription": "Verify your email address before enabling two-factor authentication.",
+      "enrollmentFailed": "Enrollment failed",
+      "invalidCode": "Invalid code",
+      "invalidVerificationCode": "Invalid verification code. Please check and try again.",
+      "notAuthenticated": "Not authenticated",
+      "notAuthenticatedDescription": "Please log in to enable MFA.",
+      "noTotpFactor": "No TOTP factor found for this account.",
+      "recentLoginRequiredDescription": "For security reasons, please sign in again and retry this action.",
+      "recentLoginRequiredTitle": "Re-authentication required",
+      "unenrollFailed": "Failed to disable MFA",
+      "unknownError": "An unknown error occurred.",
+      "verificationFailed": "Verification failed"
+    },
+    "factorName": "Authenticator App",
+    "issuerName": "Konfi",
+    "remove": "Remove",
+    "sectionDescription": "Manage two-factor authentication for your account.",
+    "sectionTitle": "Security",
+    "setup": {
+      "manualEntry": "Can't scan? Enter this code manually:",
+      "step1Description": "Open your authenticator app (e.g., Google Authenticator, Authy) and scan this QR code.",
+      "step1Title": "Step 1: Scan QR Code",
+      "step2Description": "Enter the 6-digit code displayed in your authenticator app to verify the setup.",
+      "step2Title": "Step 2: Enter Verification Code"
+    },
+    "status": {
+      "disabled": "Two-factor authentication is disabled",
+      "disabledDescription": "Enable two-factor authentication to add an extra layer of security to your account.",
+      "enabled": "Two-factor authentication is enabled",
+      "enabledDescription": "Your account is protected with an authenticator app."
+    },
+    "success": {
+      "enrolled": "MFA enabled",
+      "enrolledDescription": "Two-factor authentication has been enabled for your account.",
+      "unenrolled": "MFA disabled",
+      "unenrolledDescription": "Two-factor authentication has been disabled for your account."
+    },
+    "title": "Two-Factor Authentication",
+    "unenroll": {
+      "confirm": "Disable MFA",
+      "title": "Disable Two-Factor Authentication",
+      "warningDescription": "After disabling two-factor authentication, your account will only be protected by your password.",
+      "warningTitle": "This will reduce your account security"
+    },
+    "verification": {
+      "description": "Enter the 6-digit code from your authenticator app to complete the sign-in.",
+      "hint": "Open your authenticator app (e.g., Google Authenticator, Authy) to get your verification code.",
+      "title": "Two-Factor Authentication",
+      "verify": "Verify"
+    },
+    "verificationCode": "Verification Code",
+    "verify": "Verify and Enable"
+  },
+  "newsletter": {
+    "description": "Get updates about promotions, exclusive offers and new products!",
+    "disclaimer": "*Special offer available exclusively for online purchases!",
+    "subscribeButton": "Subscribe",
+    "subscribed": "Newsletter subscribed successfully",
+    "subscribeError": "Failed to subscribe to newsletter",
+    "title": "Subscribe to Newsletter and get 10% Discount",
+    "unsubscribed": "Successfully unsubscribed from newsletter",
+    "unsubscribeError": "Failed to unsubscribe from newsletter"
+  },
+  "NEWSLETTER_ERRORS": {
+    "already-exists": "Already subscribed",
+    "internal": "Internal server error",
+    "not-found": "Not found",
+    "unauthenticated": "No permissions"
+  },
+  "NEWSLETTER_SUBSCRIBE_MESSAGES": {
+    "SUCCESS": "Successfully subscribed",
+    "UPDATED": "Successfully updated"
+  },
+  "NEWSLETTER_UNSUBSCRIBE_MESSAGES": {
+    "SUCCESS": "Successfully unsubscribed"
+  },
+  "NoteCategory": {
+    "CUSTOMER": "Customer",
+    "GENERAL": "General",
+    "INTERNAL": "Internal",
+    "INVOICE": "Invoice",
+    "ORDER": "Order",
+    "PAYMENT": "Payment",
+    "PRODUCT": "Product",
+    "QUOTE": "Quote",
+    "SHIPPING": "Shipping",
+    "TASK": "Task"
+  },
+  "NoteEntityType": {
+    "CUSTOMER": "Customer",
+    "ORDER": "Order",
+    "PRODUCT": "Product"
+  },
+  "NotePriority": {
+    "HIGH": "High priority",
+    "LOW": "Low priority",
+    "MEDIUM": "Medium priority",
+    "URGENT": "Urgent!"
+  },
+  "notes": {
+    "assigneesUpdated": "Assignees Updated",
+    "assigneesUpdatedDescription": "Assignees have been updated.",
+    "assigneesUpdateError": "An error occurred while updating assignees."
+  },
+  "op": {
+    "==": "equals",
+    "in": "in"
+  },
+  "optionalConsent": "Show optional consent settings",
+  "options": {
+    "pairsCreationError": "Error creating value-label pairs: {{error}}"
+  },
+  "order": {
+    "created": "Order created",
+    "createdDescription": "Successfully created new order",
+    "createdDev": "Order created without saving (DEV)",
+    "createdDevDescription": "Successfully created new order",
+    "createWzCi": "Create CI",
+    "fulfilled": "Fulfilled",
+    "generated": "Order generated",
+    "generatedDescription": "Order has been generated based on customer information",
+    "generationFailed": "Failed to generate order",
+    "inProgress": "In progress",
+    "notCreated": "Order was not created",
+    "notCreatedError": "Order was not created, error code: {{error}}",
+    "notFoundForEdit": "Order not found for editing",
+    "notUpdatedError": "Order was not updated, error code: {{error}}",
+    "setFulfilled": "Set to fulfilled",
+    "setFulfilledConfirmation": "Do you want to set the status to 'Fulfilled'?",
+    "setInProgress": "Set to in progress",
+    "setInProgressConfirmation": "Do you want to set the status to 'In progress'?",
+    "showDetails": "Show details",
+    "updated": "Order updated",
+    "updatedDescription": "Successfully updated order",
+    "updatedDev": "Order updated without saving (DEV)",
+    "updatedDevDescription": "Successfully updated order"
+  },
+  "orderCard": {
+    "changePayment": "Change Payment Method",
+    "downloadInvoice": "Download Invoice"
+  },
+  "orderDetails": {
+    "freeShipping": "Free!",
+    "heading": "Summary",
+    "productValue": "Product Value:",
+    "saved": "Saved:",
+    "shippingValue": "Shipping:",
+    "storeCredit": "Store Credit:",
+    "summaryInfo": "*Prices include VAT.",
+    "total": "Total:"
+  },
+  "orders": {
+    "billingEmptyState": "This customer has no saved billing addresses. Fill in the billing details below.",
+    "contactEmptyState": "This customer has no contacts. Fill in the contact details below."
+  },
+  "OrderFilesStatus": {
+    "FILES_ARE_READY": "Ready for print",
+    "FOR_PREPARATION": "For preparation",
+    "FOR_VERIFICATION": "For verification",
+    "UNDER_DESIGN": "Under design",
+    "WAITING_FOR_FILES": "Waiting for files",
+    "WAITING_FOR_FILES_APPROVAL": "Waiting for customer approval"
+  },
+  "orderPage": {
+    "activity": {
+      "collapse": "Collapse",
+      "expand": "Expand",
+      "heading": "Activity"
+    },
+    "attachments": "Attachments",
+    "customer": {
+      "anonymousPackageShipping": "Anonymous package shipping",
+      "billing": "Billing Address",
+      "contact": "Contact",
+      "heading": "Customer",
+      "invoiceRecipient": "Invoice recipient",
+      "shipping": "Shipping Address",
+      "tracking": "Track Shipment"
+    },
+    "items": "Items",
+    "payment": {
+      "changeError": "Failed to change payment method",
+      "changeMethod": "Change payment method",
+      "changeMethodTitle": "Change Payment Method",
+      "changeSuccess": "Payment method updated",
+      "copyPaymentLink": "Copy payment link",
+      "heading": "Payment",
+      "methodUpdated": "Payment method has been updated",
+      "netTotal": "Net total",
+      "partial_sum": "Partial sum",
+      "redirectingToPayment": "Redirecting to payment...",
+      "selectNewMethod": "Select new payment method for this order",
+      "shipping": "Shipping",
+      "storeCredit": "Store credit",
+      "taxTotal": "Tax",
+      "total": "Total",
+      "updateMethod": "Update payment method",
+      "tracking": "Track shipment"
+    },
+    "rma": {
+      "createErrorTitle": "RMA request was not sent",
+      "createSuccessDescription": "We will review your request and contact you.",
+      "createSuccessTitle": "RMA request sent",
+      "description": "Submit a return, exchange, or claim request for this order.",
+      "descriptionHint": "Minimum 10 characters.",
+      "descriptionLabel": "What happened?",
+      "descriptionPlaceholder": "Describe the issue, expected resolution, and any details that will help us review the request…",
+      "empty": "No RMA requests have been submitted yet.",
+      "errors": {
+        "customerNotFound": "Sign in again before sending the request.",
+        "descriptionTooLong": "Shorten the description and try again.",
+        "descriptionTooShort": "Add at least 10 characters to describe the issue.",
+        "invalidItems": "Select at least one order item.",
+        "missingContext": "Reload the order and try again.",
+        "orderNotFound": "Reload the order and try again.",
+        "unauthorized": "Sign in again before sending the request.",
+        "unknown": "Try again or contact support."
+      },
+      "heading": "Returns and claims",
+      "itemsLabel": "Affected items",
+      "loading": "Loading RMA requests…",
+      "quantityLabel": "Affected quantity",
+      "submit": "Submit Request",
+      "typeLabel": "Request type",
+      "typePlaceholder": "Select request type"
+    },
+    "specialNotes": {
+      "empty": "No special notes",
+      "heading": "Special Notes"
+    }
+  },
+  "RmaRequestStatus": {
+    "APPROVED": "Approved",
+    "CANCELED": "Canceled",
+    "COMPLETED": "Completed",
+    "NEW": "New",
+    "REJECTED": "Rejected",
+    "UNDER_REVIEW": "Under review"
+  },
+  "RmaRequestType": {
+    "CLAIM": "Claim",
+    "EXCHANGE": "Exchange",
+    "RETURN": "Return"
+  },
+  "OrderStatus": {
+    "CANCELED": "Canceled",
+    "DELAYED": "Delayed",
+    "DELIVERED": "Delivered",
+    "DRAFT": "Draft",
+    "FULFILLED": "Fulfilled",
+    "IN_PROGRESS": "In progress",
+    "NEW": "New",
+    "PICKED_UP": "Picked up",
+    "READY": "Ready",
+    "SHIPPED": "Shipped",
+    "UNDER_REVIEW": "Under review",
+    "WAITING_FOR_MATERIALS": "Waiting for materials"
+  },
+  "PaperOrientations": {
+    "LANDSCAPE": "Landscape",
+    "PORTRAIT": "Portrait"
+  },
+  "PaperSizes": {
+    "10x14": "10x14 (254x356 mm)",
+    "11x17": "11x17 (279x432 mm)",
+    "2A0": "2A0 (1189x1682 mm)",
+    "4A0": "4A0 (1682x2378 mm)",
+    "A0": "A0 (841x1189 mm)",
+    "A1": "A1 (594x841 mm)",
+    "A10": "A10 (26x37 mm)",
+    "A2": "A2 (420x594 mm)",
+    "A2EXTRA": "A2 Extra (445x619 mm)",
+    "A3": "A3 (297x420 mm)",
+    "A3EXTRA": "A3 Extra (322x445 mm)",
+    "A3SUPER": "A3 Super (305x508 mm)",
+    "A4": "A4 (210x297 mm)",
+    "A4EXTRA": "A4 Extra (235x322 mm)",
+    "A4LONG": "A4 Long (210x348 mm)",
+    "A4SUPER": "A4 Super (229x322 mm)",
+    "A5": "A5 (148x210 mm)",
+    "A5EXTRA": "A5 Extra (173x235 mm)",
+    "A6": "A6 (105x148 mm)",
+    "A7": "A7 (74x105 mm)",
+    "A8": "A8 (52x74 mm)",
+    "A9": "A9 (37x52 mm)",
+    "ARCH1": "Arch1 (229x305 mm)",
+    "ARCH2": "Arch2 (305x457 mm)",
+    "ARCH3": "Arch3 (457x610 mm)",
+    "ARCH4": "Arch4 (610x914 mm)",
+    "ARCH5": "Arch5 (914x1219 mm)",
+    "ARCH6": "Arch6 (1219x1524 mm)",
+    "ARCHA": "ArchA (229x305 mm)",
+    "ARCHB": "ArchB (305x457 mm)",
+    "ARCHC": "ArchC (457x610 mm)",
+    "ARCHD": "ArchD (610x914 mm)",
+    "ARCHE": "ArchE (914x1219 mm)",
+    "ARCHE1": "ArchE1 (762x1067 mm)",
+    "ARCHE2": "ArchE2 (965x1321 mm)",
+    "ARCHE3": "ArchE3 (991x1321 mm)",
+    "B0": "B0 (1000x1414 mm)",
+    "B1": "B1 (707x1000 mm)",
+    "B10": "B10 (31x44 mm)",
+    "B2": "B2 (500x707 mm)",
+    "B3": "B3 (353x500 mm)",
+    "B4": "B4 (250x353 mm)",
+    "B5": "B5 (176x250 mm)",
+    "B6": "B6 (125x176 mm)",
+    "B7": "B7 (88x125 mm)",
+    "B8": "B8 (62x88 mm)",
+    "B9": "B9 (44x62 mm)",
+    "C0": "C0 (917x1297 mm)",
+    "C1": "C1 (648x917 mm)",
+    "C10": "C10 (28x40 mm)",
+    "C2": "C2 (458x648 mm)",
+    "C3": "C3 (324x458 mm)",
+    "C4": "C4 (229x324 mm)",
+    "C5": "C5 (162x229 mm)",
+    "C6": "C6 (114x162 mm)",
+    "C7": "C7 (81x114 mm)",
+    "C8": "C8 (57x81 mm)",
+    "C9": "C9 (40x57 mm)",
+    "EXECUTIVE": "Executive (184x267 mm)",
+    "FLSA": "FLSA (216x330 mm)",
+    "FLSE": "FLSE (216x330 mm)",
+    "FOLIO": "Folio (216x330 mm)",
+    "GOVERNMENTLEGAL": "Government Legal (216x330 mm)",
+    "GOVERNMENTLETTER": "Government Letter (203x267 mm)",
+    "HALFLETTER": "Half Letter (140x216 mm)",
+    "JUNIORLEGAL": "Junior Legal (127x203 mm)",
+    "LEDGER": "Ledger (432x279 mm)",
+    "LEGAL": "Legal - US (216x356 mm)",
+    "LETTER": "Letter - US (216x279 mm)",
+    "MEMO": "Memo (140x216 mm)",
+    "NOTE": "Note (190x254 mm)",
+    "SOB5EXTRA": "B5 Extra (201x276 mm)",
+    "SRA0": "SRA0 (900x1280 mm)",
+    "SRA1": "SRA1 (640x900 mm)",
+    "SRA2": "SRA2 (450x640 mm)",
+    "SRA3": "SRA3 (320x450 mm)",
+    "SRA4": "SRA4 (225x320 mm)",
+    "SRA5": "SRA5 (160x225 mm)",
+    "STATEMENT": "Statement (140x216 mm)",
+    "SUPERA3": "Super A3 (305x487 mm)",
+    "SUPERA4": "Super A4 (227x356 mm)",
+    "TABLOID": "Tabloid (279x432 mm)"
+  },
+  "password": {
+    "changed": "Password has been changed"
+  },
+  "paymentStatus": "Payment",
+  "PaymentStatus": {
+    "CANCELED": "Canceled",
+    "COMPLETED": "Completed",
+    "DRAFT": "Draft",
+    "NEW": "New",
+    "PARTIALLY_PAID": "Partially paid",
+    "PENDING": "Pending",
+    "REFUNDED": "Refunded"
+  },
+  "PaymentType": {
+    "ALLEGRO": "Allegro",
+    "BANK_TRANSFER": "Bank transfer",
+    "CARD": "Card",
+    "DEFERRED": "Order confirmation/CI",
+    "ON_DELIVERY": "Cash on delivery",
+    "ON_PICKUP": "On pickup",
+    "PROFORMA": "Proforma",
+    "PRZELEWY24": "Przelewy24",
+    "STRIPE": "Stripe"
+  },
+  "PreflightRules": {
+    "PreflightRulesMaxVersion": "PDF version",
+    "PreflightRulesMinPpi": "Low resolution",
+    "PreflightRulesNoColor": "No color space detected",
+    "PreflightRulesNoFilespecs": "Non-embedded files",
+    "PreflightRulesNoGreyscale": "Grayscale",
+    "PreflightRulesNoPalettenized": "Color palette",
+    "PreflightRulesNoRgb": "RGB colors",
+    "PreflightRulesNoTransparency": "Transparency",
+    "PreflightRulesOnlyEmbeddedFonts": "Non-embedded fonts"
+  },
+  "price": {
+    "beforeDiscount": "Price before discount",
+    "noConfiguration": "No configuration found",
+    "thresholdSummaryItem": "> {{threshold}} {{unit}} {{unitPrice}}",
+    "thresholdSummaryLabel": "Price tiers",
+    "thresholdDetail": "Tier from {{threshold}} {{unit}}"
+  },
+  "PriceTypeEnum": {
+    "MATRIX": "Matrix",
+    "SINGLE": "Single",
+    "THRESHOLD": "Threshold"
+  },
+  "PrintingMethod": {
+    "CUTTING": "Cutting",
+    "DIGITAL": "Digital",
+    "DTF": "DTF",
+    "ECO_SOLVENT": "Eco-solvent",
+    "INSTALLATION": "Installation",
+    "LARGE_FORMAT": "Large format",
+    "LASER": "Laser",
+    "OFFSET": "Offset",
+    "UV": "UV"
+  },
+  "product": {
+    "finishing": {
+      "configure": "Configure finishing",
+      "cutToSize": "Cut to size",
+      "cutToSizeHint": "Trim all edges to the final size. This removes reinforcement and tunnels, but grommets can stay enabled.",
+      "currentConfiguration": "Current configuration",
+      "dialogDescription": "Choose the edge options that should be applied to this product. Cut to size clears reinforcement and tunnels, but can stay combined with grommets.",
+      "dialogTitle": "Advanced finishing",
+      "edit": "Edit finishing",
+      "grommets": "Grommets",
+      "grommetsHint": "Add grommets on selected edges. Can be combined with reinforcement on the same edge or with cut to size.",
+      "grommetsOffsetEnd": "Distance from last corner (cm)",
+      "grommetsOffsetEndHint": "Leaves free space after the last grommet on each selected edge.",
+      "grommetsOffsetStart": "Distance from first corner (cm)",
+      "grommetsOffsetStartHint": "Leaves free space before the first grommet on each selected edge.",
+      "grommetsSettings": "Grommet spacing & corner distances",
+      "grommetsSettingsEmpty": "Select at least one grommet edge to adjust spacing and corner distances.",
+      "grommetsSpacing": "Spacing (cm)",
+      "grommetsSpacingHint": "Distance between consecutive grommets on each selected edge.",
+      "grommetsSummary": "Spacing {{spacing}} cm • first corner {{offsetStart}} cm • last corner {{offsetEnd}} cm",
+      "none": "None",
+      "noneSelected": "No finishing selected",
+      "preset": "Preset",
+      "presetPlaceholder": "Choose preset…",
+      "presets": "Presets",
+      "reinforcement": "Reinforcement",
+      "reinforcementHint": "Reinforce the selected edges.",
+      "sides": {
+        "bottom": "Bottom",
+        "left": "Left",
+        "right": "Right",
+        "top": "Top"
+      },
+      "sidesTitle": "Finishing per side",
+      "tunnel": "Tunnel",
+      "tunnelHint": "Welded tunnel on selected edges. Cannot be combined with reinforcement or grommets on the same edge.",
+      "unavailableWithCutToSize": "Unavailable while Cut to size is enabled."
+    }
+  },
+  "productCard": {
+    "from": "Starting from",
+    "new": "New"
+  },
+  "ProductFilters": {
+    "category": "Category",
+    "isNew": "New products",
+    "price": "Price from"
+  },
+  "ProductFiltersIsNew": {
+    "false": "All",
+    "true": "New"
+  },
+  "products": {
+    "b2bCustomerNotice": {
+      "description": "You have access to special B2B pricing.",
+      "link": "View B2B Products",
+      "title": "B2B Customer"
+    },
+    "clearAllFilters": "Clear all",
+    "filteredCount": "{{count}} products found",
+    "imageGeneration": {
+      "acceptButton": "Accept and attach to cart item",
+      "acceptButtonMultiple": "Accept and attach all files to cart item",
+      "acceptSuccess": {
+        "description": "The generated final production graphic has been attached to this cart item.",
+        "title": "Graphic attached"
+      },
+      "addToCartButton": "Add to cart with generated file",
+      "addToCartButtonMultiple": "Add to cart with all generated files",
+      "addToCartLoading": "Adding to cart…",
+      "addToCartSuccess": {
+        "description": "A new cart item has been created with the generated final files attached.",
+        "title": "Added to cart"
+      },
+      "anonymousHint": "Guest and anonymous accounts cannot use image generation. Create or log in to a full account first.",
+      "authHint": "Sign in with a standard customer account to unlock image generation.",
+      "cartButton": "Generate graphic with AI",
+      "cartButtonGenerating": "Generation in progress",
+      "cartButtonReview": "Review generated graphic",
+      "cartDialogTitle": "Generate and attach final graphic",
+      "currentFormat": "Current format: {{width}} × {{height}} mm",
+      "currentFormatMissing": "Current format will be derived from the product configuration.",
+      "currentPages": "{{count}} pages",
+      "dataUsageDescription": "Your prompt and reference images are sent to Google Vertex AI for generation. Do not include confidential or personal data.",
+      "dataUsageTitle": "How your data is used",
+      "description": "Describe the project, choose a style, and generate a final production graphic.",
+      "downloadButtonMultiple": "Download graphics",
+      "downloadButton": "Download graphic",
+      "dialogTitle": "AI graphic studio",
+      "durationBadge": "Up to 1 minute",
+      "emailHint": "Verify your email address before generating images. After confirming the link, refresh this page.",
+      "errors": {
+        "acceptFailed": "Failed to attach the generated graphic.",
+        "addToCartUnavailable": "The current product configuration is not ready to be added to cart yet.",
+        "anonymousNotAllowed": "Anonymous accounts cannot use image generation.",
+        "authRequired": "Sign in to generate images.",
+        "disabledForProduct": "AI graphic generation is not enabled for this product.",
+        "emailNotVerified": "Verify your email address before generating images.",
+        "generationFailed": "Image generation failed.",
+        "invalidFileSize": "Reference images must be 4 MB or smaller.",
+        "invalidFileType": "Only PNG, JPG, and WebP reference images are supported.",
+        "missingChannel": "Image generation is temporarily unavailable.",
+        "monthlyBudgetExceeded": "AI graphic generation is temporarily unavailable because this month's service budget has been reached. Please try again next month."
+      },
+      "attaching": "Attaching…",
+      "generateButton": "Generate final graphic",
+      "generating": "Generating…",
+      "generationElapsed": "{{count}}s elapsed",
+      "generationStatusOvertime": "This can take up to a minute. Finalizing the image now…",
+      "generationStatusRemaining": "Estimated time remaining: about {{count}} seconds.",
+      "generationStatusTitle": "Creating your production graphic…",
+      "generateHint": "The selected style and your brief are merged into the server-side generation prompt before the final artwork is created.",
+      "devLimitsBadge": "No hourly limit in development",
+      "devLimitsDescription": "Development mode removes the hourly limit. Prompt, file, and account checks still apply.",
+      "devRemainingAttempts": "Development mode: hourly limit disabled for testing.",
+      "heroDescription": "Write the brief, pick a style, add references if needed, and generate final artwork for this product.",
+      "heroEyebrow": "AI print design studio",
+      "heroTitle": "Create a print-ready concept faster.",
+      "highlights": {
+        "productionDescription": "The workflow avoids mockups and pushes the result toward flat artwork suited for print production.",
+        "productionTitle": "Production-aware output",
+        "referencesDescription": "Optional images help guide composition, palette, and typography without copying source work.",
+        "referencesTitle": "Reference-guided",
+        "speedDescription": "Most generations finish within about a minute, so you can iterate quickly.",
+        "speedTitle": "Fast review loop",
+        "styleDescription": "Pick a direction before generating so the final prompt reflects the mood you want.",
+        "styleTitle": "Style presets"
+      },
+      "improvePromptDescription": "Optional: let AI sharpen your brief before generating.",
+      "improvePromptLabel": "Improve my brief with AI before generating",
+      "largeFormatDescription": "Formats above 500 × 500 mm will be upscaled and checked manually before production. Keep layouts bold and readable from distance.",
+      "largeFormatTitle": "Large-format verification",
+      "limitsBadge": "{{count}} per hour",
+      "limitsDescription": "Verified customers can generate up to {{count}} final graphics per hour. Prompts must be {{min}}-{{max}} words, and you can add up to {{references}} reference images.",
+      "limitsTitle": "Limits and eligibility",
+      "modelBadge": "Nano Banana 2",
+      "multipleSidesNotice": "Both printable sides were generated as separate files.",
+      "openButton": "Open AI graphic studio",
+      "openButtonDescription": "Write a detailed brief, choose a style, add optional references, and generate a production-ready graphic in one polished workspace.",
+      "openButtonDescriptionGenerating": "Generation continues in the background. Reopen the studio to watch progress and download the result when it is ready.",
+      "openButtonDescriptionReady": "Your latest generated graphic is ready to review, download, or attach.",
+      "promptError": "Use between 30 and 500 words.",
+      "promptHelper": "Cover the goal, audience, colors, and must-have content in 30–500 words.",
+      "promptLabel": "Design brief",
+      "promptPlaceholder": "Example: Design a modern flyer for a spring coffee tasting event. Use a warm cream background, deep green accents, clean sans-serif typography, and a premium editorial feel. Highlight the tasting date, limited seats, and a subtle illustrated coffee leaf motif…",
+      "promptUsedTitle": "Prompt used",
+      "referenceBadge": "{{count}} refs / {{size}} MB max",
+      "referenceDropzoneDescription": "PNG, JPG, or WebP only. Up to {{count}} files, {{size}} MB each.",
+      "referenceDropzoneTitle": "Drag and drop reference images here or click to browse",
+      "referenceHelper": "Up to 3 files. Use them as inspiration only.",
+      "referenceLabel": "Reference images (optional)",
+      "remainingAttempts": "Remaining generations this hour: {{count}}",
+      "resultAlt": "Generated final production graphic preview",
+      "resultAltWithSide": "Generated {{side}} final production graphic preview",
+      "resultTitle": "Generated final graphic",
+      "resultTitleMultiple": "Generated final graphics",
+      "sides": {
+        "back": "Back side",
+        "front": "Front side"
+      },
+      "success": {
+        "description": "Your final AI production graphic is ready.",
+        "title": "Image ready"
+      },
+      "styleHelper": "This preference is added to the server-side prompt.",
+      "styleLabel": "Choose a style direction",
+      "styles": {
+        "elegancki": {
+          "description": "Premium balance with refined details.",
+          "label": "Elegant"
+        },
+        "kreatywny": {
+          "description": "Bolder ideas and a more expressive layout.",
+          "label": "Creative"
+        },
+        "minimalistyczny": {
+          "description": "Calm layouts with clean typography.",
+          "label": "Minimalist"
+        },
+        "nowoczesny": {
+          "description": "Fresh contrast and clear geometric structure.",
+          "label": "Modern"
+        }
+      },
+      "title": "Generate a final production graphic with AI",
+      "triggerStatus": {
+        "anonymous": "Guest locked",
+        "authRequired": "Account required",
+        "email": "Verify email",
+        "generating": "Generation in progress",
+        "ready": "Ready",
+        "review": "Review ready"
+      },
+      "tutorial": {
+        "step1": "Describe the goal, audience, colors, and must-have content.",
+        "step2": "Choose a style and add references only if they help guide the direction.",
+        "step3": "Enable prompt improvement if you want AI to tighten the brief first.",
+        "step4": "If the selected print mode is double-sided, the tool will generate separate front and back files."
+      },
+      "tutorialTitle": "Quick tutorial",
+      "wordBadge": "{{min}}-{{max}} words",
+      "wordCount": "{{count}} / {{max}} words",
+      "workspaceCards": {
+        "brief": "Detailed brief",
+        "production": "Print-focused layout",
+        "references": "Useful references",
+        "style": "Clear style direction"
+      },
+      "workspaceChecklistLabel": "Best results come from:",
+      "workspaceDescription": "We refine your brief on the server before generation.",
+      "workspaceEyebrow": "AI design workspace",
+      "workspaceTitle": "Describe the idea, choose a style, and generate artwork ready for print."
+    },
+    "noResults": "No products match your filters",
+    "noResultsDescription": "Try removing some filters or check other categories.",
+    "notFoundDescription": "We couldn't find a product for the provided identifier.",
+    "notFoundTitle": "Product not found"
+  },
+  "profile": {
+    "account": "Account",
+    "logout": "Logout",
+    "myAccount": "My Account",
+    "orders": "Orders",
+    "settings": "Settings",
+    "yourDiscount": "YOUR DISCOUNT: {{discount}}%"
+  },
+  "PromotionRuleAttributes": {
+    "CATEGORY": "Category",
+    "CURRENCY": "Currency",
+    "PRODUCT": "Product",
+    "USER": "User"
+  },
+  "promotions": {
+    "apply": "Apply",
+    "applying": "Loading…",
+    "applyPromotionCode": "Apply Promotion Code",
+    "availablePromotions": "Available Promotions",
+    "checkOtherCategories": "Check other categories",
+    "codeLabel": "Code: ",
+    "discountOn": "Discount on {{target}}",
+    "discountSuffix": {
+      "currency": " PLN",
+      "percentage": "%"
+    },
+    "heading": "Promotions",
+    "minimumOrderValueNotMet": "Minimum order total for this promotion is {{amount}}",
+    "noItems": "No items found",
+    "promotionalProducts": "Promotional products",
+    "promotionCodeAlreadyApplied": "Promotion code has already been applied",
+    "promotionCodeApplied": "Promotion code {{code}} has been applied",
+    "promotionCodeNotFound": "Promotion code not found",
+    "rememberToApply": "Remember to apply the promotion in cart.",
+    "seeProducts": "See products",
+    "targets": {
+      "entireOrder": "entire order",
+      "selectedProducts": "selected products",
+      "shipping": "shipping"
+    }
+  },
+  "PromotionTypes": {
+    "BUYGET": "Buy X get Y",
+    "STANDARD": "Standard"
+  },
+  "ProofingOptions": {
+    "MANUAL": "The order will be sent directly for processing.",
+    "RUN_AS_IS": "Our team will manually check your file. This option may significantly extend the processing time. After verification, you may need to approve the files to continue processing."
+  },
+  "quantity": {
+    "error": {
+      "alreadyExists": "This quantity already exists",
+      "inRange": "Quantity must be between {{minimumOrder}} and {{maximumOrder}}",
+      "notAvailable": "This quantity is not available for this configuration",
+      "steps": "Quantity must be a multiple of {{step}}"
+    },
+    "heading": "Quantity",
+    "placeholder": "Add your own quantity (from {{minimumOrder}} to {{maximumOrder}}, every {{step}})"
+  },
+  "quote": {
+    "created": "Quote created",
+    "createdDescription": "Successfully created new quote",
+    "createdDev": "Quote created without saving (DEV)",
+    "createdDevDescription": "Successfully created new quote without saving",
+    "notCreated": "Quote was not created",
+    "notCreatedError": "Quote was not created, error code: {{error}}",
+    "notFound": "Quote not found for editing"
+  },
+  "rating": {
+    "addRating": "Add Rating",
+    "rateStar": "Rate {{index}}",
+    "selectRating": "Please select a rating!",
+    "submitError": "An error occurred while submitting your rating!",
+    "thankYou": "Thank you for your rating!"
+  },
+  "RATINGS_COUNT_few": "{{count}} Ratings",
+  "RATINGS_COUNT_many": "{{count}} Ratings",
+  "RATINGS_COUNT_one": "{{count}} Rating",
+  "RATINGS_COUNT_other": "{{count}} Ratings",
+  "requiredConsent": "Required Consents",
+  "ROUTES": {
+    "aboutUs": "About Us",
+    "account": "Account",
+    "b2b": "B2B",
+    "blog": "Blog",
+    "cart": "Cart",
+    "checkout": "Checkout",
+    "contact": "Contact",
+    "cooperation": "Cooperation",
+    "faq": "FAQ",
+    "generalConditionsOfSale": "General Conditions of Sale",
+    "help": "Help",
+    "home": "Home",
+    "order": "Order",
+    "orders": "Orders",
+    "privacyPolicy": "Privacy Policy",
+    "products": "Products",
+    "quotes": "Quotes",
+    "ratings": "Ratings",
+    "regulations": "Regulations",
+    "rejections": "Rejected Files",
+    "settings": "Settings"
+  },
+  "settings": {
+    "storeUndefined": "Store settings are undefined, you can edit them in Configuration > Store Settings"
+  },
+  "shippingAddress": {
+    "notSavedError": "Shipping address was not saved, error code: {{error}}",
+    "notSavedNotCustomer": "Shipping address was not saved, user is not a customer"
+  },
+  "ShippingOptions": {
+    "AMBRO_EXPRESS": "AmbroExpress",
+    "COMPANY_COURIER": "Company Courier",
+    "CUSTOM": "Custom",
+    "DHL": "DHL",
+    "DHL_PICKUP": "DHL pickup point",
+    "DPD": "DPD",
+    "DPD_PICKUP": "DPD pickup point",
+    "FEDEX": "FedEx",
+    "GLS": "GLS",
+    "INPOST": "InPost courier",
+    "ORLEN_PACZKA": "Orlen Parcel",
+    "PACZKOMATY_INPOST": "InPost parcel lockers",
+    "PERSONAL_COLLECTION": "Personal pickup",
+    "PUNKT_FEDEX": "FedEx pickup point",
+    "UPS": "UPS",
+    "UPS_ACCESS_POINT": "UPS access point"
+  },
+  "ShippingTypes": {
+    "COURIER": "Courier",
+    "CUSTOM": "Custom",
+    "PARCEL_DELIVERY_LOCKER": "Parcel lockers",
+    "PERSONAL_COLLECTION": "Personal pickup"
+  },
+  "status": "Status",
+  "store": {
+    "acceptedFileFormats": "Accepted file formats:",
+    "acceptedFiles": "Accepted files:",
+    "acceptRequiredOnly": "Accept only required consents",
+    "acceptSelected": "Accept selected consents",
+    "currency": {
+      "label": "Currency",
+      "select": "Select currency"
+    },
+    "account": {
+      "addresses": "Addresses",
+      "addressesDescription": "Edit delivery addresses for orders",
+      "addReviews": "Add reviews to purchased products",
+      "basic": "Basic",
+      "confirmEmail": "Confirm email address",
+      "confirmEmailDescription": "A verification link has been sent to the provided email address",
+      "confirmRemoveAccount": "Are you sure you want to remove your account?",
+      "created": "Account created",
+      "createdDescription": "We have created an account for you",
+      "help": "Help",
+      "helpDescription": "Browse available help pages",
+      "label": "Account",
+      "logout": "Logout",
+      "orders": "Orders",
+      "ordersDescription": "Check order status and track shipments",
+      "other": "Other",
+      "passwordPlaceholder": "6 or more characters",
+      "profile": "Profile",
+      "removeAccount": "Remove Account",
+      "removeAccountWarning": "All your information will be removed from our database. This operation cannot be undone, so make sure you really want to remove your account.",
+      "reviews": "Reviews",
+      "reviewsDescription": "Add reviews for purchased products",
+      "signin": "Sign in",
+      "signup": "Sign up"
+    },
+    "assistant": {
+      "ariaLabel": "Ask the assistant",
+      "authRequired": "Log in to a regular account to use the assistant.",
+      "contact": "Contact",
+      "contactPage": "Contact page",
+      "heroPlaceholder": "Describe what you need printed…",
+      "inputPlaceholder": "Write a message…",
+      "open": "Open assistant",
+      "productLink": "Open",
+      "quickContact": "Contact",
+      "quickFiles": "How to prepare files?",
+      "send": "Send message",
+      "thinking": "Assistant is preparing an answer",
+      "title": "Assistant",
+      "unavailable": "Assistant is unavailable right now.",
+      "welcome": "Tell me what you want to print. I can suggest products, share contact details and explain basic file preparation."
+    },
+    "activeFormExists": "You already have an active form",
+    "activeFormExistsDesc": "You can see it in the B2B tab",
+    "address": "Address",
+    "attachFiles": "Attach files",
+    "availability": {
+      "onlineAndPos": "*Special offer available both online and in physical store!",
+      "onlineOnly": "*Special offer available exclusively for online purchases!",
+      "posOnly": "*Special offer available exclusively in physical store!"
+    },
+    "b2bForm": "B2B Form",
+    "b2bNotificationFailed": "Your request was saved, but the notification email could not be sent.",
+    "cantFindProduct": "Can't find the right product?",
+    "cart": {
+      "addProductAgain": "Add product to cart again",
+      "addProducts": "Add products to cart",
+      "addToCart": "Add to cart",
+      "buyButton": "Buy and pay",
+      "calculationInfo": "*Shipping price may change during calculation in the next step.",
+      "checkout": "Checkout",
+      "discountRemoved": "Promotion code {{code}} has been removed",
+      "empty": "Cart is empty",
+      "estimatedDelivery": "Estimated shipping: ",
+      "full": "Cart is full (max. 10 products)",
+      "goToCart": "Go to Cart",
+      "goToStore": "Go to Store",
+      "invalidPrice": "Price of product {{productName}} - {{description}} is invalid",
+      "itemRemoved": "Item has been removed from cart",
+      "label": "Cart",
+      "noPaymentOptions": "No available payment options",
+      "noShippingOptions": "No available shipping options",
+      "paymentUnavailableDescription": "This storefront has no usable payment methods configured. Please contact the store team before placing an order.",
+      "paymentUnavailableTitle": "Checkout is unavailable",
+      "ordersDisabled": "Orders are disabled!",
+      "ordersDisabledDescription": "You can browse products, but you cannot place orders at the moment.",
+      "payment": "Payment",
+      "priceCheckError": "Error occurred while checking price of product {{productName}} - {{description}}",
+      "productAdded": "Product has been added to cart",
+      "products": "Products",
+      "productUnavailable": "Product is no longer available",
+      "przelewy24Info1": "I declare that I have read the ",
+      "przelewy24Info2": "terms and conditions and ",
+      "przelewy24Info3": "information obligation",
+      "przelewy24Info4": " of the Przelewy24 service",
+      "readdToCart": "Add product to cart again",
+      "removeFromCart": "Remove from cart",
+      "removeProduct": "Remove product from cart",
+      "sendFilesViaMailInfo": "If you have files larger than our limit, you can send them via services like WeTransfer, Google Drive, or other file sharing platforms to: {{email}}",
+      "shipping": "Shipping",
+      "termsAccept1": "I have read and accept the ",
+      "termsAccept2": "terms and conditions",
+      "termsAccept3": " of the service",
+      "useStoreCredit": "Use {{amount}} store credit",
+      "validationError": "An error occurred while validating cart"
+    },
+    "checkout": {
+      "accountNumber": "Account number:",
+      "bankDetails": "Bank transfer details:",
+      "configurationUnavailableDescription": "This storefront is missing checkout configuration. Please contact the store team before placing an order.",
+      "configurationUnavailableTitle": "Checkout is unavailable",
+      "error": "Error!",
+      "goToOrders": "Go to Orders",
+      "goToPayment": "Go to Payment",
+      "orderProcessing": "Your order is being processed...",
+      "paymentUnavailableDescription": "This storefront has no usable payment methods configured. Please contact the store team before placing an order.",
+      "paymentUnavailableTitle": "Checkout is unavailable",
+      "processing": "Processing...",
+      "redirectCountdown": "You will be redirected to the payment page in {{count}} seconds.",
+      "redirectManual": "If you were not automatically redirected to the payment page, click the button below.",
+      "success": "Success!",
+      "thankYou": "Thank you for placing your order."
+    },
+    "contact": "Contact",
+    "contactUs": "Contact us:",
+    "cookieDataTypes": "product display, cart content, content or product sharing, authorization, payment initiation and completion",
+    "cookiePurpose": "for purposes such as delivering and personalizing content and ads and analyzing website traffic.",
+    "cookieUsageDescription": "We and our partners use cookies to store and access data such as:",
+    "cooperation": "Cooperation",
+    "customerNotFound": "Customer not found",
+    "discountOn": "Discount on {{target}}",
+    "dragFileHere": "Drag file here or click to select file.",
+    "dropFilesHere": "Drop files here...",
+    "errorCode": "Error code: {{error}}",
+    "faq": "FAQ",
+    "fileRetentionNotice": {
+      "description": "We store uploaded files only for the time needed to process your order. If you want to keep them for later use, please download and save them yourself.",
+      "title": "Temporary file storage"
+    },
+    "footer": {
+      "aboutUs": "About Us",
+      "contactDetails": "Contact details",
+      "findUs": "Find Us",
+      "help": "Help",
+      "paymentsNote": "Accepted payment methods:",
+      "terms": "Terms and Conditions",
+      "termsOfUse": "By using the service, you confirm that you have read and accept the guidelines presented in the terms of use and the privacy policy."
+    },
+    "formSent": "Form has been sent",
+    "generalConditionsOfSale": "General Conditions of Sale",
+    "maintenance": {
+      "contact": "Contact us",
+      "description": "We are preparing this store for visitors. Please check back soon.",
+      "title": "Storefront is temporarily unavailable"
+    },
+    "editor": {
+      "actions": {
+        "addBlock": "Add block",
+        "addSection": "Add section",
+        "hide": "Hide",
+        "moveDown": "Move Down",
+        "moveUp": "Move Up",
+        "publish": "Publish",
+        "publishing": "Publishing…",
+        "remove": "Remove",
+        "rollback": "Rollback",
+        "show": "Show"
+      },
+      "autosave": {
+        "error": "Autosave failed",
+        "idle": "Changes save automatically",
+        "saved": "Draft saved",
+        "saving": "Saving…"
+      },
+      "block": {
+        "autoTranslationInfo": "How automatic translation works",
+        "autoTranslationTooltip": "Write this block in the selected language. When you publish, missing Polish or English text is generated automatically, and existing manual translations are kept.",
+        "body": "Long Text",
+        "builtInDescription": "This section uses store data or existing translations. Use the controls on the section itself to move, hide, or remove it.",
+        "builtInTitle": "Built-In Section",
+        "ctaHref": "Button Link",
+        "ctaLabel": "Button Text",
+        "fields": {
+          "featuredProductsDescription": "Section Description",
+          "featuredProductsTitle": "Section Heading",
+          "heroCtaHref": "Main Button Link",
+          "heroCtaLabel": "Main Button Text",
+          "heroDescription": "Hero Description",
+          "heroImageUrl": "Hero Image Link",
+          "heroTitle": "Hero Headline",
+          "howItWorksDescription": "Section Description",
+          "howItWorksTitle": "Section Heading",
+          "newsletterCtaLabel": "Subscribe Button Text",
+          "newsletterDescription": "Newsletter Description",
+          "newsletterDisclaimer": "Disclaimer",
+          "newsletterTitle": "Newsletter Heading",
+          "popularDescription": "Section Description",
+          "popularTitle": "Section Heading",
+          "richTextBody": "Text",
+          "richTextCtaHref": "Button Link",
+          "richTextCtaLabel": "Button Text",
+          "richTextImageUrl": "Image",
+          "richTextTitle": "Heading",
+          "testimonialsDescription": "Section Description",
+          "testimonialsTitle": "Section Heading",
+          "trustGridDescription": "Section Description",
+          "trustGridTitle": "Section Heading"
+        },
+        "heading": "Main Heading",
+        "heroCmsDescription": "Edit hero slides, text, links, and media in Admin CMS. This panel controls the hero layout.",
+        "heroCmsLink": "Open Admin CMS",
+        "heroCmsTitle": "Hero Content Managed in CMS",
+        "hidden": "Hidden",
+        "imageDropzoneDescription": "PNG, JPG, or WebP under 5 MB.",
+        "language": "Editing Language",
+        "subtitle": "Short Description",
+        "title": "Selected Block",
+        "variant": "Layout Variation",
+        "variants": {
+          "assistant": {
+            "compact": "Compact Prompt",
+            "default": "Default",
+            "panel": "Framed Panel"
+          },
+          "campaigns": {
+            "compact": "Compact Promos",
+            "default": "Default",
+            "featured": "Featured Promos"
+          },
+          "featured-products": {
+            "compact": "Compact Grid",
+            "default": "Default",
+            "spotlight": "Spotlight Grid"
+          },
+          "hero": {
+            "default": "Default",
+            "editorial": "Editorial Split",
+            "fullscreen": "Fullscreen"
+          },
+          "how-it-works": {
+            "compact": "Compact Steps",
+            "default": "Default",
+            "timeline": "Timeline"
+          },
+          "newsletter": {
+            "default": "Default",
+            "inline": "Inline",
+            "minimal": "Minimal"
+          },
+          "popular-products": {
+            "compact": "Compact Grid",
+            "default": "Default",
+            "editorial": "Editorial Grid"
+          },
+          "rich-text-cta": {
+            "centered": "Centered",
+            "default": "Default",
+            "split": "Split"
+          },
+          "testimonials": {
+            "compact": "Compact Reviews",
+            "default": "Default",
+            "spotlight": "Spotlight"
+          },
+          "trust-grid": {
+            "cards": "Cards",
+            "default": "Default",
+            "strip": "Icon Strip"
+          }
+        },
+        "visible": "Visible"
+      },
+      "image": {
+        "previewAlt": "Current image preview",
+        "rejected": "This image file cannot be used.",
+        "upload": "Upload",
+        "uploadError": "Upload failed. Try a smaller image file.",
+        "useLink": "Use link"
+      },
+      "languages": {
+        "cs": "Čeština",
+        "de": "Deutsch",
+        "en": "English",
+        "fr": "Français",
+        "pl": "Polski",
+        "sk": "Slovenčina",
+        "uk": "Українська"
+      },
+      "maintenance": {
+        "description": "When enabled, visitors see the maintenance screen while editors can keep previewing this storefront.",
+        "title": "Maintenance mode"
+      },
+      "panel": {
+        "hideEditor": "Hide editing tools",
+        "noBlockSelected": "Click a section in the preview to edit it.",
+        "preview": "Preview",
+        "sessionChecking": "Checking edit session",
+        "sessionExpired": "Edit session expired",
+        "sessionRemaining": "{{time}} left",
+        "showEditor": "Show editor",
+        "tabs": {
+          "advanced": "Advanced",
+          "section": "Section",
+          "theme": "Theme"
+        },
+        "title": "Store Editor"
+      },
+      "presets": {
+        "assistant": "Assistant",
+        "campaigns": "Campaigns",
+        "featured-products": "Featured",
+        "hero": "Hero",
+        "how-it-works": "How It Works",
+        "newsletter": "Newsletter",
+        "popular-products": "Popular",
+        "rich-text-cta": "Text & CTA",
+        "testimonials": "Testimonials",
+        "trust-grid": "Trust Grid"
+      },
+      "revisions": {
+        "areas": {
+          "home": "Home",
+          "sharing": "Sharing",
+          "theme": "Theme"
+        },
+        "empty": "No published revisions yet.",
+        "publish": "Publish",
+        "rollback": "Rollback",
+        "title": "Recent revisions"
+      },
+      "sharing": {
+        "description": "Control the browser icon and social preview images for this storefront.",
+        "favicon": "Favicon",
+        "faviconDropzoneDescription": "PNG, SVG, or ICO under 1 MB.",
+        "openGraphDropzoneDescription": "PNG or JPG, ideally 1200 x 630 px.",
+        "openGraphImage": "Social Preview Image",
+        "title": "Sharing"
+      },
+      "theme": {
+        "accentColor": "Accent Color",
+        "buttonStyle": "Button Style",
+        "buttonStyleOptions": {
+          "outline": "Outline",
+          "solid": "Solid",
+          "subtle": "Subtle"
+        },
+        "gradient": "Gradient (Main → Accent)",
+        "gradientDescription": "Blends your colors on hero and newsletter backgrounds.",
+        "gradientNeedsColors": "Pick both colors to enable the gradient.",
+        "logo": "Logo",
+        "logoDropzoneDescription": "PNG, JPG, SVG, or WebP under 2 MB.",
+        "pickColorFromPage": "Pick color from page",
+        "presetOptions": {
+          "classic": "Classic",
+          "forest": "Forest",
+          "ink": "Ink",
+          "ocean": "Ocean",
+          "plum": "Plum",
+          "sunset": "Sunset"
+        },
+        "presets": "Style Presets",
+        "primaryColor": "Main Color",
+        "radius": "Rounding",
+        "radiusOptions": {
+          "3xl": "Extra round",
+          "default": "Default",
+          "md": "Soft",
+          "none": "Square",
+          "xl": "Round"
+        },
+        "title": "Theme"
+      }
+    },
+    "home": {
+      "featured": "Check what we recommend",
+      "featuredDescription": "Flexible formats, reliable finishes and products that make a strong first impression.",
+      "featuredEyebrow": "Curated picks",
+      "hero": {
+        "eyebrow": "Press-ready online print",
+        "fallbackDescription": "Upload, proof, produce and ship in one clean flow — with real materials, clear pricing and tracked delivery.",
+        "fallbackTitle": "Print work that looks premium before it reaches the press",
+        "proofLabel": "Upload to delivery",
+        "proofValue": "Prepress, production & tracked shipping in one streamlined workflow.",
+        "secondaryCta": "Browse all products"
+      },
+      "howItWorks": {
+        "description": "A short six-step flow from brief to doorstep — with file verification in the middle, where it matters.",
+        "steps": {
+          "choose": "Choose a product",
+          "configure": "Configure options",
+          "pay": "Pay securely",
+          "proof": "We check your file",
+          "receive": "Receive delivery",
+          "upload": "Upload your file"
+        },
+        "title": "How it works"
+      },
+      "popular": "Most often chosen",
+      "popularDescription": "The formats customers reorder most when they need dependable results fast.",
+      "popularEyebrow": "Repeat favorites",
+      "testimonials": {
+        "description": "Real feedback from customers who ordered, uploaded and received finished print.",
+        "eyebrow": "Google reviews",
+        "next": "Next review",
+        "prev": "Previous review",
+        "title": "What our customers say"
+      },
+      "trust": {
+        "ecoFriendly": {
+          "description": "FSC paper & green inks",
+          "title": "Eco-friendly"
+        },
+        "fastProduction": {
+          "description": "From 24h turnaround available",
+          "title": "Fast production"
+        },
+        "freeFileCheck": {
+          "description": "We verify before printing",
+          "title": "Free file check"
+        },
+        "qualityGuarantee": {
+          "description": "Premium paper & precise print",
+          "title": "Quality guarantee"
+        },
+        "securePayments": {
+          "description": "Stripe, Przelewy24 & more",
+          "title": "Secure payments"
+        },
+        "trackedShipping": {
+          "description": "Courier delivery across PL & EU",
+          "title": "Tracked shipping"
+        }
+      },
+      "trustDescription": "From file check to finishing, every step is designed to keep the process clear, fast and production-ready.",
+      "trustHeading": "Built for demanding print jobs, not guesswork",
+      "trustLabel": "Why teams keep coming back"
+    },
+    "maxFileSize": "Maximum file size:",
+    "fileExists": "File already selected",
+    "fileInvalid": "File couldn't be uploaded",
+    "fileInvalidType": "Invalid file type",
+    "fileTooLarge": "File is too large",
+    "fileTooSmall": "File is too small",
+    "navigation": {
+      "allProducts": "All products",
+      "loadingProducts": "Loading products…",
+      "products": "Products"
+    },
+    "newsletter": {
+      "signup": "Subscribe to Newsletter",
+      "signupButton": "Subscribe",
+      "description": "Get updates about promotions, exclusive offers, and new products!",
+      "disclaimer": "*Special offer available only for online purchases!",
+      "subscribeButton": "Subscribe",
+      "subscribeError": "Could not subscribe to the newsletter",
+      "subscribed": "Successfully subscribed to the newsletter",
+      "title": "Subscribe to the newsletter and get 10% off",
+      "unsubscribeError": "Could not unsubscribe from the newsletter",
+      "unsubscribed": "Successfully unsubscribed from the newsletter"
+    },
+    "og": {
+      "subtitle": "Professional online printing",
+      "title": "Online Print House"
+    },
+    "order": {
+      "showDetails": "Show details"
+    },
+    "orderAndPay": "Order and pay",
+    "orderPreview": "Order preview",
+    "password": {
+      "change": "Change password",
+      "save": "Save"
+    },
+    "payment": "Payment",
+    "preview3D": "3D Preview",
+    "preview3DDescription": "It is important to note that the 3D preview is rendered at a lower resolution than the final product. This is a recommended approach that allows for faster data processing and smoother operation.",
+    "preview3DDisclaimer": "The preview is for visual purposes only and is not intended for creating final high-quality materials.",
+    "preview3DInfo": "3D Preview Information",
+    "preview3DNextPage": "Next",
+    "preview3DPage": "Page",
+    "preview3DPreviousPage": "Previous",
+    "privacyPolicy": "Privacy Policy",
+    "privacyTitle": "We care about your privacy",
+    "promotions": "Promotions",
+    "recommendations": {
+      "title": "Recommended products"
+    },
+    "regulations": "Regulations",
+    "rejectedFiles": "Rejected files:",
+    "tooManyFiles": "Too many files",
+    "rejections": "Rejections",
+    "remove": "Remove",
+    "reviewOptional": "Review (optional)",
+    "search": {
+      "loading": "Loading...",
+      "noResults": "No products found",
+      "placeholder": "Search...",
+      "viewAll": "View all results for {{query}}"
+    },
+    "searchPage": {
+      "emptyQueryDescription": "Search by product name, category, or print format.",
+      "emptyQueryTitle": "Find print products",
+      "linkedChannel": "Shared product",
+      "metadataDescription": "Find products available in this store.",
+      "metadataTitle": "Search",
+      "metadataTitleWithQuery": "Search results for {{query}}",
+      "noResultsDescription": "Try a different phrase or browse product categories.",
+      "noResultsTitle": "No products found",
+      "resultCount": "{{count}} products found",
+      "submit": "Search",
+      "title": "Search",
+      "titleWithQuery": "Search results for {{query}}"
+    },
+    "sendForm": "Send form",
+    "shipping": "Shipping",
+    "somethingWentWrong": "Something went wrong",
+    "uploadAndAttachFiles": "Upload and attach files",
+    "writeReviewPlaceholder": "Write a review...",
+    "products": {
+      "customProduct": "Custom product"
+    },
+    "rating": {
+      "selectRating": "Please select a rating!",
+      "submitError": "An error occurred while submitting the rating!",
+      "thankYou": "Thank you for your rating!"
+    }
+  },
+  "summary": {
+    "addToCart": "Add to cart",
+    "badConfiguration": "Invalid configuration",
+    "heading": "Summary",
+    "noConfiguration": "No configuration",
+    "saveAsNew": "Add as new item to cart",
+    "saveConfiguration": "Save configuration"
+  },
+  "templates": "Templates",
+  "ThreeDModels": {
+    "ASTAND": "A-stand",
+    "BOX": "Box",
+    "BOOKLET": "Booklet",
+    "CANVAS": "Canvas",
+    "CUP": "Cup",
+    "FLAT": "Flat print",
+    "FLYERS": "Flyers",
+    "LBANNER": "L-banner",
+    "PIN": "Pin",
+    "ROLLUP_PREMIUM": "Rollup premium",
+    "ROLLUP_STANDARD": "Rollup standard",
+    "TOOTHPICK": "Toothpick flag",
+    "XBANNER": "X-banner"
+  },
+  "totalPrice": "Price",
+  "true": "Yes",
+  "ui": {
+    "country": {
+      "poland": "Poland"
+    }
+  },
+  "Unit": {
+    "CM2": "cm²",
+    "CMB": "cmb",
+    "HOUR": "h",
+    "KM": "km",
+    "M2": "m²",
+    "MB": "ml",
+    "PCS": "pcs.",
+    "SHEET": "sheet"
+  },
+  "volumes": {
+    "missing": "Missing volumes"
+  }
+}

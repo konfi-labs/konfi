@@ -1,0 +1,181 @@
+{
+  "agentBenchmarks": {
+    "actions": {
+      "comment": "Comment",
+      "commentPlaceholder": "Add an optional approval note or rejection reason.",
+      "copyMarkdown": "Copy as Markdown",
+      "rerun": "Rerun",
+      "responsePlaceholder": "Type the response that should be sent back to the agent.",
+      "viewDetails": "View details"
+    },
+    "active": {
+      "title": "Active benchmark"
+    },
+    "comparison": {
+      "actual": "Actual",
+      "expected": "Expected",
+      "field": "Field",
+      "fields": {
+        "contact": "Contact",
+        "customer": "Customer",
+        "attributeOptions": "Attribute options",
+        "attributes": "Attributes",
+        "customSize": "Custom size",
+        "itemCount": "Item count",
+        "items": "Items",
+        "priceRows": "Price rows",
+        "priceType": "Price type",
+        "productName": "Product",
+        "productType": "Product type",
+        "readyForCreate": "Ready for create",
+        "shippingOption": "Shipping option",
+        "shippingPrice": "Shipping price",
+        "shippingTypes": "Shipping types",
+        "totalPrice": "Total price",
+        "volumeCount": "Volume count"
+      },
+      "score": "Score",
+      "title": "Deterministic comparison"
+    },
+    "empty": {
+      "description": "Start a benchmark to preserve its prompt, timing, output comparison, and scores.",
+      "title": "No benchmark runs"
+    },
+    "errors": {
+      "delete": "Could not delete benchmark run",
+      "load": "Could not load benchmarks",
+      "quoteRequired": "Select a quote first",
+      "resume": "Could not continue benchmark run",
+      "run": "Run error",
+      "start": "Could not start benchmark",
+      "status": "Could not refresh benchmark status",
+      "targetRequired": "Select a target first"
+    },
+    "history": {
+      "loadedCount": "{{loaded}} of {{total}} loaded",
+      "loadingMore": "Loading runs…",
+      "loadMore": "Load more runs",
+      "orderBadge": "Order #{{number}}",
+      "productBadge": "Product",
+      "quoteBadge": "Quote #{{number}}",
+      "title": "Run history"
+    },
+    "judge": {
+      "error": "Judge error",
+      "problems": "Problems",
+      "strengths": "Strengths",
+      "title": "AI judge"
+    },
+    "liveRun": {
+      "fields": {
+        "blockedItems": "Blocked items",
+        "customer": "Customer",
+        "itemCount": "Item count",
+        "items": "Items",
+        "priceRows": "Price rows",
+        "priceType": "Price type",
+        "productName": "Product",
+        "readyForCreate": "Ready for create",
+        "selectedAttributes": "Selected attributes",
+        "shippingOption": "Shipping option",
+        "shippingPrice": "Shipping price",
+        "totalPrice": "Total price"
+      },
+      "title": "Live-run output"
+    },
+    "metrics": {
+      "deterministic": "Deterministic score",
+      "duration": "Agent time",
+      "judge": "Judge score",
+      "steps": "Steps"
+    },
+    "options": {
+      "autonomous": {
+        "description": "Full-access autonomous assistant with business data, durable tasks, web, code, and maps tools"
+      },
+      "inbound-email-routing": {
+        "description": "Inbound email routing workflow scored by an AI judge with guardrail fixtures for order, quote, and blocked outcomes"
+      },
+      "order": {
+        "description": "AI-assisted order creation from an existing quote or prompt"
+      },
+      "product": {
+        "description": "AI-assisted product creation draft with attribute, option, product type, and pricing validation"
+      },
+      "quote": {
+        "description": "AI-assisted quote creation with customer and product search"
+      },
+      "whats-new-monthly": {
+        "description": "Autonomous monthly What's New growth cron generation scored by an AI judge"
+      },
+      "whats-new-weekly": {
+        "description": "Autonomous weekly What's New cron generation scored by an AI judge"
+      }
+    },
+    "pageDescription": "Run available AI benchmarks against live admin data, preserve every run, and score generated output.",
+    "pageTitle": "AI Benchmarks",
+    "markdown": {
+      "agentTime": "**Agent time:** {{duration}}",
+      "aiJudge": "AI judge - {{score}}%",
+      "benchmark": "Benchmark: {{agent}}",
+      "description": "**Description:** {{description}}",
+      "deterministicComparison": "Deterministic comparison - {{score}}%",
+      "error": "**Error:** {{error}}",
+      "highlights": "**Highlights:**",
+      "liveRunOutput": "Live-run output",
+      "period": "**Period:** {{period}}",
+      "problems": "**Problems:**",
+      "prompt": "**Prompt:** {{prompt}}",
+      "skipped": "**Skipped:** {{reason}}",
+      "status": "**Status:** {{status}}",
+      "steps": "**Steps:** {{count}}",
+      "strengths": "**Strengths:**",
+      "targetOrder": "**Target order:** #{{number}} - {{customer}}",
+      "targetProduct": "**Target product:** {{product}}",
+      "targetQuote": "**Target quote:** #{{number}} - {{customer}}",
+      "title": "**Title:** {{title}}",
+      "whatsNewOutput": "What's New output"
+    },
+    "start": {
+      "agent": "Benchmark",
+      "autonomousDescription": "This cron job uses its production instructions. The run is scored by an AI judge after the workflow finishes.",
+      "autonomousTitle": "Autonomous benchmark",
+      "button": "Start benchmark",
+      "description": "Quote, order, and product benchmarks compare generated data to a selected target and score the run with deterministic checks plus an AI judge. Autonomous cron benchmarks use their production instructions.",
+      "noOrders": "No orders available for this channel.",
+      "noProducts": "No products available for this channel.",
+      "noQuotes": "No quotes available for this channel.",
+      "order": "Target order",
+      "orderHelp": "{{count}} items will be used as the expected output.",
+      "product": "Target product",
+      "productHelp": "{{count}} attributes will be used as the expected output.",
+      "prompt": "Benchmark prompt",
+      "promptHelp": "The prompt is preserved with the benchmark run for later comparisons.",
+      "promptPlaceholder": "Describe what the agent should produce as if it should recreate the selected target.",
+      "quote": "Target quote",
+      "quoteHelp": "{{count}} items will be used as the expected output.",
+      "title": "Run benchmark"
+    },
+    "started": "Benchmark started",
+    "stats": {
+      "averageScore": "Average score",
+      "completed": "Completed",
+      "total": "Runs"
+    },
+    "status": {
+      "awaiting-user-input": "Awaiting user input",
+      "completed": "Completed",
+      "failed": "Failed",
+      "running": "Running",
+      "starting": "Starting"
+    },
+    "superAdminOnly": "Super Admin only",
+    "superAdminOnlyDescription": "AI benchmark runs use live data and are only available to Super Admin users.",
+    "whatsNew": {
+      "campaignProposal": "Campaign proposal",
+      "campaignProposalCount": "{{count}} generated",
+      "skipped": "The workflow skipped this run.",
+      "title": "What's New output"
+    }
+  }
+}

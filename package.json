@@ -1,0 +1,83 @@
+{
+  "name": "konfi",
+  "private": true,
+  "license": "Apache-2.0",
+  "repository": "https://github.com/konfi-labs/konfi",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "dotenv turbo run build --no-daemon",
+    "build:agent": "node scripts/ci-build.js --agent-cache",
+    "build:ci": "node scripts/ci-build.js",
+    "agent:context": "node scripts/agent-context.mjs",
+    "chakra:typegen": "chakra typegen packages/components/src/theme/index.ts --tsconfig tsconfig.json --strict",
+    "dev": "dotenv turbo run dev",
+    "storybook": "dotenv turbo run storybook --ui=stream --filter=@konfi/storybook",
+    "start": "dotenv turbo run start",
+    "format:check": "node scripts/format-check.mjs",
+    "lint": "pnpm run guard:workspace && pnpm run check:deps && pnpm run lint:suppressions && pnpm -r --workspace-concurrency=1 --if-present lint",
+    "konsistent": "konsistent",
+    "lint:suppressions": "node scripts/check-suppression-comments.mjs",
+    "transpile": "dotenv turbo run transpile",
+    "typecheck": "dotenv turbo run typecheck",
+    "postinstall": "manypkg check && pnpm chakra:typegen",
+    "test": "vitest run --config vitest.workspace.ts",
+    "firebase:emulators": "pnpm --dir apps/functions build && dotenv -e .env.emulators.example -- pnpm --dir apps/functions exec firebase --config ../../firebase.emulators.json emulators:start --project demo-konfi-local",
+    "firebase:seed": "dotenv -e .env.emulators.example -- pnpm --dir apps/functions seed:emulators",
+    "firebase:reset": "dotenv -e .env.emulators.example -- pnpm --dir apps/functions seed:emulators -- --reset",
+    "firebase:currency:init": "dotenv -e .env.emulators.example -- pnpm --dir apps/functions currency:init",
+    "dev:emulators": "dotenv -e .env.emulators.example -- turbo run dev",
+    "env:validate:dedicated": "node scripts/validate-dedicated-env.mjs",
+    "cooperation:audit:same-database": "node scripts/audit-tenant-cooperations.mjs",
+    "storefront:reconcile:tenant-channels": "node scripts/reconcile-tenant-channels.mjs",
+    "release:audit:dedicated": "node scripts/audit-dedicated-release-gates.mjs",
+    "meilisearch:setup": "dotenv -- tsx scripts/setup-meilisearch.ts",
+    "clean": "tsx scripts/clean.ts",
+    "rebuild-sdks": "turbo run generate-sdks --filter @konfi/allegro --filter @konfi/fakturownia --filter @konfi/epaka",
+    "devtools:workflows": "pnpm --dir apps/admin devtools:workflows",
+    "devtools:ai": "pnpm --dir apps/admin devtools:ai",
+    "check:deps": "syncpack lint",
+    "fix:deps": "syncpack fix-mismatches && syncpack format",
+    "guard:workspace": "node scripts/check-workspace-invariants.mjs"
+  },
+  "devDependencies": {
+    "@chakra-ui/cli": "catalog:",
+    "@firebase/rules-unit-testing": "catalog:",
+    "@manypkg/cli": "catalog:",
+    "@testing-library/dom": "catalog:",
+    "@testing-library/jest-dom": "catalog:",
+    "@testing-library/react": "catalog:",
+    "@testing-library/user-event": "catalog:",
+    "@types/node": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
+    "cross-env": "catalog:",
+    "dotenv-cli": "catalog:",
+    "es-toolkit": "catalog:",
+    "eslint-plugin-turbo": "catalog:",
+    "jsdom": "catalog:",
+    "konsistent": "1.0.0-beta.1",
+    "next": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "resize-observer-polyfill": "^1.5.1",
+    "syncpack": "15.3.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "turbo": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "vitest-axe": "catalog:"
+  },
+  "lint-staged": {
+    "*": "oxfmt --no-error-on-unmatched-pattern"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.9.0+sha512.bd682d5d03fe525ef7c9fd6780c6884d1e756ac4c9c9fe00c538782824310dcf90e3ddc4f53835f06dfaebd5085e41855e0bcbb3b60de2ac5bbab89e5036f03b",
+  "manypkg": {
+    "defaultBranch": "main"
+  }
+}

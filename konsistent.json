@@ -1,0 +1,174 @@
+{
+  "$schema": "node_modules/konsistent/konsistent.schema.json",
+  "version": "v1",
+  "conventions": [
+    {
+      "name": "workspace-packages-have-manifest",
+      "description": "Every direct packages/* directory should be an actual workspace package.",
+      "paths": "packages/{packageName}",
+      "must": {
+        "haveType": "directory",
+        "haveFiles": ["package.json"]
+      }
+    },
+    {
+      "name": "typescript-packages-have-tsconfig",
+      "description": "TypeScript workspace packages should keep a local tsconfig.json.",
+      "paths": [
+        "packages/{packageName}",
+        "!packages/wasm",
+        "!packages/eslint-config",
+        "!packages/google-vertex-runtime"
+      ],
+      "must": {
+        "haveFiles": ["tsconfig.json"]
+      }
+    },
+    {
+      "name": "source-packages-have-src-entrypoint",
+      "description": "Regular source packages should expose a src/index.ts entrypoint.",
+      "paths": [
+        "packages/{packageName}",
+        "!packages/allegro",
+        "!packages/epaka",
+        "!packages/fakturownia",
+        "!packages/wasm",
+        "!packages/eslint-config",
+        "!packages/google-vertex-runtime"
+      ],
+      "must": {
+        "haveFiles": ["src/index.ts"]
+      }
+    },
+    {
+      "name": "kiota-sdk-package-shape",
+      "description": "Generated Kiota SDK packages should keep their root barrel, generated client, models barrel, and README.",
+      "paths": "packages/{sdkName:matches(^(allegro|epaka|fakturownia)$)}",
+      "must": {
+        "haveFiles": [
+          "package.json",
+          "tsconfig.json",
+          "README.md",
+          "index.ts",
+          "client/${sdkName.toCamelCase()}Client.ts",
+          "client/models/index.ts"
+        ]
+      }
+    },
+    {
+      "name": "kiota-sdk-barrels-export-client",
+      "description": "Generated Kiota SDK root barrels should export the generated client factory and type.",
+      "paths": "packages/{sdkName:matches(^(allegro|epaka|fakturownia)$)}/index.ts",
+      "must": {
+        "export": [
+          {
+            "name": "create${sdkName.toPascalCase()}Client",
+            "from": "./client/${sdkName.toCamelCase()}Client.js"
+          }
+        ],
+        "exportTypes": [
+          {
+            "name": "${sdkName.toPascalCase()}Client",
+            "from": "./client/${sdkName.toCamelCase()}Client.js"
+          }
+        ]
+      }
+    },
+    {
+      "name": "shared-component-areas-have-barrels",
+      "description": "Shared component area directories should expose an index.ts barrel.",
+      "paths": [
+        "packages/components/src/components/shared/{componentArea}",
+        "!packages/components/src/components/shared/__tests__"
+      ],
+      "must": {
+        "haveType": "directory",
+        "haveFiles": ["index.ts"]
+      }
+    },
+    {
+      "name": "shared-component-area-barrels-are-pure",
+      "description": "Shared component area index files should stay as pure re-export barrels.",
+      "paths": "packages/components/src/components/shared/{componentArea}/index.ts",
+      "must": {
+        "areBarrelFiles": true
+      }
+    },
+    {
+      "name": "admin-supported-locale-directories",
+      "description": "Admin i18n should keep the full supported locale set.",
+      "paths": "apps/admin/app/i18n/locales",
+      "must": {
+        "haveFiles": [
+          "cs/translation.json",
+          "de/translation.json",
+          "en/translation.json",
+          "fr/translation.json",
+          "pl/translation.json",
+          "sk/translation.json",
+          "uk/translation.json"
+        ]
+      }
+    },
+    {
+      "name": "admin-locale-namespaces",
+      "description": "Every admin locale should include the same namespace files.",
+      "paths": "apps/admin/app/i18n/locales/{locale}",
+      "must": {
+        "haveFiles": [
+          "agentBenchmarks.json",
+          "allegro.json",
+          "externalProducts.json",
+          "externalProviders.json",
+          "fakturownia.json",
+          "imageGenerator.json",
+          "impose.json",
+          "order.json",
+          "orders.json",
+          "translation.json"
+        ]
+      }
+    },
+    {
+      "name": "store-supported-locale-directories",
+      "description": "Store i18n should keep the full supported locale set.",
+      "paths": "apps/store/app/i18n/locales",
+      "must": {
+        "haveFiles": [
+          "cs/translation.json",
+          "de/translation.json",
+          "en/translation.json",
+          "fr/translation.json",
+          "pl/translation.json",
+          "sk/translation.json",
+          "uk/translation.json"
+        ]
+      }
+    },
+    {
+      "name": "store-locale-namespaces",
+      "description": "Every store locale should include the default translation namespace.",
+      "paths": "apps/store/app/i18n/locales/{locale}",
+      "must": {
+        "haveFiles": ["translation.json"]
+      }
+    },
+    {
+      "name": "storybook-stories-have-meta",
+      "description": "Storybook stories should use the standard typed Storybook imports.",
+      "paths": "apps/storybook/src/stories/{storyName}.stories.tsx",
+      "must": {
+        "importTypes": [
+          {
+            "name": "Meta",
+            "from": "@storybook/nextjs-vite"
+          },
+          {
+            "name": "StoryObj",
+            "from": "@storybook/nextjs-vite"
+          }
+        ]
+      }
+    }
+  ]
+}

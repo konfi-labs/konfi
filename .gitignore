@@ -1,0 +1,103 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+package-lock.json
+.pnp
+.pnp.js
+
+# testing
+coverage
+storybook-static
+tmp
+.playwright-mcp/
+
+# next.js
+.next/
+out/
+build
+resources
+next-env.d.ts
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.yarn/*
+functions/.yarn/*
+.yarn/
+.yarnrc.yml
+.yarnrc
+
+# local env files
+*.env
+.env.*
+!.env.example
+!.env.ci
+.env.local
+.env.development
+.env.development.local
+.env.test.local
+.env.production
+.env.production.local
+
+# turbo
+.turbo
+build/**
+dist/**
+.next/**
+!apps/desktop/build/
+!apps/desktop/build/icon.icns
+!apps/desktop/build/icon.ico
+!apps/desktop/build/icon.png
+
+.firebaserc
+.log
+firebase-debug.log
+*.log
+functions/lib/packages/utils/price.js.map
+functions/lib/functions/src/createOrder.js.map
+functions/lib/functions/src/createOrder.js
+*.map
+*.tsbuildinfo
+
+apps/functions/lib
+/genkit/lib
+
+%SystemDrive%
+
+# Sentry Config File
+.env.sentry-build-plugin
+
+todo
+dist
+
+isolate
+apps/functions/.deploy
+apps/functions/.deploy-meilisearch
+.genkit
+.kiota
+.vercel
+
+# CI build backup files
+*.bak
+
+# Rust / wasm
+!packages/wasm/dist/
+!packages/wasm/dist/**
+packages/wasm/target/
+packages/wasm/Cargo.lock
+
+# next-agents-md
+.next-docs/
+
+.devtools
+
+.codex/chrome-perf-profile*
+.codex/perf-logs
+
+plans

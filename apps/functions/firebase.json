@@ -1,0 +1,23 @@
+{
+  "functions": {
+    "source": ".",
+    "runtime": "nodejs24",
+    "isolate": true,
+    "predeploy": "turbo build"
+  },
+  "extensions": {},
+  "firestore": {
+    "indexes": "./firestore-indexes.json",
+    "rules": "./firestore.rules"
+  },
+  "storage": [
+    {
+      "bucket": "stickers-4fb59.appspot.com",
+      "rules": "./storage.rules"
+    },
+    {
+      "bucket": "stickers-4fb59-test",
+      "rules": "./storage.rules"
+    }
+  ]
+}

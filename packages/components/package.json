@@ -1,0 +1,219 @@
+{
+  "name": "@konfi/components",
+  "version": "2.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "repository": "https://github.com/konfi-labs/konfi/tree/main/packages/components",
+  "main": "src/index.ts",
+  "module": "esnext",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    },
+    "./shared/ButtonLink": {
+      "types": "./src/components/shared/ButtonLink.tsx",
+      "import": "./src/components/shared/ButtonLink.tsx",
+      "require": "./src/components/shared/ButtonLink.tsx"
+    },
+    "./shared/AlertDialog": {
+      "types": "./src/components/shared/AlertDialog.tsx",
+      "import": "./src/components/shared/AlertDialog.tsx",
+      "require": "./src/components/shared/AlertDialog.tsx"
+    },
+    "./shared/CustomHeading": {
+      "types": "./src/components/shared/CustomHeading.tsx",
+      "import": "./src/components/shared/CustomHeading.tsx",
+      "require": "./src/components/shared/CustomHeading.tsx"
+    },
+    "./shared/Empty": {
+      "types": "./src/components/shared/common/Empty.tsx",
+      "import": "./src/components/shared/common/Empty.tsx",
+      "require": "./src/components/shared/common/Empty.tsx"
+    },
+    "./shared/FromToDateInput": {
+      "types": "./src/components/shared/from-to-date-input/index.ts",
+      "import": "./src/components/shared/from-to-date-input/index.ts",
+      "require": "./src/components/shared/from-to-date-input/index.ts"
+    },
+    "./shared/IconButtonLink": {
+      "types": "./src/components/shared/IconButtonLink.tsx",
+      "import": "./src/components/shared/IconButtonLink.tsx",
+      "require": "./src/components/shared/IconButtonLink.tsx"
+    },
+    "./shared/Image": {
+      "types": "./src/components/shared/Image.tsx",
+      "import": "./src/components/shared/Image.tsx",
+      "require": "./src/components/shared/Image.tsx"
+    },
+    "./shared/InpostGeowidget": {
+      "types": "./src/components/shared/form/field-controllers/InpostGeowidget.tsx",
+      "import": "./src/components/shared/form/field-controllers/InpostGeowidget.tsx",
+      "require": "./src/components/shared/form/field-controllers/InpostGeowidget.tsx"
+    },
+    "./shared/LinkOverlay": {
+      "types": "./src/components/shared/LinkOverlay.tsx",
+      "import": "./src/components/shared/LinkOverlay.tsx",
+      "require": "./src/components/shared/LinkOverlay.tsx"
+    },
+    "./shared/Link": {
+      "types": "./src/components/shared/Link.tsx",
+      "import": "./src/components/shared/Link.tsx",
+      "require": "./src/components/shared/Link.tsx"
+    },
+    "./shared/LanguageSwitcher": {
+      "types": "./src/components/shared/common/LanguageSwitcher.tsx",
+      "import": "./src/components/shared/common/LanguageSwitcher.tsx",
+      "require": "./src/components/shared/common/LanguageSwitcher.tsx"
+    },
+    "./shared/Logo": {
+      "types": "./src/components/shared/layout/Logo.tsx",
+      "import": "./src/components/shared/layout/Logo.tsx",
+      "require": "./src/components/shared/layout/Logo.tsx"
+    },
+    "./shared/MaterialSymbol": {
+      "types": "./src/components/shared/MaterialSymbol.tsx",
+      "import": "./src/components/shared/MaterialSymbol.tsx",
+      "require": "./src/components/shared/MaterialSymbol.tsx"
+    },
+    "./shared/OrderPreviewPanel": {
+      "types": "./src/components/shared/order/OrderPreviewPanel.tsx",
+      "import": "./src/components/shared/order/OrderPreviewPanel.tsx",
+      "require": "./src/components/shared/order/OrderPreviewPanel.tsx"
+    },
+    "./shared/PrintingMethodsGroup": {
+      "types": "./src/components/shared/order/PrintingMethodsGroup.tsx",
+      "import": "./src/components/shared/order/PrintingMethodsGroup.tsx",
+      "require": "./src/components/shared/order/PrintingMethodsGroup.tsx"
+    },
+    "./shared/RefreshButton": {
+      "types": "./src/components/shared/RefreshButton.tsx",
+      "import": "./src/components/shared/RefreshButton.tsx",
+      "require": "./src/components/shared/RefreshButton.tsx"
+    },
+    "./shared/SearchInput": {
+      "types": "./src/components/shared/SearchInput.tsx",
+      "import": "./src/components/shared/SearchInput.tsx",
+      "require": "./src/components/shared/SearchInput.tsx"
+    },
+    "./shared/ScrollToBottom": {
+      "types": "./src/components/shared/common/ScrollToBottom.tsx",
+      "import": "./src/components/shared/common/ScrollToBottom.tsx",
+      "require": "./src/components/shared/common/ScrollToBottom.tsx"
+    },
+    "./shared/Table": {
+      "types": "./src/components/shared/table/index.ts",
+      "import": "./src/components/shared/table/index.ts",
+      "require": "./src/components/shared/table/index.ts"
+    },
+    "./theme": {
+      "types": "./src/theme/public.ts",
+      "import": "./src/theme/public.ts",
+      "require": "./src/theme/public.ts"
+    },
+    "./ui/color-mode": {
+      "types": "./src/components/ui/color-mode.tsx",
+      "import": "./src/components/ui/color-mode.tsx",
+      "require": "./src/components/ui/color-mode.tsx"
+    },
+    "./ui/avatar": {
+      "types": "./src/components/ui/avatar.tsx",
+      "import": "./src/components/ui/avatar.tsx",
+      "require": "./src/components/ui/avatar.tsx"
+    },
+    "./ui/checkbox": {
+      "types": "./src/components/ui/checkbox.tsx",
+      "import": "./src/components/ui/checkbox.tsx",
+      "require": "./src/components/ui/checkbox.tsx"
+    },
+    "./ui/close-button": {
+      "types": "./src/components/ui/close-button.tsx",
+      "import": "./src/components/ui/close-button.tsx",
+      "require": "./src/components/ui/close-button.tsx"
+    },
+    "./ui/field": {
+      "types": "./src/components/ui/field.tsx",
+      "import": "./src/components/ui/field.tsx",
+      "require": "./src/components/ui/field.tsx"
+    },
+    "./ui/menu": {
+      "types": "./src/components/ui/menu.tsx",
+      "import": "./src/components/ui/menu.tsx",
+      "require": "./src/components/ui/menu.tsx"
+    },
+    "./ui/select": {
+      "types": "./src/components/ui/select.tsx",
+      "import": "./src/components/ui/select.tsx",
+      "require": "./src/components/ui/select.tsx"
+    },
+    "./ui/switch": {
+      "types": "./src/components/ui/switch.tsx",
+      "import": "./src/components/ui/switch.tsx",
+      "require": "./src/components/ui/switch.tsx"
+    },
+    "./ui/toaster": {
+      "types": "./src/components/ui/toaster.tsx",
+      "import": "./src/components/ui/toaster.tsx",
+      "require": "./src/components/ui/toaster.tsx"
+    },
+    "./ui/tooltip": {
+      "types": "./src/components/ui/tooltip.tsx",
+      "import": "./src/components/ui/tooltip.tsx",
+      "require": "./src/components/ui/tooltip.tsx"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "transpile": "tsc"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "catalog:",
+    "@emotion/react": "catalog:",
+    "@hookform/resolvers": "catalog:",
+    "@konfi/firebase": "workspace:*",
+    "@konfi/types": "workspace:*",
+    "@konfi/utils": "workspace:*",
+    "@mdx-js/mdx": "catalog:",
+    "@mdxeditor/editor": "^3.54.0",
+    "@next/third-parties": "catalog:",
+    "@tanstack/react-table": "catalog:",
+    "@tanstack/table-core": "catalog:",
+    "es-toolkit": "catalog:",
+    "firebase": "catalog:",
+    "i18next": "catalog:",
+    "lucide-react": "1.21.0",
+    "next": "catalog:",
+    "next-mdx-remote": "catalog:",
+    "react": "catalog:",
+    "react-data-grid": "7.0.0-beta.59",
+    "react-dom": "catalog:",
+    "react-hook-form": "catalog:",
+    "react-i18next": "catalog:",
+    "react-images-uploading": "catalog:",
+    "react-markdown": "^10.1.0",
+    "react-swipeable": "catalog:",
+    "rehype-raw": "^7.0.0",
+    "rehype-sanitize": "^6.0.0",
+    "rehype-stringify": "^10.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "streamdown": "catalog:",
+    "swr": "catalog:",
+    "use-stick-to-bottom": "^1.1.3",
+    "yup": "catalog:"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "catalog:",
+    "@testing-library/react": "catalog:",
+    "@testing-library/user-event": "catalog:",
+    "@types/google.maps": "^3.64.0",
+    "@types/mdx": "^2.0.13",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "typescript": "catalog:"
+  }
+}

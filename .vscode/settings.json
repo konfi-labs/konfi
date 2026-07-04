@@ -1,0 +1,27 @@
+{
+  "editor.wordWrap": "bounded",
+  "explorer.autoReveal": false,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Use conventional commit message format."
+    },
+    {
+      "text": "Mention important verification performed when it is evident from the conversation or staged changes."
+    }
+  ],
+  "javascript.preferences.quoteStyle": "double",
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "typescript.suggest.autoImports": true,
+  "typescript.suggest.paths": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "oxc.fmt.configPath": ".oxfmtrc.json",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.formatOnSave": true,
+  "oxc.path.oxfmt": "./node_modules/.bin/oxfmt",
+}

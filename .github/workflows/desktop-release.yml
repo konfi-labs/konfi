@@ -1,0 +1,135 @@
+name: Desktop Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  desktop:
+    name: Build ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows
+            os: windows-latest
+            builder_args: --win nsis
+            artifact_check: windows
+          - name: macOS
+            os: macos-14
+            builder_args: --mac dmg zip
+            artifact_check: macos
+          - name: Linux
+            os: ubuntu-24.04
+            builder_args: --linux AppImage
+            artifact_check: linux
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
+        with:
+          node-version: "24"
+          cache: "pnpm"
+          cache-dependency-path: apps/desktop/pnpm-lock.yaml
+
+      - name: Validate tag version
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+          const pkg = JSON.parse(
+            fs.readFileSync("apps/desktop/package.json", "utf8"),
+          );
+          const expected = `v${pkg.version}`;
+          const actual = process.env.GITHUB_REF_NAME;
+
+          if (actual !== expected) {
+            throw new Error(
+              `Desktop package version ${pkg.version} does not match tag ${actual}. Expected ${expected}.`,
+            );
+          }
+          NODE
+
+      - name: Validate release environment
+        shell: bash
+        env:
+          DESKTOP_UPDATER_REPO_OWNER: ${{ vars.DESKTOP_UPDATER_REPO_OWNER }}
+          DESKTOP_UPDATER_REPO_NAME: ${{ vars.DESKTOP_UPDATER_REPO_NAME }}
+          DESKTOP_UPDATER_GITHUB_TOKEN: ${{ secrets.DESKTOP_UPDATER_GITHUB_TOKEN }}
+          KONFI_DESKTOP_ADMIN_URL: ${{ vars.KONFI_DESKTOP_ADMIN_URL }}
+        run: |
+          : "${DESKTOP_UPDATER_REPO_OWNER:?DESKTOP_UPDATER_REPO_OWNER repository variable is required}"
+          : "${DESKTOP_UPDATER_REPO_NAME:?DESKTOP_UPDATER_REPO_NAME repository variable is required}"
+          : "${DESKTOP_UPDATER_GITHUB_TOKEN:?DESKTOP_UPDATER_GITHUB_TOKEN repository secret is required}"
+          : "${KONFI_DESKTOP_ADMIN_URL:?KONFI_DESKTOP_ADMIN_URL repository variable is required}"
+
+      - name: Install Linux build dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            xz-utils
+
+      - name: Install desktop dependencies
+        run: pnpm --dir apps/desktop install --frozen-lockfile
+
+      - name: Install Electron runtime
+        run: pnpm --dir apps/desktop run electron:install
+
+      - name: Stage pinned Ghostscript
+        run: pnpm --dir apps/desktop run ghostscript:stage -- --ci --force
+
+      - name: Verify Ghostscript bundle
+        run: pnpm --dir apps/desktop run ghostscript:verify
+
+      - name: Build desktop sources
+        run: pnpm --dir apps/desktop run build
+
+      - name: Package and publish desktop release
+        shell: bash
+        env:
+          DESKTOP_UPDATER_REPO_OWNER: ${{ vars.DESKTOP_UPDATER_REPO_OWNER }}
+          DESKTOP_UPDATER_REPO_NAME: ${{ vars.DESKTOP_UPDATER_REPO_NAME }}
+          DESKTOP_UPDATER_GITHUB_TOKEN: ${{ secrets.DESKTOP_UPDATER_GITHUB_TOKEN }}
+          KONFI_DESKTOP_ADMIN_URL: ${{ vars.KONFI_DESKTOP_ADMIN_URL }}
+        run: pnpm --dir apps/desktop run publish -- ${{ matrix.builder_args }}
+
+      - name: Verify release artifacts
+        shell: bash
+        env:
+          ARTIFACT_CHECK: ${{ matrix.artifact_check }}
+        run: |
+          case "$ARTIFACT_CHECK" in
+            windows)
+              compgen -G "apps/desktop/out/*.exe" > /dev/null
+              compgen -G "apps/desktop/out/*.exe.blockmap" > /dev/null
+              test -f "apps/desktop/out/latest.yml"
+              ;;
+            macos)
+              compgen -G "apps/desktop/out/*.dmg" > /dev/null
+              compgen -G "apps/desktop/out/*.zip" > /dev/null
+              test -f "apps/desktop/out/latest-mac.yml"
+              ;;
+            linux)
+              compgen -G "apps/desktop/out/*.AppImage" > /dev/null
+              test -f "apps/desktop/out/latest-linux.yml"
+              ;;
+            *)
+              echo "Unknown artifact check: $ARTIFACT_CHECK" >&2
+              exit 1
+              ;;
+          esac

@@ -1,0 +1,2654 @@
+openapi: 3.0.3
+info:
+  title: Fakturownia API (Unofficial OpenAPI)
+  version: "0.1.0"
+  description: |
+    Unofficial OpenAPI spec generated from https://github.com/fakturownia/API/blob/master/README.md.
+    Notes:
+    - Authentication is typically via api_token query param. README shows some bodies also carrying api_token; prefer query auth here.
+    - Many resources accept rich payloads. Schemas include key fields and allow additional properties to accommodate full payloads.
+servers:
+  - url: https://{prefix}.fakturownia.pl
+    description: Account-specific API host
+    variables:
+      prefix:
+        default: YOUR_DOMAIN
+        description: Subdomain/prefix of your account
+tags:
+  - name: Invoices
+  - name: Recurrings
+  - name: Clients
+  - name: Products
+  - name: Price Lists
+  - name: Warehouse Documents
+  - name: Warehouse Actions
+  - name: Payments
+  - name: Categories
+  - name: Warehouses
+  - name: Departments
+  - name: Issuers
+  - name: Printers
+  - name: Account
+  - name: Webhooks
+  - name: Auth
+security:
+  - ApiTokenQuery: []
+components:
+  securitySchemes:
+    ApiTokenQuery:
+      type: apiKey
+      in: query
+      name: api_token
+  parameters:
+    Query:
+      name: query
+      in: query
+      schema: { type: string }
+      description: Search term to filter results by name, code, or other fields
+    Page:
+      name: page
+      in: query
+      schema: { type: integer, minimum: 1, default: 1 }
+      description: Page number for pagination
+    PerPage:
+      name: per_page
+      in: query
+      schema: { type: integer, minimum: 1, maximum: 100 }
+      description: Items per page (max 100)
+    CategoryId:
+      name: category_id
+      in: query
+      schema: { type: integer }
+      description: Filter products by category ID
+    Period:
+      name: period
+      in: query
+      description: Time period filter
+      schema:
+        type: string
+        enum:
+          [
+            last_12_months,
+            this_month,
+            last_30_days,
+            last_month,
+            this_year,
+            last_year,
+            all,
+            more,
+          ]
+    DateFrom:
+      name: date_from
+      in: query
+      schema: { type: string, format: date }
+      description: Required when period=more
+    DateTo:
+      name: date_to
+      in: query
+      schema: { type: string, format: date }
+      description: Required when period=more
+    IncludePositions:
+      name: include_positions
+      in: query
+      schema: { type: boolean }
+      description: Include positions (line items) in list responses
+    Income:
+      name: income
+      in: query
+      schema:
+        type: string
+        enum: ["1", "0", "yes", "no"]
+      description: Set to "0" or "no" to fetch cost (expense) invoices
+    ClientId:
+      name: client_id
+      in: query
+      schema: { type: integer }
+      description: Filter by client id
+    Number:
+      name: number
+      in: query
+      schema: { type: string }
+      description: Filter by exact invoice number
+    Kind:
+      name: kind
+      in: query
+      schema: { $ref: "#/components/schemas/InvoiceKind" }
+      description: Filter by single invoice/document kind
+    Kinds:
+      name: kinds[]
+      in: query
+      style: form
+      explode: true
+      schema:
+        type: array
+        items: { $ref: "#/components/schemas/InvoiceKind" }
+      description: Filter by multiple kinds
+    SearchDateType:
+      name: search_date_type
+      in: query
+      schema:
+        type: string
+        enum: [issue_date, paid_date, transaction_date]
+      description: Select date field for filtering
+    Order:
+      name: order
+      in: query
+      schema:
+        type: string
+        description: |
+          Field to sort by, optionally add ".desc" for descending.
+          Allowed: number, updated_at, price_net, price_gross, price_tax, issue_date, payment_to, paid_date, transaction_date, buyer_name, buyer_tax_no, seller_name, oid
+    Status:
+      name: status
+      in: query
+      schema:
+        type: string
+        enum: [issued, sent, paid, partial, rejected, completed]
+      description: Filter by invoice status (undocumented but may work as app parameter)
+    InvoiceIdsCsv:
+      name: invoice_ids
+      in: query
+      schema: { type: string }
+      description: Comma-separated invoice IDs, e.g., 123,456,789
+    WarehouseId:
+      name: warehouse_id
+      in: query
+      schema: { type: integer }
+      description: Warehouse filter
+  schemas:
+    GTUCode:
+      type: string
+      description: Kody GTU (JPK_V7)
+      enum:
+        [
+          GTU_01,
+          GTU_02,
+          GTU_03,
+          GTU_04,
+          GTU_05,
+          GTU_06,
+          GTU_07,
+          GTU_08,
+          GTU_09,
+          GTU_10,
+          GTU_11,
+          GTU_12,
+          GTU_13,
+        ]
+    ProcedureDesignation:
+      type: string
+      description: Oznaczenia procedur (JPK_V7)
+      enum:
+        [
+          SW,
+          EE,
+          TP,
+          TT_WNT,
+          TT_D,
+          MR_T,
+          MR_UZ,
+          I_42,
+          I_63,
+          B_SPV,
+          B_SPV_DOSTAWA,
+          B_MPV_PROWIZJA,
+        ]
+    InvoiceKind:
+      type: string
+      enum:
+        [
+          vat,
+          proforma,
+          bill,
+          receipt,
+          advance,
+          final,
+          correction,
+          invoice_other,
+          vat_margin,
+          kp,
+          kw,
+          estimate,
+          vat_mp,
+          vat_rr,
+          correction_note,
+          accounting_note,
+          client_order,
+          dw,
+          wnt,
+          wdt,
+          import_service,
+          import_service_eu,
+          import_products,
+          export_products,
+        ]
+    InvoicePosition:
+      type: object
+      additionalProperties: true
+      properties:
+        product_id: { type: string }
+        name: { type: string }
+        code: { type: string }
+        description: { type: string }
+        # Fakturownia's JSON API returns these numeric fields as strings
+        # (e.g. "500.0"). Declaring them as a number|string union makes the
+        # kiota client read both representations instead of silently dropping
+        # the string values — see the same handling on `tax` below.
+        quantity:
+          oneOf: [{ type: number }, { type: string }]
+        quantity_unit: { type: string }
+        tax:
+          oneOf: [{ type: number }, { type: string, enum: [np, zw, disabled] }]
+          description: VAT rate or special codes np, zw
+        price_net:
+          oneOf: [{ type: number }, { type: string }]
+        price_gross:
+          oneOf: [{ type: number }, { type: string }]
+        total_price_net:
+          oneOf: [{ type: number }, { type: string }]
+        total_price_gross:
+          oneOf: [{ type: number }, { type: string }]
+        discount_percent: { type: number }
+        discount: { type: number }
+        gtu_code:
+          $ref: "#/components/schemas/GTUCode"
+        lump_sum_tax: { type: number, description: "Ryczałt (%)" }
+    RecipientOrIssuer:
+      type: object
+      additionalProperties: true
+      properties:
+        id: { type: integer, readOnly: true }
+        buyer_id: { type: string }
+        name: { type: string }
+        first_name: { type: string }
+        last_name: { type: string }
+        tax_no: { type: string }
+        company: { type: boolean }
+        country: { type: string, description: "ISO 3166-1 alpha-2" }
+        city: { type: string }
+        post_code: { type: string }
+        street: { type: string }
+        phone: { type: string }
+        email: { type: string }
+        note: { type: string }
+        role: { type: string }
+        participation: { type: number }
+    Invoice:
+      type: object
+      description: Invoice or document
+      additionalProperties: true
+      properties:
+        app: { type: string }
+        price_net: { type: string }
+        price_gross: { type: string }
+        seller_email: { type: string, nullable: true }
+        seller_phone: { type: string, nullable: true }
+        seller_tax: { type: string, nullable: true }
+        seller_www: { type: string, nullable: true }
+        seller_bank: { type: string, nullable: true }
+        seller_bank_account: { type: string, nullable: true }
+        created_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+        token: { type: string }
+        buyer_www: { type: string, nullable: true }
+        buyer_fax: { type: string, nullable: true }
+        pattern: { type: string }
+        pattern_nr: { type: string, nullable: true }
+        pattern_nr_m: { type: string, nullable: true }
+        pattern_nr_d: { type: string, nullable: true }
+        seller_bank_account_id: { type: integer, nullable: true }
+        price_tax: { type: string }
+        correction: { type: boolean, nullable: true }
+        buyer_note: { type: string }
+        additional_info_desc: { type: string }
+        additional_info: { type: string }
+        product_cache: { type: string }
+        from_invoice_id: { type: integer, nullable: true }
+        discount: { type: string }
+        sent_time: { type: string, format: date-time }
+        print_time: { type: string, format: date-time }
+        recurring_id: { type: integer, nullable: true }
+        tax2_visible: { type: boolean, nullable: true }
+        paid_date: { type: string, format: date-time, nullable: true }
+        product_id: { type: integer }
+        issue_year: { type: integer }
+        internal_note: { type: string, nullable: true }
+        invoice_id: { type: integer, nullable: true }
+        invoice_template_id: { type: integer }
+        seller_tax_no_kind: { type: string, nullable: true }
+        sell_date_kind: { type: string, nullable: true }
+        discount_kind: { type: string }
+        from_api: { type: boolean }
+        category_id: { type: integer, nullable: true }
+        warehouse_document_id: { type: integer, nullable: true }
+        exchange_rate: { type: string }
+        use_delivery_address: { type: boolean }
+        delivery_address: { type: string, nullable: true }
+        buyer_person: { type: string, nullable: true }
+        buyer_bank_account: { type: string, nullable: true }
+        buyer_bank: { type: string, nullable: true }
+        buyer_mass_payment_code: { type: string, nullable: true }
+        show_attachments: { type: boolean }
+        has_attachments: { type: boolean }
+        exchange_date: { type: string, format: date-time, nullable: true }
+        attachments_count: { type: integer }
+        delivery_date: { type: string, format: date }
+        fiscal_status: { type: string, nullable: true }
+        use_moss: { type: boolean }
+        email_status: { type: string }
+        exclude_from_stock_level: { type: boolean }
+        exclude_from_accounting: { type: boolean }
+        exchange_rate_den: { type: string }
+        exchange_currency_rate_den: { type: string }
+        accounting_scheme: { type: string, nullable: true }
+        exchange_difference: { type: string }
+        not_cost: { type: boolean }
+        issuer: { type: string, nullable: true }
+        use_issuer: { type: boolean }
+        cancelled: { type: boolean }
+        test: { type: boolean }
+        discount_net: { type: string }
+        approval_status: { type: string, nullable: true }
+        accounting_other_tax_date:
+          { type: string, format: date-time, nullable: true }
+        accounting_status: { type: string, nullable: true }
+        normalized_number: { type: string, nullable: true }
+        na_tax_kind: { type: string, nullable: true }
+        issued_to_receipt: { type: boolean }
+        gov_id: { type: string, nullable: true }
+        gov_kind: { type: string, nullable: true }
+        gov_status: { type: string, nullable: true }
+        gov_send_date: { type: string, format: date-time, nullable: true }
+        gov_sell_date: { type: string, format: date-time, nullable: true }
+        gov_error_messages:
+          type: array
+          nullable: true
+          items: { type: string }
+        gov_verification_link: { type: string, nullable: true }
+        gov_link: { type: string, nullable: true }
+        gov_corrected_invoice_number: { type: string, nullable: true }
+        sales_code: { type: string, nullable: true }
+        additional_invoice_field: { type: string, nullable: true }
+        products_margin: { type: string, nullable: true }
+        payment_url: { type: string }
+        view_url: { type: string }
+        buyer_mobile_phone: { type: string, nullable: true }
+        kind_text: { type: string }
+        invoice_for_receipt_id: { type: integer, nullable: true }
+        receipt_for_invoice_id: { type: integer, nullable: true }
+        recipient_company: { type: string, nullable: true }
+        recipient_first_name: { type: string, nullable: true }
+        recipient_last_name: { type: string, nullable: true }
+        get_tax_name: { type: string }
+        get_tax2_name: { type: string }
+        tax_name_type: { type: string }
+        id: { type: integer, readOnly: true }
+        invoice_ids:
+          type: array
+          items: { type: integer }
+          description: Array of related invoice IDs (e.g., for corrections or copying)
+        copy_invoice_from: { type: integer }
+        number: { type: string, nullable: true }
+        kind: { $ref: "#/components/schemas/InvoiceKind" }
+        income:
+          type: string
+          enum: ["1", "0"]
+        issue_date: { type: string, format: date }
+        paid: { type: string }
+        place: { type: string }
+        sell_date: { type: string }
+        transaction_date: { type: string }
+        payment_to: { type: string }
+        payment_to_kind:
+          oneOf: [{ type: string }, { type: string, enum: [other_date, off] }]
+        payment_type: { type: string }
+        status:
+          {
+            type: string,
+            enum: [issued, sent, paid, partial, rejected, completed],
+          }
+        currency: { type: string }
+        lang: { type: string }
+        department_id: { type: integer }
+        client_id: { type: string }
+        buyer_company:
+          type: string
+          enum: ["1", "0"]
+        buyer_name: { type: string }
+        buyer_tax_no: { type: string }
+        buyer_tax_no_kind: { type: string }
+        buyer_street: { type: string }
+        buyer_post_code: { type: string }
+        buyer_city: { type: string }
+        buyer_country: { type: string }
+        buyer_phone: { type: string }
+        buyer_email: { type: string }
+        buyer_first_name: { type: string }
+        buyer_last_name: { type: string }
+        seller_name: { type: string }
+        seller_tax_no: { type: string }
+        seller_street: { type: string }
+        seller_post_code: { type: string }
+        seller_city: { type: string }
+        seller_country: { type: string }
+        seller_person: { type: string }
+        user_id: { type: integer }
+        use_invoice_issuer:
+          type: string
+          enum: ["1", "0"]
+        invoice_issuer: { type: string }
+        recipient_id: { type: string }
+        recipient_name: { type: string }
+        recipient_tax_no: { type: string }
+        recipient_street: { type: string }
+        recipient_post_code: { type: string }
+        recipient_city: { type: string }
+        recipient_country: { type: string }
+        recipient_email: { type: string }
+        recipient_phone: { type: string }
+        recipient_note: { type: string }
+        show_discount:
+          type: string
+          enum: [1, 0]
+          description: Enable and show discount field on the invoice
+        accounting_kind:
+          type: string
+          description: Rodzaj wydatku dla faktur kosztowych
+          enum:
+            [
+              purchases,
+              expenses,
+              media,
+              salary,
+              incident,
+              fuel0,
+              fuel_expl75,
+              fuel_expl100,
+              fixed_assets,
+              fixed_assets50,
+              no_vat_deduction,
+            ]
+        description: { type: string }
+        description_footer: { type: string }
+        description_long: { type: string }
+        oid: { type: string }
+        oid_unique: { type: string, enum: [yes, no] }
+        warehouse_id: { type: string }
+        use_oss:
+          type: string
+          enum: ["1", "0"]
+        identify_oss:
+          type: string
+          enum: ["1", "0"]
+        split_payment:
+          type: string
+          enum: ["1", "0"]
+        gtu_codes:
+          type: array
+          items:
+            $ref: "#/components/schemas/GTUCode"
+        procedure_designations:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProcedureDesignation"
+        reverse_charge: { type: boolean }
+        corrected_content_before: { type: string }
+        corrected_content_after: { type: string }
+        exchange_currency:
+          { type: string, description: "Waluta przeliczenia, np. PLN" }
+        exchange_kind:
+          type: string
+          description: Źródło kursu waluty
+          enum: [ecb, nbp, cbr, nbu, nbg, own]
+        exchange_currency_rate:
+          { type: number, description: "Własny kurs (gdy exchange_kind=own)" }
+        exchange_note: { type: string }
+        skonto_active:
+          type: string
+          enum: ["1", "0"]
+        skonto_discount_date: { type: string, format: date }
+        skonto_discount_value: { type: string }
+        accounting_vat_tax_date: { type: string, format: date }
+        accounting_income_tax_date: { type: string, format: date }
+        recipients:
+          type: array
+          items: { $ref: "#/components/schemas/RecipientOrIssuer" }
+        issuers:
+          type: array
+          items: { $ref: "#/components/schemas/RecipientOrIssuer" }
+        positions:
+          type: array
+          items: { $ref: "#/components/schemas/InvoicePosition" }
+    Client:
+      type: object
+      additionalProperties: true
+      properties:
+        id: { type: integer, readOnly: true }
+        name: { type: string }
+        shortcut: { type: string }
+        tax_no_kind: { type: string }
+        tax_no: { type: string }
+        register_number: { type: string }
+        post_code: { type: string }
+        city: { type: string }
+        street: { type: string }
+        country: { type: string }
+        first_name: { type: string }
+        last_name: { type: string }
+        email: { type: string }
+        phone: { type: string }
+        mobile_phone: { type: string }
+        www: { type: string }
+        note: { type: string }
+        company:
+          type: string
+          enum: ["1", "0"]
+        discount: { type: string }
+        default_tax: { type: string }
+        price_list_id: { type: integer }
+        default_payment_type: { type: string }
+        payment_to_kind:
+          oneOf: [{ type: string }, { type: string, enum: [other_date, off] }]
+        disable_auto_reminders:
+          type: string
+          enum: ["1", "0"]
+        external_id: { type: integer }
+        tag_list:
+          type: array
+          items: { type: string }
+    FakturowniaGusLookupRequest:
+      type: object
+      additionalProperties: false
+      required: [type, numer]
+      properties:
+        type:
+          type: string
+          enum: [nip, regon, krs]
+        numer:
+          type: string
+          description: Company identifier to look up in GUS.
+        code:
+          type: string
+          nullable: true
+        mode:
+          type: string
+          nullable: true
+    FakturowniaGusLookupResult:
+      type: object
+      additionalProperties: true
+      properties:
+        regon: { type: string }
+        nip: { type: string }
+        krs: { type: string }
+        name: { type: string }
+        street: { type: string }
+        city: { type: string }
+        post_code: { type: string }
+        fax: { type: string }
+        phone: { type: string }
+        email: { type: string }
+        www: { type: string }
+    FakturowniaGusLookupResponse:
+      type: object
+      additionalProperties: true
+      properties:
+        results:
+          $ref: "#/components/schemas/FakturowniaGusLookupResult"
+        errors:
+          type: array
+          items: { type: string }
+        notices:
+          type: array
+          items: { type: string }
+    Product:
+      type: object
+      additionalProperties: true
+      properties:
+        id: { type: integer, readOnly: true }
+        name: { type: string }
+        code: { type: string }
+        ean_code: { type: string }
+        description: { type: string }
+        price_net: { type: string }
+        price_gross: { type: string }
+        currency: { type: string }
+        tax:
+          oneOf: [{ type: string }, { type: string, enum: [np, zw, disabled] }]
+        category_id: { type: string }
+        service:
+          type: string
+          enum: ["1", "0"]
+        electronic_service:
+          type: string
+          enum: ["1", "0"]
+        limited:
+          type: string
+          enum: ["1", "0"]
+        stock_level: { type: string }
+        package:
+          type: string
+          enum: ["1", "0"]
+        quantity_unit: { type: string }
+        gtu_codes:
+          type: array
+          items: { type: string }
+        use_moss:
+          type: string
+          enum: ["1", "0"]
+    PriceListPosition:
+      type: object
+      additionalProperties: true
+      properties:
+        id: { type: integer, readOnly: true }
+        priceable_id: { type: integer }
+        priceable_name: { type: string }
+        priceable_type: { type: string, enum: [Product] }
+        use_percentage:
+          type: string
+          enum: ["1", "0"]
+        percentage: { type: string, nullable: true }
+        price_net: { type: string }
+        price_gross: { type: string }
+        use_tax:
+          type: string
+          enum: ["1", "0"]
+        tax:
+          oneOf: [{ type: string }, { type: string, enum: [np, zw, disabled] }]
+    PriceList:
+      type: object
+      additionalProperties: true
+      properties:
+        id: { type: integer, readOnly: true }
+        name: { type: string }
+        description: { type: string }
+        currency: { type: string }
+        deleted: { type: boolean }
+        account_id: { type: string }
+        created_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+        price_list_positions:
+          type: array
+          description: Array of price list positions (used in GET responses)
+          items:
+            $ref: "#/components/schemas/PriceListPosition"
+        price_list_positions_attributes:
+          type: object
+          description: Object map of price list positions (used in POST/PUT requests)
+          additionalProperties:
+            $ref: "#/components/schemas/PriceListPosition"
+    WarehouseAction:
+      type: object
+      additionalProperties: true
+      properties:
+        product_id: { type: string }
+        product_name: { type: string }
+        purchase_tax: { type: string }
+        purchase_price_net: { type: string }
+        tax:
+          oneOf: [{ type: string }, { type: string, enum: [np, zw, disabled] }]
+        price_net: { type: string }
+        quantity: { type: string }
+        warehouse2_id: { type: string }
+    WarehouseDocument:
+      type: object
+      additionalProperties: true
+      properties:
+        id: { type: integer, readOnly: true }
+        kind: { type: string, enum: [mm, pz, wz] }
+        number: { type: string, nullable: true }
+        warehouse_id: { type: string }
+        issue_date: { type: string, format: date }
+        department_id: { type: integer }
+        department_name: { type: string }
+        client_id: { type: string }
+        client_name: { type: string }
+        warehouse_actions:
+          type: array
+          items: { $ref: "#/components/schemas/WarehouseAction" }
+    BankingPayment:
+      type: object
+      additionalProperties: true
+      properties:
+        id: { type: integer, readOnly: true }
+        description: { type: string, nullable: true }
+        comment: { type: string, nullable: true }
+        invoice_comment: { type: string, nullable: true }
+        provider: { type: string }
+        provider_title: { type: string }
+        provider_status: { type: string }
+        paid: { type: boolean }
+        paid_date: { type: string, format: date, nullable: true }
+        price: { type: string }
+        currency: { type: string }
+        generate_invoice: { type: boolean }
+        invoice_name: { type: string, nullable: true }
+        invoice_tax_no: { type: string, nullable: true }
+        post_code: { type: string, nullable: true }
+        city: { type: string, nullable: true }
+        street: { type: string, nullable: true }
+        country: { type: string, nullable: true }
+        email: { type: string }
+        phone: { type: string, nullable: true }
+        first_name: { type: string, nullable: true }
+        last_name: { type: string, nullable: true }
+        invoice_id: { type: string, nullable: true }
+        client_id: { type: string, nullable: true }
+        department_id: { type: integer, nullable: true }
+        product_id: { type: string, nullable: true }
+        user_id: { type: string, nullable: true }
+        token: { type: string }
+        name: { type: string }
+        oid: { type: string }
+        created_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+        invoice_country: { type: string, nullable: true }
+        invoice_street: { type: string, nullable: true }
+        invoice_post_code: { type: string, nullable: true }
+        referrer: { type: string, nullable: true }
+        quantity: { type: string }
+        promocode: { type: string, nullable: true }
+        deleted: { type: boolean }
+        field1: { type: string, nullable: true }
+        field2: { type: string, nullable: true }
+        field3: { type: string, nullable: true }
+        field4: { type: string, nullable: true }
+        field5: { type: string, nullable: true }
+        period: { type: string, nullable: true }
+        processed: { type: boolean }
+        app_action_id: { type: string, nullable: true }
+        kind: { type: string, example: api }
+        auto_link_error: { type: string, nullable: true }
+        transfer_sender: { type: string, nullable: true }
+        transfer_recipient: { type: string, nullable: true }
+        import_details: { type: string, nullable: true }
+        import_id: { type: string, nullable: true }
+        note: { type: string, nullable: true }
+        closed: { type: boolean }
+        creator_id: { type: integer }
+        updater_id: { type: integer, nullable: true }
+        match_status: { type: string, nullable: true }
+        code: { type: string, nullable: true }
+        payment_id: { type: integer, nullable: true }
+        import_md5: { type: string, nullable: true }
+        account_number: { type: string, nullable: true }
+        additional_discount: { type: string, nullable: true }
+        transaction_id: { type: string, nullable: true }
+        subscription_id: { type: string, nullable: true }
+        lang: { type: string, nullable: true }
+        partner: { type: string, nullable: true }
+        income: { type: boolean }
+        transaction_kind: { type: string, nullable: true }
+        commission: { type: string, nullable: true }
+        use_moss: { type: boolean }
+        moss_notice: { type: string, nullable: true }
+        tax: { type: string, nullable: true }
+        attachments_count: { type: integer }
+        test: { type: boolean }
+        recurring: { type: boolean }
+        client_bank_account_number: { type: string, nullable: true }
+        bank_account_id: { type: integer, nullable: true }
+        additional_fields:
+          type: object
+          additionalProperties: true
+        overpaid: { type: string, nullable: true }
+        external_payment_id: { type: string, nullable: true }
+        cheque_number: { type: string, nullable: true }
+        card_number: { type: string, nullable: true }
+        bank_name: { type: string, nullable: true }
+        bank_account_balance: { type: string, nullable: true }
+        import_kind: { type: string, nullable: true }
+        import_ref: { type: string, nullable: true }
+        invoice_company: { type: boolean, nullable: true }
+        no_duplicate_md5: { type: boolean }
+        additional_discount_amount: { type: string, nullable: true }
+        gocardless_payment_id: { type: string, nullable: true }
+        payment_callback: { type: string, nullable: true }
+    Category:
+      type: object
+      additionalProperties: true
+      properties:
+        id: { type: integer, readOnly: true }
+        name: { type: string }
+        description: { type: string, nullable: true }
+    Warehouse:
+      type: object
+      additionalProperties: true
+      properties:
+        id: { type: integer, readOnly: true }
+        name: { type: string }
+        kind: { type: string, nullable: true }
+        description: { type: string, nullable: true }
+    Department:
+      type: object
+      additionalProperties: true
+      properties:
+        id: { type: integer, readOnly: true }
+        name: { type: string }
+        shortcut: { type: string }
+        tax_no: { type: string }
+        bank: { type: string }
+        bank_account: { type: string }
+        bank_account_currency: { type: string }
+        bank_account_name: { type: string, nullable: true }
+        bank_iban: { type: string, nullable: true }
+        bank_swift: { type: string }
+        calculate_number_by_pattern_only: { type: boolean }
+        capital: { type: string, nullable: true }
+        use_mass_payment: { type: boolean }
+        capital_city: { type: string, nullable: true }
+        capital_currency: { type: string, nullable: true }
+        capital_kind: { type: string, nullable: true }
+        cash_init_state: { type: string, nullable: true }
+        city: { type: string, nullable: true }
+        company: { type: boolean }
+        correspondence_address: { type: string, nullable: true }
+        country: { type: string }
+        created_at: { type: string, format: date-time }
+        default_lump_sum_tax: { type: string }
+        default_tax: { type: string }
+        default_tax2: { type: string, nullable: true }
+        deleted: { type: boolean }
+        email: { type: string }
+        email_cc: { type: string }
+        email_from: { type: string }
+        email_pdf: { type: boolean }
+        email_subject: { type: string }
+        email_template: { type: string, nullable: true }
+        email_template_kind: { type: string }
+        fax: { type: string }
+        footer_content: { type: string, nullable: true }
+        footer_kind: { type: string }
+        invoice_description: { type: string }
+        invoice_lang: { type: string, nullable: true }
+        invoice_pattern: { type: string }
+        invoice_pattern_accounting_note: { type: string }
+        invoice_pattern_advance: { type: string }
+        invoice_pattern_bill: { type: string }
+        invoice_pattern_correction: { type: string }
+        invoice_pattern_correction_note: { type: string }
+        invoice_pattern_final: { type: string }
+        invoice_pattern_proforma: { type: string }
+        invoice_pattern_receipt: { type: string }
+        invoice_template_id: { type: string, nullable: true }
+        kind: { type: string }
+        logo_content_type: { type: string, nullable: true }
+        logo_file_name: { type: string, nullable: true }
+        logo_file_size: { type: integer, nullable: true }
+        logo_updated_at: { type: string, format: date-time, nullable: true }
+        lump_sum_taxed: { type: boolean }
+        main: { type: string }
+        mass_payment_pattern: { type: string, nullable: true }
+        mobile_phone: { type: string, nullable: true }
+        overdue_email_pdf: { type: boolean }
+        overdue_email_subject: { type: string }
+        overdue_email_template: { type: string, nullable: true }
+        overdue_email_template_kind: { type: string }
+        own_email_settings: { type: boolean }
+        own_footer: { type: boolean }
+        own_overdue_email_settings: { type: boolean }
+        pattern_client_order: { type: string }
+        pattern_estimate: { type: string }
+        pattern_invoice_other: { type: string }
+        pattern_kp: { type: string }
+        pattern_kw: { type: string }
+        pattern_mm: { type: string }
+        pattern_pz: { type: string }
+        pattern_vat_margin: { type: string }
+        pattern_vat_mp: { type: string }
+        pattern_vat_rr: { type: string }
+        pattern_wz: { type: string }
+        pattern_zt: { type: string }
+        person: { type: string }
+        phone: { type: string }
+        post_code: { type: string }
+        province: { type: string, nullable: true }
+        register1_number1: { type: string, nullable: true }
+        register1_number2: { type: string, nullable: true }
+        register1_number3: { type: string, nullable: true }
+        register1_status: { type: string, nullable: true }
+        register2_number1: { type: string, nullable: true }
+        register2_number2: { type: string, nullable: true }
+        register2_number3: { type: string, nullable: true }
+        register2_status: { type: string, nullable: true }
+        register3_number1: { type: string, nullable: true }
+        register3_number2: { type: string, nullable: true }
+        register3_number3: { type: string, nullable: true }
+        register3_status: { type: string, nullable: true }
+        register4_number1: { type: string, nullable: true }
+        register4_number2: { type: string, nullable: true }
+        register4_number3: { type: string, nullable: true }
+        register4_status: { type: string, nullable: true }
+        register5_number1: { type: string, nullable: true }
+        register5_number2: { type: string, nullable: true }
+        register5_number3: { type: string, nullable: true }
+        register5_status: { type: string, nullable: true }
+        register_number: { type: string, nullable: true }
+        restrict_warehouses: { type: boolean }
+        sec_stamp_content_type: { type: string, nullable: true }
+        sec_stamp_file_name: { type: string, nullable: true }
+        sec_stamp_file_size: { type: integer, nullable: true }
+        sec_stamp_updated_at:
+          { type: string, format: date-time, nullable: true }
+        stamp_content_type: { type: string, nullable: true }
+        stamp_file_name: { type: string, nullable: true }
+        stamp_file_size: { type: integer, nullable: true }
+        stamp_updated_at: { type: string, format: date-time, nullable: true }
+        street: { type: string, nullable: true }
+        tax_kind: { type: string, nullable: true }
+        tax_no_check: { type: string }
+        tax_no_kind: { type: string, nullable: true }
+        updated_at: { type: string, format: date-time }
+        use_correspondence_address: { type: boolean }
+        use_invoice_issuer: { type: boolean }
+        use_pattern: { type: boolean }
+        warehouse_id: { type: string, nullable: true }
+        www: { type: string, nullable: true }
+        additional_fields:
+          type: object
+          additionalProperties: true
+          properties:
+            bdo_no: { type: string }
+            default_exempt_tax_kind: { type: string }
+            formal_letter_print_text_kind: { type: string }
+            invoice_pattern_dw: { type: string }
+            invoice_pattern_wdt: { type: string }
+            main_fiscal_printer: { type: string }
+            overdue_print_text_kind: { type: string }
+            pattern_export_products: { type: string }
+            pattern_month_fiscal_report: { type: string }
+            pattern_price_offer: { type: string }
+            show_issuers_on_invoice: { type: string, enum: ["1", "0"] }
+            use_postal_address: { type: string, enum: ["1", "0"] }
+            warehouse_document_email_subject: { type: string }
+            warehouse_document_email_template: { type: string }
+            warehouse_document_email_template_kind: { type: string }
+            wd_pattern_pw: { type: string }
+            wd_pattern_pzk: { type: string }
+            wd_pattern_rw: { type: string }
+            wd_pattern_wzk: { type: string }
+    Printer:
+      type: object
+      additionalProperties: true
+      properties:
+        id: { type: integer, readOnly: true }
+        name: { type: string }
+        description: { type: string, nullable: true }
+        enabled: { type: boolean }
+    Issuer:
+      type: object
+      additionalProperties: true
+      properties:
+        id: { type: integer, readOnly: true }
+        name: { type: string }
+        tax_no: { type: string }
+        city: { type: string }
+        company: { type: boolean }
+        country: { type: string }
+        created_at: { type: string, format: date-time }
+        deleted: { type: boolean }
+        email: { type: string }
+        first_name: { type: string }
+        last_name: { type: string }
+        note: { type: string }
+        participation: { type: number, nullable: true }
+        phone: { type: string }
+        post_code: { type: string }
+        role: { type: string, nullable: true }
+        street: { type: string }
+        updated_at: { type: string, format: date-time }
+    Webhook:
+      type: object
+      additionalProperties: true
+      properties:
+        id: { type: integer, readOnly: true }
+        url: { type: string }
+        event: { type: string }
+    ErrorResponse:
+      type: object
+      description: Base error response
+      required: [statusCode, code, message]
+      properties:
+        statusCode:
+          type: integer
+          description: HTTP status code
+        code:
+          type: string
+          description: Error code identifier
+        message:
+          type: string
+          description: Human-readable error message
+      x-ms-error-response: true
+    ValidationErrorResponse:
+      type: object
+      description: Validation error with field-level details
+      required: [statusCode, code]
+      properties:
+        statusCode:
+          type: integer
+          example: 422
+          description: HTTP status code
+        code:
+          type: string
+          example: validation_error
+          description: Error code identifier
+        message:
+          type: object
+          additionalProperties: true
+          description: Field validation errors. Keys are field names, values are error messages (arrays of strings or objects)
+      x-ms-error-response: true
+    UnauthorizedErrorResponse:
+      type: object
+      description: Authentication required or invalid credentials
+      required: [statusCode, code, message]
+      properties:
+        statusCode:
+          type: integer
+          example: 401
+          description: HTTP status code
+        code:
+          type: string
+          example: unauthorized
+          description: Error code identifier
+        message:
+          type: string
+          example: Authentication required
+          description: Human-readable error message
+      x-ms-error-response: true
+    NotFoundErrorResponse:
+      type: object
+      description: Resource not found
+      required: [statusCode, code, message]
+      properties:
+        statusCode:
+          type: integer
+          example: 404
+          description: HTTP status code
+        code:
+          type: string
+          example: not_found
+          description: Error code identifier
+        message:
+          type: string
+          example: Resource not found
+          description: Human-readable error message
+      x-ms-error-response: true
+    InternalServerErrorResponse:
+      type: object
+      description: Internal server error
+      required: [statusCode, code, message]
+      properties:
+        statusCode:
+          type: integer
+          example: 500
+          description: HTTP status code
+        code:
+          type: string
+          example: internal_error
+          description: Error code identifier
+        message:
+          type: string
+          example: An unexpected error occurred
+          description: Human-readable error message
+      x-ms-error-response: true
+    LoginRequest:
+      type: object
+      required: [login, password]
+      properties:
+        login: { type: string }
+        password: { type: string }
+        integration_token: { type: string }
+    LoginResponse:
+      type: object
+      properties:
+        login: { type: string }
+        email: { type: string }
+        prefix: { type: string }
+        url: { type: string }
+        first_name: { type: string }
+        last_name: { type: string }
+        api_token:
+          {
+            type: string,
+            description: "Returned only if user has generated API token",
+          }
+  responses:
+    ValidationError:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ValidationErrorResponse"
+    Unauthorized:
+      description: Authentication required or invalid credentials
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/UnauthorizedErrorResponse"
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundErrorResponse"
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/InternalServerErrorResponse"
+paths:
+  /invoices.json:
+    get:
+      tags: [Invoices]
+      summary: List invoices
+      parameters:
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/Period"
+        - $ref: "#/components/parameters/DateFrom"
+        - $ref: "#/components/parameters/DateTo"
+        - $ref: "#/components/parameters/IncludePositions"
+        - $ref: "#/components/parameters/Income"
+        - $ref: "#/components/parameters/ClientId"
+        - $ref: "#/components/parameters/InvoiceIdsCsv"
+        - $ref: "#/components/parameters/Number"
+        - $ref: "#/components/parameters/Kind"
+        - $ref: "#/components/parameters/Kinds"
+        - $ref: "#/components/parameters/SearchDateType"
+        - $ref: "#/components/parameters/Order"
+        - $ref: "#/components/parameters/Status"
+      responses:
+        "200":
+          description: List of invoices
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Invoice" }
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+    post:
+      tags: [Invoices]
+      summary: Create invoice
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                invoice:
+                  $ref: "#/components/schemas/Invoice"
+                fill_default_descriptions:
+                  type: boolean
+                  description: Add account default notes
+                identify_oss:
+                  type: string
+                  enum: ["1", "0"]
+                use_prices_from_price_lists:
+                  type: string
+                  enum: ["1", "0"]
+                  description: Use prices from a price list instead of product card
+                price_list_id:
+                  type: integer
+                  description: Price list ID used when use_prices_from_price_lists is true
+              required: [invoice]
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Invoice" }
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+  /invoices/{id}.json:
+    get:
+      tags: [Invoices]
+      summary: Get invoice by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: additional_fields[invoice]
+          in: query
+          schema:
+            type: string
+            description: Comma-separated fields to include (e.g., connected_payments,cancel_reason,corrected_content_before,corrected_content_after)
+        - name: correction_positions
+          in: query
+          schema: { type: string, enum: [full] }
+      responses:
+        "200":
+          description: Invoice
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Invoice" }
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    put:
+      tags: [Invoices]
+      summary: Update invoice
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                invoice:
+                  $ref: "#/components/schemas/Invoice"
+      responses:
+        "200":
+          description: Updated invoice
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Invoice" }
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+    delete:
+      tags: [Invoices]
+      summary: Delete invoice
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "204":
+          description: Deleted
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /invoices/{id}.pdf:
+    get:
+      tags: [Invoices]
+      summary: Download invoice PDF
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: inline
+          in: query
+          schema: { type: string, enum: [yes] }
+      responses:
+        "200":
+          description: PDF
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+  /invoices/{id}/send_by_email.json:
+    post:
+      tags: [Invoices]
+      summary: Send invoice by email
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: email_to
+          in: query
+          schema: { type: string, description: "Comma-separated (max 5)" }
+        - name: email_cc
+          in: query
+          schema: { type: string }
+        - name: email_pdf
+          in: query
+          schema: { type: boolean }
+        - name: update_buyer_email
+          in: query
+          schema: { type: boolean }
+        - name: print_option
+          in: query
+          schema:
+            type: string
+            enum: [original, copy, original_and_copy, duplicate]
+      responses:
+        "200":
+          description: Sent
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /invoices/{id}/change_status.json:
+    post:
+      tags: [Invoices]
+      summary: Change invoice status
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: status
+          in: query
+          required: true
+          schema:
+            {
+              type: string,
+              enum: [issued, sent, paid, partial, rejected, completed],
+            }
+      responses:
+        "200":
+          description: Status changed
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Invoice" }
+  /invoices/cancel.json:
+    post:
+      tags: [Invoices]
+      summary: Cancel invoice
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [cancel_invoice_id]
+              properties:
+                cancel_invoice_id: { type: integer }
+                cancel_reason: { type: string }
+      responses:
+        "200":
+          description: Canceled invoice
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Invoice" }
+  /invoices/{id}/attachments_zip.json:
+    get:
+      tags: [Invoices]
+      summary: Download all attachments as ZIP
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: ZIP archive
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary
+  /invoices/{id}/get_new_attachment_credentials.json:
+    get:
+      tags: [Invoices]
+      summary: Get upload credentials for attachment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: Upload credentials
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /invoices/{id}/add_attachment.json:
+    post:
+      tags: [Invoices]
+      summary: Add uploaded attachment to invoice
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: file_name
+          in: query
+          required: true
+          schema: { type: string }
+        - name: visible_for_client
+          in: query
+          schema: { type: boolean }
+      responses:
+        "200":
+          description: Attachment added
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Invoice" }
+  /invoices/fiscal_print:
+    get:
+      tags: [Invoices]
+      summary: Fiscal print of invoices
+      description: |
+        Trigger fiscal printing of invoices. The fiskator_name parameter should contain 
+        the printer ID obtained from /printers.json endpoint, not a text name.
+      parameters:
+        - name: invoice_ids[]
+          in: query
+          style: form
+          explode: true
+          schema:
+            type: array
+            items: { type: integer }
+          required: true
+        - name: fiskator_name
+          in: query
+          description: Numeric printer ID from /printers.json (despite the parameter name)
+          schema: { type: string }
+        - name: id
+          in: query
+          description: Single invoice ID (alternative to invoice_ids[])
+          schema: { type: integer }
+        - name: mode
+          in: query
+          description: Print mode for receipts
+          schema:
+            type: string
+            enum: [e-receipt, print]
+      responses:
+        "200":
+          description: Print job triggered
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+
+  /recurrings.json:
+    get:
+      tags: [Recurrings]
+      summary: List recurring invoice definitions
+      responses:
+        "200":
+          description: List
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { type: object, additionalProperties: true }
+    post:
+      tags: [Recurrings]
+      summary: Create recurring invoice definition
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                recurring:
+                  type: object
+                  additionalProperties: true
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { type: object, additionalProperties: true }
+  /recurrings/{id}.json:
+    put:
+      tags: [Recurrings]
+      summary: Update recurring definition
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                recurring:
+                  type: object
+                  additionalProperties: true
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema: { type: object, additionalProperties: true }
+
+  /clients.json:
+    get:
+      tags: [Clients]
+      summary: List clients
+      parameters:
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/Query"
+        - name: name
+          in: query
+          schema: { type: string }
+        - name: email
+          in: query
+          schema: { type: string }
+        - name: buyer_id
+          in: query
+          schema: { type: string }
+        - name: shortcut
+          in: query
+          schema: { type: string }
+        - name: tax_no
+          in: query
+          schema: { type: string }
+        - name: external_id
+          in: query
+          schema: { type: string }
+      responses:
+        "200":
+          description: List
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Client" }
+    post:
+      tags: [Clients]
+      summary: Create client
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                client: { $ref: "#/components/schemas/Client" }
+              required: [client]
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Client" }
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+  /clients/{id}.json:
+    get:
+      tags: [Clients]
+      summary: Get client by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: Client
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Client" }
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    put:
+      tags: [Clients]
+      summary: Update client
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                client: { $ref: "#/components/schemas/Client" }
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Client" }
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+    delete:
+      tags: [Clients]
+      summary: Delete client
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "204":
+          description: Deleted
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /clients/gus_data.json:
+    post:
+      tags: [Clients]
+      summary: Lookup client data in GUS
+      description: |
+        Undocumented endpoint used by the Fakturownia UI to fetch client data
+        from the GUS/REGON registry by NIP, REGON, or KRS.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/FakturowniaGusLookupRequest"
+      responses:
+        "200":
+          description: Lookup result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FakturowniaGusLookupResponse"
+
+  /products.json:
+    get:
+      tags: [Products]
+      summary: List products
+      parameters:
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/WarehouseId"
+        - $ref: "#/components/parameters/Query"
+        - $ref: "#/components/parameters/CategoryId"
+      responses:
+        "200":
+          description: List
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Product" }
+    post:
+      tags: [Products]
+      summary: Create product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product: { $ref: "#/components/schemas/Product" }
+              required: [product]
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Product" }
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+  /products/{id}.json:
+    get:
+      tags: [Products]
+      summary: Get product by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+        - $ref: "#/components/parameters/WarehouseId"
+      responses:
+        "200":
+          description: Product
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Product" }
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    put:
+      tags: [Products]
+      summary: Update product
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product: { $ref: "#/components/schemas/Product" }
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Product" }
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+
+  /price_lists.json:
+    get:
+      tags: [Price Lists]
+      summary: List price lists
+      responses:
+        "200":
+          description: List
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/PriceList" }
+    post:
+      tags: [Price Lists]
+      summary: Create price list
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                price_list: { $ref: "#/components/schemas/PriceList" }
+              required: [price_list]
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/PriceList" }
+  /price_lists/{id}.json:
+    get:
+      tags: [Price Lists]
+      summary: Get price list by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: Price list with positions
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/PriceList" }
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    put:
+      tags: [Price Lists]
+      summary: Update price list
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                price_list: { $ref: "#/components/schemas/PriceList" }
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/PriceList" }
+    delete:
+      tags: [Price Lists]
+      summary: Delete price list
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "204":
+          description: Deleted
+
+  /warehouse_documents.json:
+    get:
+      tags: [Warehouse Documents]
+      summary: List warehouse documents
+      responses:
+        "200":
+          description: List
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/WarehouseDocument" }
+    post:
+      tags: [Warehouse Documents]
+      summary: Create warehouse document (MM/PZ/WZ)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                warehouse_document:
+                  { $ref: "#/components/schemas/WarehouseDocument" }
+              required: [warehouse_document]
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/WarehouseDocument" }
+  /warehouse_documents/{id}.json:
+    get:
+      tags: [Warehouse Documents]
+      summary: Get warehouse document by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: Document
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/WarehouseDocument" }
+    put:
+      tags: [Warehouse Documents]
+      summary: Update warehouse document
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                warehouse_document:
+                  { $ref: "#/components/schemas/WarehouseDocument" }
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/WarehouseDocument" }
+    delete:
+      tags: [Warehouse Documents]
+      summary: Delete warehouse document
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "204":
+          description: Deleted
+
+  /warehouse_actions.json:
+    get:
+      tags: [Warehouse Actions]
+      summary: List warehouse actions
+      parameters:
+        - name: warehouse_id
+          in: query
+          schema: { type: string }
+        - name: kind
+          in: query
+          schema: { type: string }
+        - name: product_id
+          in: query
+          schema: { type: string }
+        - name: date_from
+          in: query
+          schema: { type: string, format: date }
+        - name: date_to
+          in: query
+          schema: { type: string, format: date }
+        - name: from_warehouse_document
+          in: query
+          schema: { type: integer }
+        - name: to_warehouse_document
+          in: query
+          schema: { type: integer }
+        - name: warehouse_document_id
+          in: query
+          schema: { type: integer }
+      responses:
+        "200":
+          description: List
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/WarehouseAction" }
+
+  /banking/payments.json:
+    get:
+      tags: [Payments]
+      summary: List payments
+      parameters:
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+        - name: date_from
+          in: query
+          schema: { type: string, format: date }
+        - name: date_to
+          in: query
+          schema: { type: string, format: date }
+        - name: amount_from
+          in: query
+          schema: { type: string }
+        - name: amount_to
+          in: query
+          schema: { type: string }
+        - name: client_id
+          in: query
+          schema: { type: integer }
+        - name: bank_account_id
+          in: query
+          schema: { type: integer }
+        - name: variable_symbol
+          in: query
+          schema: { type: string }
+        - name: specific_symbol
+          in: query
+          schema: { type: string }
+        - name: constant_symbol
+          in: query
+          schema: { type: string }
+      responses:
+        "200":
+          description: List
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/BankingPayment" }
+    post:
+      tags: [Payments]
+      summary: Create payment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                banking_payment: { $ref: "#/components/schemas/BankingPayment" }
+              required: [banking_payment]
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/BankingPayment" }
+  /banking/payments/{id}.json:
+    get:
+      tags: [Payments]
+      summary: Get payment by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: Payment
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/BankingPayment" }
+    patch:
+      tags: [Payments]
+      summary: Update payment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                banking_payment: { $ref: "#/components/schemas/BankingPayment" }
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/BankingPayment" }
+    delete:
+      tags: [Payments]
+      summary: Delete payment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "204":
+          description: Deleted
+
+  /categories.json:
+    get:
+      tags: [Categories]
+      summary: List categories
+      responses:
+        "200":
+          description: List
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Category" }
+    post:
+      tags: [Categories]
+      summary: Create category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category: { $ref: "#/components/schemas/Category" }
+              required: [category]
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Category" }
+  /categories/{id}.json:
+    get:
+      tags: [Categories]
+      summary: Get category
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: Category
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Category" }
+    put:
+      tags: [Categories]
+      summary: Update category
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category: { $ref: "#/components/schemas/Category" }
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Category" }
+    delete:
+      tags: [Categories]
+      summary: Delete category
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "204":
+          description: Deleted
+
+  /warehouses.json:
+    get:
+      tags: [Warehouses]
+      summary: List warehouses
+      responses:
+        "200":
+          description: List
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Warehouse" }
+    post:
+      tags: [Warehouses]
+      summary: Create warehouse
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                warehouse: { $ref: "#/components/schemas/Warehouse" }
+              required: [warehouse]
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Warehouse" }
+  /warehouses/{id}.json:
+    get:
+      tags: [Warehouses]
+      summary: Get warehouse
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: Warehouse
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Warehouse" }
+    put:
+      tags: [Warehouses]
+      summary: Update warehouse
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                warehouse: { $ref: "#/components/schemas/Warehouse" }
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Warehouse" }
+    delete:
+      tags: [Warehouses]
+      summary: Delete warehouse
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "204":
+          description: Deleted
+
+  /departments.json:
+    get:
+      tags: [Departments]
+      summary: List departments
+      responses:
+        "200":
+          description: List
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Department" }
+    post:
+      tags: [Departments]
+      summary: Create department
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                department: { $ref: "#/components/schemas/Department" }
+              required: [department]
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Department" }
+  /departments/{id}.json:
+    get:
+      tags: [Departments]
+      summary: Get department
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: Department
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Department" }
+    put:
+      tags: [Departments]
+      summary: Update department or upload logo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                department: { $ref: "#/components/schemas/Department" }
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                department[logo]:
+                  type: string
+                  format: binary
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Department" }
+
+  /issuers.json:
+    get:
+      tags: [Issuers]
+      summary: List issuers
+      responses:
+        "200":
+          description: List
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Issuer" }
+    post:
+      tags: [Issuers]
+      summary: Create issuer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                issuer: { $ref: "#/components/schemas/Issuer" }
+              required: [issuer]
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Issuer" }
+  /issuers/{id}.json:
+    get:
+      tags: [Issuers]
+      summary: Get issuer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: Issuer
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Issuer" }
+    put:
+      tags: [Issuers]
+      summary: Update issuer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                issuer: { $ref: "#/components/schemas/Issuer" }
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Issuer" }
+    delete:
+      tags: [Issuers]
+      summary: Delete issuer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "204":
+          description: Deleted
+
+  /printers.json:
+    get:
+      tags: [Printers]
+      summary: Get list of fiscal printers
+      description: Retrieve all fiscal printers configured in the account
+      operationId: getPrinters
+      responses:
+        "200":
+          description: List of printers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Printer"
+
+  /webhooks.json:
+    get:
+      tags: [Webhooks]
+      summary: List webhooks
+      responses:
+        "200":
+          description: List
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Webhook" }
+    post:
+      tags: [Webhooks]
+      summary: Create webhook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                webhook: { $ref: "#/components/schemas/Webhook" }
+              required: [webhook]
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Webhook" }
+  /webhooks/{id}.json:
+    get:
+      tags: [Webhooks]
+      summary: Get webhook
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: Webhook
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Webhook" }
+    put:
+      tags: [Webhooks]
+      summary: Update webhook
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                webhook: { $ref: "#/components/schemas/Webhook" }
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Webhook" }
+    delete:
+      tags: [Webhooks]
+      summary: Delete webhook
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "204":
+          description: Deleted
+
+  /login.json:
+    post:
+      tags: [Auth]
+      summary: Login and get account URL/token
+      security: [] # no api_token for login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/LoginRequest" }
+      responses:
+        "200":
+          description: Login result
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/LoginResponse" }
+
+  /account.json:
+    get:
+      tags: [Account]
+      summary: Get account info
+      parameters:
+        - name: integration_token
+          in: query
+          schema: { type: string }
+      responses:
+        "200":
+          description: Account info
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+    post:
+      tags: [Account]
+      summary: Create account (partner flow)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              properties:
+                account:
+                  type: object
+                  properties:
+                    prefix: { type: string }
+                    lang: { type: string }
+                    integration_fast_login: { type: boolean }
+                    integration_logout_url: { type: string }
+                user:
+                  type: object
+                  properties:
+                    login: { type: string }
+                    email: { type: string }
+                    password: { type: string }
+                    from_partner: { type: string }
+                company:
+                  type: object
+                  additionalProperties: true
+                integration_token:
+                  type: string
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prefix: { type: string }
+                  api_token: { type: string }
+                  url: { type: string }
+                  login: { type: string }
+                  email: { type: string }
+
+  /account/add_user.json:
+    post:
+      tags: [Account]
+      summary: Add/invite user to account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [user]
+              properties:
+                integration_token: { type: string }
+                user:
+                  type: object
+                  required: [invite, email]
+                  properties:
+                    invite:
+                      {
+                        type: boolean,
+                        description: "true if user exists; false to create",
+                      }
+                    email: { type: string }
+                    password: { type: string }
+                    role:
+                      {
+                        type: string,
+                        description: "member | admin | accountant | role_{id} | {id}",
+                      }
+                    department_ids:
+                      type: array
+                      items: { type: integer }
+      responses:
+        "200":
+          description: User added/invited
+          content:
+            application/json:
+              schema: { type: object, additionalProperties: true }
+
+  /account/delete.json:
+    post:
+      tags: [Account]
+      summary: Request account deletion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                api_token: { type: string }
+      responses:
+        "200":
+          description: Deletion link sent
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code: { type: string }
+                  message: { type: string }
+
+  /account/unlink.json:
+    patch:
+      tags: [Account]
+      summary: Unlink subdomains from accounting office
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              oneOf:
+                - properties:
+                    prefix: { type: string }
+                - properties:
+                    prefix:
+                      type: array
+                      items: { type: string }
+      responses:
+        "200":
+          description: Unlink result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code: { type: string }
+                  message: { type: string }
+                  result:
+                    type: object
+                    properties:
+                      unlinked:
+                        type: array
+                        items: { type: string }
+                      not_unlinked:
+                        type: array
+                        items: { type: string }

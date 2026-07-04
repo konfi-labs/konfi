@@ -1,0 +1,30 @@
+{
+  "$schema": "../../node_modules/oxlint/configuration_schema.json",
+  "extends": [
+    "../../.oxlintrc.json"
+  ],
+  "plugins": [
+    "react",
+    "nextjs",
+    "typescript",
+    "oxc",
+    "unicorn"
+  ],
+  "env": {
+    "browser": true,
+    "serviceworker": true
+  },
+  "settings": {
+    "next": {
+      "rootDir": "."
+    },
+    "react": {
+      "version": "19.2.6"
+    }
+  },
+  "rules": {
+    "react/exhaustive-deps": "warn",
+    "react/rules-of-hooks": "warn",
+    "react/react-in-jsx-scope": "off"
+  }
+}

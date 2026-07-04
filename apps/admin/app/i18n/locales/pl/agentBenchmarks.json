@@ -1,0 +1,181 @@
+{
+  "agentBenchmarks": {
+    "actions": {
+      "comment": "Komentarz",
+      "commentPlaceholder": "Dodaj opcjonalną notatkę do akceptacji albo powód odrzucenia.",
+      "copyMarkdown": "Kopiuj jako Markdown",
+      "rerun": "Uruchom ponownie",
+      "responsePlaceholder": "Wpisz odpowiedź, która ma zostać wysłana do agenta.",
+      "viewDetails": "Pokaż szczegóły"
+    },
+    "active": {
+      "title": "Aktywny benchmark"
+    },
+    "comparison": {
+      "actual": "Wynik agenta",
+      "expected": "Oczekiwany",
+      "field": "Pole",
+      "fields": {
+        "contact": "Kontakt",
+        "customer": "Klient",
+        "attributeOptions": "Opcje atrybutów",
+        "attributes": "Atrybuty",
+        "customSize": "Format niestandardowy",
+        "itemCount": "Liczba pozycji",
+        "items": "Pozycje",
+        "priceRows": "Wiersze cen",
+        "priceType": "Typ ceny",
+        "productName": "Produkt",
+        "productType": "Typ produktu",
+        "readyForCreate": "Gotowe do utworzenia",
+        "shippingOption": "Opcja dostawy",
+        "shippingPrice": "Cena dostawy",
+        "shippingTypes": "Typy dostawy",
+        "totalPrice": "Cena łączna",
+        "volumeCount": "Liczba nakładów"
+      },
+      "score": "Wynik",
+      "title": "Porównanie deterministyczne"
+    },
+    "empty": {
+      "description": "Uruchom benchmark, aby zachować polecenie, czas, porównanie wyniku i oceny.",
+      "title": "Brak uruchomień benchmarków"
+    },
+    "errors": {
+      "delete": "Nie udało się usunąć uruchomienia benchmarku",
+      "load": "Nie udało się załadować benchmarków",
+      "quoteRequired": "Najpierw wybierz ofertę",
+      "resume": "Nie udało się wznowić benchmarku",
+      "run": "Błąd uruchomienia",
+      "start": "Nie udało się uruchomić benchmarku",
+      "status": "Nie udało się odświeżyć statusu benchmarku",
+      "targetRequired": "Najpierw wybierz cel"
+    },
+    "history": {
+      "loadedCount": "Załadowano {{loaded}} z {{total}}",
+      "loadingMore": "Ładowanie uruchomień…",
+      "loadMore": "Załaduj więcej uruchomień",
+      "orderBadge": "Zamówienie #{{number}}",
+      "productBadge": "Produkt",
+      "quoteBadge": "Oferta #{{number}}",
+      "title": "Historia uruchomień"
+    },
+    "judge": {
+      "error": "Błąd sędziego",
+      "problems": "Problemy",
+      "strengths": "Mocne strony",
+      "title": "Ocena AI"
+    },
+    "liveRun": {
+      "fields": {
+        "blockedItems": "Elementy zablokowane",
+        "customer": "Klient",
+        "itemCount": "Liczba pozycji",
+        "items": "Pozycje",
+        "priceRows": "Wiersze cen",
+        "priceType": "Typ ceny",
+        "productName": "Produkt",
+        "readyForCreate": "Gotowe do utworzenia",
+        "selectedAttributes": "Wybrane atrybuty",
+        "shippingOption": "Opcja dostawy",
+        "shippingPrice": "Cena dostawy",
+        "totalPrice": "Cena łączna"
+      },
+      "title": "Wynik live-run"
+    },
+    "metrics": {
+      "deterministic": "Ocena deterministyczna",
+      "duration": "Czas agenta",
+      "judge": "Ocena sędziego",
+      "steps": "Kroki"
+    },
+    "options": {
+      "autonomous": {
+        "description": "Autonomiczny asystent z pełnym dostępem do danych biznesowych, trwałych zadań, sieci, kodu i map"
+      },
+      "inbound-email-routing": {
+        "description": "Workflow routingu emaili przychodzących oceniany przez sędziego AI, z zestawem guardrail dla zamówień, ofert i zablokowanych wyników"
+      },
+      "order": {
+        "description": "Tworzenie zamówienia z pomocą AI na podstawie istniejącej oferty albo polecenia"
+      },
+      "product": {
+        "description": "Szkic produktu tworzony z pomocą AI z walidacją atrybutów, opcji, typu produktu i cennika"
+      },
+      "quote": {
+        "description": "Tworzenie oferty z pomocą AI z wyszukiwaniem klientów i produktów"
+      },
+      "whats-new-monthly": {
+        "description": "Autonomiczne miesięczne generowanie wzrostowego What's New z crona oceniane przez sędziego AI"
+      },
+      "whats-new-weekly": {
+        "description": "Autonomiczne tygodniowe generowanie What's New z crona oceniane przez sędziego AI"
+      }
+    },
+    "pageDescription": "Uruchamiaj dostępne benchmarki AI na żywych danych admina, zachowuj każde uruchomienie i oceniaj wygenerowany wynik.",
+    "pageTitle": "Benchmarki AI",
+    "markdown": {
+      "agentTime": "**Czas agenta:** {{duration}}",
+      "aiJudge": "Ocena AI - {{score}}%",
+      "benchmark": "Benchmark: {{agent}}",
+      "description": "**Opis:** {{description}}",
+      "deterministicComparison": "Porównanie deterministyczne - {{score}}%",
+      "error": "**Błąd:** {{error}}",
+      "highlights": "**Najważniejsze punkty:**",
+      "liveRunOutput": "Wynik live-run",
+      "period": "**Okres:** {{period}}",
+      "problems": "**Problemy:**",
+      "prompt": "**Polecenie:** {{prompt}}",
+      "skipped": "**Pominięto:** {{reason}}",
+      "status": "**Status:** {{status}}",
+      "steps": "**Kroki:** {{count}}",
+      "strengths": "**Mocne strony:**",
+      "targetOrder": "**Zamówienie docelowe:** #{{number}} - {{customer}}",
+      "targetProduct": "**Produkt docelowy:** {{product}}",
+      "targetQuote": "**Oferta docelowa:** #{{number}} - {{customer}}",
+      "title": "**Tytuł:** {{title}}",
+      "whatsNewOutput": "Wynik What's New"
+    },
+    "start": {
+      "agent": "Benchmark",
+      "autonomousDescription": "Ten cron używa instrukcji produkcyjnych. Uruchomienie zostanie ocenione przez sędziego AI po zakończeniu workflow.",
+      "autonomousTitle": "Benchmark autonomiczny",
+      "button": "Uruchom benchmark",
+      "description": "Benchmarki ofert, zamówień i produktów porównują wygenerowane dane z wybranym celem i oceniają uruchomienie deterministycznie oraz przez sędziego AI. Autonomiczne benchmarki crona używają instrukcji produkcyjnych.",
+      "noOrders": "Brak zamówień dla tego kanału.",
+      "noProducts": "Brak produktów dla tego kanału.",
+      "noQuotes": "Brak ofert dla tego kanału.",
+      "order": "Zamówienie docelowe",
+      "orderHelp": "{{count}} elementów zostanie użytych jako oczekiwany wynik.",
+      "product": "Produkt docelowy",
+      "productHelp": "{{count}} atrybutów zostanie użytych jako oczekiwany wynik.",
+      "prompt": "Polecenie benchmarku",
+      "promptHelp": "Polecenie zostanie zachowane z benchmarkiem do późniejszych porównań.",
+      "promptPlaceholder": "Opisz, co agent powinien wygenerować, tak jakby miał odtworzyć wybrany cel.",
+      "quote": "Oferta docelowa",
+      "quoteHelp": "{{count}} elementów zostanie użytych jako oczekiwany wynik.",
+      "title": "Uruchom benchmark"
+    },
+    "started": "Benchmark uruchomiony",
+    "stats": {
+      "averageScore": "Średnia ocena",
+      "completed": "Zakończone",
+      "total": "Uruchomienia"
+    },
+    "status": {
+      "awaiting-user-input": "Oczekuje na użytkownika",
+      "completed": "Zakończony",
+      "failed": "Niepowodzenie",
+      "running": "W toku",
+      "starting": "Uruchamianie"
+    },
+    "superAdminOnly": "Tylko Super Admin",
+    "superAdminOnlyDescription": "Benchmarki AI używają żywych danych i są dostępne tylko dla użytkowników Super Admin.",
+    "whatsNew": {
+      "campaignProposal": "Propozycja kampanii",
+      "campaignProposalCount": "Wygenerowano: {{count}}",
+      "skipped": "Workflow pominął to uruchomienie.",
+      "title": "Wynik What's New"
+    }
+  }
+}

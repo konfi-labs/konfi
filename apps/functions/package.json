@@ -1,0 +1,52 @@
+{
+  "name": "@konfi/functions",
+  "version": "1.0.1",
+  "private": true,
+  "license": "Apache-2.0",
+  "repository": "https://github.com/konfi-labs/konfi/tree/main/apps/functions",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "scripts": {
+    "compile": "tsc --noEmit",
+    "build": "tsup-node",
+    "clean": "del-cli dist isolate .deploy tsconfig.tsbuildinfo",
+    "stage:deploy": "node ./scripts/stage-upstream.mjs",
+    "seed:emulators": "tsx scripts/seed-emulators.ts",
+    "currency:init": "tsx scripts/initialize-currency-settings.ts",
+    "serve": "pnpm run build && node ./node_modules/firebase-tools-with-isolate/lib/bin/firebase.js emulators:start --only functions",
+    "shell": "pnpm run build && node ./node_modules/firebase-tools-with-isolate/lib/bin/firebase.js functions:shell",
+    "start_functions": "pnpm run shell",
+    "deploy": "pnpm run deploy:fork",
+    "deploy:fork": "pnpm run build && node ./node_modules/firebase-tools-with-isolate/lib/bin/firebase.js deploy --only functions",
+    "deploy:upstream": "node ./node_modules/firebase-tools/lib/bin/firebase.js deploy --config firebase.upstream.json --only functions",
+    "deploy:upstream:canary": "node ./node_modules/firebase-tools/lib/bin/firebase.js deploy --config firebase.upstream.json",
+    "deploy:upstream:one": "node ./scripts/deploy-one-upstream.mjs",
+    "meilisearch:stage-sync": "node ./scripts/stage-meilisearch-sync.mjs",
+    "meilisearch:deploy-sync": "pnpm run meilisearch:stage-sync && node ./node_modules/firebase-tools/lib/bin/firebase.js deploy --config firebase.meilisearch.json --only functions:syncCustomersToMeilisearch,functions:syncProductsToMeilisearch,functions:syncOrdersToMeilisearch --force",
+    "logs": "node ./node_modules/firebase-tools-with-isolate/lib/bin/firebase.js functions:log",
+    "logs:upstream": "node ./node_modules/firebase-tools/lib/bin/firebase.js functions:log"
+  },
+  "dependencies": {
+    "@konfi/types": "workspace:*",
+    "@konfi/utils": "workspace:*",
+    "firebase-admin": "catalog:",
+    "firebase-functions": "^7.2.5"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "catalog:",
+    "@types/node": "catalog:",
+    "del-cli": "^7.0.0",
+    "firebase-tools": "15.19.1",
+    "isolate-package": "1.31.0",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": "24",
+    "pnpm": "11"
+  }
+}

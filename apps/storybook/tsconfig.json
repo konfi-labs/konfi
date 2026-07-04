@@ -1,0 +1,57 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ESNext", "dom", "dom.iterable"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "allowJs": true,
+    "composite": false,
+    "declaration": false,
+    "incremental": false,
+    "noEmit": true,
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@/actions": ["../admin/app/actions/index", "../store/app/actions/index"],
+      "@/actions/*": ["../admin/app/actions/*", "../store/app/actions/*"],
+      "@/components/*": [
+        "../admin/app/[lng]/components/*",
+        "../store/app/[lng]/components/*"
+      ],
+      "@/context/*": ["../admin/context/*", "../store/context/*"],
+      "@/hooks/*": ["../admin/hooks/*", "../store/hooks/*"],
+      "@/i18n/*": ["../admin/app/i18n/*", "../store/app/i18n/*"],
+      "@/lib/*": ["../admin/lib/*", "../store/lib/*"],
+      "@/theme/*": ["../admin/theme/*", "../store/theme/*"],
+      "actions": ["../admin/app/actions/index", "../store/app/actions/index"],
+      "actions/*": ["../admin/app/actions/*", "../store/app/actions/*"],
+      "app/*": ["../admin/app/*", "../store/app/*"],
+      "components/*": [
+        "../admin/app/[lng]/components/*",
+        "../store/app/[lng]/components/*"
+      ],
+      "context/*": ["../admin/context/*", "../store/context/*"],
+      "hooks/*": ["../admin/hooks/*", "../store/hooks/*"],
+      "i18n/*": ["../admin/app/i18n/*", "../store/app/i18n/*"],
+      "lib/*": ["../admin/lib/*", "../store/lib/*"],
+      "theme/*": ["../admin/theme/*", "../store/theme/*"]
+    },
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "types": ["node"]
+  },
+  "include": [
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.mdx",
+    "../admin/**/*.stories.ts",
+    "../admin/**/*.stories.tsx",
+    "../store/**/*.stories.ts",
+    "../store/**/*.stories.tsx",
+    "../../packages/components/src/**/*.stories.ts",
+    "../../packages/components/src/**/*.stories.tsx"
+  ],
+  "exclude": ["node_modules", "storybook-static"]
+}

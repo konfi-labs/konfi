@@ -1,0 +1,950 @@
+openapi: 3.0.3
+info:
+  title: Polkurier WebService API
+  version: "1.7-draft"
+  description: >
+    Draft OpenAPI extraction for the RPC-style Polkurier API based on the
+    upstream PHP SDK and the bundled API_README.md. Polkurier multiplexes
+    methods through the `apimethod` field over a single `POST /` endpoint,
+    so the request body is modeled as a union of method envelopes. The
+    upstream PHP SDK uses the legacy key `apimetod`, while the published docs
+    show `apimethod`, so this draft accepts both spellings.
+servers:
+  - url: https://api.polkurier.pl
+    description: Production
+  - url: https://api-sandbox.polkurier.pl
+    description: Sandbox
+paths:
+  /:
+    post:
+      operationId: invokePolkurierMethod
+      summary: Invoke a Polkurier API method
+      description: >
+        Single RPC endpoint for Polkurier WebService API. Select the concrete
+        request shape by setting `apimethod`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PolkurierMethodRequest"
+      responses:
+        "200":
+          description: Polkurier API response envelope
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PolkurierApiResponse"
+components:
+  schemas:
+    PolkurierMethodRequest:
+      oneOf:
+        - $ref: "#/components/schemas/AvailableCarriersEnvelope"
+        - $ref: "#/components/schemas/CancelOrderEnvelope"
+        - $ref: "#/components/schemas/CreateOrderEnvelope"
+        - $ref: "#/components/schemas/GetCourierPickupTimeEnvelope"
+        - $ref: "#/components/schemas/GetCourierPointEnvelope"
+        - $ref: "#/components/schemas/GetLabelEnvelope"
+        - $ref: "#/components/schemas/GetOrdersEnvelope"
+        - $ref: "#/components/schemas/GetProtocolEnvelope"
+        - $ref: "#/components/schemas/GetStatusEnvelope"
+        - $ref: "#/components/schemas/OrderValuationEnvelope"
+        - $ref: "#/components/schemas/OrderValuationV2Envelope"
+
+    AvailableCarriersData:
+      type: object
+      properties:
+        sender_postcode:
+          type: string
+        recipient_postcode:
+          type: string
+        recipient_country:
+          type: string
+        additional_data:
+          type: boolean
+        returncarrier:
+          type: string
+      additionalProperties: false
+
+    AvailableCarriersEnvelope:
+      type: object
+      required:
+        - authorization
+        - data
+      oneOf:
+        - required:
+            - apimethod
+        - required:
+            - apimetod
+      properties:
+        authorization:
+          $ref: "#/components/schemas/Authorization"
+        apimethod:
+          type: string
+          enum:
+            - available_carriers
+        apimetod:
+          type: string
+          enum:
+            - available_carriers
+          deprecated: true
+        data:
+          $ref: "#/components/schemas/AvailableCarriersData"
+      additionalProperties: false
+
+    Authorization:
+      type: object
+      required:
+        - login
+        - token
+      properties:
+        login:
+          type: string
+          description: Account id in polkurier.pl
+        token:
+          type: string
+          description: API token generated in the Polkurier client panel
+      additionalProperties: false
+
+    ShipmentType:
+      type: string
+      enum:
+        - box
+        - pallet
+        - envelope
+        - document
+
+    PackType:
+      type: string
+      enum:
+        - ST
+        - NST
+        - PPAL
+        - PAL
+        - DLU
+
+    CodType:
+      type: string
+      enum:
+        - S
+        - 1D
+        - 4D
+        - 16D
+
+    ReturnCodType:
+      type: string
+      enum:
+        - BA
+        - PO
+        - MB
+
+    CourierServiceMap:
+      type: object
+      additionalProperties:
+        oneOf:
+          - type: boolean
+          - type: string
+          - type: number
+
+    AddressInput:
+      type: object
+      properties:
+        company:
+          type: string
+        person:
+          type: string
+        street:
+          type: string
+        housenumber:
+          oneOf:
+            - type: string
+            - type: integer
+        flatnumber:
+          oneOf:
+            - type: string
+            - type: integer
+        postcode:
+          type: string
+        city:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        country:
+          type: string
+          description: ISO alpha-2 country code
+        point_id:
+          type: string
+      additionalProperties: true
+
+    PackInput:
+      type: object
+      required:
+        - length
+        - width
+        - height
+        - weight
+      properties:
+        length:
+          type: number
+        width:
+          type: number
+        height:
+          type: number
+        weight:
+          type: number
+        amount:
+          type: integer
+          minimum: 1
+          maximum: 99
+          default: 1
+        type:
+          $ref: "#/components/schemas/PackType"
+      additionalProperties: false
+
+    PickupInput:
+      type: object
+      properties:
+        pickupdate:
+          type: string
+          format: date
+        pickuptimefrom:
+          type: string
+          pattern: "^[0-2][0-9]:[0-5][0-9]$"
+        pickuptimeto:
+          type: string
+          pattern: "^[0-2][0-9]:[0-5][0-9]$"
+        nocourierorder:
+          type: boolean
+      additionalProperties: true
+
+    CodInput:
+      type: object
+      properties:
+        codtype:
+          $ref: "#/components/schemas/CodType"
+        codamount:
+          type: number
+          description: COD amount in PLN
+        codbankaccount:
+          type: string
+        return_cod:
+          $ref: "#/components/schemas/ReturnCodType"
+      additionalProperties: false
+
+    CreateOrderData:
+      type: object
+      required:
+        - shipmenttype
+        - courier
+        - sender
+        - recipient
+        - packs
+        - pickup
+      properties:
+        shipmenttype:
+          $ref: "#/components/schemas/ShipmentType"
+        courier:
+          type: string
+        courierservice:
+          $ref: "#/components/schemas/CourierServiceMap"
+        description:
+          type: string
+        sender:
+          $ref: "#/components/schemas/AddressInput"
+        recipient:
+          $ref: "#/components/schemas/AddressInput"
+        cover_address:
+          $ref: "#/components/schemas/AddressInput"
+        packs:
+          type: array
+          items:
+            $ref: "#/components/schemas/PackInput"
+        pickup:
+          $ref: "#/components/schemas/PickupInput"
+        COD:
+          $ref: "#/components/schemas/CodInput"
+        insurance:
+          type: number
+        additional_fields:
+          type: object
+          additionalProperties:
+            type: string
+      additionalProperties: false
+
+    CreateOrderEnvelope:
+      type: object
+      required:
+        - authorization
+        - data
+      oneOf:
+        - required:
+            - apimethod
+        - required:
+            - apimetod
+      properties:
+        authorization:
+          $ref: "#/components/schemas/Authorization"
+        apimethod:
+          type: string
+          enum:
+            - create_order
+        apimetod:
+          type: string
+          enum:
+            - create_order
+          deprecated: true
+        data:
+          $ref: "#/components/schemas/CreateOrderData"
+      additionalProperties: false
+
+    CancelOrderData:
+      type: object
+      required:
+        - orderno
+      properties:
+        orderno:
+          type: string
+      additionalProperties: false
+
+    CancelOrderEnvelope:
+      type: object
+      required:
+        - authorization
+        - data
+      oneOf:
+        - required:
+            - apimethod
+        - required:
+            - apimetod
+      properties:
+        authorization:
+          $ref: "#/components/schemas/Authorization"
+        apimethod:
+          type: string
+          enum:
+            - cancel_order
+        apimetod:
+          type: string
+          enum:
+            - cancel_order
+          deprecated: true
+        data:
+          $ref: "#/components/schemas/CancelOrderData"
+      additionalProperties: false
+
+    GetOrdersData:
+      type: object
+      properties:
+        orderno:
+          type: string
+        page:
+          type: integer
+          minimum: 1
+        pagesize:
+          type: integer
+          minimum: 1
+        packs:
+          type: boolean
+        items:
+          type: boolean
+        files:
+          type: boolean
+        status:
+          type: string
+      additionalProperties: false
+
+    GetOrdersEnvelope:
+      type: object
+      required:
+        - authorization
+        - data
+      oneOf:
+        - required:
+            - apimethod
+        - required:
+            - apimetod
+      properties:
+        authorization:
+          $ref: "#/components/schemas/Authorization"
+        apimethod:
+          type: string
+          enum:
+            - get_orders
+        apimetod:
+          type: string
+          enum:
+            - get_orders
+          deprecated: true
+        data:
+          $ref: "#/components/schemas/GetOrdersData"
+      additionalProperties: false
+
+    GetLabelData:
+      type: object
+      required:
+        - orderno
+      properties:
+        orderno:
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+      additionalProperties: false
+
+    GetLabelEnvelope:
+      type: object
+      required:
+        - authorization
+        - data
+      oneOf:
+        - required:
+            - apimethod
+        - required:
+            - apimetod
+      properties:
+        authorization:
+          $ref: "#/components/schemas/Authorization"
+        apimethod:
+          type: string
+          enum:
+            - get_label
+        apimetod:
+          type: string
+          enum:
+            - get_label
+          deprecated: true
+        data:
+          $ref: "#/components/schemas/GetLabelData"
+      additionalProperties: false
+
+    GetProtocolData:
+      type: object
+      required:
+        - orderno
+      properties:
+        orderno:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+
+    GetProtocolEnvelope:
+      type: object
+      required:
+        - authorization
+        - data
+      oneOf:
+        - required:
+            - apimethod
+        - required:
+            - apimetod
+      properties:
+        authorization:
+          $ref: "#/components/schemas/Authorization"
+        apimethod:
+          type: string
+          enum:
+            - get_protocol
+        apimetod:
+          type: string
+          enum:
+            - get_protocol
+          deprecated: true
+        data:
+          $ref: "#/components/schemas/GetProtocolData"
+      additionalProperties: false
+
+    GetStatusData:
+      type: object
+      required:
+        - orderno
+      properties:
+        orderno:
+          type: string
+      additionalProperties: false
+
+    GetStatusEnvelope:
+      type: object
+      required:
+        - authorization
+        - data
+      oneOf:
+        - required:
+            - apimethod
+        - required:
+            - apimetod
+      properties:
+        authorization:
+          $ref: "#/components/schemas/Authorization"
+        apimethod:
+          type: string
+          enum:
+            - get_status
+        apimetod:
+          type: string
+          enum:
+            - get_status
+          deprecated: true
+        data:
+          $ref: "#/components/schemas/GetStatusData"
+      additionalProperties: false
+
+    GetCourierPickupTimeData:
+      type: object
+      properties:
+        courier:
+          type: string
+        shipfrom:
+          type: string
+        shipto:
+          type: string
+        parcel:
+          $ref: "#/components/schemas/ShipmentType"
+      additionalProperties: false
+
+    GetCourierPickupTimeEnvelope:
+      type: object
+      required:
+        - authorization
+        - data
+      oneOf:
+        - required:
+            - apimethod
+        - required:
+            - apimetod
+      properties:
+        authorization:
+          $ref: "#/components/schemas/Authorization"
+        apimethod:
+          type: string
+          enum:
+            - get_courier_pickup_time
+        apimetod:
+          type: string
+          enum:
+            - get_courier_pickup_time
+          deprecated: true
+        data:
+          $ref: "#/components/schemas/GetCourierPickupTimeData"
+      additionalProperties: false
+
+    GetCourierPointData:
+      type: object
+      properties:
+        couriers:
+          type: array
+          items:
+            type: string
+        functions:
+          type: array
+          items:
+            type: string
+        searchquery:
+          type: string
+        id:
+          type: string
+        limit:
+          type: integer
+        page:
+          type: integer
+      additionalProperties: false
+
+    GetCourierPointEnvelope:
+      type: object
+      required:
+        - authorization
+        - data
+      oneOf:
+        - required:
+            - apimethod
+        - required:
+            - apimetod
+      properties:
+        authorization:
+          $ref: "#/components/schemas/Authorization"
+        apimethod:
+          type: string
+          enum:
+            - get_courier_point
+        apimetod:
+          type: string
+          enum:
+            - get_courier_point
+          deprecated: true
+        data:
+          $ref: "#/components/schemas/GetCourierPointData"
+      additionalProperties: false
+
+    OrderValuationData:
+      type: object
+      required:
+        - shipmenttype
+        - packs
+      properties:
+        returnvaluations:
+          type: boolean
+        postcode_sender:
+          type: string
+        postcode_recipient:
+          type: string
+        recipient_country:
+          type: string
+        recipient_email:
+          type: string
+        shipmenttype:
+          $ref: "#/components/schemas/ShipmentType"
+        packs:
+          type: array
+          items:
+            $ref: "#/components/schemas/PackInput"
+        COD:
+          type: number
+        codtype:
+          $ref: "#/components/schemas/CodType"
+        return_cod:
+          $ref: "#/components/schemas/ReturnCodType"
+        insurance:
+          type: number
+        courierservice:
+          $ref: "#/components/schemas/CourierServiceMap"
+      additionalProperties: false
+
+    OrderValuationEnvelope:
+      type: object
+      required:
+        - authorization
+        - data
+      oneOf:
+        - required:
+            - apimethod
+        - required:
+            - apimetod
+      properties:
+        authorization:
+          $ref: "#/components/schemas/Authorization"
+        apimethod:
+          type: string
+          enum:
+            - order_valuation
+        apimetod:
+          type: string
+          enum:
+            - order_valuation
+          deprecated: true
+        data:
+          $ref: "#/components/schemas/OrderValuationData"
+      additionalProperties: false
+
+    OrderValuationV2Envelope:
+      type: object
+      required:
+        - authorization
+        - data
+      oneOf:
+        - required:
+            - apimethod
+        - required:
+            - apimetod
+      properties:
+        authorization:
+          $ref: "#/components/schemas/Authorization"
+        apimethod:
+          type: string
+          enum:
+            - order_valuation_v2
+        apimetod:
+          type: string
+          enum:
+            - order_valuation_v2
+          deprecated: true
+        data:
+          allOf:
+            - $ref: "#/components/schemas/CreateOrderData"
+            - type: object
+              properties:
+                returnvaluations:
+                  type: boolean
+      additionalProperties: false
+
+    CreateOrderResponseData:
+      type: object
+      properties:
+        order_number:
+          type: string
+        label:
+          type: array
+          items:
+            type: string
+        price_gross:
+          type: number
+        price_net:
+          type: number
+        url_tracktrace:
+          type: string
+        unpaid_amount:
+          type: number
+        is_paid:
+          type: boolean
+      additionalProperties: true
+
+    AvailableCarrierResponseItem:
+      type: object
+      properties:
+        servicecode:
+          type: string
+        name:
+          type: string
+        additional_data:
+          type: object
+          additionalProperties: true
+        foreign_shipments:
+          type: boolean
+      additionalProperties: true
+
+    AvailableCarriersResponseData:
+      type: array
+      items:
+        $ref: "#/components/schemas/AvailableCarrierResponseItem"
+
+    CancelOrderResponseData:
+      type: object
+      properties:
+        cancellation:
+          type: boolean
+      additionalProperties: true
+
+    FileResponseData:
+      type: object
+      properties:
+        file:
+          type: string
+      additionalProperties: true
+
+    PickupTimeRangeResponseData:
+      type: object
+      properties:
+        timefrom:
+          type: string
+        timeto:
+          type: string
+      additionalProperties: true
+
+    CourierPickupDateResponseData:
+      type: object
+      properties:
+        pickupdate:
+          type: string
+          format: date-time
+        time:
+          type: array
+          items:
+            $ref: "#/components/schemas/PickupTimeRangeResponseData"
+      additionalProperties: true
+
+    GetCourierPickupTimeResponseData:
+      type: array
+      items:
+        $ref: "#/components/schemas/CourierPickupDateResponseData"
+
+    CourierPointResponseData:
+      type: object
+      properties:
+        id:
+          type: string
+        point_id:
+          type: string
+        type:
+          type: string
+        provider:
+          type: string
+        city:
+          type: string
+        zip:
+          type: string
+        street:
+          type: string
+        description:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        cod:
+          type: boolean
+        available:
+          type: boolean
+        status:
+          type: string
+        send:
+          type: boolean
+        collect:
+          type: boolean
+        openingHours:
+          type: string
+        visible:
+          type: boolean
+        requireApp:
+          type: boolean
+        requireAppMessage:
+          type: string
+        functions:
+          type: array
+          items:
+            type: string
+        countryiso:
+          type: string
+      additionalProperties: true
+
+    GetCourierPointResponseEnvelopeData:
+      oneOf:
+        - $ref: "#/components/schemas/CourierPointResponseData"
+        - type: array
+          items:
+            $ref: "#/components/schemas/CourierPointResponseData"
+
+    GetStatusResponseData:
+      type: object
+      properties:
+        url:
+          type: string
+        status_date:
+          type: string
+        status:
+          type: string
+        status_code:
+          type: string
+        delivered_date:
+          type: string
+          nullable: true
+      additionalProperties: true
+
+    OrderSummary:
+      type: object
+      properties:
+        number:
+          type: string
+        date:
+          type: string
+          format: date-time
+        description:
+          type: string
+        courier:
+          type: string
+        status:
+          type: string
+        status_code:
+          type: string
+        price_gross:
+          type: number
+        price_net:
+          type: number
+        unpaid_amount:
+          type: number
+        is_paid:
+          type: boolean
+        sender:
+          $ref: "#/components/schemas/AddressInput"
+        recipient:
+          $ref: "#/components/schemas/AddressInput"
+        COD:
+          $ref: "#/components/schemas/CodInput"
+        pickup:
+          $ref: "#/components/schemas/PickupInput"
+        packs:
+          type: array
+          items:
+            $ref: "#/components/schemas/PackInput"
+        shipmenttype:
+          $ref: "#/components/schemas/ShipmentType"
+      additionalProperties: true
+
+    GetOrdersPageResponseData:
+      type: object
+      properties:
+        totalrows:
+          type: integer
+        totalpages:
+          type: integer
+        currentpage:
+          type: integer
+        pagesize:
+          type: integer
+        result:
+          type: array
+          items:
+            $ref: "#/components/schemas/OrderSummary"
+      additionalProperties: true
+
+    GetOrdersResponseData:
+      oneOf:
+        - $ref: "#/components/schemas/OrderSummary"
+        - $ref: "#/components/schemas/GetOrdersPageResponseData"
+
+    ValuationQuote:
+      type: object
+      properties:
+        servicecode:
+          type: string
+        serviceName:
+          type: string
+        netprice:
+          type: number
+        grossprice:
+          type: number
+        conditional_price_nett:
+          type: number
+        conditional_price_gross:
+          type: number
+        promotion_nett:
+          type: number
+        promotion_gross:
+          type: number
+        rebate_nett:
+          type: number
+        rebate_gross:
+          type: number
+        available:
+          type: boolean
+        unavailable_message:
+          type: string
+      additionalProperties: true
+
+    OrderValuationResponseData:
+      oneOf:
+        - $ref: "#/components/schemas/ValuationQuote"
+        - type: array
+          items:
+            $ref: "#/components/schemas/ValuationQuote"
+
+    ErrorResponseData:
+      oneOf:
+        - type: string
+        - type: object
+          additionalProperties: true
+
+    PolkurierApiResponse:
+      type: object
+      required:
+        - status
+        - response
+      properties:
+        status:
+          type: string
+          enum:
+            - success
+            - error
+        response:
+          oneOf:
+            - $ref: "#/components/schemas/CancelOrderResponseData"
+            - $ref: "#/components/schemas/CourierPickupDateResponseData"
+            - $ref: "#/components/schemas/CreateOrderResponseData"
+            - $ref: "#/components/schemas/GetOrdersResponseData"
+            - $ref: "#/components/schemas/GetCourierPointResponseEnvelopeData"
+            - $ref: "#/components/schemas/FileResponseData"
+            - $ref: "#/components/schemas/GetStatusResponseData"
+            - $ref: "#/components/schemas/OrderValuationResponseData"
+            - $ref: "#/components/schemas/ErrorResponseData"
+      additionalProperties: false

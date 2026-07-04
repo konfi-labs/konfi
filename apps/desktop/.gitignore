@@ -1,0 +1,16 @@
+# Build output
+dist
+out
+
+# Dependencies
+node_modules
+
+# Electron
+*.log
+
+# Generated local Ghostscript bundle used for packaging
+resources/ghostscript/**
+
+# Local environment files
+.env
+.env.*

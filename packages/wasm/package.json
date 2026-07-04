@@ -1,0 +1,35 @@
+{
+  "name": "@konfi/wasm",
+  "version": "1.0.0",
+  "repository": "https://github.com/konfi-labs/konfi/tree/main/packages/wasm",
+  "private": true,
+  "license": "Apache-2.0",
+  "files": [
+    "dist",
+    "dist-web",
+    "index.js",
+    "index.d.ts",
+    "browser.js",
+    "browser.d.ts",
+    "impose-worker.js"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./browser": {
+      "types": "./browser.d.ts",
+      "import": "./browser.js"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/verify-build-artifacts.mjs",
+    "generate": "node scripts/generate.mjs",
+    "dev": "cargo watch --postpone -w src -s \"pnpm run generate\"",
+    "sync:admin-public": "node scripts/sync-admin-public-wasm.mjs",
+    "test": "cargo test",
+    "transpile": "pnpm run build"
+  }
+}

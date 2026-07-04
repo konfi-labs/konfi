@@ -1,0 +1,1 @@
+kiota generate -l TypeScript -c FakturowniaClient -d ./fakturownia-api.yml -o ./client --co

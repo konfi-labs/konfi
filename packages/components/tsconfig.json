@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "jsx": "preserve",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@konfi/firebase": ["../firebase/dist"],
+      "@konfi/types": ["../types/dist"],
+      "@konfi/utils": ["../utils/dist"]
+    }
+  },
+  "include": ["src/**/*", "src/index.ts"],
+  "exclude": [
+    "node_modules",
+    "**/*.stories.ts",
+    "**/*.stories.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "agentBenchmarks": {
+    "actions": {
+      "comment": "Komentujte",
+      "commentPlaceholder": "Pridajte voliteľnú poznámku o schválení alebo dôvod odmietnutia.",
+      "copyMarkdown": "Kopírovať ako Markdown",
+      "rerun": "Znovu spustiť",
+      "responsePlaceholder": "Napíšte odpoveď, ktorá sa má odoslať späť agentovi.",
+      "viewDetails": "Zobraziť podrobnosti"
+    },
+    "active": {
+      "title": "Aktívny benchmark"
+    },
+    "comparison": {
+      "actual": "Skutočné",
+      "expected": "Očakáva sa",
+      "field": "Pole",
+      "fields": {
+        "contact": "Kontaktovať",
+        "customer": "Zákazník",
+        "attributeOptions": "Možnosti atribútov",
+        "attributes": "Atribúty",
+        "customSize": "Vlastná veľkosť",
+        "itemCount": "Počet položiek",
+        "items": "Položky",
+        "priceRows": "Cenové riadky",
+        "priceType": "Typ ceny",
+        "productName": "Výrobok",
+        "productType": "Druh produktu",
+        "readyForCreate": "Pripravené na vytvorenie",
+        "shippingOption": "Možnosť dopravy",
+        "shippingPrice": "Cena dopravy",
+        "shippingTypes": "Typy dopravy",
+        "totalPrice": "Celková cena",
+        "volumeCount": "Počet objemov"
+      },
+      "score": "skóre",
+      "title": "Deterministické porovnanie"
+    },
+    "empty": {
+      "description": "Spustite benchmark, aby ste zachovali jeho promptnosť, načasovanie, porovnanie výstupov a skóre.",
+      "title": "Žiadny benchmark sa nespustí"
+    },
+    "errors": {
+      "delete": "Spustenie porovnávania sa nepodarilo odstrániť",
+      "load": "Nepodarilo sa načítať benchmarky",
+      "quoteRequired": "Najprv vyberte cenovú ponuku",
+      "resume": "Nepodarilo sa pokračovať v testovaní",
+      "run": "Chyba spustenia",
+      "start": "Nepodarilo sa spustiť benchmark",
+      "status": "Stav benchmarku sa nepodarilo obnoviť",
+      "targetRequired": "Najprv vyberte cieľ"
+    },
+    "history": {
+      "loadedCount": "Načítalo sa {{loaded}} z {{total}}",
+      "loadingMore": "Prebieha načítavanie…",
+      "loadMore": "Načítať viac jázd",
+      "orderBadge": "Objednávka č.{{number}}",
+      "productBadge": "Výrobok",
+      "quoteBadge": "Citát č.{{number}}",
+      "title": "História spustenia"
+    },
+    "judge": {
+      "error": "Chyba sudcu",
+      "problems": "Problémy",
+      "strengths": "Silné stránky",
+      "title": "AI sudca"
+    },
+    "liveRun": {
+      "fields": {
+        "blockedItems": "Blokované položky",
+        "customer": "Zákazník",
+        "itemCount": "Počet položiek",
+        "items": "Položky",
+        "priceRows": "Cenové riadky",
+        "priceType": "Typ ceny",
+        "productName": "Výrobok",
+        "readyForCreate": "Pripravené na vytvorenie",
+        "selectedAttributes": "Vybrané atribúty",
+        "shippingOption": "Možnosť dopravy",
+        "shippingPrice": "Cena dopravy",
+        "totalPrice": "Celková cena"
+      },
+      "title": "Výstup v priamom prenose"
+    },
+    "metrics": {
+      "deterministic": "Deterministické skóre",
+      "duration": "Čas agenta",
+      "judge": "Skóre sudcu",
+      "steps": "Kroky"
+    },
+    "options": {
+      "autonomous": {
+        "description": "Plne prístupný autonómny asistent s obchodnými údajmi, trvalými úlohami, webovými, kódovacími a mapovými nástrojmi"
+      },
+      "inbound-email-routing": {
+        "description": "Pracovný postup smerovania prichádzajúcich e-mailov skórovaný sudcom AI s prípravkami na zábradlie pre poradie, cenovú ponuku a zablokované výsledky"
+      },
+      "order": {
+        "description": "Vytvorenie objednávky s pomocou AI z existujúcej ponuky alebo výzvy"
+      },
+      "product": {
+        "description": "Návrh produktu s podporou AI s overením atribútu, možnosti, typu produktu a ceny"
+      },
+      "quote": {
+        "description": "Vytváranie cenových ponúk pomocou AI s vyhľadávaním zákazníkov a produktov"
+      },
+      "whats-new-monthly": {
+        "description": "Autonómny mesačník What's New rastový cron skóroval porotcom AI"
+      },
+      "whats-new-weekly": {
+        "description": "Autonómny týždenník What's New generáciu cronu bodoval porotcom AI"
+      }
+    },
+    "pageDescription": "Spustite dostupné benchmarky AI s aktuálnymi údajmi správcu, zachovajte každé spustenie a skórujte vygenerovaný výstup.",
+    "pageTitle": "Benchmarky AI",
+    "markdown": {
+      "agentTime": "**Čas agenta:** {{duration}}",
+      "aiJudge": "AI rozhodca – {{score}} %",
+      "benchmark": "Porovnanie: {{agent}}",
+      "description": "**Popis:** {{description}}",
+      "deterministicComparison": "Deterministické porovnanie - {{score}} %",
+      "error": "**Chyba:** {{error}}",
+      "highlights": "**Hlavné body:**",
+      "liveRunOutput": "Výstup v priamom prenose",
+      "period": "**Obdobie:** {{period}}",
+      "problems": "**Problémy:**",
+      "prompt": "**Výzva:** {{prompt}}",
+      "skipped": "**Preskočené:** {{reason}}",
+      "status": "**Stav:** {{status}}",
+      "steps": "**Kroky:** {{count}}",
+      "strengths": "**Silné stránky:**",
+      "targetOrder": "**Cieľová objednávka:** č.{{number}} – {{customer}}",
+      "targetProduct": "**Cieľový produkt:** {{product}}",
+      "targetQuote": "**Cieľová ponuka:** #{{number}} - {{customer}}",
+      "title": "**Názov:** {{title}}",
+      "whatsNewOutput": "Čo je nové výstup"
+    },
+    "start": {
+      "agent": "Benchmark",
+      "autonomousDescription": "Táto úloha cron využíva svoje výrobné pokyny. Beh je hodnotený porotcom AI po skončení pracovného postupu.",
+      "autonomousTitle": "Autonómny benchmark",
+      "button": "Spustiť benchmark",
+      "description": "Referenčné hodnoty cenových ponúk, objednávok a produktov porovnávajú vygenerované údaje s vybraným cieľom a ohodnocujú beh pomocou deterministických kontrol plus sudcu AI. Autonómne cron benchmarky používajú ich výrobné pokyny.",
+      "noOrders": "Pre tento kanál nie sú k dispozícii žiadne objednávky.",
+      "noProducts": "Pre tento kanál nie sú dostupné žiadne produkty.",
+      "noQuotes": "Pre tento kanál nie sú k dispozícii žiadne ponuky.",
+      "order": "Cieľové poradie",
+      "orderHelp": "{{count}} položky sa použijú ako očakávaný výstup.",
+      "product": "Cieľový produkt",
+      "productHelp": "{{count}} atribúty sa použijú ako očakávaný výstup.",
+      "prompt": "Výzva na porovnanie",
+      "promptHelp": "Výzva sa zachová pri behu benchmarku pre neskoršie porovnania.",
+      "promptPlaceholder": "Popíšte, čo by mal agent produkovať, ako keby mal znovu vytvoriť vybraný cieľ.",
+      "quote": "Cieľová ponuka",
+      "quoteHelp": "{{count}} položky sa použijú ako očakávaný výstup.",
+      "title": "Spustiť benchmark"
+    },
+    "started": "Benchmark sa začal",
+    "stats": {
+      "averageScore": "Priemerné skóre",
+      "completed": "Dokončené",
+      "total": "Beží"
+    },
+    "status": {
+      "awaiting-user-input": "Čaká sa na vstup používateľa",
+      "completed": "Dokončené",
+      "failed": "Nepodarilo sa",
+      "running": "Beh",
+      "starting": "Spustenie"
+    },
+    "superAdminOnly": "Len supersprávca",
+    "superAdminOnlyDescription": "Spustenia benchmarkov AI používajú živé údaje a sú k dispozícii iba pre používateľov Super Admin.",
+    "whatsNew": {
+      "campaignProposal": "Návrh kampane",
+      "campaignProposalCount": "{{count}} vygenerovaných",
+      "skipped": "Pracovný postup preskočil tento beh.",
+      "title": "Čo je nové výstup"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+Konfi
+Copyright 2026 Konfi contributors
+
+This product includes software developed by Konfi contributors.
+
+The Konfi name, logo, and related marks are trademarks of their respective
+owners. The Apache License, Version 2.0, does not grant trademark rights except
+as described in the license.
+
+Third-party provenance and attribution notes are maintained in
+THIRD_PARTY_NOTICES.md.
+
+Generated third-party provider API clients are included for interoperability.
+Provider names, API descriptions, generated documentation fragments, and marks
+remain attributable to their respective providers and are subject to applicable
+provider terms.
+
+Paczkomat/InPost delivery logo assets are included only for delivery-method
+presentation. They remain trademarks and provider assets of InPost or its
+affiliates and are not Konfi-owned project artwork.

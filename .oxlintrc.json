@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "warn",
+    "suspicious": "warn"
+  },
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/.next/**",
+    "**/.turbo/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/out/**",
+    "**/public/sw.js",
+    "packages/**/client/**",
+    "packages/**/dist/**",
+    "packages/wasm/dist/**"
+  ],
+  "jsPlugins": [
+    {
+      "name": "turbo",
+      "specifier": "eslint-plugin-turbo"
+    }
+  ],
+  "rules": {
+    "turbo/no-undeclared-env-vars": "warn",
+    "typescript/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": true,
+        "ts-expect-error": "allow-with-description",
+        "ts-nocheck": true,
+        "ts-check": false,
+        "minimumDescriptionLength": 10
+      }
+    ]
+  }
+}

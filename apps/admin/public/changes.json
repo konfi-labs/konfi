@@ -1,0 +1,433 @@
+[
+  {
+    "id": "2026-06-14",
+    "timestamp": "2026-06-14T00:00:00.000Z",
+    "title": {
+      "en": "Production, Orders & Cost Visibility Updates",
+      "pl": "Aktualizacje produkcji, zamówień i widoczności kosztów"
+    },
+    "description": {
+      "en": "This release speeds up daily admin work with a richer production view, configurable order filter presets, product availability warnings, clearer cost and invoice information, and interface consistency improvements.",
+      "pl": "Ta aktualizacja przyspiesza codzienną pracę w panelu: bogatszy widok produkcji, konfigurowalne presety filtrów zamówień, ostrzeżenia o dostępności produktów, czytelniejsze informacje o kosztach (beta) oraz usprawnienia spójności interfejsu."
+    },
+    "highlightFeatures": [
+      {
+        "category": {
+          "en": "Production",
+          "pl": "Produkcja"
+        },
+        "icon": "view_kanban",
+        "colorPalette": "green",
+        "en": "Production view adds bulk status updates, sorting by deadline, value, or order number, an overdue and blocked metrics bar, a blocked-only filter, and group by print type",
+        "pl": "Widok produkcji zyskuje zbiorczą zmianę statusów, sortowanie po terminie, wartości lub numerze zamówienia, pasek metryk zaległych i zablokowanych zamówień, filtr tylko zablokowanych oraz grupowanie według typu druku"
+      },
+      {
+        "category": {
+          "en": "Orders",
+          "pl": "Zamówienia"
+        },
+        "icon": "inventory_2",
+        "colorPalette": "orange",
+        "en": "Configurable order filter presets replace the fixed quick filters and can be reordered, archived, and copied between channels, with clearer invoice errors and status labels that follow the interface language",
+        "pl": "Konfigurowalne presety filtrów zamówień zastępują stałe szybkie filtry — można je porządkować, archiwizować i kopiować między kanałami; czytelniejsze błędy faktur i etykiety statusów zgodne z językiem interfejsu"
+      },
+      {
+        "category": {
+          "en": "Products",
+          "pl": "Produkty"
+        },
+        "icon": "category",
+        "colorPalette": "primary",
+        "en": "Product list now flags expiring, expired, unpublished, and scheduled items, with an attention banner counting products expiring within 90 days",
+        "pl": "Lista produktów oznacza teraz pozycje wygasające, wygasłe, ukryte i zaplanowane, a baner uwagi zlicza produkty wygasające w ciągu 90 dni"
+      },
+      {
+        "category": {
+          "en": "Costs",
+          "pl": "Koszty"
+        },
+        "icon": "payments",
+        "colorPalette": "green",
+        "en": "The Fakturownia costs page now opens even without an API key and shows when data was last synced",
+        "pl": "Strona kosztów Fakturowni otwiera się teraz nawet bez klucza API i pokazuje, kiedy ostatnio zsynchronizowano dane"
+      },
+      {
+        "category": {
+          "en": "Notes",
+          "pl": "Notatki"
+        },
+        "icon": "sticky_note_2",
+        "colorPalette": "purple",
+        "en": "Notes get translated category and priority options and a refreshed note detail panel",
+        "pl": "Notatki zyskują przetłumaczone opcje kategorii i priorytetu oraz odświeżony panel szczegółów notatki"
+      },
+      {
+        "category": {
+          "en": "Interface",
+          "pl": "Interfejs"
+        },
+        "icon": "palette",
+        "colorPalette": "primary",
+        "en": "Interface polish with consistent status colors, cleaner alert banners, and added accessibility labels in the imposition tool",
+        "pl": "Dopracowanie interfejsu: spójne kolory statusów, czytelniejsze banery alertów oraz dodane etykiety dostępności w narzędziu impozycji"
+      }
+    ]
+  },
+  {
+    "id": "2026-05-31",
+    "timestamp": "2026-05-31T00:00:00.000Z",
+    "title": {
+      "en": "Admin Workflow & Configuration Updates",
+      "pl": "Aktualizacje pracy i konfiguracji panelu"
+    },
+    "description": {
+      "en": "This release improves daily admin work with a new production view, broader configuration tools, cleaner storefront translation handling, and stronger order and customer workflows.",
+      "pl": "Ta aktualizacja usprawnia codzienną pracę w panelu: dodaje widok produkcji, rozszerza narzędzia konfiguracji, porządkuje tłumaczenia sklepu oraz wzmacnia przepływy zamówień i klientów."
+    },
+    "highlightFeatures": [
+      {
+        "category": {
+          "en": "Production",
+          "pl": "Produkcja"
+        },
+        "icon": "view_kanban",
+        "colorPalette": "green",
+        "en": "New production orders view with drag-and-drop status updates, item previews, and printing-method filters",
+        "pl": "Nowy widok zamówień produkcyjnych z przeciąganiem statusów, podglądem pozycji i filtrami metod druku"
+      },
+      {
+        "category": {
+          "en": "Configuration",
+          "pl": "Konfiguracja"
+        },
+        "icon": "tune",
+        "colorPalette": "primary",
+        "en": "Expanded configuration for currencies, taxes, price lists, shipping, payments, printing methods, and order workflows",
+        "pl": "Rozszerzona konfiguracja walut, podatków, cenników, wysyłki, płatności, metod druku i przepływów zamówień"
+      },
+      {
+        "category": {
+          "en": "Storefront",
+          "pl": "Sklep"
+        },
+        "icon": "storefront",
+        "colorPalette": "purple",
+        "en": "Storefront editing and translation tools now make it easier to review missing or outdated content",
+        "pl": "Narzędzia edycji sklepu i tłumaczeń ułatwiają sprawdzanie brakujących lub nieaktualnych treści"
+      },
+      {
+        "category": {
+          "en": "Tools",
+          "pl": "Narzędzia"
+        },
+        "icon": "hub",
+        "colorPalette": "primary",
+        "en": "New admin MCP server setup makes it possible to connect compatible AI tools to approved business data",
+        "pl": "Nowa konfiguracja serwera MCP w panelu pozwala podłączać zgodne narzędzia AI do zatwierdzonych danych firmowych"
+      },
+      {
+        "category": {
+          "en": "Orders",
+          "pl": "Zamówienia"
+        },
+        "icon": "inventory_2",
+        "colorPalette": "orange",
+        "en": "Order work gained better file handling, print documents, payment proof updates, RMA handling, and customer store credit",
+        "pl": "Obsługa zamówień zyskała lepszą pracę z plikami, dokumenty wydruku, aktualizacje potwierdzeń płatności, RMA i środki klienta"
+      },
+      {
+        "category": {
+          "en": "Prepress",
+          "pl": "Prepress"
+        },
+        "icon": "fact_check",
+        "colorPalette": "purple",
+        "en": "Prepress tools add CAD print sizing, improved imposition workflows, flattened PDF export, and product image management",
+        "pl": "Narzędzia prepress dodają wyliczanie formatów CAD, ulepszone przepływy impozycji, eksport spłaszczonych PDF i zarządzanie zdjęciami produktów"
+      }
+    ]
+  },
+  {
+    "id": "2026-05-03",
+    "timestamp": "2026-05-02T00:00:00.000Z",
+    "title": {
+      "en": "B2B, Prepress & Admin Workflow Updates",
+      "pl": "Aktualizacje B2B, prepress i pracy w panelu"
+    },
+    "description": {
+      "en": "This release expands B2B inquiry handling, improves order and prepress tools, and makes large admin lists easier to scan and manage. Features that require Feature Preview are marked as beta.",
+      "pl": "Ta aktualizacja rozszerza obsługę zapytań B2B, usprawnia narzędzia zamówień i prepress oraz ułatwia przeglądanie i zarządzanie dużymi listami w panelu. Funkcje wymagające Feature Preview są oznaczone jako beta."
+    },
+    "highlightFeatures": [
+      {
+        "category": {
+          "en": "B2B",
+          "pl": "B2B"
+        },
+        "icon": "groups",
+        "colorPalette": "primary",
+        "en": "B2B inquiry workflows now include richer fields, acceptance emails, and notification handling",
+        "pl": "Przepływy zapytań B2B obejmują teraz bogatsze pola, wiadomości akceptacji i obsługę powiadomień"
+      },
+      {
+        "category": {
+          "en": "Orders",
+          "pl": "Zamówienia"
+        },
+        "icon": "inventory_2",
+        "colorPalette": "green",
+        "en": "Order tools gained invoice PDF downloads, localized activity dates, clearer attachment fetching, and browser folder file management",
+        "pl": "Narzędzia zamówień zyskały pobieranie PDF faktur, lokalizowane daty aktywności, czytelniejsze pobieranie załączników oraz zarządzanie plikami folderu w przeglądarce"
+      },
+      {
+        "category": {
+          "en": "Prepress",
+          "pl": "Prepress"
+        },
+        "icon": "fact_check",
+        "colorPalette": "orange",
+        "en": "Prepress updates add sticker imposition with bleed/source dimensions and manual cut marks, plus spot color PDF processing (Beta, Feature Preview)",
+        "pl": "Aktualizacje prepress dodają impozycję naklejek ze spadami, wymiarami źródłowymi i ręcznymi znacznikami cięcia oraz przetwarzanie kolorów spot w PDF (beta, Feature Preview)"
+      },
+      {
+        "category": {
+          "en": "Admin",
+          "pl": "Panel"
+        },
+        "icon": "view_list",
+        "colorPalette": "purple",
+        "en": "Admin tables now support quick filters, page size controls, improved pagination, and clearer order list scanning",
+        "pl": "Tabele w panelu obsługują teraz szybkie filtry, wybór liczby wierszy, ulepszoną paginację i czytelniejsze przeglądanie listy zamówień"
+      }
+    ]
+  },
+  {
+    "id": "2026-04-25",
+    "timestamp": "2026-04-25T00:00:00.000Z",
+    "title": {
+      "en": "Orders, Stickers & AI Updates",
+      "pl": "Aktualizacje zamówień, naklejek i AI"
+    },
+    "description": {
+      "en": "This update makes day-to-day admin work smoother with faster order views, new sticker tools (beta), and more flexible AI image generation.",
+      "pl": "Ta aktualizacja usprawnia codzienną pracę w panelu: szybsze widoki zamówień, nowe narzędzia do naklejek (beta) i bardziej elastyczne generowanie obrazów AI."
+    },
+    "highlightFeatures": [
+      {
+        "en": "Richer order views, clearer statuses, and AI-based order risk analysis",
+        "pl": "Bogatsze widoki zamówień, czytelniejsze statusy i analiza ryzyka zamówień oparta na AI"
+      },
+      {
+        "en": "New sticker layout tools with dedicated settings, layout previews, and rendered previews for multiple files",
+        "pl": "Nowe narzędzia do układania naklejek z osobnymi ustawieniami, podglądami układu i renderowanymi podglądami wielu plików"
+      },
+      {
+        "en": "Expanded image generation with model selection, style presets, GPT Image 2 options, and reference image limits",
+        "pl": "Rozszerzone generowanie obrazów z wyborem modelu, presetami stylu, opcjami GPT Image 2 i limitami obrazów referencyjnych"
+      },
+      {
+        "en": "New JST invoice option in the admin",
+        "pl": "Nowa opcja faktury JST w panelu administracyjnym"
+      }
+    ]
+  },
+  {
+    "id": "2026-04-19",
+    "timestamp": "2026-04-19T00:00:00.000Z",
+    "title": {
+      "en": "Dynamic Pricing, Shipping & AI Updates",
+      "pl": "Aktualizacje cen dynamicznych, wysyłki i AI"
+    },
+    "description": {
+      "en": "This release adds dynamic pricing tools, improves anonymous shipping flows, expands AI image generation, and introduces faster order and product workflows in the admin.",
+      "pl": "Ta aktualizacja wprowadza narzędzia cen dynamicznych, usprawnia anonimowe przepływy wysyłki, rozszerza generowanie obrazów AI oraz dodaje szybsze przepływy pracy dla zamówień i produktów w panelu administracyjnym."
+    },
+    "highlightFeatures": [
+      {
+        "en": "Dynamic pricing configuration, validations, presets, and pricing summaries for products",
+        "pl": "Konfiguracja cen dynamicznych, walidacje, presety i podsumowania cen dla produktów"
+      },
+      {
+        "en": "Anonymous package shipping flow with clearer provider selection and better pickup point/COD handling",
+        "pl": "Przepływ anonimowej wysyłki paczek z czytelniejszym wyborem przewoźnika oraz lepszą obsługą punktów odbioru i pobrania"
+      },
+      {
+        "en": "AI image generation for store carts, admin order items, and product-level generation settings",
+        "pl": "Generowanie obrazów AI dla koszyka w sklepie, pozycji zamówień w panelu oraz ustawień generowania na poziomie produktu"
+      },
+      {
+        "en": "Orders grid preview and improved product setup with attribute dependencies and advanced finishing options",
+        "pl": "Podgląd siatki zamówień oraz ulepszona konfiguracja produktów z zależnościami atrybutów i zaawansowanymi opcjami wykończenia"
+      }
+    ]
+  },
+  {
+    "id": "2026-04-04",
+    "timestamp": "2026-04-04T00:00:00.000Z",
+    "title": {
+      "en": "Promotions, Allegro & More",
+      "pl": "Promocje, Allegro i więcej"
+    },
+    "description": {
+      "en": "This release brings exciting updates to promotions, new imposition templates management, enhanced order search capabilities, and seamless Allegro order import.",
+      "pl": "Ta aktualizacja wprowadza ekscytujące zmiany w promocjach, zarządzaniu szablonami impozycji, ulepszonym wyszukiwaniu zamówień oraz płynnym imporcie zamówień z Allegro."
+    },
+    "highlightFeatures": [
+      {
+        "en": "Promotions now support one-time use and minimum order value",
+        "pl": "Promocje obsługują teraz jednorazowe użycie i minimalną wartość zamówienia"
+      },
+      {
+        "en": "Imposition templates panel for managing saved prepress templates",
+        "pl": "Panel szablonów impozycji do zarządzania zapisanymi szablonami prepress"
+      },
+      {
+        "en": "Orders page now supports search field filtering",
+        "pl": "Strona zamówień obsługuje teraz filtrowanie po polach wyszukiwania"
+      },
+      {
+        "en": "Allegro order import",
+        "pl": "Import zamówień Allegro"
+      }
+    ]
+  },
+  {
+    "id": "2026-03-16",
+    "timestamp": "2026-03-16T00:00:00.000Z",
+    "title": {
+      "en": "Fakturownia Estimate Updates",
+      "pl": "Aktualizacje zamówień w Fakturowni"
+    },
+    "description": {
+      "en": "Managing monthly estimate documents in Fakturownia is now faster and clearer thanks to bulk completion updates and instant UI feedback.",
+      "pl": "Zarządzanie miesięcznymi dokumentami zamówień w Fakturowni jest teraz szybsze i bardziej przejrzyste dzięki zbiorczemu oznaczaniu jako zrealizowane oraz natychmiastowej informacji zwrotnej w interfejsie."
+    },
+    "highlightFeatures": [
+      {
+        "en": "Bulk mark monthly estimate documents as completed",
+        "pl": "Zbiorcze oznaczanie miesięcznych dokumentów zamówień jako zrealizowane"
+      },
+      {
+        "en": "Optimistic updates remove completed companies from the list instantly",
+        "pl": "Optymistyczne aktualizacje natychmiast usuwają zrealizowane firmy z listy"
+      },
+      {
+        "en": "Updated wording and status feedback in the pending estimates tab",
+        "pl": "Zaktualizowane komunikaty i statusy w zakładce oczekujących zamówień"
+      }
+    ]
+  },
+  {
+    "id": "2026-03-01",
+    "timestamp": "2026-03-01T00:00:00.000Z",
+    "title": {
+      "en": "AI Video Generation",
+      "pl": "Generowanie wideo AI"
+    },
+    "description": {
+      "en": "Generate product videos powered by AI directly from the admin panel.",
+      "pl": "Generuj filmy produktowe za pomocą AI bezpośrednio z panelu administracyjnego."
+    },
+    "imageUrl": "/assets/changes/video-generation.webp",
+    "highlightFeatures": [
+      {
+        "en": "AI-powered video generation for products",
+        "pl": "Generowanie wideo dla produktów za pomocą AI"
+      },
+      {
+        "en": "Nano Banana 2 model for high-quality image generation",
+        "pl": "Model Nano Banana 2 do generowania obrazów wysokiej jakości",
+        "imageUrl": "/assets/changes/nano-banana-2.webp"
+      }
+    ]
+  },
+  {
+    "id": "2026-02-01",
+    "timestamp": "2026-02-01T00:00:00.000Z",
+    "title": {
+      "en": "Stay in the Loop",
+      "pl": "Bądź na bieżąco"
+    },
+    "description": {
+      "en": "Never miss an update! The new What's New dialog keeps you informed about the latest features and improvements.",
+      "pl": "Nie przegap żadnej aktualizacji! Nowy dialog Co nowego informuje Cię o najnowszych funkcjach i ulepszeniach."
+    },
+    "imageUrl": "/assets/changes/new-changes.webp",
+    "highlightFeatures": [
+      {
+        "en": "New changes dialog",
+        "pl": "Nowy dialog zmian"
+      },
+      {
+        "en": "Order item problem indicator",
+        "pl": "Wskaźnik problemu pozycji",
+        "imageUrl": "/assets/changes/position-problem.webp"
+      }
+    ]
+  },
+  {
+    "id": "2026-01-28",
+    "timestamp": "2026-01-28T00:00:00.000Z",
+    "title": {
+      "en": "Invoicing & Product Refinements",
+      "pl": "Udoskonalenia fakturowania i produktów"
+    },
+    "description": {
+      "en": "Streamlined invoicing workflows and enhanced product configuration options for admins.",
+      "pl": "Usprawnione przepływy fakturowania i rozszerzone opcje konfiguracji produktów dla administratorów."
+    },
+    "highlightFeatures": [
+      {
+        "en": "Cash received field in Fakturownia invoice form",
+        "pl": "Pole gotówki otrzymanej w formularzu faktury Fakturownia",
+        "imageUrl": "/assets/changes/cash-received.webp"
+      },
+      {
+        "en": "Admin-only product dimension overrides (width/height/ratio)",
+        "pl": "Nadpisywanie wymiarów produktu tylko dla administratorów (szerokość/wysokość/proporcje)",
+        "imageUrl": "/assets/changes/overrides.webp"
+      },
+      {
+        "en": "Pro forma invoice now correctly sets payment terms and status",
+        "pl": "Faktura pro forma teraz poprawnie ustawia terminy płatności i status"
+      },
+      {
+        "en": "Fixed volume initialization in product combinations",
+        "pl": "Naprawiono inicjalizację wolumenu w kombinacjach produktów"
+      },
+      {
+        "en": "Fixed missing grosz in receipts and invoices",
+        "pl": "Naprawiono brakujące grosze w paragonach i fakturach"
+      }
+    ]
+  },
+  {
+    "id": "2026-01-25",
+    "timestamp": "2026-01-25T00:00:00.000Z",
+    "title": {
+      "en": "Security & AI Enhancements",
+      "pl": "Ulepszenia bezpieczeństwa i AI"
+    },
+    "description": {
+      "en": "Report issues directly from the app, secure your account with MFA, and generate images with the latest AI model.",
+      "pl": "Zgłaszaj problemy bezpośrednio z aplikacji, zabezpiecz konto MFA i generuj obrazy najnowszym modelem AI."
+    },
+    "highlightFeatures": [
+      {
+        "en": "Issue reporting system - report bugs directly from the app",
+        "pl": "System zgłaszania problemów - zgłaszaj błędy bezpośrednio z aplikacji",
+        "imageUrl": "/assets/changes/issue-reporting.webp"
+      },
+      {
+        "en": "MFA TOTP authentication (recommended to enable)",
+        "pl": "Uwierzytelnianie MFA TOTP (zalecane do włączenia)",
+        "imageUrl": "/assets/changes/mfa.webp"
+      },
+      {
+        "en": "Flux 2 Klein for faster image generation",
+        "pl": "Flux 2 Klein do szybszego generowania obrazów",
+        "imageUrl": "/assets/changes/flux-2-klein.webp"
+      }
+    ]
+  }
+]

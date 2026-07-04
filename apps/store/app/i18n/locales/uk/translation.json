@@ -1,0 +1,2189 @@
+{
+  "account": {
+    "basic": "Базовий",
+    "changePassword": "Змінити пароль",
+    "changePasswordDescription": "Легко та безпечно змініть пароль свого облікового запису.",
+    "confirmEmail": "Підтвердьте електронну адресу",
+    "confirmEmailDescription": "Посилання для підтвердження надіслано на вказану електронну адресу",
+    "confirmNewPassword": "Підтвердьте новий пароль",
+    "confirmRemoveAccount": "Ви впевнені, що хочете видалити свій обліковий запис?",
+    "created": "Обліковий запис створено",
+    "createdDescription": "Ми створили для вас обліковий запис",
+    "generations": {
+      "cardDescription": "Переглядайте, переглядайте та завантажуйте графіку, створену за допомогою ШІ.",
+      "description": "Перегляньте створені вами графічні зображення, знову відкрийте їх у повному розмірі та знову завантажте остаточні файли, коли вони вам знадобляться.",
+      "downloadButton": "Завантажити",
+      "emptyDescription": "Згенерована графіка зі сторінки продукту та кошика з’явиться тут після завершення.",
+      "emptyTitle": "Ще немає збережених поколінь",
+      "label": "Покоління ШІ",
+      "loadError": "Нам зараз не вдалося завантажити збережені покоління ШІ.",
+      "previewButton": "Попередній перегляд",
+      "previewTitle": "Створений попередній перегляд графіки",
+      "singleSide": "Одностороння",
+      "title": "Покоління ШІ",
+      "unknownDate": "Невідома дата",
+      "unnamedProduct": "Згенерована графіка"
+    },
+    "newPassword": "Новий пароль",
+    "newsletter": "Інформаційний бюлетень",
+    "oldPassword": "Старий пароль",
+    "passwordPlaceholder": "6 або більше символів",
+    "removeAccount": "Видалити обліковий запис",
+    "removeAccountDescription": "Легко та безпечно видаліть свій обліковий запис і всі свої дані.",
+    "removeAccountTitle": "Видалити обліковий запис",
+    "removeAccountWarning": "Вся ваша інформація буде видалена з нашої бази даних. Цю операцію неможливо скасувати, тому переконайтеся, що ви дійсно хочете видалити свій обліковий запис.",
+    "resetPassword": "Скинути пароль",
+    "settings": "Налаштування",
+    "unsubscribeFromNewsletter": "Скасувати підписку на розсилку"
+  },
+  "discount": {
+    "withCode": "З кодом \"{{code}}\" дешевше на"
+  },
+  "actions": {
+    "cancelChanges": "Скасувати зміни",
+    "copied": "Скопійовано!",
+    "copy": "Копія",
+    "createImposition": "Створити верстку",
+    "discardChanges": "Скасувати зміни",
+    "importTable": "Таблиця імпорту",
+    "loadTemplate": "навантаження",
+    "save": "зберегти",
+    "saveChanges": "Зберегти зміни"
+  },
+  "active": "Активний",
+  "ActivityStatus": {
+    "EMAIL_SENT": "Електронна пошта надіслана на:",
+    "FILES_STATUS_UPDATE": "Оновлення статусу файлів до",
+    "ORDER_STATUS_UPDATE": "Оновлення статусу замовлення до",
+    "PAYMENT_METHOD_CHANGED": "Спосіб оплати змінено на",
+    "PAYMENT_STATUS_UPDATE": "Оновлення статусу платежу до"
+  },
+  "ActivityStatusShort": {
+    "EMAIL_SENT": "Електронна пошта",
+    "FILES_STATUS_UPDATE": "Статус файлів",
+    "ORDER_STATUS_UPDATE": "Статус замовлення",
+    "PAYMENT_METHOD_CHANGED": "Спосіб оплати змінено",
+    "PAYMENT_STATUS_UPDATE": "Статус платежу"
+  },
+  "AddressTypeEnum": {
+    "BILLING": "Платіжна адреса",
+    "SHIPPING": "Адреса доставки"
+  },
+  "ApplicationMethodAllocation": {
+    "ACROSS": "Для всіх предметів разом",
+    "EACH": "Для кожного пункту окремо"
+  },
+  "ApplicationMethodTargetTypes": {
+    "ITEMS": "Пункти кошика",
+    "ORDER": "Весь порядок",
+    "SHIPPING_METHODS": "Способи доставки"
+  },
+  "ApplicationMethodTypes": {
+    "FIXED": "Фіксована сума",
+    "PERCENTAGE": "Відсоток"
+  },
+  "AttributeInputTypeEnum": {
+    "ADVANCED_FINISHING": "Поглиблена обробка",
+    "DROPDOWN": "Випадаючий список",
+    "DROPDOWN_COLOR": "Розкривний список із кольорами",
+    "RADIO_GROUP": "Перемикачі",
+    "RADIO_GROUP_COLOR": "Перемикачі з кольорами",
+    "RADIO_GROUP_IMAGE": "Перемикачі із зображеннями"
+  },
+  "auth": {
+    "accountDisabled": "Обліковий запис вимкнено.",
+    "accountNotFound": "Обліковий запис із зазначеною електронною адресою не існує.",
+    "emailAlreadyExists": "Обліковий запис із вказаною електронною адресою вже існує.",
+    "forgot": {
+      "heroHeading": "Втілюйте свої ідеї разом з нами вже сьогодні!",
+      "submitButton": "Надіслати",
+      "title": "Скинути пароль"
+    },
+    "google": {
+      "accountExistsWithDifferentProvider": "Обліковий запис із цією електронною адресою вже існує. Щоб продовжити, увійдіть за допомогою наявного методу.",
+      "button": "Продовжити з Google",
+      "credentialAlreadyInUse": "Цей обліковий запис Google уже пов’язано з іншим профілем. Щоб продовжити, увійдіть за допомогою Google.",
+      "divider": "або продовжити електронною поштою",
+      "notEnabled": "Для цього магазину ще не ввімкнено вхід Google.",
+      "popupBlocked": "Ваш браузер заблокував вхід Google. Дозвольте спливаючі вікна та повторіть спробу.",
+      "unauthorizedDomain": "Цей домен ще не авторизовано для входу Google.",
+      "unavailable": "Вхід Google зараз недоступний. Спробуйте пізніше."
+    },
+    "internalError": "Під час обробки запиту на сервері автентифікації сталася неочікувана помилка.",
+    "invalidCredentials": "Недійсні облікові дані",
+    "loggedIn": "Увійшли в систему",
+    "loggedInDescription": "Ви успішно ввійшли.",
+    "loggedOut": "Вийшов з системи",
+    "loggedOutDescription": "Ви вийшли з системи.",
+    "login": {
+      "emailLabel": "Електронна пошта",
+      "emailPlaceholder": "example@mail.com",
+      "forgotPasswordLink": "Забули пароль?",
+      "loginButton": "Логін",
+      "noAccountText": "У вас ще немає облікового запису? Зареєструватися.",
+      "passwordLabel": "Пароль",
+      "passwordPlaceholder": "6 або більше символів",
+      "registerLink": "Зареєструватися",
+      "tagline": "Втілюйте свої ідеї разом з нами вже сьогодні!",
+      "title": "Логін"
+    },
+    "loginError": "Помилка входу",
+    "noAuthorization": "Немає авторизації",
+    "noCustomerData": "Немає даних про клієнтів",
+    "passwordChanged": "Пароль змінено",
+    "passwordChangedDescription": "Ваш пароль успішно змінено.",
+    "register": {
+      "andText": "і",
+      "displayNameLabel": "ПІБ",
+      "displayNamePlaceholder": "Джон Доу",
+      "emailLabel": "Електронна пошта",
+      "emailPlaceholder": "example@mail.com",
+      "loginLink": "Увійдіть",
+      "passwordHelperText": "Одна велика літера, одна мала літера, одна цифра та один спеціальний символ",
+      "passwordLabel": "Пароль",
+      "passwordPlaceholder": "6 або більше символів",
+      "privacyPolicyLink": "політика конфіденційності",
+      "registerButton": "Зареєструватися",
+      "tagline": "Втілюйте свої ідеї разом з нами вже сьогодні!",
+      "termsLink": "умови обслуговування",
+      "termsText": "Натиснувши кнопку вище, ви приймаєте",
+      "title": "Зареєструватися"
+    },
+    "unknownError": "Щось пішло не так, зверніться до адміністратора. Код помилки: {{errorCode}}",
+    "weakPassword": "Пароль повинен містити не менше 6 символів."
+  },
+  "BackPageRotation": {
+    "ROTATION_0": "Жодного",
+    "ROTATION_180": "Поворот на 180°",
+    "ROTATION_270": "Поворот на 270°",
+    "ROTATION_90": "Поворот на 90°"
+  },
+  "billingAddress": {
+    "notSavedError": "Платіжну адресу не збережено, код помилки: {{error}}",
+    "notSavedNotCustomer": "Платіжну адресу не збережено, користувач не є клієнтом"
+  },
+  "BindingEdge": {
+    "BOTTOM": "Дно",
+    "LEFT": "Ліворуч",
+    "RIGHT": "правильно",
+    "TOP": "Топ"
+  },
+  "BleedType": {
+    "BLEED_INCLUDED": "Файл містить обріз",
+    "DIFFERENTIAL_DIFFUSION": "Створити кровотечу",
+    "NO_BLEED": "Без кровотечі",
+    "ONE_POINT_FIVE_MM_SCALE": "Додайте 1,5 мм (масштабування)",
+    "TWO_MM_MIRROR": "Додайте 2 мм (дзеркальне відображення)"
+  },
+  "blog": {
+    "backToBlog": "Назад до блогу",
+    "empty": "Повідомлень у блозі не знайдено.",
+    "emptyDescription": "Спробуйте налаштувати фільтри або перевірте пізніше.",
+    "loading": "Завантаження...",
+    "minRead": "хв. читання",
+    "notFound": "Повідомлення в блозі не знайдено.",
+    "relatedPosts": "Пов’язані публікації",
+    "views": "погляди"
+  },
+  "CampaignAvailabilityTypeEnum": {
+    "ONLINE": "Онлайн",
+    "POS": "Торгова точка"
+  },
+  "CampaignBudgetTypes": {
+    "SPEND": "Сума",
+    "USAGE": "Використання"
+  },
+  "cart": {
+    "addProductAgain": "Знову додайте товар у кошик",
+    "addProducts": "Додайте продукти в кошик",
+    "discountRemoved": "Промокод {{code}} видалено",
+    "empty": "Кошик порожній",
+    "error": {
+      "cantAddProduct": "Неможливо додати товар у кошик",
+      "cantContinueAsGuest": "Неможливо продовжити як гість"
+    },
+    "full": "Кошик заповнений (макс. 10 товарів)",
+    "goToStore": "Іди в магазин",
+    "guest": {
+      "acceptTerms": {
+        "part1": "Натиснувши кнопку вище, ви приймаєте",
+        "part2": "умови обслуговування",
+        "part3": "і",
+        "part4": "політика конфіденційності"
+      },
+      "cantContinueAsGuest": "Щоб додати товар у кошик і оформити замовлення, необхідно авторизуватися, зареєструватися або продовжити покупки як гість.",
+      "continueAsGuest": "Продовжуйте як гість",
+      "loginOrRegister": "Увійдіть або зареєструйтесь",
+      "shouldContinueAsGuest": "Бажаєте зробити замовлення в гостях?"
+    },
+    "invalidPrice": "Ціна товару {{productName}} - {{description}} недійсна",
+    "itemRemoved": "Товар вилучено з кошика",
+    "label": "кошик",
+    "missingFiles": {
+      "action": "Прикріпити файли",
+      "description": "Цей продукт не має вкладених файлів для друку. Додайте свою ілюстрацію перед розміщенням замовлення — і якщо файли зникнуть після перезавантаження сторінки, прикріпіть їх знову.",
+      "title": "Немає вкладених файлів"
+    },
+    "noPaymentOptions": "Немає доступних варіантів оплати",
+    "noShippingOptions": "Немає доступних варіантів доставки",
+    "priceCheckError": "Під час перевірки ціни продукту {{productName}} - {{description}} сталася помилка",
+    "preflightChecking": {
+      "description": "Ми генеруємо попередній перегляд і перевіряємо проблеми друку у фоновому режимі.",
+      "title": "Перевірка завантаженого файлу"
+    },
+    "productAdded": "Товар додано в кошик",
+    "productUnavailable": "Товар більше не доступний",
+    "removeProduct": "Видалити товар із кошика",
+    "validationError": "Під час перевірки кошика сталася помилка",
+    "goToCart": "Перейти до кошика"
+  },
+  "category": {
+    "created": "Категорія створена",
+    "createdDescription": "Нову категорію успішно створено",
+    "notCreated": "Категорію не створено, код помилки: {{error}}",
+    "notUpdated": "Категорію не оновлено, код помилки: {{error}}",
+    "updated": "Категорію оновлено",
+    "updatedDescription": "Успішно оновлено категорію {{name}}"
+  },
+  "combination": {
+    "configuration": "Конфігурація",
+    "faq": {
+      "customSize": {
+        "answer": "Так, багато продуктів підтримують спеціальні розміри. Увімкніть опцію спеціального формату в конфігураторі, щоб ввести власну ширину та висоту.",
+        "question": "Чи можу я замовити індивідуальний розмір?"
+      },
+      "fileRequirements": {
+        "answer": "Ми приймаємо файли PDF, PNG, JPEG і TIFF. Щоб отримати найкращі результати, постачайте векторні PDF-файли з контурними шрифтами та 3 мм за межі.",
+        "question": "Які формати файлів ви приймаєте?"
+      },
+      "minimumOrder": {
+        "answer": "Мінімальна кількість залежить від продукту. Перевірте селектор кількості на сторінці продукту, щоб знайти найменшу доступну кількість.",
+        "question": "Чи існує мінімальна кількість замовлення?"
+      },
+      "shipping": {
+        "answer": "Доставляємо кур’єром по Польщі та ЄС. Вартість доставки розраховується при оформленні виходячи з ваги замовлення та пункту призначення.",
+        "question": "Як працює доставка?"
+      },
+      "turnaround": {
+        "answer": "Приблизні дати доставки відображаються поруч із кожною опцією кількості в селекторі кількості та в кошику, тож ви можете вибрати графік, який вам підходить.",
+        "question": "Скільки часу займає виготовлення?"
+      },
+      "viewAll": "Переглянути всі поширені запитання"
+    },
+    "specialNotes": "Інформація",
+    "tabs": {
+      "description": "опис",
+      "faq": "FAQ",
+      "reviews": "Відгуки"
+    }
+  },
+  "common": {
+    "accept": "прийняти",
+    "add": "додати",
+    "addresses": "Адреси",
+    "back": "Назад",
+    "cancel": "Скасувати",
+    "close": "Закрити",
+    "confirm": "Підтвердити",
+    "create": "Створити",
+    "delete": "Видалити",
+    "edit": "Редагувати",
+    "email": "Електронна пошта",
+    "error": "Помилка",
+    "gross": "Валовий",
+    "info": "Інформація",
+    "invoice": "рахунок-фактура",
+    "itemsSelected": "Вибрано елементів: {{count}}",
+    "loading": "Завантаження...",
+    "loadMore": "Завантажте більше",
+    "moreItems": "+ ще {{count}}",
+    "net": "Чистий",
+    "new": "NEW",
+    "next": "Далі",
+    "no": "немає",
+    "noAddresses": "Без адрес",
+    "noAddressesDescription": "На даний момент у вас немає збережених адрес.",
+    "noBillingAddress": "Без рахунку-фактури",
+    "noOptionsAvailable": "Немає доступних варіантів",
+    "noOrder": "Без порядку",
+    "noOrders": "Без замовлень",
+    "noOrdersDescription": "На даний момент у вас немає замовлень.",
+    "noRatingsDescription": "На даний момент у вас немає оцінок для додавання.",
+    "noRatingsToAdd": "Немає оцінок для додавання",
+    "orderBy": "Замовити за",
+    "orders": "Замовлення",
+    "password": "Пароль",
+    "pleaseWait": "Будь ласка, зачекайте",
+    "preview": "Попередній перегляд",
+    "ratings": "Рейтинги",
+    "remove": "видалити",
+    "save": "зберегти",
+    "saved": "Збережено!",
+    "selectLanguage": "Виберіть мову",
+    "selectPlaceholder": "Виберіть {{attributeName}}...",
+    "submit": "Надіслати",
+    "success": "Успіх",
+    "tryAgain": "Спробуйте пізніше",
+    "unavailable": "Недоступний",
+    "update": "оновлення",
+    "warning": "УВАГА",
+    "yes": "так"
+  },
+  "complaint": {
+    "created": "Скарга створена",
+    "createdDescription": "Успішно створено нову скаргу",
+    "createdDev": "Скарга створена без збереження (DEV)",
+    "createdDevDescription": "Успішно створено нову скаргу",
+    "notCreated": "Скарга не була створена",
+    "notCreatedError": "Скарга не створена, код помилки: {{error}}",
+    "notFound": "Скарга не знайдена для редагування"
+  },
+  "ComplaintStatus": {
+    "NEW": "новий",
+    "PROCESSING": "Обробка",
+    "RESOLVED": "Вирішено"
+  },
+  "ConsentSettings": {
+    "ad_personalization": "Згода на персоналізовану рекламу",
+    "ad_storage": "Дозволяє зберігати такі дані, як файли cookie, пов’язані з рекламою",
+    "ad_user_data": "Згода на надсилання даних користувача Google для рекламних цілей",
+    "analytics_storage": "Дозволяє зберігати аналітичні дані, напр. час відвідування (обов'язково)",
+    "functionality_storage": "Дозволяє зберігати функції сайту, напр. налаштування мови (обов'язково)",
+    "personalization_storage": "Дозволяє зберігати персоналізацію, напр. відео рекомендації",
+    "security_storage": "Вмикає зберігання, пов’язане з безпекою, напр. автентифікація (обов'язково)"
+  },
+  "contact": {
+    "notSavedError": "Контакт не збережено, код помилки: {{error}}",
+    "notSavedNotCustomer": "Контакт не збережено, користувач не клієнт"
+  },
+  "Currency": {
+    "EUR": "€",
+    "GBP": "£",
+    "PLN": "PLN",
+    "USD": "$"
+  },
+  "CUSTOM_FORMAT_PARAMETERS": "Параметри спеціального формату",
+  "customer": {
+    "notSavedError": "Клієнта не збережено, код помилки: {{error}}"
+  },
+  "customFormatInput": {
+    "addedSizes": "Додані розміри ({{count}})",
+    "addSize": "Додайте розмір",
+    "heading": "Розмір",
+    "height": "Висота",
+    "heightRange": "Висота (від {{minHeight}} до {{maxHeight}})",
+    "ratioDescription": "Співвідношення розраховується виходячи з ширини і висоти.",
+    "ratioHeading": "співвідношення",
+    "ratioRange": "Співвідношення (від {{minRatio}} до {{maxRatio}})",
+    "totalArea": "Загальна площа",
+    "width": "Ширина",
+    "widthRange": "Ширина (від {{minWidth}} до {{maxWidth}})"
+  },
+  "deliveryInfo": {
+    "heading": "Доступні варіанти доставки"
+  },
+  "designSpec": {
+    "bleed": "Кровотеча",
+    "colors": "Колірна гамма",
+    "downloadTemplate": "Завантажити шаблон {{name}}",
+    "grossFormat": "Валовий формат (до обрізки)",
+    "heading": "Як підготувати файли?",
+    "minResolution": "Мінімальна роздільна здатність",
+    "netFormat": "Чистий формат (після обрізки)",
+    "templates": "Шаблони"
+  },
+  "DiscountTypeEnum": {
+    "FIXED": "Фіксована сума",
+    "PERCENTAGE": "Відсоток"
+  },
+  "DuplexMode": {
+    "DUPLEX_LONG_EDGE": "Дуплекс (довгий край)",
+    "DUPLEX_SHORT_EDGE": "Дуплекс (короткий край)",
+    "SIMPLEX": "Симплекс"
+  },
+  "error": {
+    "cannotCreateOrderStoreChannel": "Неможливо створити замовлення на каналі магазину",
+    "categoryNotFound": "Категорія не знайдена для редагування",
+    "missingEmail": "Відсутня електронна адреса",
+    "missingEmailStripe": "Неможливо створити платіжний сеанс без електронної адреси",
+    "permissionDenied": "У дозволі відмовлено",
+    "somethingWrong": "Щось пішло не так"
+  },
+  "ERROR": {
+    "ANONYMOUS_SHIPPING_DOMESTIC_ONLY": "Анонімна доставка посилок доступна лише для внутрішньої доставки.",
+    "BUYING_DISABLED": "Обробка замовлення недоступна",
+    "INCOMPLETE_ORDER_DATA": "Неповні дані замовлення",
+    "INVALID_PRICES": "Недійсні ціни, знову додайте товари в кошик",
+    "INVALID_PRODUCTS": "Недійсні продукти, додайте продукти в кошик знову",
+    "INVALID_STORE_CREDIT_CURRENCY": "Кредит магазину можна використовувати лише у валюті кредиту магазину.",
+    "INSUFFICIENT_STOCK": "Деякі товари в кошику більше недоступні в запитаній кількості.",
+    "NOT_FOUND": "Не знайдено",
+    "ORDER_CREATION_FAILED": "Помилка створення замовлення",
+    "STOCK_CHECK_FAILED": "Не вдалося перевірити наявність на складі. Спробуйте ще раз.",
+    "STOCK_NOT_FOUND": "Для деяких товарів у кошику відсутні записи складу.",
+    "STORE_CREDIT_EXCEEDS_BALANCE": "Сума кредиту магазину перевищує доступний баланс.",
+    "UNAUTHENTICATED": "Немає дозволів",
+    "UNAUTHORIZED": "Немає дозволів",
+    "WRONG_USER": "Не той користувач"
+  },
+  "errors": {
+    "fileProcessingError": "Помилка обробки файлу",
+    "somethingWentWrong": "Щось пішло не так",
+    "valueLabelPairsError": "Помилка створення пар мітки значення"
+  },
+  "false": "немає",
+  "file": {
+    "exportedSuccessfully": "Файл успішно експортовано",
+    "exporting": "Експорт...",
+    "importedSuccessfully": "Файл успішно імпортовано",
+    "processingError": "Помилка обробки файлу",
+    "processingErrorDetail": "Помилка обробки файлу: {{error}}"
+  },
+  "forgotPassword": {
+    "sent": "Повідомлення надіслано",
+    "sentDescription": "Посилання для зміни пароля надіслано на вказану електронну адресу"
+  },
+  "forms": {
+    "anonymousPackageLabelAddress": {
+      "city": "Місто",
+      "cityPlaceholder": "Місто",
+      "company": "Компанія",
+      "companyPlaceholder": "Компанія",
+      "description": "Додатково. Якщо ви заповните ці поля, ця адреса відправника може використовуватися на етикетці посилки замість нашої за замовчуванням.",
+      "email": "Електронна пошта",
+      "emailPlaceholder": "Електронна пошта",
+      "labelName": "Назва адреси мітки",
+      "labelNamePlaceholder": "напр. Відправник на етикетці",
+      "name": "ПІБ",
+      "namePlaceholder": "Ім'я та прізвище",
+      "phone": "Телефон",
+      "phonePlaceholder": "Телефон",
+      "street": "вул",
+      "streetPlaceholder": "Вулиця і номер",
+      "zip": "Поштовий індекс",
+      "zipPlaceholder": "Поштовий індекс"
+    },
+    "anonymousPackageShipping": {
+      "description": "Якщо ви обираєте анонімну доставку посилок, наша компанія не буде вказуватися на маркуванні відправлення.",
+      "heading": "Бажаєте, щоб доставка посилок була анонімною?",
+      "internationalUnavailable": "Анонімна доставка пакунків недоступна для міжнародної доставки.",
+      "label": "Анонімна доставка посилок",
+      "tooltip": "Залежно від кур’єрської компанії, яка обробляє відправлення, відправник відображатиметься як надана адреса або логістичний центр кур’єра. Постачальник доставки, наприклад InPost або DHL, буде вибрано на основі анонімної доступності доставки. Анонімна доставка пакетів не доступна з накладеним платежем або міжнародною доставкою."
+    },
+    "b2b": {
+      "labels": {
+        "businessDescription": "Опис бізнесу",
+        "city": "Місто",
+        "companyName": "Назва компанії",
+        "nip": "NIP (ідентифікаційний податковий номер)",
+        "postalCode": "Поштовий індекс",
+        "street": "вул"
+      },
+      "placeholders": {
+        "city": "Місто",
+        "companyName": "Назва компанії",
+        "min_150Max_500Chars": "хв. 150 символів, макс. 500 символів",
+        "nip": "NIP",
+        "postalCode": "Поштовий індекс",
+        "street": "вул"
+      }
+    },
+    "headings": {
+      "address": "Адреса",
+      "addresses": "Адреси",
+      "basicInformation": "Основна інформація",
+      "billingAddress": "Платіжна адреса",
+      "businessInformation": "Ділова інформація",
+      "contact": "контакт",
+      "contacts": "Контакти",
+      "customSizes": "Спеціальні розміри",
+      "delivery": "Доставка",
+      "deliveryNotes": "Доставка та примітки",
+      "filePreparation": "Підготовка файлу",
+      "fileVerification": "Перевірка файлу",
+      "freeShipping": "Безкоштовна доставка",
+      "locker": "Шафка",
+      "options": "Опції",
+      "postalCodeMachine": "Машина поштового індексу",
+      "price": "Ціна",
+      "priceRanges": "Діапазон цін",
+      "promotionRules": "Правила просування",
+      "quantities": "Кількості",
+      "realization": "Реалізація",
+      "settings": "Налаштування",
+      "shipping": "Доставка",
+      "shippingAddress": "Адреса доставки",
+      "shippingCosts": "Витрати на доставку",
+      "shippingNotes": "Доставка та примітки",
+      "specification": "Специфікація",
+      "tracking": "Відстеження посилок",
+      "verification": "Перевірка файлу",
+      "volumes": "Обсяги"
+    },
+    "help": {
+      "pageCount": "Виберіть від {{minimum}} до {{maximum}} з кроком {{step}}. Титульні сторінки (+{{coverPages}}) виправлено."
+    },
+    "helperTexts": {
+      "invoiceNotes": "Ці примітки буде видно на рахунку-фактурі.",
+      "invoiceRecipientEnabled": "Використовуйте, коли в рахунку-фактурі має бути вказаний одержувач, окрім покупця.",
+      "jstRecipientEnabled": "Використовуйте, коли одержувачем рахунка має бути польська місцева влада."
+    },
+    "invoiceRecipientRoleOptions": {
+      "additionalBuyer": "Додатковий покупець",
+      "employee": "Співробітник",
+      "jst": "Орган місцевого самоврядування",
+      "other": "Інша роль",
+      "payer": "Платна сторона",
+      "recipient": "одержувач",
+      "vatGroupMember": "Член групи ПДВ"
+    },
+    "pageCountBreakdown": "{{innerPages}} (внутрішній) + {{coverPages}} (обкладинка)",
+    "labels": {
+      "active": "Активний",
+      "addressType": "Тип адреси",
+      "apartment": "Квартира",
+      "attribute": "Атрибут",
+      "availableDeliveryTypes": "Доступні види доставки",
+      "b2b": "B2B",
+      "billingAddress": "Платіжна адреса",
+      "carriedOutBy": "Здійснює",
+      "categories": "Категорії",
+      "category": "Категорія",
+      "chooseParcelLocker": "Виберіть ящик для посилок",
+      "city": "Місто",
+      "color": "Колір",
+      "companyData": "Дані компанії",
+      "companyName": "Назва компанії",
+      "contact": "контакт",
+      "contactName": "Контактне ім'я",
+      "cost": "Вартість",
+      "country": "Країна",
+      "currencies": "Валюти",
+      "currency": "Валюта",
+      "customer": "Замовник",
+      "customSizeName": "Назва індивідуального розміру",
+      "deadline": "Дедлайн",
+      "defaultOrder": "Порядок за замовчуванням",
+      "delivery": "Доставка",
+      "deliveryAddress": "Адреса доставки",
+      "description": "опис",
+      "difficulty": "Складність",
+      "discount": "Знижка",
+      "dpi": "Dpi",
+      "email": "Електронна пошта",
+      "expirationDate": "Термін придатності",
+      "express": "Експрес",
+      "files": "Файли",
+      "filesStatus": "Статус файлів",
+      "fileVerification": "Перевірка файлу",
+      "fullName": "ПІБ",
+      "height": "Висота",
+      "heightStep": "Висота кроку",
+      "identifier": "Ідентифікатор",
+      "invoice": "рахунок-фактура",
+      "invoiceNotes": "Примітки до рахунків-фактур",
+      "invoiceRecipientCity": "Місто одержувача",
+      "invoiceRecipientEnabled": "Одержувач рахунку",
+      "invoiceRecipientName": "Ім'я одержувача",
+      "invoiceRecipientNip": "NIP отримувача",
+      "invoiceRecipientPostalCode": "Поштовий індекс одержувача",
+      "invoiceRecipientRole": "Роль одержувача",
+      "invoiceRecipientRoleDescription": "Опис ролі",
+      "invoiceRecipientStreet": "Одержувач вул",
+      "jstRecipientCity": "Місто одержувача JST",
+      "jstRecipientEnabled": "Польський одержувач JST",
+      "jstRecipientName": "Ім'я одержувача JST",
+      "jstRecipientNip": "NIP одержувача JST",
+      "jstRecipientPostalCode": "Поштовий індекс одержувача JST",
+      "jstRecipientStreet": "Одержувач JST вул",
+      "label": "Мітка",
+      "likeCompany": "Подобається компанії",
+      "likeHome": "Як вдома",
+      "link": "Посилання",
+      "locale": "Локаль",
+      "locker": "Шафка",
+      "mailLink": "Посилання на пошту",
+      "markup": "Розмітка",
+      "maximumHeight": "Максимальна висота",
+      "maximumOrder": "Максимальне замовлення",
+      "maximumPurchaseValue": "Максимальна вартість покупки",
+      "maximumRatio": "Максимальний коефіцієнт",
+      "maximumWidth": "Максимальна ширина",
+      "message": "повідомлення",
+      "minimumHeight": "Мінімальна висота",
+      "minimumOrder": "Мінімальне замовлення",
+      "minimumPurchaseValue": "Мінімальна вартість покупки",
+      "minimumRatio": "Мінімальний коефіцієнт",
+      "minimumWidth": "Мінімальна ширина",
+      "name": "Ім'я",
+      "nip": "Індивідуальний податковий номер",
+      "notes": "Примітки",
+      "number": "Номер",
+      "operator": "Оператор",
+      "orderNotes": "Примітки до замовлення",
+      "pageCount": "Кількість сторінок",
+      "pages": "сторінки",
+      "paymentDocument": "Платіжний документ",
+      "paymentStatus": "Статус платежу",
+      "paymentType": "Тип оплати",
+      "person": "особа",
+      "personName": "ПІБ",
+      "phone": "Телефон",
+      "photo": "Фото",
+      "photos": "Фотографії",
+      "postalCode": "Поштовий індекс",
+      "preferredUnit": "Бажана одиниця",
+      "priceType": "Тип ціни",
+      "printingMethods": "Способи друку",
+      "printType": "Тип друку",
+      "priority": "Пріоритет",
+      "processingType": "Тип обробки",
+      "product": "Продукт",
+      "products": "Продукти",
+      "promotionRules": "Правила просування",
+      "publicationDate": "Дата публікації",
+      "quantityStep": "Крок кількості",
+      "sameAsBilling": "Те саме, що платіжна адреса",
+      "saveBillingAddress": "Зберегти платіжну адресу",
+      "saveContact": "Зберегти контакт",
+      "saveCustomer": "Зберегти клієнта",
+      "saveShippingAddress": "Зберегти адресу доставки",
+      "shippingAddress": "Адреса доставки",
+      "shippingOption": "Варіант доставки",
+      "slug": "Слимак",
+      "specialNotes": "Особливі примітки",
+      "standard": "Стандартний",
+      "status": "Статус",
+      "step": "Крок",
+      "street": "вул",
+      "subtitle": "Підзаголовок",
+      "threshold": "Поріг",
+      "title": "Назва",
+      "trackingNumber": "Номер відстеження",
+      "translation": "Переклад",
+      "unit": "одиниця",
+      "unitsPerSheet": "Одиниць на аркуші",
+      "value": "Значення",
+      "verification": "Перевірка файлу",
+      "wantInvoice": "Я хочу отримати рахунок",
+      "warehouses": "Склади",
+      "width": "Ширина",
+      "widthStep": "Ширина кроку",
+      "zip": "Zip"
+    },
+    "placeholders": {
+      "3dModelPreview": "3D шаблон попереднього перегляду",
+      "active": "Активний",
+      "allowCustomPrice": "Дозволити індивідуальну ціну",
+      "allowCustomSize": "Дозволити індивідуальний розмір",
+      "apartment": "1",
+      "attributeAffectsPrice": "Атрибут впливає на ціну",
+      "attributeContainsSizes": "Атрибут містить розміри",
+      "availableForPurchase": "В наявності для покупки",
+      "bleed": "Кровотеча",
+      "city": "Місто",
+      "comments": "Коментарі",
+      "companyName": "Назва компанії",
+      "contactName": "Контактне ім'я",
+      "country": "Країна",
+      "currency": "Валюта",
+      "customDimension": "Спеціальний розмір",
+      "customSizeName": "Назва індивідуального розміру",
+      "deadline": "Дедлайн",
+      "decidesRequiredPages": "Визначає кількість необхідних сторінок",
+      "defaultOrder": "Порядок за замовчуванням",
+      "description": "опис",
+      "difficulty": "Складність",
+      "difficulty_1_10": "Складність від 1 до 10",
+      "domainEmail": "ім'я@домен",
+      "dpi": "Dpi",
+      "email": "Електронна пошта",
+      "enableBuying": "Увімкнути купівлю?",
+      "enableFreeShipping": "Увімкнути безкоштовну доставку?",
+      "enableUnderConstruction": "Увімкнути режим розробки?",
+      "enterHeight": "Введіть висоту...",
+      "enterLink": "Введіть посилання",
+      "enterOptionCost": "Введіть вартість опції...",
+      "enterPageCount": "Введіть кількість сторінок...",
+      "enterRuleDescription": "Введіть опис правила",
+      "enterUnitsPerSheet": "Введіть одиниці на аркуш...",
+      "enterWidth": "Введіть ширину...",
+      "exactTime": "Точний час",
+      "example_5000": "5000",
+      "example_500000": "500000",
+      "example_5000000": "5000000",
+      "exampleA4": "A4",
+      "exampleA4Lowercase": "a4",
+      "exampleStreet": "приклад",
+      "fullName": "ПІБ",
+      "height": "Висота",
+      "heightStep": "Висотний крок",
+      "hideOption": "Сховати параметр",
+      "home": "додому",
+      "identifier": "Ідентифікатор",
+      "includeBleed": "Включіть кровотечу",
+      "isTest": "Тест",
+      "janKowalski": "Джон Сміт",
+      "jstRecipientName": "Назва органу місцевого самоврядування",
+      "likeCompany": "напр. Компанія",
+      "likeHome": "напр. додому",
+      "link": "Посилання",
+      "locale": "Виберіть мову...",
+      "markup": "Розмітка",
+      "maximumHeight": "Максимальна висота",
+      "maximumOrder": "Максимальне замовлення",
+      "maximumRatio": "Максимальний коефіцієнт",
+      "maximumWidth": "Максимальна ширина",
+      "minimumHeight": "Мінімальна висота",
+      "minimumOrder": "Мінімальне замовлення",
+      "minimumRatio": "Мінімальний коефіцієнт",
+      "minimumWidth": "Мінімальна ширина",
+      "mySubtitle": "Мій підзаголовок",
+      "myTitle": "Мій титул",
+      "name": "Ім'я",
+      "nameDomainPl": "name@domain.com",
+      "nip": "Ніп",
+      "nipNumber": "0000000000",
+      "invoiceNotes": "Примітки видно на рахунку-фактурі",
+      "invoiceRecipientName": "Ім'я одержувача",
+      "invoiceRecipientRole": "Виберіть роль одержувача",
+      "invoiceRecipientRoleDescription": "Введіть роль одержувача",
+      "notes": "Примітки",
+      "number": "1",
+      "paymentDocument": "Платіжний документ",
+      "phone": "123456789",
+      "poland": "Польща",
+      "postalCode": "00-000",
+      "price": "Ціна",
+      "priceType": "Тип ціни",
+      "printType": "Тип друку",
+      "priority": "Пріоритет",
+      "published": "Опубліковано",
+      "recommendOnHomepage": "Рекомендувати на головній сторінці",
+      "requireThisAttribute": "Вимагати цей атрибут",
+      "saveAddress": "Зберегти адресу",
+      "saveAsNewBillingAddress": "Зберегти як нову платіжну адресу",
+      "saveAsNewContact": "Зберегти як новий контакт",
+      "saveAsNewCustomer": "Зберегти як нового клієнта",
+      "saveShippingAddress": "Зберегти адресу доставки",
+      "search": "пошук...",
+      "selectAddressType": "Виберіть тип адреси...",
+      "selectAttribute": "Виберіть атрибут...",
+      "selectAttributeType": "Виберіть тип атрибута...",
+      "selectBillingAddress": "Виберіть платіжну адресу...",
+      "selectCarriedOutBy": "Вибір здійснюється",
+      "selectCategory": "Виберіть категорію",
+      "selectContact": "Виберіть контакт...",
+      "selectCurrencies": "Виберіть валюту...",
+      "selectCurrency": "Виберіть валюту...",
+      "selectDelivery": "Виберіть варіант доставки...",
+      "selectDeliveryAddress": "Виберіть адресу доставки",
+      "selectDeliveryTypes": "Виберіть види доставки",
+      "selectFilesStatus": "Виберіть статус файлів",
+      "selectModel": "Виберіть модель...",
+      "selectOperator": "Виберіть оператор",
+      "selectPaymentStatus": "Виберіть статус платежу",
+      "selectPaymentType": "Виберіть тип оплати",
+      "selectPrintingMethods": "Виберіть методи друку...",
+      "selectShippingAddress": "Виберіть адресу доставки...",
+      "selectStatus": "Виберіть статус...",
+      "selectWarehouses": "Виберіть склади...",
+      "shippingPossible": "Можлива доставка",
+      "siteUnderConstruction": "Сайт в розробці",
+      "slug": "слимак",
+      "specialNotes": "Особливі примітки",
+      "step": "Крок",
+      "street": "вул",
+      "streetAndNumber": "Вулиця та номер, квартира, од",
+      "taxId": "Індивідуальний податковий номер",
+      "threshold": "Поріг",
+      "title": "Назва",
+      "trackingNumber": "Номер відстеження",
+      "underConstruction": "Сайт в розробці",
+      "validateRatio": "Перевірте коефіцієнт",
+      "value": "Значення",
+      "verification": "Перевірка файлу",
+      "wantInvoice": "Я хочу отримати рахунок",
+      "warsaw": "Варшава",
+      "width": "Ширина",
+      "widthStep": "Ширина кроку",
+      "zero": "Нуль",
+      "zip": "Zip"
+    }
+  },
+  "FormTypes": {
+    "CONVERT": "конвертувати",
+    "CREATE": "Створити",
+    "DUPLICATE": "Копія",
+    "UPDATE": "Редагувати"
+  },
+  "languages": {
+    "cs": "Čeština",
+    "de": "Deutsch",
+    "en": "англійська",
+    "fr": "Français",
+    "pl": "Polski",
+    "sk": "Slovenčina",
+    "uk": "Українська"
+  },
+  "LayoutType": {
+    "BOOKLET": "Буклет",
+    "CUT_STACK": "Вирізати стек",
+    "DUTCH_CUT": "Голландська вирізка",
+    "N_UP": "N-Up",
+    "SHUFFLE": "Перетасувати",
+    "STEP_AND_REPEAT": "Крок і повтор"
+  },
+  "login": {
+    "guestSuccess": "Ви увійшли як гість",
+    "success": "Увійшли в систему",
+    "successDescription": "Ви увійшли у свій акаунт"
+  },
+  "logout": {
+    "success": "Вийшов з системи",
+    "successDescription": "Ви вийшли зі свого облікового запису"
+  },
+  "mfa": {
+    "description": "Додайте до свого облікового запису додатковий рівень безпеки, увімкнувши двофакторну автентифікацію за допомогою програми автентифікації.",
+    "emailVerification": {
+      "description": "Перевірте свою поштову скриньку на наявність посилання для підтвердження. MFA можна ввімкнути після підтвердження електронної пошти.",
+      "resend": "Resend електронний лист для підтвердження",
+      "sendFailed": "Не вдалося надіслати електронний лист для підтвердження",
+      "sentDescription": "Перевірте свою поштову скриньку та перейдіть за посиланням, щоб підтвердити адресу електронної пошти.",
+      "sentTitle": "Електронний лист для підтвердження надіслано",
+      "title": "Підтвердьте свою електронну адресу, щоб увімкнути MFA"
+    },
+    "enable": "Увімкніть двофакторну автентифікацію",
+    "enrolledOn": "Зареєстровано {{date}}",
+    "errors": {
+      "codeLength": "Будь ласка, введіть 6-значний код.",
+      "emailNotVerified": "Електронна адреса не підтверджена",
+      "emailNotVerifiedDescription": "Перевірте свою адресу електронної пошти, перш ніж увімкнути двофакторну автентифікацію.",
+      "enrollmentFailed": "Помилка реєстрації",
+      "invalidCode": "Невірний код",
+      "invalidVerificationCode": "Недійсний код підтвердження. Перевірте та повторіть спробу.",
+      "notAuthenticated": "Не автентифіковано",
+      "notAuthenticatedDescription": "Увійдіть, щоб увімкнути MFA.",
+      "noTotpFactor": "Фактор TOTP для цього облікового запису не знайдено.",
+      "recentLoginRequiredDescription": "З міркувань безпеки увійдіть знову та повторіть цю дію.",
+      "recentLoginRequiredTitle": "Потрібна повторна автентифікація",
+      "unenrollFailed": "Не вдалося вимкнути MFA",
+      "unknownError": "Сталася невідома помилка.",
+      "verificationFailed": "Не вдалося перевірити"
+    },
+    "factorName": "Програма автентифікатора",
+    "issuerName": "Konfi",
+    "remove": "видалити",
+    "sectionDescription": "Керуйте двофакторною автентифікацією для свого облікового запису.",
+    "sectionTitle": "Безпека",
+    "setup": {
+      "manualEntry": "Не можете сканувати? Введіть цей код вручну:",
+      "step1Description": "Відкрийте програму автентифікації (наприклад, Google Authenticator, Authy) і відскануйте цей QR-код.",
+      "step1Title": "Крок 1. Відскануйте QR-код",
+      "step2Description": "Введіть 6-значний код, який відображається у вашому додатку автентифікатора, щоб перевірити налаштування.",
+      "step2Title": "Крок 2: Введіть код підтвердження"
+    },
+    "status": {
+      "disabled": "Двофакторна аутентифікація вимкнена",
+      "disabledDescription": "Увімкніть двофакторну автентифікацію, щоб додати до свого облікового запису додатковий рівень безпеки.",
+      "enabled": "Увімкнено двофакторну аутентифікацію",
+      "enabledDescription": "Ваш обліковий запис захищено програмою автентифікації."
+    },
+    "success": {
+      "enrolled": "МЗС увімкнено",
+      "enrolledDescription": "Для вашого облікового запису ввімкнено двофакторну автентифікацію.",
+      "unenrolled": "MFA вимкнено",
+      "unenrolledDescription": "Для вашого облікового запису вимкнено двофакторну автентифікацію."
+    },
+    "title": "Двофакторна автентифікація",
+    "unenroll": {
+      "confirm": "Вимкнути MFA",
+      "title": "Вимкніть двофакторну автентифікацію",
+      "warningDescription": "Після вимкнення двофакторної автентифікації ваш обліковий запис буде захищено лише вашим паролем.",
+      "warningTitle": "Це знизить безпеку вашого облікового запису"
+    },
+    "verification": {
+      "description": "Введіть 6-значний код із програми автентифікації, щоб завершити вхід.",
+      "hint": "Відкрийте програму автентифікації (наприклад, Google Authenticator, Authy), щоб отримати код підтвердження.",
+      "title": "Двофакторна автентифікація",
+      "verify": "Підтвердити"
+    },
+    "verificationCode": "Код підтвердження",
+    "verify": "Перевірте та ввімкніть"
+  },
+  "newsletter": {
+    "description": "Отримуйте новини про акції, ексклюзивні пропозиції та новинки!",
+    "disclaimer": "*Спеціальна пропозиція діє виключно для онлайн-покупок!",
+    "subscribeButton": "Підпишіться",
+    "subscribed": "Розсилку успішно підписано",
+    "subscribeError": "Не вдалося підписатися на розсилку",
+    "title": "Підпишіться на розсилку та отримайте знижку 10%.",
+    "unsubscribed": "Успішно скасовано підписку на розсилку",
+    "unsubscribeError": "Не вдалося скасувати підписку на інформаційний бюлетень"
+  },
+  "NEWSLETTER_ERRORS": {
+    "already-exists": "Вже підписаний",
+    "internal": "Внутрішня помилка сервера",
+    "not-found": "Не знайдено",
+    "unauthenticated": "Немає дозволів"
+  },
+  "NEWSLETTER_SUBSCRIBE_MESSAGES": {
+    "SUCCESS": "Успішно підписані",
+    "UPDATED": "Успішно оновлено"
+  },
+  "NEWSLETTER_UNSUBSCRIBE_MESSAGES": {
+    "SUCCESS": "Успішно скасовано підписку"
+  },
+  "NoteCategory": {
+    "CUSTOMER": "Замовник",
+    "GENERAL": "Загальний",
+    "INTERNAL": "внутрішній",
+    "INVOICE": "рахунок-фактура",
+    "ORDER": "порядок",
+    "PAYMENT": "Оплата",
+    "PRODUCT": "Продукт",
+    "QUOTE": "Цитата",
+    "SHIPPING": "Доставка",
+    "TASK": "завдання"
+  },
+  "NoteEntityType": {
+    "CUSTOMER": "Замовник",
+    "ORDER": "порядок",
+    "PRODUCT": "Продукт"
+  },
+  "NotePriority": {
+    "HIGH": "Високий пріоритет",
+    "LOW": "Низький пріоритет",
+    "MEDIUM": "Середній пріоритет",
+    "URGENT": "Терміново!"
+  },
+  "notes": {
+    "assigneesUpdated": "Правонаступники оновлено",
+    "assigneesUpdatedDescription": "Належників оновлено.",
+    "assigneesUpdateError": "Під час оновлення виконавців сталася помилка."
+  },
+  "op": {
+    "==": "дорівнює",
+    "in": "в"
+  },
+  "optionalConsent": "Показати додаткові параметри згоди",
+  "options": {
+    "pairsCreationError": "Помилка створення пар мітки значення: {{error}}"
+  },
+  "order": {
+    "created": "Замовлення створено",
+    "createdDescription": "Нове замовлення успішно створено",
+    "createdDev": "Замовлення створено без збереження (DEV)",
+    "createdDevDescription": "Нове замовлення успішно створено",
+    "createWzCi": "Створіть КІ",
+    "fulfilled": "Виконано",
+    "generated": "Замовлення створено",
+    "generatedDescription": "Замовлення створено на основі інформації про клієнта",
+    "generationFailed": "Не вдалося створити замовлення",
+    "inProgress": "В роботі",
+    "notCreated": "Замовлення не було створено",
+    "notCreatedError": "Замовлення не створено, код помилки: {{error}}",
+    "notFoundForEdit": "Замовлення не знайдено для редагування",
+    "notUpdatedError": "Замовлення не оновлено, код помилки: {{error}}",
+    "setFulfilled": "Встановити виконано",
+    "setFulfilledConfirmation": "Бажаєте встановити статус «Виконано»?",
+    "setInProgress": "Установлено як у процесі",
+    "setInProgressConfirmation": "Бажаєте встановити статус «Виконується»?",
+    "showDetails": "Показати деталі",
+    "updated": "Замовлення оновлено",
+    "updatedDescription": "Замовлення успішно оновлено",
+    "updatedDev": "Замовлення оновлено без збереження (DEV)",
+    "updatedDevDescription": "Замовлення успішно оновлено"
+  },
+  "orderCard": {
+    "changePayment": "Змінити спосіб оплати",
+    "downloadInvoice": "Завантажити рахунок-фактуру"
+  },
+  "orderDetails": {
+    "freeShipping": "безкоштовно!",
+    "heading": "Резюме",
+    "productValue": "Вартість продукту:",
+    "saved": "Збережено:",
+    "shippingValue": "Доставка:",
+    "storeCredit": "Кредит магазину:",
+    "summaryInfo": "*Ціни вказані з ПДВ.",
+    "total": "Всього:"
+  },
+  "orders": {
+    "billingEmptyState": "Цей клієнт не має збережених платіжних адрес. Заповніть платіжні реквізити нижче.",
+    "contactEmptyState": "Цей клієнт не має контактів. Заповніть контактні дані нижче."
+  },
+  "OrderFilesStatus": {
+    "FILES_ARE_READY": "Готовий до друку",
+    "FOR_PREPARATION": "Для підготовки",
+    "FOR_VERIFICATION": "Для перевірки",
+    "UNDER_DESIGN": "В стадії проектування",
+    "WAITING_FOR_FILES": "Очікування файлів",
+    "WAITING_FOR_FILES_APPROVAL": "Очікування схвалення клієнта"
+  },
+  "orderPage": {
+    "activity": {
+      "collapse": "Згорнути",
+      "expand": "Розгорнути",
+      "heading": "діяльність"
+    },
+    "attachments": "Додатки",
+    "customer": {
+      "anonymousPackageShipping": "Анонімна доставка посилок",
+      "billing": "Платіжна адреса",
+      "contact": "контакт",
+      "heading": "Замовник",
+      "invoiceRecipient": "Одержувач рахунку",
+      "shipping": "Адреса доставки",
+      "tracking": "Відстежити відправлення"
+    },
+    "items": "Предмети",
+    "payment": {
+      "changeError": "Не вдалося змінити спосіб оплати",
+      "changeMethod": "Змінити спосіб оплати",
+      "changeMethodTitle": "Змінити спосіб оплати",
+      "changeSuccess": "Спосіб оплати оновлено",
+      "copyPaymentLink": "Копіювати платіжне посилання",
+      "heading": "Оплата",
+      "methodUpdated": "Спосіб оплати оновлено",
+      "netTotal": "Чистий підсумок",
+      "partial_sum": "Часткова сума",
+      "redirectingToPayment": "Перенаправлення на платіж...",
+      "selectNewMethod": "Виберіть новий спосіб оплати для цього замовлення",
+      "shipping": "Доставка",
+      "storeCredit": "Кредит магазину",
+      "taxTotal": "податок",
+      "total": "Всього",
+      "updateMethod": "Оновити спосіб оплати",
+      "tracking": "Відстежити відправлення"
+    },
+    "rma": {
+      "createErrorTitle": "Запит RMA не надіслано",
+      "createSuccessDescription": "Ми розглянемо ваш запит і зв'яжемося з вами.",
+      "createSuccessTitle": "Запит RMA надіслано",
+      "description": "Надішліть запит на повернення, обмін або претензію для цього замовлення.",
+      "descriptionHint": "Мінімум 10 символів.",
+      "descriptionLabel": "що сталося",
+      "descriptionPlaceholder": "Опишіть проблему, очікуване вирішення та будь-які деталі, які допоможуть нам розглянути запит…",
+      "empty": "Запити на RMA ще не подано.",
+      "errors": {
+        "customerNotFound": "Увійдіть знову, перш ніж надсилати запит.",
+        "descriptionTooLong": "Скоротіть опис і повторіть спробу.",
+        "descriptionTooShort": "Додайте принаймні 10 символів, щоб описати проблему.",
+        "invalidItems": "Виберіть хоча б одну позицію замовлення.",
+        "missingContext": "Перезавантажте замовлення та повторіть спробу.",
+        "orderNotFound": "Перезавантажте замовлення та повторіть спробу.",
+        "unauthorized": "Увійдіть знову, перш ніж надсилати запит.",
+        "unknown": "Повторіть спробу або зверніться до служби підтримки."
+      },
+      "heading": "Повернення та претензії",
+      "itemsLabel": "Постраждалі елементи",
+      "loading": "Завантаження запитів RMA…",
+      "quantityLabel": "Уражена кількість",
+      "submit": "Надіслати запит",
+      "typeLabel": "Тип запиту",
+      "typePlaceholder": "Виберіть тип запиту"
+    },
+    "specialNotes": {
+      "empty": "Без особливих зауважень",
+      "heading": "Особливі примітки"
+    }
+  },
+  "RmaRequestStatus": {
+    "APPROVED": "Затверджено",
+    "CANCELED": "Скасовано",
+    "COMPLETED": "Виконано",
+    "NEW": "новий",
+    "REJECTED": "Відхилено",
+    "UNDER_REVIEW": "На розгляді"
+  },
+  "RmaRequestType": {
+    "CLAIM": "Претензія",
+    "EXCHANGE": "Обмін",
+    "RETURN": "Повернення"
+  },
+  "OrderStatus": {
+    "CANCELED": "Скасовано",
+    "DELAYED": "Затримується",
+    "DELIVERED": "Доставлено",
+    "DRAFT": "Чернетка",
+    "FULFILLED": "Виконано",
+    "IN_PROGRESS": "В роботі",
+    "NEW": "новий",
+    "PICKED_UP": "Підхопив",
+    "READY": "Готовий",
+    "SHIPPED": "Відправлено",
+    "UNDER_REVIEW": "На розгляді",
+    "WAITING_FOR_MATERIALS": "Очікування матеріалів"
+  },
+  "PaperOrientations": {
+    "LANDSCAPE": "Пейзаж",
+    "PORTRAIT": "Портрет"
+  },
+  "PaperSizes": {
+    "10x14": "10x14 (254x356 мм)",
+    "11x17": "11x17 (279x432 мм)",
+    "2A0": "2A0 (1189x1682 мм)",
+    "4A0": "4A0 (1682x2378 мм)",
+    "A0": "A0 (841x1189 мм)",
+    "A1": "A1 (594x841 мм)",
+    "A10": "A10 (26x37 мм)",
+    "A2": "A2 (420x594 мм)",
+    "A2EXTRA": "A2 Extra (445x619 мм)",
+    "A3": "A3 (297x420 мм)",
+    "A3EXTRA": "A3 Extra (322x445 мм)",
+    "A3SUPER": "A3 Super (305x508 мм)",
+    "A4": "A4 (210x297 мм)",
+    "A4EXTRA": "A4 Extra (235x322 мм)",
+    "A4LONG": "A4 Long (210x348 мм)",
+    "A4SUPER": "A4 Super (229x322 мм)",
+    "A5": "A5 (148x210 мм)",
+    "A5EXTRA": "A5 Extra (173x235 мм)",
+    "A6": "A6 (105x148 мм)",
+    "A7": "A7 (74x105 мм)",
+    "A8": "A8 (52x74 мм)",
+    "A9": "A9 (37x52 мм)",
+    "ARCH1": "Арка1 (229x305 мм)",
+    "ARCH2": "Arch2 (305x457 мм)",
+    "ARCH3": "Arch3 (457x610 мм)",
+    "ARCH4": "Arch4 (610x914 мм)",
+    "ARCH5": "Arch5 (914x1219 мм)",
+    "ARCH6": "Arch6 (1219x1524 мм)",
+    "ARCHA": "ArchA (229x305 мм)",
+    "ARCHB": "ArchB (305x457 мм)",
+    "ARCHC": "ArchC (457x610 мм)",
+    "ARCHD": "ArchD (610x914 мм)",
+    "ARCHE": "ArchE (914x1219 мм)",
+    "ARCHE1": "ArchE1 (762x1067 мм)",
+    "ARCHE2": "ArchE2 (965x1321 мм)",
+    "ARCHE3": "ArchE3 (991x1321 мм)",
+    "B0": "B0 (1000x1414 мм)",
+    "B1": "B1 (707x1000 мм)",
+    "B10": "B10 (31x44 мм)",
+    "B2": "B2 (500x707 мм)",
+    "B3": "B3 (353x500 мм)",
+    "B4": "B4 (250x353 мм)",
+    "B5": "B5 (176x250 мм)",
+    "B6": "B6 (125x176 мм)",
+    "B7": "B7 (88x125 мм)",
+    "B8": "B8 (62x88 мм)",
+    "B9": "B9 (44x62 мм)",
+    "C0": "C0 (917x1297 мм)",
+    "C1": "C1 (648x917 мм)",
+    "C10": "C10 (28x40 мм)",
+    "C2": "C2 (458x648 мм)",
+    "C3": "C3 (324x458 мм)",
+    "C4": "C4 (229x324 мм)",
+    "C5": "C5 (162x229 мм)",
+    "C6": "C6 (114x162 мм)",
+    "C7": "C7 (81x114 мм)",
+    "C8": "C8 (57x81 мм)",
+    "C9": "C9 (40x57 мм)",
+    "EXECUTIVE": "Executive (184x267 мм)",
+    "FLSA": "FLSA (216x330 мм)",
+    "FLSE": "FLSE (216x330 мм)",
+    "FOLIO": "Фоліо (216x330 мм)",
+    "GOVERNMENTLEGAL": "Державні юридичні (216x330 мм)",
+    "GOVERNMENTLETTER": "Урядовий лист (203x267 мм)",
+    "HALFLETTER": "Половина листа (140x216 мм)",
+    "JUNIORLEGAL": "Junior Legal (127x203 мм)",
+    "LEDGER": "ГК (432x279 мм)",
+    "LEGAL": "Legal - США (216x356 мм)",
+    "LETTER": "Letter - США (216x279 мм)",
+    "MEMO": "Пам'ятка (140x216 мм)",
+    "NOTE": "Примітка (190x254 мм)",
+    "SOB5EXTRA": "B5 Extra (201x276 мм)",
+    "SRA0": "SRA0 (900x1280 мм)",
+    "SRA1": "SRA1 (640x900 мм)",
+    "SRA2": "SRA2 (450x640 мм)",
+    "SRA3": "SRA3 (320x450 мм)",
+    "SRA4": "SRA4 (225x320 мм)",
+    "SRA5": "SRA5 (160x225 мм)",
+    "STATEMENT": "Statement (140x216 мм)",
+    "SUPERA3": "Super A3 (305x487 мм)",
+    "SUPERA4": "Super A4 (227x356 мм)",
+    "TABLOID": "Таблоїд (279x432 мм)"
+  },
+  "password": {
+    "changed": "Пароль змінено"
+  },
+  "paymentStatus": "Оплата",
+  "PaymentStatus": {
+    "CANCELED": "Скасовано",
+    "COMPLETED": "Виконано",
+    "DRAFT": "Чернетка",
+    "NEW": "новий",
+    "PARTIALLY_PAID": "Частково оплачено",
+    "PENDING": "В очікуванні",
+    "REFUNDED": "Повернено"
+  },
+  "PaymentType": {
+    "ALLEGRO": "Allegro",
+    "BANK_TRANSFER": "Банківський переказ",
+    "CARD": "картка",
+    "DEFERRED": "Підтвердження замовлення/CI",
+    "ON_DELIVERY": "Накладений платіж",
+    "ON_PICKUP": "На самовивіз",
+    "PROFORMA": "Проформа",
+    "PRZELEWY24": "Przelewy24",
+    "STRIPE": "Stripe"
+  },
+  "PreflightRules": {
+    "PreflightRulesMaxVersion": "PDF версія",
+    "PreflightRulesMinPpi": "Низька роздільна здатність",
+    "PreflightRulesNoColor": "Колірний простір не виявлено",
+    "PreflightRulesNoFilespecs": "Невбудовані файли",
+    "PreflightRulesNoGreyscale": "Відтінки сірого",
+    "PreflightRulesNoPalettenized": "Колірна палітра",
+    "PreflightRulesNoRgb": "Кольори RGB",
+    "PreflightRulesNoTransparency": "Прозорість",
+    "PreflightRulesOnlyEmbeddedFonts": "Невбудовані шрифти"
+  },
+  "price": {
+    "beforeDiscount": "Ціна без знижки",
+    "noConfiguration": "Конфігурація не знайдена",
+    "thresholdSummaryItem": "> {{threshold}} {{unit}} {{unitPrice}}",
+    "thresholdSummaryLabel": "Цінові рівні",
+    "thresholdDetail": "Рівень від {{threshold}} {{unit}}"
+  },
+  "PriceTypeEnum": {
+    "MATRIX": "Матриця",
+    "SINGLE": "неодружений",
+    "THRESHOLD": "Поріг"
+  },
+  "PrintingMethod": {
+    "CUTTING": "Нарізка",
+    "DIGITAL": "цифровий",
+    "DTF": "DTF",
+    "ECO_SOLVENT": "Екорозчинник",
+    "INSTALLATION": "монтаж",
+    "LARGE_FORMAT": "Великий формат",
+    "LASER": "Лазерна",
+    "OFFSET": "Зсув",
+    "UV": "UV"
+  },
+  "product": {
+    "finishing": {
+      "configure": "Налаштувати обробку",
+      "cutToSize": "Вирізати за розміром",
+      "cutToSizeHint": "Обріжте всі краї до остаточного розміру. Це видаляє армування та тунелі, але втулки можуть залишатися ввімкненими.",
+      "currentConfiguration": "Поточна конфігурація",
+      "dialogDescription": "Виберіть варіанти країв, які слід застосувати до цього продукту. Вирізання за розміром очищає арматуру та тунелі, але може залишатися в поєднанні з втулками.",
+      "dialogTitle": "Поглиблена обробка",
+      "edit": "Редагувати обробку",
+      "grommets": "Люверси",
+      "grommetsHint": "Додайте люверси на вибраних краях. Можна комбінувати з посиленням на тому ж краї або вирізати за розміром.",
+      "grommetsOffsetEnd": "Відстань від останнього кута (см)",
+      "grommetsOffsetEndHint": "Залишає вільний простір після останньої втулки на кожному вибраному краї.",
+      "grommetsOffsetStart": "Відстань від першого кута (см)",
+      "grommetsOffsetStartHint": "Залишає вільний простір перед першою втулкою на кожному вибраному краї.",
+      "grommetsSettings": "Відстань між втулками та кутові відстані",
+      "grommetsSettingsEmpty": "Виберіть принаймні один край втулки, щоб відрегулювати відстань між кутами та кутами.",
+      "grommetsSpacing": "Відстань (см)",
+      "grommetsSpacingHint": "Відстань між послідовними втулками на кожному вибраному краї.",
+      "grommetsSummary": "Відстань {{spacing}} см • перший кут {{offsetStart}} см • останній кут {{offsetEnd}} см",
+      "none": "Жодного",
+      "noneSelected": "Оздоблення не вибрано",
+      "preset": "Попереднє налаштування",
+      "presetPlaceholder": "Виберіть попередні налаштування…",
+      "presets": "Предустановки",
+      "reinforcement": "Армування",
+      "reinforcementHint": "Зміцніть виділені краї.",
+      "sides": {
+        "bottom": "Дно",
+        "left": "Ліворуч",
+        "right": "правильно",
+        "top": "Топ"
+      },
+      "sidesTitle": "Оздоблення на кожну сторону",
+      "tunnel": "Тунель",
+      "tunnelHint": "Зварений тунель на обраних краях. Не можна поєднувати з посиленням або прокладками на одному краю.",
+      "unavailableWithCutToSize": "Недоступно, якщо ввімкнено параметр «Вирізати за розміром»."
+    }
+  },
+  "productCard": {
+    "from": "Починаючи з",
+    "new": "новий"
+  },
+  "ProductFilters": {
+    "category": "Категорія",
+    "isNew": "Нові продукти",
+    "price": "Ціна від"
+  },
+  "ProductFiltersIsNew": {
+    "false": "все",
+    "true": "новий"
+  },
+  "products": {
+    "b2bCustomerNotice": {
+      "description": "Ви маєте доступ до спеціальних цін B2B.",
+      "link": "Переглянути продукти B2B",
+      "title": "Замовник B2B"
+    },
+    "clearAllFilters": "Очистити все",
+    "filteredCount": "Знайдено продуктів: {{count}}",
+    "imageGeneration": {
+      "acceptButton": "Прийняти та прикріпити до кошика товар",
+      "acceptButtonMultiple": "Прийняти та прикріпити всі файли до товару кошика",
+      "acceptSuccess": {
+        "description": "Створену графіку кінцевого виробництва було додано до цього елемента кошика.",
+        "title": "Графіка додається"
+      },
+      "addToCartButton": "Додайте до кошика зі згенерованим файлом",
+      "addToCartButtonMultiple": "Додайте до кошика разом із усіма згенерованими файлами",
+      "addToCartLoading": "Додавання до кошика…",
+      "addToCartSuccess": {
+        "description": "Було створено новий елемент кошика з прикріпленими згенерованими остаточними файлами.",
+        "title": "Додано в кошик"
+      },
+      "anonymousHint": "Гостьові та анонімні облікові записи не можуть використовувати створення зображень. Спершу створіть або увійдіть у повний обліковий запис.",
+      "authHint": "Увійдіть зі стандартним обліковим записом клієнта, щоб розблокувати створення зображень.",
+      "cartButton": "Створіть графіку за допомогою ШІ",
+      "cartButtonGenerating": "Виконується генерація",
+      "cartButtonReview": "Перегляньте створене зображення",
+      "cartDialogTitle": "Створіть і додайте остаточну графіку",
+      "currentFormat": "Поточний формат: {{width}} × {{height}} мм",
+      "currentFormatMissing": "Поточний формат буде отримано з конфігурації продукту.",
+      "currentPages": "{{count}} сторінок",
+      "dataUsageDescription": "Ваші підказки та довідкові зображення надсилаються до Google Vertex AI для створення. Не включайте конфіденційні чи особисті дані.",
+      "dataUsageTitle": "Як використовуються ваші дані",
+      "description": "Опишіть проект, виберіть стиль і створіть остаточну робочу графіку.",
+      "downloadButtonMultiple": "Завантажити графіку",
+      "downloadButton": "Завантажити графіку",
+      "dialogTitle": "Графічна студія ШІ",
+      "durationBadge": "До 1 хвилини",
+      "emailHint": "Підтвердьте свою електронну адресу перед створенням зображень. Після підтвердження посилання оновіть сторінку.",
+      "errors": {
+        "acceptFailed": "Не вдалося приєднати створене зображення.",
+        "addToCartUnavailable": "Поточна конфігурація продукту ще не готова для додавання в кошик.",
+        "anonymousNotAllowed": "Анонімні облікові записи не можуть використовувати створення зображень.",
+        "authRequired": "Увійдіть, щоб створити зображення.",
+        "disabledForProduct": "Для цього продукту не ввімкнуто створення графіки AI.",
+        "emailNotVerified": "Підтвердьте свою електронну адресу перед створенням зображень.",
+        "generationFailed": "Помилка створення зображення.",
+        "invalidFileSize": "Еталонні зображення мають бути 4 Мб або менше.",
+        "invalidFileType": "Підтримуються лише еталонні зображення PNG, JPG і WebP.",
+        "missingChannel": "Генерація зображень тимчасово недоступна.",
+        "monthlyBudgetExceeded": "Генерація графіки штучного інтелекту тимчасово недоступна, оскільки бюджет послуг цього місяця вичерпано. Повторіть спробу наступного місяця."
+      },
+      "attaching": "Прикріплення…",
+      "generateButton": "Створіть остаточну графіку",
+      "generating": "Створення…",
+      "generationElapsed": "Минуло {{count}} с",
+      "generationStatusOvertime": "Це може зайняти до хвилини. Завершення створення зображення…",
+      "generationStatusRemaining": "Приблизний час, що залишився: приблизно {{count}} секунд.",
+      "generationStatusTitle": "Створення робочої графіки…",
+      "generateHint": "Вибраний стиль і ваш бриф об’єднуються в підказку генерації на стороні сервера перед тим, як буде створено остаточну ілюстрацію.",
+      "devLimitsBadge": "Без погодинних обмежень у розробці",
+      "devLimitsDescription": "Режим розробки знімає погодинний ліміт. Перевірки підказок, файлів і облікового запису все ще застосовуються.",
+      "devRemainingAttempts": "Режим розробки: погодинний ліміт вимкнено для тестування.",
+      "heroDescription": "Напишіть бриф, виберіть стиль, додайте посилання, якщо потрібно, і створіть остаточну ілюстрацію для цього продукту.",
+      "heroEyebrow": "Студія друку AI",
+      "heroTitle": "Швидше створюйте концепцію, готову до друку.",
+      "highlights": {
+        "productionDescription": "Робочий процес уникає макетів і наближає результат до плоскої ілюстрації, придатної для друку.",
+        "productionTitle": "Вихід з урахуванням виробництва",
+        "referencesDescription": "Додаткові зображення допомагають керувати композицією, палітрою та типографікою без копіювання вихідної роботи.",
+        "referencesTitle": "Довідково-керівний",
+        "speedDescription": "Більшість поколінь завершується протягом приблизно хвилини, тому ви можете швидко виконувати ітерацію.",
+        "speedTitle": "Швидкий цикл перегляду",
+        "styleDescription": "Виберіть напрямок перед створенням, щоб остаточна підказка відображала потрібний вам настрій.",
+        "styleTitle": "Попередні налаштування стилів"
+      },
+      "improvePromptDescription": "Необов’язково: дозвольте штучному інтелекту відточити вашу інформацію перед генерацією.",
+      "improvePromptLabel": "Покращте моє резюме за допомогою ШІ перед створенням",
+      "largeFormatDescription": "Формати понад 500 × 500 мм будуть розширені та перевірені вручну перед виробництвом. Зберігайте макети жирним шрифтом і читайте їх на відстані.",
+      "largeFormatTitle": "Широкоформатна перевірка",
+      "limitsBadge": "{{count}} на годину",
+      "limitsDescription": "Перевірені клієнти можуть створювати до {{count}} остаточних графічних зображень на годину. Підказки мають містити {{min}}-{{max}} слів, і ви можете додати до {{references}} контрольних зображень.",
+      "limitsTitle": "Обмеження та правомочність",
+      "modelBadge": "Нано банан 2",
+      "multipleSidesNotice": "Обидві сторони для друку були створені як окремі файли.",
+      "openButton": "Відкрита графічна студія ШІ",
+      "openButtonDescription": "Напишіть докладний бриф, виберіть стиль, додайте додаткові посилання та створіть готову до виробництва графіку в одному відточеному робочому просторі.",
+      "openButtonDescriptionGenerating": "Генерація триває у фоновому режимі. Знову відкрийте студію, щоб спостерігати за прогресом і завантажити результат, коли він буде готовий.",
+      "openButtonDescriptionReady": "Ваша остання згенерована графіка готова до перегляду, завантаження або вкладення.",
+      "promptError": "Використовуйте від 30 до 500 слів.",
+      "promptHelper": "Висвітлюйте мету, аудиторію, кольори та обов’язковий вміст у 30–500 слів.",
+      "promptLabel": "Короткий опис дизайну",
+      "promptPlaceholder": "Приклад: створіть сучасний флаєр для весняної дегустації кави. Використовуйте теплий кремовий фон, темно-зелені акценти, чисту типографіку без зарубок і преміум редакційне відчуття. Підкресліть дату дегустації, обмежену кількість місць і тонкий ілюстрований мотив кавового листя...",
+      "promptUsedTitle": "Підказка використана",
+      "referenceBadge": "{{count}} посилань / {{size}} МБ макс",
+      "referenceDropzoneDescription": "Тільки PNG, JPG або WebP. До {{count}} файлів, {{size}} МБ кожен.",
+      "referenceDropzoneTitle": "Перетягніть довідкові зображення сюди або натисніть, щоб переглянути",
+      "referenceHelper": "До 3 файлів. Використовуйте їх лише як натхнення.",
+      "referenceLabel": "Еталонні зображення (необов’язково)",
+      "remainingAttempts": "Решта поколінь цієї години: {{count}}",
+      "resultAlt": "Згенерований попередній перегляд графіки остаточного виробництва",
+      "resultAltWithSide": "Створено {{side}} остаточний робочий графічний попередній перегляд",
+      "resultTitle": "Згенерована остаточна графіка",
+      "resultTitleMultiple": "Згенерована остаточна графіка",
+      "sides": {
+        "back": "Тильна сторона",
+        "front": "Лицьова сторона"
+      },
+      "success": {
+        "description": "Ваша остаточна робоча графіка ШІ готова.",
+        "title": "Зображення готове"
+      },
+      "styleHelper": "Це налаштування додається до підказки на стороні сервера.",
+      "styleLabel": "Виберіть напрямок стилю",
+      "styles": {
+        "elegancki": {
+          "description": "Преміальний баланс із вишуканими деталями.",
+          "label": "Елегантний"
+        },
+        "kreatywny": {
+          "description": "Сміливіші ідеї та виразніший дизайн.",
+          "label": "Творчий"
+        },
+        "minimalistyczny": {
+          "description": "Спокійні макети з чистою типографікою.",
+          "label": "Мінімалістичний"
+        },
+        "nowoczesny": {
+          "description": "Свіжий контраст і чітка геометрична структура.",
+          "label": "Сучасний"
+        }
+      },
+      "title": "Створіть остаточну робочу графіку за допомогою ШІ",
+      "triggerStatus": {
+        "anonymous": "Гість заблоковано",
+        "authRequired": "Обліковий запис потрібен",
+        "email": "Підтвердити електронну адресу",
+        "generating": "Виконується генерація",
+        "ready": "Готовий",
+        "review": "Огляд готовий"
+      },
+      "tutorial": {
+        "step1": "Опишіть мету, аудиторію, кольори та обов’язковий контент.",
+        "step2": "Виберіть стиль і додайте посилання, лише якщо вони допомагають скерувати напрямок.",
+        "step3": "Увімкніть оперативне покращення, якщо ви хочете, щоб штучний інтелект спочатку підтягнув завдання.",
+        "step4": "Якщо вибрано режим двостороннього друку, інструмент створить окремі файли передньої та задньої сторінок."
+      },
+      "tutorialTitle": "Короткий посібник",
+      "wordBadge": "{{min}}-{{max}} слів",
+      "wordCount": "{{count}} / {{max}} слів",
+      "workspaceCards": {
+        "brief": "Детальний бриф",
+        "production": "Макет, орієнтований на друк",
+        "references": "Корисні посилання",
+        "style": "Чіткий стильовий напрям"
+      },
+      "workspaceChecklistLabel": "Найкращі результати досягаються з:",
+      "workspaceDescription": "Ми вдосконалюємо ваш бриф на сервері перед генерацією.",
+      "workspaceEyebrow": "Робоча область дизайну AI",
+      "workspaceTitle": "Опишіть ідею, виберіть стиль і створіть твір, готовий до друку."
+    },
+    "noResults": "Жоден продукт не відповідає вашим фільтрам",
+    "noResultsDescription": "Спробуйте видалити деякі фільтри або перевірте інші категорії.",
+    "notFoundDescription": "Нам не вдалося знайти продукт для наданого ідентифікатора.",
+    "notFoundTitle": "Товар не знайдено"
+  },
+  "profile": {
+    "account": "Обліковий запис",
+    "logout": "Вийти",
+    "myAccount": "Мій акаунт",
+    "orders": "Замовлення",
+    "settings": "Налаштування",
+    "yourDiscount": "ВАША ЗНИЖКА: {{discount}}%"
+  },
+  "PromotionRuleAttributes": {
+    "CATEGORY": "Категорія",
+    "CURRENCY": "Валюта",
+    "PRODUCT": "Продукт",
+    "USER": "Користувач"
+  },
+  "promotions": {
+    "apply": "Застосувати",
+    "applying": "Завантаження…",
+    "applyPromotionCode": "Застосуйте промокод",
+    "availablePromotions": "Доступні акції",
+    "checkOtherCategories": "Перегляньте інші категорії",
+    "codeLabel": "код:",
+    "discountOn": "Знижка на {{target}}",
+    "discountSuffix": {
+      "currency": "PLN",
+      "percentage": "%"
+    },
+    "heading": "Акції",
+    "minimumOrderValueNotMet": "Мінімальна сума замовлення для цієї акції становить {{amount}}",
+    "noItems": "Елементів не знайдено",
+    "promotionalProducts": "Рекламна продукція",
+    "promotionCodeAlreadyApplied": "Промокод уже застосовано",
+    "promotionCodeApplied": "Промокод {{code}} застосовано",
+    "promotionCodeNotFound": "Промокод не знайдено",
+    "rememberToApply": "Не забудьте застосувати акцію в кошику.",
+    "seeProducts": "Переглянути продукти",
+    "targets": {
+      "entireOrder": "ціле замовлення",
+      "selectedProducts": "вибрані продукти",
+      "shipping": "доставка"
+    }
+  },
+  "PromotionTypes": {
+    "BUYGET": "Купуйте X, отримуйте Y",
+    "STANDARD": "Стандартний"
+  },
+  "ProofingOptions": {
+    "MANUAL": "Замовлення буде відправлено безпосередньо в обробку.",
+    "RUN_AS_IS": "Наша команда вручну перевірить ваш файл. Цей варіант може значно збільшити час обробки. Після перевірки вам може знадобитися схвалити файли, щоб продовжити обробку."
+  },
+  "quantity": {
+    "error": {
+      "alreadyExists": "Ця кількість вже є",
+      "inRange": "Кількість має бути від {{minimumOrder}} до {{maximumOrder}}",
+      "notAvailable": "Ця кількість недоступна для цієї конфігурації",
+      "steps": "Кількість має бути кратною {{step}}"
+    },
+    "heading": "Кількість",
+    "placeholder": "Додайте власну кількість (від {{minimumOrder}} до {{maximumOrder}}, кожні {{step}})"
+  },
+  "quote": {
+    "created": "Цитата створена",
+    "createdDescription": "Успішно створено нову цитату",
+    "createdDev": "Ціна створена без збереження (DEV)",
+    "createdDevDescription": "Успішно створено нову пропозицію без збереження",
+    "notCreated": "Цитата не була створена",
+    "notCreatedError": "Цитата не створена, код помилки: {{error}}",
+    "notFound": "Цитату не знайдено для редагування"
+  },
+  "rating": {
+    "addRating": "Додайте оцінку",
+    "rateStar": "Оцінити {{index}}",
+    "selectRating": "Виберіть рейтинг!",
+    "submitError": "Під час подання вашої оцінки сталася помилка!",
+    "thankYou": "Дякуємо за вашу оцінку!"
+  },
+  "RATINGS_COUNT_few": "Оцінки {{count}}",
+  "RATINGS_COUNT_many": "Оцінки {{count}}",
+  "RATINGS_COUNT_one": "Оцінка {{count}}",
+  "RATINGS_COUNT_other": "Оцінки {{count}}",
+  "requiredConsent": "Необхідні згоди",
+  "ROUTES": {
+    "aboutUs": "Про нас",
+    "account": "Обліковий запис",
+    "b2b": "B2B",
+    "blog": "Блог",
+    "cart": "кошик",
+    "checkout": "Оплата",
+    "contact": "контакт",
+    "cooperation": "Співпраця",
+    "faq": "FAQ",
+    "generalConditionsOfSale": "Загальні умови продажу",
+    "help": "Довідка",
+    "home": "додому",
+    "order": "порядок",
+    "orders": "Замовлення",
+    "privacyPolicy": "Політика конфіденційності",
+    "products": "Продукти",
+    "quotes": "Цитати",
+    "ratings": "Рейтинги",
+    "regulations": "Положення",
+    "rejections": "Відхилені файли",
+    "settings": "Налаштування"
+  },
+  "settings": {
+    "storeUndefined": "Параметри магазину не визначені, ви можете змінити їх у Конфігурація > Параметри магазину"
+  },
+  "shippingAddress": {
+    "notSavedError": "Адресу доставки не збережено, код помилки: {{error}}",
+    "notSavedNotCustomer": "Адреса доставки не збережена, користувач не є клієнтом"
+  },
+  "ShippingOptions": {
+    "AMBRO_EXPRESS": "АмброЕкспрес",
+    "COMPANY_COURIER": "Кур'єр компанії",
+    "CUSTOM": "Custom",
+    "DHL": "DHL",
+    "DHL_PICKUP": "DHL пункт самовивозу",
+    "DPD": "DPD",
+    "DPD_PICKUP": "Пункт прийому DPD",
+    "FEDEX": "FedEx",
+    "GLS": "GLS",
+    "INPOST": "InPost кур'єр",
+    "ORLEN_PACZKA": "Посилка Орлена",
+    "PACZKOMATY_INPOST": "InPost ящиків для посилок",
+    "PERSONAL_COLLECTION": "Особистий самовивіз",
+    "PUNKT_FEDEX": "Пункт отримання FedEx",
+    "UPS": "UPS",
+    "UPS_ACCESS_POINT": "Точка доступу ДБЖ"
+  },
+  "ShippingTypes": {
+    "COURIER": "Кур'єр",
+    "CUSTOM": "Custom",
+    "PARCEL_DELIVERY_LOCKER": "Шафки для посилок",
+    "PERSONAL_COLLECTION": "Особистий самовивіз"
+  },
+  "status": "Статус",
+  "store": {
+    "acceptedFileFormats": "Прийнятні формати файлів:",
+    "acceptedFiles": "Приймаються файли:",
+    "acceptRequiredOnly": "Приймайте лише необхідні згоди",
+    "acceptSelected": "Прийняти вибрані згоди",
+    "currency": {
+      "label": "Валюта",
+      "select": "Виберіть валюту"
+    },
+    "account": {
+      "addresses": "Адреси",
+      "addressesDescription": "Редагувати адреси доставки замовлень",
+      "addReviews": "Додайте відгуки про придбані товари",
+      "basic": "Базовий",
+      "confirmEmail": "Підтвердьте електронну адресу",
+      "confirmEmailDescription": "Посилання для підтвердження надіслано на вказану електронну адресу",
+      "confirmRemoveAccount": "Ви впевнені, що хочете видалити свій обліковий запис?",
+      "created": "Обліковий запис створено",
+      "createdDescription": "Ми створили для вас обліковий запис",
+      "help": "Довідка",
+      "helpDescription": "Перегляньте доступні сторінки довідки",
+      "label": "Обліковий запис",
+      "logout": "Вийти",
+      "orders": "Замовлення",
+      "ordersDescription": "Перевіряйте статус замовлення та відстежуйте відправлення",
+      "other": "інше",
+      "passwordPlaceholder": "6 або більше символів",
+      "profile": "Профіль",
+      "removeAccount": "Видалити обліковий запис",
+      "removeAccountWarning": "Вся ваша інформація буде видалена з нашої бази даних. Цю операцію неможливо скасувати, тому переконайтеся, що ви дійсно хочете видалити свій обліковий запис.",
+      "reviews": "Відгуки",
+      "reviewsDescription": "Додайте відгуки про придбані товари",
+      "signin": "Увійдіть",
+      "signup": "Зареєструватися"
+    },
+    "assistant": {
+      "ariaLabel": "Запитайте помічника",
+      "authRequired": "Увійдіть у звичайний обліковий запис, щоб скористатися помічником.",
+      "contact": "контакт",
+      "contactPage": "Сторінка контактів",
+      "heroPlaceholder": "Опишіть, що потрібно надрукувати…",
+      "inputPlaceholder": "Написати повідомлення…",
+      "open": "Відкрити помічника",
+      "productLink": "ВІДЧИНЕНО",
+      "quickContact": "контакт",
+      "quickFiles": "Як підготувати файли?",
+      "send": "Надіслати повідомлення",
+      "thinking": "Асистент готує відповідь",
+      "title": "помічник",
+      "unavailable": "Асистент зараз недоступний.",
+      "welcome": "Скажіть мені, що ви хочете надрукувати. Я можу запропонувати продукти, поділитися контактними даними та пояснити базову підготовку файлів."
+    },
+    "activeFormExists": "У вас вже є активна форма",
+    "activeFormExistsDesc": "Ви можете побачити це у вкладці B2B",
+    "address": "Адреса",
+    "attachFiles": "Прикріпити файли",
+    "availability": {
+      "onlineAndPos": "*Спеціальна пропозиція доступна як онлайн, так і у звичайному магазині!",
+      "onlineOnly": "*Спеціальна пропозиція діє виключно для онлайн-покупок!",
+      "posOnly": "*Спеціальна пропозиція доступна виключно у звичайному магазині!"
+    },
+    "b2bForm": "Форма B2B",
+    "b2bNotificationFailed": "Ваш запит збережено, але електронний лист зі сповіщенням не надіслано.",
+    "cantFindProduct": "Не можете знайти потрібний товар?",
+    "cart": {
+      "addProductAgain": "Знову додайте товар у кошик",
+      "addProducts": "Додайте продукти в кошик",
+      "addToCart": "Додати в кошик",
+      "buyButton": "Купуй і плати",
+      "calculationInfo": "* Ціна доставки може змінитися під час розрахунку на наступному кроці.",
+      "checkout": "Оплата",
+      "discountRemoved": "Промокод {{code}} видалено",
+      "empty": "Кошик порожній",
+      "estimatedDelivery": "Орієнтовна вартість доставки:",
+      "full": "Кошик заповнений (макс. 10 товарів)",
+      "goToCart": "Перейти до кошика",
+      "goToStore": "Перейдіть до магазину",
+      "invalidPrice": "Ціна товару {{productName}} - {{description}} недійсна",
+      "itemRemoved": "Товар вилучено з кошика",
+      "label": "кошик",
+      "noPaymentOptions": "Немає доступних варіантів оплати",
+      "noShippingOptions": "Немає доступних варіантів доставки",
+      "paymentUnavailableDescription": "Для цього магазину не налаштовано придатних для використання методів оплати. Будь ласка, зв'яжіться з командою магазину перед розміщенням замовлення.",
+      "paymentUnavailableTitle": "Оплата недоступна",
+      "ordersDisabled": "Замовлення відключені!",
+      "ordersDisabledDescription": "Ви можете переглядати товари, але наразі не можете розміщувати замовлення.",
+      "payment": "Оплата",
+      "priceCheckError": "Під час перевірки ціни продукту {{productName}} - {{description}} сталася помилка",
+      "productAdded": "Товар додано в кошик",
+      "products": "Продукти",
+      "productUnavailable": "Товар більше не доступний",
+      "przelewy24Info1": "Я заявляю, що прочитав",
+      "przelewy24Info2": "умови і",
+      "przelewy24Info3": "інформаційне зобов'язання",
+      "przelewy24Info4": "служби Przelewy24",
+      "readdToCart": "Знову додайте товар у кошик",
+      "removeFromCart": "Видалити з кошика",
+      "removeProduct": "Видалити товар із кошика",
+      "sendFilesViaMailInfo": "Якщо у вас є файли, розмір яких перевищує наш ліміт, ви можете надіслати їх через такі служби, як WeTransfer, Google Drive або інші платформи для обміну файлами на: {{email}}",
+      "shipping": "Доставка",
+      "termsAccept1": "Я прочитав і приймаю",
+      "termsAccept2": "умови",
+      "termsAccept3": "служби",
+      "useStoreCredit": "Скористайтеся кредитом магазину {{amount}}",
+      "validationError": "Під час перевірки кошика сталася помилка"
+    },
+    "checkout": {
+      "accountNumber": "Номер рахунку:",
+      "bankDetails": "Реквізити банківського переказу:",
+      "configurationUnavailableDescription": "У цій вітрині немає конфігурації каси. Будь ласка, зв'яжіться з командою магазину перед розміщенням замовлення.",
+      "configurationUnavailableTitle": "Оплата недоступна",
+      "error": "Помилка!",
+      "goToOrders": "Перейдіть до Замовлень",
+      "goToPayment": "Перейдіть до Оплата",
+      "orderProcessing": "Ваше замовлення обробляється...",
+      "paymentUnavailableDescription": "Для цього магазину не налаштовано придатних для використання методів оплати. Будь ласка, зв'яжіться з командою магазину перед розміщенням замовлення.",
+      "paymentUnavailableTitle": "Оплата недоступна",
+      "processing": "Обробка...",
+      "redirectCountdown": "Ви будете перенаправлені на сторінку оплати через {{count}} секунд.",
+      "redirectManual": "Якщо ви не були автоматично перенаправлені на сторінку оплати, натисніть кнопку нижче.",
+      "success": "Успіх!",
+      "thankYou": "Дякуємо за замовлення."
+    },
+    "contact": "контакт",
+    "contactUs": "Зв'яжіться з нами:",
+    "cookieDataTypes": "відображення продукту, вміст кошика, спільне використання вмісту або продукту, авторизація, ініціювання та завершення платежу",
+    "cookiePurpose": "для таких цілей, як доставка та персоналізація вмісту та реклами та аналіз відвідуваності веб-сайту.",
+    "cookieUsageDescription": "Ми та наші партнери використовуємо файли cookie для зберігання та доступу до таких даних, як:",
+    "cooperation": "Співпраця",
+    "customerNotFound": "Клієнт не знайдено",
+    "discountOn": "Знижка на {{target}}",
+    "dragFileHere": "Перетягніть файл сюди або натисніть, щоб вибрати файл.",
+    "dropFilesHere": "Перетягніть файли сюди...",
+    "errorCode": "Код помилки: {{error}}",
+    "faq": "FAQ",
+    "fileRetentionNotice": {
+      "description": "Ми зберігаємо завантажені файли лише протягом часу, необхідного для обробки вашого замовлення. Якщо ви хочете зберегти їх для подальшого використання, завантажте та збережіть їх самостійно.",
+      "title": "Тимчасове сховище файлів"
+    },
+    "footer": {
+      "aboutUs": "Про нас",
+      "contactDetails": "Контактні дані",
+      "findUs": "Знайди нас",
+      "help": "Довідка",
+      "paymentsNote": "Прийнятні методи оплати:",
+      "terms": "Правила та умови",
+      "termsOfUse": "Користуючись послугою, ви підтверджуєте, що прочитали та приймаєте вказівки, представлені в умовах використання та політиці конфіденційності."
+    },
+    "formSent": "Форма надіслана",
+    "generalConditionsOfSale": "Загальні умови продажу",
+    "maintenance": {
+      "contact": "Зв'яжіться з нами",
+      "description": "Ми готуємо цей магазин для відвідувачів. Перевірте незабаром.",
+      "title": "Вітрина тимчасово недоступна"
+    },
+    "editor": {
+      "actions": {
+        "addBlock": "Додати блок",
+        "addSection": "Додати розділ",
+        "hide": "Сховати",
+        "moveDown": "Рух вниз",
+        "moveUp": "Рух вгору",
+        "publish": "Опублікувати",
+        "publishing": "Публікація…",
+        "remove": "видалити",
+        "rollback": "Відкат",
+        "show": "Показати"
+      },
+      "autosave": {
+        "error": "Помилка автозбереження",
+        "idle": "Зміни зберігаються автоматично",
+        "saved": "Чернетку збережено",
+        "saving": "Збереження…"
+      },
+      "block": {
+        "autoTranslationInfo": "Як працює автоматичний переклад",
+        "autoTranslationTooltip": "Напишіть цей блок вибраною мовою. Коли ви публікуєте, відсутній польський або англійський текст генерується автоматично, а наявні ручні переклади зберігаються.",
+        "body": "Довгий текст",
+        "builtInDescription": "Цей розділ використовує дані магазину або наявні переклади. Використовуйте елементи керування на самому розділі, щоб перемістити, приховати або видалити його.",
+        "builtInTitle": "Вбудований розділ",
+        "ctaHref": "Кнопка посилання",
+        "ctaLabel": "Текст кнопки",
+        "fields": {
+          "featuredProductsDescription": "Опис розділу",
+          "featuredProductsTitle": "Заголовок розділу",
+          "heroCtaHref": "Посилання на основну кнопку",
+          "heroCtaLabel": "Текст основної кнопки",
+          "heroDescription": "Опис героя",
+          "heroImageUrl": "Посилання на зображення героя",
+          "heroTitle": "Герой Заголовок",
+          "howItWorksDescription": "Опис розділу",
+          "howItWorksTitle": "Заголовок розділу",
+          "newsletterCtaLabel": "Текст кнопки «Підписатися».",
+          "newsletterDescription": "Опис розсилки",
+          "newsletterDisclaimer": "Відмова від відповідальності",
+          "newsletterTitle": "Заголовок інформаційного бюлетеня",
+          "popularDescription": "Опис розділу",
+          "popularTitle": "Заголовок розділу",
+          "richTextBody": "текст",
+          "richTextCtaHref": "Кнопка посилання",
+          "richTextCtaLabel": "Текст кнопки",
+          "richTextImageUrl": "Зображення",
+          "richTextTitle": "Заголовок",
+          "testimonialsDescription": "Опис розділу",
+          "testimonialsTitle": "Заголовок розділу",
+          "trustGridDescription": "Опис розділу",
+          "trustGridTitle": "Заголовок розділу"
+        },
+        "heading": "Основний заголовок",
+        "heroCmsDescription": "Редагуйте головні слайди, текст, посилання та медіа в CMS адміністратора. Ця панель керує макетом героя.",
+        "heroCmsLink": "Відкрийте адміністратор CMS",
+        "heroCmsTitle": "Керування вмістом героя в CMS",
+        "hidden": "Прихований",
+        "imageDropzoneDescription": "PNG, JPG або WebP менше 5 Мб.",
+        "language": "Мова редагування",
+        "subtitle": "Короткий опис",
+        "title": "Вибраний блок",
+        "variant": "Варіація макета",
+        "variants": {
+          "assistant": {
+            "compact": "Компактна підказка",
+            "default": "За замовчуванням",
+            "panel": "Каркасна панель"
+          },
+          "campaigns": {
+            "compact": "Компактні акції",
+            "default": "За замовчуванням",
+            "featured": "Рекомендовані рекламні пропозиції"
+          },
+          "featured-products": {
+            "compact": "Компактна сітка",
+            "default": "За замовчуванням",
+            "spotlight": "Сітка прожектора"
+          },
+          "hero": {
+            "default": "За замовчуванням",
+            "editorial": "Редакційний розкол",
+            "fullscreen": "Повний екран"
+          },
+          "how-it-works": {
+            "compact": "Компактні сходинки",
+            "default": "За замовчуванням",
+            "timeline": "Хронологія"
+          },
+          "newsletter": {
+            "default": "За замовчуванням",
+            "inline": "Вбудований",
+            "minimal": "Мінімальний"
+          },
+          "popular-products": {
+            "compact": "Компактна сітка",
+            "default": "За замовчуванням",
+            "editorial": "Редакційна сітка"
+          },
+          "rich-text-cta": {
+            "centered": "По центру",
+            "default": "За замовчуванням",
+            "split": "Спліт"
+          },
+          "testimonials": {
+            "compact": "Компактні огляди",
+            "default": "За замовчуванням",
+            "spotlight": "Прожектор"
+          },
+          "trust-grid": {
+            "cards": "картки",
+            "default": "За замовчуванням",
+            "strip": "Іконна стрічка"
+          }
+        },
+        "visible": "Видно"
+      },
+      "image": {
+        "previewAlt": "Попередній перегляд поточного зображення",
+        "rejected": "Цей файл зображення не можна використовувати.",
+        "upload": "Завантажити",
+        "uploadError": "Помилка завантаження. Спробуйте менший файл зображення.",
+        "useLink": "Використовуйте посилання"
+      },
+      "languages": {
+        "cs": "Čeština",
+        "de": "Deutsch",
+        "en": "англійська",
+        "fr": "Français",
+        "pl": "польський",
+        "sk": "Slovenčina",
+        "uk": "Українська"
+      },
+      "maintenance": {
+        "description": "Якщо ввімкнено, відвідувачі бачать екран обслуговування, а редактори можуть продовжувати попередній перегляд цієї вітрини.",
+        "title": "Режим обслуговування"
+      },
+      "panel": {
+        "hideEditor": "Приховати інструменти редагування",
+        "noBlockSelected": "Клацніть розділ у попередньому перегляді, щоб відредагувати його.",
+        "preview": "Попередній перегляд",
+        "sessionChecking": "Перевірка сеансу редагування",
+        "sessionExpired": "Сеанс редагування закінчився",
+        "sessionRemaining": "Залишилося {{time}}",
+        "showEditor": "Редактор шоу",
+        "tabs": {
+          "advanced": "Просунутий",
+          "section": "Розділ",
+          "theme": "Тема"
+        },
+        "title": "Редактор магазину"
+      },
+      "presets": {
+        "assistant": "помічник",
+        "campaigns": "Кампанії",
+        "featured-products": "Рекомендовані",
+        "hero": "Герой",
+        "how-it-works": "Як це працює",
+        "newsletter": "Інформаційний бюлетень",
+        "popular-products": "Популярний",
+        "rich-text-cta": "Текст і CTA",
+        "testimonials": "Відгуки",
+        "trust-grid": "Сітка довіри"
+      },
+      "revisions": {
+        "areas": {
+          "home": "додому",
+          "sharing": "Обмін",
+          "theme": "Тема"
+        },
+        "empty": "Ще немає опублікованих версій.",
+        "publish": "Опублікувати",
+        "rollback": "Відкат",
+        "title": "Останні редакції"
+      },
+      "sharing": {
+        "description": "Керуйте піктограмою веб-переглядача та зображеннями попереднього перегляду соціальних мереж для цієї вітрини.",
+        "favicon": "Favicon",
+        "faviconDropzoneDescription": "PNG, SVG або ICO менше 1 МБ.",
+        "openGraphDropzoneDescription": "PNG або JPG, в ідеалі 1200 x 630 пікселів.",
+        "openGraphImage": "Соціальний попередній перегляд зображення",
+        "title": "Обмін"
+      },
+      "theme": {
+        "accentColor": "Колір акценту",
+        "buttonStyle": "Стиль кнопки",
+        "buttonStyleOptions": {
+          "outline": "Контур",
+          "solid": "Твердий",
+          "subtle": "Тонкий"
+        },
+        "gradient": "Градієнт (Головне → Акцент)",
+        "gradientDescription": "Змішує ваші кольори на фоні героя та бюлетеня.",
+        "gradientNeedsColors": "Виберіть обидва кольори, щоб увімкнути градієнт.",
+        "logo": "логотип",
+        "logoDropzoneDescription": "PNG, JPG, SVG або WebP менше 2 МБ.",
+        "pickColorFromPage": "Виберіть колір зі сторінки",
+        "presetOptions": {
+          "classic": "класичний",
+          "forest": "Ліс",
+          "ink": "Чорнило",
+          "ocean": "океан",
+          "plum": "Слива",
+          "sunset": "Захід сонця"
+        },
+        "presets": "Попередні налаштування стилів",
+        "primaryColor": "Основний колір",
+        "radius": "Округлення",
+        "radiusOptions": {
+          "3xl": "Додатковий круглий",
+          "default": "За замовчуванням",
+          "md": "М'які",
+          "none": "Квадратний",
+          "xl": "Круглий"
+        },
+        "title": "Тема"
+      }
+    },
+    "home": {
+      "featured": "Перевірте, що ми рекомендуємо",
+      "featuredDescription": "Гнучкі формати, надійне оздоблення та продукти, які справляють сильне перше враження.",
+      "featuredEyebrow": "Підібраний вибір",
+      "hero": {
+        "eyebrow": "Онлайн-друк, готовий до друку",
+        "fallbackDescription": "Завантажуйте, перевіряйте, створюйте та відправляйте одним чистим потоком — із справжніми матеріалами, чіткими цінами та відстеженою доставкою.",
+        "fallbackTitle": "Друкована робота, яка виглядає першокласною, перш ніж потрапить до друку",
+        "proofLabel": "Завантажити до доставки",
+        "proofValue": "Додрукарська підготовка, виробництво та відстежена доставка в одному спрощеному робочому процесі.",
+        "secondaryCta": "Переглянути всі продукти"
+      },
+      "howItWorks": {
+        "description": "Короткий шість кроків від брифа до порога — з перевіркою файлу посередині, де це важливо.",
+        "steps": {
+          "choose": "Виберіть товар",
+          "configure": "Налаштувати параметри",
+          "pay": "Платіть безпечно",
+          "proof": "Ми перевіряємо ваш файл",
+          "receive": "Отримати доставку",
+          "upload": "Завантажте свій файл"
+        },
+        "title": "Як це працює"
+      },
+      "popular": "Найчастіше вибирають",
+      "popularDescription": "Формати, які клієнти найчастіше змінюють, коли їм потрібні швидкі надійні результати.",
+      "popularEyebrow": "Повторіть улюблені",
+      "testimonials": {
+        "description": "Реальні відгуки клієнтів, які замовили, завантажили та отримали готовий друк.",
+        "eyebrow": "Google відгуків",
+        "next": "Наступний огляд",
+        "prev": "Попередній огляд",
+        "title": "Що говорять наші клієнти"
+      },
+      "trust": {
+        "ecoFriendly": {
+          "description": "FSC папір і зелені фарби",
+          "title": "Екологічно чистий"
+        },
+        "fastProduction": {
+          "description": "Від 24 годин можливий поворот",
+          "title": "Швидке виготовлення"
+        },
+        "freeFileCheck": {
+          "description": "Перевіряємо перед друком",
+          "title": "Безкоштовна перевірка файлів"
+        },
+        "qualityGuarantee": {
+          "description": "Преміальний папір і точний друк",
+          "title": "Гарантія якості"
+        },
+        "securePayments": {
+          "description": "Stripe, Przelewy24 тощо",
+          "title": "Безпечні платежі"
+        },
+        "trackedShipping": {
+          "description": "Кур'єрська доставка по Польщі та ЄС",
+          "title": "Відстежена доставка"
+        }
+      },
+      "trustDescription": "Від перевірки файлів до фінішної обробки, кожен крок розроблено для забезпечення чіткості, швидкості та готовності до виробництва.",
+      "trustHeading": "Створено для вимогливих завдань друку, а не для здогадок",
+      "trustLabel": "Чому команди постійно повертаються"
+    },
+    "maxFileSize": "Максимальний розмір файлу:",
+    "fileExists": "Файл уже вибрано",
+    "fileInvalid": "Не вдалося завантажити файл",
+    "fileInvalidType": "Недійсний тип файлу",
+    "fileTooLarge": "Файл завеликий",
+    "fileTooSmall": "Файл замалий",
+    "navigation": {
+      "allProducts": "Всі продукти",
+      "loadingProducts": "Завантаження продуктів…",
+      "products": "Продукти"
+    },
+    "newsletter": {
+      "signup": "Підписатися на розсилку",
+      "signupButton": "Підпишіться",
+      "description": "Отримуйте новини про акції, ексклюзивні пропозиції та новинки!",
+      "disclaimer": "*Спеціальна пропозиція діє лише для онлайн-покупок!",
+      "subscribeButton": "Підпишіться",
+      "subscribeError": "Не вдалося підписатися на розсилку",
+      "subscribed": "Успішно підписаний на розсилку",
+      "title": "Підпишіться на розсилку та отримайте знижку 10%.",
+      "unsubscribeError": "Не вдалося скасувати підписку на розсилку",
+      "unsubscribed": "Успішно скасовано підписку на розсилку"
+    },
+    "og": {
+      "subtitle": "Професійний онлайн друк",
+      "title": "Інтернет-друкарня"
+    },
+    "order": {
+      "showDetails": "Показати деталі"
+    },
+    "orderAndPay": "Замовляйте та оплачуйте",
+    "orderPreview": "Попередній перегляд замовлення",
+    "password": {
+      "change": "Змінити пароль",
+      "save": "зберегти"
+    },
+    "payment": "Оплата",
+    "preview3D": "3D попередній перегляд",
+    "preview3DDescription": "Важливо зауважити, що 3D попередній перегляд відображається з нижчою роздільною здатністю, ніж кінцевий продукт. Це рекомендований підхід, який забезпечує швидшу обробку даних і більш плавну роботу.",
+    "preview3DDisclaimer": "Попередній перегляд призначений лише для візуальних цілей і не призначений для створення кінцевих високоякісних матеріалів.",
+    "preview3DInfo": "Інформація про попередній перегляд 3D",
+    "preview3DNextPage": "Далі",
+    "preview3DPage": "Сторінка",
+    "preview3DPreviousPage": "Попередній",
+    "privacyPolicy": "Політика конфіденційності",
+    "privacyTitle": "Ми дбаємо про вашу конфіденційність",
+    "promotions": "Акції",
+    "recommendations": {
+      "title": "Рекомендовані продукти"
+    },
+    "regulations": "Положення",
+    "rejectedFiles": "Відхилені файли:",
+    "tooManyFiles": "Забагато файлів",
+    "rejections": "Відмови",
+    "remove": "видалити",
+    "reviewOptional": "Огляд (необов'язково)",
+    "search": {
+      "loading": "Завантаження...",
+      "noResults": "Продукти не знайдено",
+      "placeholder": "пошук...",
+      "viewAll": "Переглянути всі результати для {{query}}"
+    },
+    "searchPage": {
+      "emptyQueryDescription": "Пошук за назвою продукту, категорією або форматом друку.",
+      "emptyQueryTitle": "Знайдіть друковану продукцію",
+      "linkedChannel": "Спільний продукт",
+      "metadataDescription": "Знайдіть продукти, доступні в цьому магазині.",
+      "metadataTitle": "Пошук",
+      "metadataTitleWithQuery": "Результати пошуку для {{query}}",
+      "noResultsDescription": "Спробуйте іншу фразу або перегляньте категорії продуктів.",
+      "noResultsTitle": "Продукти не знайдено",
+      "resultCount": "Знайдено продуктів: {{count}}",
+      "submit": "Пошук",
+      "title": "Пошук",
+      "titleWithQuery": "Результати пошуку для {{query}}"
+    },
+    "sendForm": "Відправити форму",
+    "shipping": "Доставка",
+    "somethingWentWrong": "Щось пішло не так",
+    "uploadAndAttachFiles": "Завантажуйте та вкладайте файли",
+    "writeReviewPlaceholder": "Написати відгук...",
+    "products": {
+      "customProduct": "Виріб на замовлення"
+    },
+    "rating": {
+      "selectRating": "Виберіть рейтинг!",
+      "submitError": "Під час подачі оцінки сталася помилка!",
+      "thankYou": "Дякуємо за вашу оцінку!"
+    }
+  },
+  "summary": {
+    "addToCart": "Додати в кошик",
+    "badConfiguration": "Неправильна конфігурація",
+    "heading": "Резюме",
+    "noConfiguration": "Без конфігурації",
+    "saveAsNew": "Додати як новий товар у кошик",
+    "saveConfiguration": "Зберегти конфігурацію"
+  },
+  "templates": "Шаблони",
+  "ThreeDModels": {
+    "ASTAND": "А-стійка",
+    "BOX": "Коробка",
+    "BOOKLET": "Буклет",
+    "CANVAS": "Полотно",
+    "CUP": "Кубок",
+    "FLAT": "Плоский принт",
+    "FLYERS": "Листівки",
+    "LBANNER": "L-банер",
+    "PIN": "Pin",
+    "ROLLUP_PREMIUM": "Преміальний пакет",
+    "ROLLUP_STANDARD": "Зведений стандарт",
+    "TOOTHPICK": "Зубочистка прапор",
+    "XBANNER": "Х-банер"
+  },
+  "totalPrice": "Ціна",
+  "true": "так",
+  "ui": {
+    "country": {
+      "poland": "Польща"
+    }
+  },
+  "Unit": {
+    "CM2": "см²",
+    "CMB": "cmb",
+    "HOUR": "ч",
+    "KM": "км",
+    "M2": "м²",
+    "MB": "мл",
+    "PCS": "шт.",
+    "SHEET": "лист"
+  },
+  "volumes": {
+    "missing": "Відсутні томи"
+  }
+}

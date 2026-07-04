@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/package",
+  "name": "@sblyvwx/cloud-contracts",
+  "version": "0.4.1",
+  "description": "Shared Konfi SaaS tenant and provisioning contracts.",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/konfi-labs/konfi/tree/main/packages/cloud-contracts",
+  "files": [
+    "dist/**/*.d.ts",
+    "dist/**/*.js"
+  ],
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "node -e \"const fs = require('node:fs'); fs.rmSync('dist', { force: true, recursive: true }); fs.rmSync('tsconfig.tsbuildinfo', { force: true })\" && tsc",
+    "dev": "tsc -w",
+    "transpile": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "catalog:"
+  }
+}

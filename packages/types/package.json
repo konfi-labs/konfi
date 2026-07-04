@@ -1,0 +1,32 @@
+{
+  "name": "@konfi/types",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "repository": "https://github.com/konfi-labs/konfi/tree/main/packages/types",
+  "files": [
+    "dist"
+  ],
+  "main": "src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc -b --force",
+    "dev": "tsc -w",
+    "transpile": "tsc"
+  },
+  "dependencies": {
+    "@ai-sdk/react": "catalog:",
+    "@sblyvwx/cloud-contracts": "workspace:*",
+    "firebase": "catalog:"
+  },
+  "devDependencies": {
+    "typescript": "catalog:"
+  }
+}

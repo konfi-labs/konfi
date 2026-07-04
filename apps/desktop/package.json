@@ -1,0 +1,74 @@
+{
+  "name": "@konfi/desktop",
+  "version": "1.1.4",
+  "private": true,
+  "description": "Konfi Desktop - Admin app with filesystem operations",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/konfi-labs/konfi/tree/main/apps/desktop",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev:desktop": "electron .",
+    "build": "tsc",
+    "electron:rebuild": "electron-builder install-app-deps",
+    "start:desktop": "electron .",
+    "ghostscript:stage": "node ./scripts/stage-ghostscript-resources.mjs",
+    "ghostscript:verify": "node ./scripts/stage-ghostscript-resources.mjs --verify",
+    "package": "node ./scripts/ensure-ghostscript-resources.mjs && node ./scripts/run-electron-builder.mjs",
+    "publish": "node ./scripts/ensure-ghostscript-resources.mjs && node ./scripts/run-electron-builder.mjs --publish always",
+    "electron:install": "node ./node_modules/electron/install.js"
+  },
+  "dependencies": {
+    "electron-log": "^5.4.4",
+    "electron-updater": "^6.8.3",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "electron": "^42.1.0",
+    "electron-builder": "^26.15.1",
+    "typescript": "catalog:"
+  },
+  "build": {
+    "appId": "com.konfi.desktop",
+    "productName": "Konfi Desktop",
+    "directories": {
+      "output": "out"
+    },
+    "icon": "build/icon",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "package.json",
+      "resources/**/*"
+    ],
+    "mac": {
+      "icon": "build/icon.icns",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.business"
+    },
+    "win": {
+      "icon": "build/icon.ico",
+      "target": "nsis"
+    },
+    "linux": {
+      "icon": "build/icon.png",
+      "target": "AppImage",
+      "category": "Office"
+    },
+    "asar": true,
+    "asarUnpack": [
+      "resources/ghostscript/**",
+      "**/node_modules/sharp/**/*",
+      "**/node_modules/@img/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/ghostscript",
+        "to": "ghostscript"
+      }
+    ]
+  }
+}

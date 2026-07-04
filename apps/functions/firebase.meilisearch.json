@@ -1,0 +1,6 @@
+{
+  "functions": {
+    "source": ".deploy-meilisearch",
+    "runtime": "nodejs24"
+  }
+}

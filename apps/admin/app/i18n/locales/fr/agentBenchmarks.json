@@ -1,0 +1,181 @@
+{
+  "agentBenchmarks": {
+    "actions": {
+      "comment": "Commentaire",
+      "commentPlaceholder": "Ajoutez une note d’approbation facultative ou un motif de rejet.",
+      "copyMarkdown": "Copieur et Markdown",
+      "rerun": "Rediffusion",
+      "responsePlaceholder": "Tapez la réponse qui doit être renvoyée à l'agent.",
+      "viewDetails": "Afficher les détails"
+    },
+    "active": {
+      "title": "Indice de référence actif"
+    },
+    "comparison": {
+      "actual": "Bobine",
+      "expected": "Attendu",
+      "field": "Champion",
+      "fields": {
+        "contact": "Contact",
+        "customer": "Client",
+        "attributeOptions": "Options d'attribution",
+        "attributes": "Attributs",
+        "customSize": "Taille personnalisée",
+        "itemCount": "Nombre d'articles",
+        "items": "Articles",
+        "priceRows": "Lignes de prix",
+        "priceType": "Type de prix",
+        "productName": "Produit",
+        "productType": "Type de produit",
+        "readyForCreate": "Prêt à créer",
+        "shippingOption": "Option d'expédition",
+        "shippingPrice": "Prix ​​d'expédition",
+        "shippingTypes": "Types d'expédition",
+        "totalPrice": "Prix ​​total",
+        "volumeCount": "Nombre de volumes"
+      },
+      "score": "Score",
+      "title": "Comparaison déterministe"
+    },
+    "empty": {
+      "description": "Démarrez un benchmark pour préserver son invitation, son timing, sa comparaison de sortie et ses scores.",
+      "title": "Aucune exécution de référence"
+    },
+    "errors": {
+      "delete": "Impossible de supprimer l'exécution de référence",
+      "load": "Impossible de charger les benchmarks",
+      "quoteRequired": "Sélectionnez d'abord un appareil",
+      "resume": "Impossible de poursuivre l'exécution du benchmark",
+      "run": "Erreur d'exécution",
+      "start": "Impossible de démarrer l'analyse comparative",
+      "status": "Impossible d'actualiser l'état de référence",
+      "targetRequired": "Sélectionnez d'abord une cible"
+    },
+    "history": {
+      "loadedCount": "{{loaded}} sur {{total}} chargé",
+      "loadingMore": "Chargement des cours…",
+      "loadMore": "Chargeur plus de cours",
+      "orderBadge": "Commande n°{{number}}",
+      "productBadge": "Produit",
+      "quoteBadge": "Citation n°{{number}}",
+      "title": "Historique d'exécution"
+    },
+    "judge": {
+      "error": "Erreur de jugement",
+      "problems": "Problèmes",
+      "strengths": "Points forts",
+      "title": "Juge IA"
+    },
+    "liveRun": {
+      "fields": {
+        "blockedItems": "Éléments bloqués",
+        "customer": "Client",
+        "itemCount": "Nombre d'articles",
+        "items": "Articles",
+        "priceRows": "Lignes de prix",
+        "priceType": "Type de prix",
+        "productName": "Produit",
+        "readyForCreate": "Prêt à créer",
+        "selectedAttributes": "Attributs sélectionnés",
+        "shippingOption": "Option d'expédition",
+        "shippingPrice": "Prix ​​d'expédition",
+        "totalPrice": "Prix ​​total"
+      },
+      "title": "Sortie en direct"
+    },
+    "metrics": {
+      "deterministic": "Score déterministe",
+      "duration": "Temps d'agent",
+      "judge": "Note du juge",
+      "steps": "Mesures"
+    },
+    "options": {
+      "autonomous": {
+        "description": "Assistant autonome à accès complet avec données d'entreprise, tâches durables, outils Web, code et cartes"
+      },
+      "inbound-email-routing": {
+        "description": "Flux de travail de routage des e-mails entrants évalué par un juge IA avec des garde-fous pour les commandes, les devis et les résultats bloqués"
+      },
+      "order": {
+        "description": "Création de commande assistée par l'IA à partir d'un devis ou d'une invitation existante"
+      },
+      "product": {
+        "description": "Ébauche de création de produit assistée par IA avec validation des attributs, des options, du type de produit et des prix"
+      },
+      "quote": {
+        "description": "Création de devis assistée par IA avec recherche de clients et de produits"
+      },
+      "whats-new-monthly": {
+        "description": "Génération cron de croissance mensuelle autonome des nouveautés notée par un juge IA"
+      },
+      "whats-new-weekly": {
+        "description": "Génération cron hebdomadaire autonome des nouveautés notées par un juge IA"
+      }
+    },
+    "pageDescription": "Exécutez les tests d'IA disponibles par rapport aux données d'administration en direct, préservez chaque exécution et notez les résultats générés.",
+    "pageTitle": "Repères d'IA",
+    "markdown": {
+      "agentTime": "**Heure de l'agent :** {{duration}}",
+      "aiJudge": "Juge IA - {{score}}%",
+      "benchmark": "Référence : {{agent}}",
+      "description": "**Description :** {{description}}",
+      "deterministicComparison": "Comparaison déterministe - {{score}}%",
+      "error": "**Erreur :** {{error}}",
+      "highlights": "**Points forts :**",
+      "liveRunOutput": "Sortie en direct",
+      "period": "**Période :** {{period}}",
+      "problems": "**Problèmes :**",
+      "prompt": "**Invitateur   :** {{prompt}}",
+      "skipped": "**Ignoré :** {{reason}}",
+      "status": "**Statut    :** {{status}}",
+      "steps": "**Étapes :** {{count}}",
+      "strengths": "**Forces :**",
+      "targetOrder": "**Ordre cible :** #{{number}} - {{customer}}",
+      "targetProduct": "**Produit cible :** {{product}}",
+      "targetQuote": "**Citation cible :** #{{number}} - {{customer}}",
+      "title": "**Titre :** {{title}}",
+      "whatsNewOutput": "Sortie Quoi de neuf"
+    },
+    "start": {
+      "agent": "Référence",
+      "autonomousDescription": "Cette tâche cron utilise ses instructions de production. La course est notée par un juge IA une fois le flux de travail terminé.",
+      "autonomousTitle": "Benchmark autonome",
+      "button": "Lancer l'analyse comparative",
+      "description": "Les références de devis, de commandes et de produits comparent les données générées à une cible sélectionnée et notent l'exécution avec des contrôles déterministes et un juge IA. Les benchmarks cron autonomes utilisent leurs instructions de production.",
+      "noOrders": "Aucune commande disponible pour cette chaîne.",
+      "noProducts": "Aucun produit disponible pour cette chaîne.",
+      "noQuotes": "Aucun appareil disponible pour cette chaîne.",
+      "order": "Ordre cible",
+      "orderHelp": "{{count}} éléments seront utilisés comme résultat attendu.",
+      "product": "Produit cible",
+      "productHelp": "Les attributs {{count}} seront utilisés comme résultat attendu.",
+      "prompt": "Invitation de référence",
+      "promptHelp": "L'invitation est conservée avec l'exécution du test de référence pour des comparaisons ultérieures.",
+      "promptPlaceholder": "Décrivez ce que l'agent doit produire comme s'il devait recréer la cible sélectionnée.",
+      "quote": "Devis cible",
+      "quoteHelp": "{{count}} éléments seront utilisés comme résultat attendu.",
+      "title": "Exécuter un benchmark"
+    },
+    "started": "Le benchmark a commencé",
+    "stats": {
+      "averageScore": "Note moyenne",
+      "completed": "Complet",
+      "total": "Fonctionne"
+    },
+    "status": {
+      "awaiting-user-input": "En attente de la saisie de l'utilisateur",
+      "completed": "Complet",
+      "failed": "Échoué",
+      "running": "En cours d'exécution",
+      "starting": "Partir"
+    },
+    "superAdminOnly": "Super administrateur uniquement",
+    "superAdminOnlyDescription": "Les analyses de référence de l'IA utilisent des données en direct et ne sont disponibles que pour les utilisateurs super-administrateurs.",
+    "whatsNew": {
+      "campaignProposal": "Proposition de campagne",
+      "campaignProposalCount": "{{count}} généré",
+      "skipped": "Le flux de travail a ignoré cette exécution.",
+      "title": "Sortie Quoi de neuf"
+    }
+  }
+}

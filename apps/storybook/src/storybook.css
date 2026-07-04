@@ -1,0 +1,16 @@
+:root {
+  --font-dm_sans: "DM Sans", system-ui, sans-serif;
+  --font-montserrat: "Montserrat", system-ui, sans-serif;
+  --font-unbounded: "Unbounded", system-ui, sans-serif;
+}
+
+html,
+body,
+#storybook-root,
+#storybook-docs {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}

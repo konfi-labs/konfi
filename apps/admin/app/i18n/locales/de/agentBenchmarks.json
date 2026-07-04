@@ -1,0 +1,181 @@
+{
+  "agentBenchmarks": {
+    "actions": {
+      "comment": "Kommentar",
+      "commentPlaceholder": "Fügen Sie optional eine Genehmigungsnotiz oder einen Ablehnungsgrund hinzu.",
+      "copyMarkdown": "Als Markdown kopieren",
+      "rerun": "Wiederholung",
+      "responsePlaceholder": "Geben Sie die Antwort ein, die an den Agenten zurückgesendet werden soll.",
+      "viewDetails": "Details anzeigen"
+    },
+    "active": {
+      "title": "Aktiver Benchmark"
+    },
+    "comparison": {
+      "actual": "Tatsächlich",
+      "expected": "Erwartet",
+      "field": "Feld",
+      "fields": {
+        "contact": "Kontakt",
+        "customer": "Kunde",
+        "attributeOptions": "Attributoptionen",
+        "attributes": "Attribute",
+        "customSize": "Benutzerdefinierte Größe",
+        "itemCount": "Artikelanzahl",
+        "items": "Artikel",
+        "priceRows": "Preiszeilen",
+        "priceType": "Preistyp",
+        "productName": "Produkt",
+        "productType": "Produkttyp",
+        "readyForCreate": "Bereit zum Erstellen",
+        "shippingOption": "Versandoption",
+        "shippingPrice": "Versandpreis",
+        "shippingTypes": "Versandarten",
+        "totalPrice": "Gesamtpreis",
+        "volumeCount": "Volumenzählung"
+      },
+      "score": "Punktzahl",
+      "title": "Deterministischer Vergleich"
+    },
+    "empty": {
+      "description": "Starten Sie einen Benchmark, um dessen Eingabeaufforderung, Timing, Ausgabevergleich und Ergebnisse beizubehalten.",
+      "title": "Keine Benchmark-Läufe"
+    },
+    "errors": {
+      "delete": "Benchmark-Lauf konnte nicht gelöscht werden",
+      "load": "Benchmarks konnten nicht geladen werden",
+      "quoteRequired": "Wählen Sie zunächst ein Angebot aus",
+      "resume": "Der Benchmark-Lauf konnte nicht fortgesetzt werden",
+      "run": "Ausführungsfehler",
+      "start": "Benchmark konnte nicht gestartet werden",
+      "status": "Der Benchmark-Status konnte nicht aktualisiert werden",
+      "targetRequired": "Wählen Sie zunächst ein Ziel aus"
+    },
+    "history": {
+      "loadedCount": "{{loaded}} von {{total}} geladen",
+      "loadingMore": "Läufe werden geladen…",
+      "loadMore": "Laden Sie weitere Läufe",
+      "orderBadge": "Bestellnummer{{number}}",
+      "productBadge": "Produkt",
+      "quoteBadge": "Zitat #{{number}}",
+      "title": "Laufverlauf"
+    },
+    "judge": {
+      "error": "Richterfehler",
+      "problems": "Probleme",
+      "strengths": "Stärken",
+      "title": "KI-Richter"
+    },
+    "liveRun": {
+      "fields": {
+        "blockedItems": "Gesperrte Artikel",
+        "customer": "Kunde",
+        "itemCount": "Artikelanzahl",
+        "items": "Artikel",
+        "priceRows": "Preiszeilen",
+        "priceType": "Preistyp",
+        "productName": "Produkt",
+        "readyForCreate": "Bereit zum Erstellen",
+        "selectedAttributes": "Ausgewählte Attribute",
+        "shippingOption": "Versandoption",
+        "shippingPrice": "Versandpreis",
+        "totalPrice": "Gesamtpreis"
+      },
+      "title": "Live-Run-Ausgabe"
+    },
+    "metrics": {
+      "deterministic": "Deterministische Bewertung",
+      "duration": "Agentenzeit",
+      "judge": "Punktestand des Richters",
+      "steps": "Schritte"
+    },
+    "options": {
+      "autonomous": {
+        "description": "Autonomer Assistent mit Vollzugriff auf Geschäftsdaten, dauerhafte Aufgaben, Web-, Code- und Kartentools"
+      },
+      "inbound-email-routing": {
+        "description": "Eingehender E-Mail-Routing-Workflow, der von einem KI-Juror mit Leitplanken für Bestellungen, Angebote und blockierte Ergebnisse bewertet wurde"
+      },
+      "order": {
+        "description": "KI-gestützte Auftragserstellung aus einem bestehenden Angebot oder einer Eingabeaufforderung"
+      },
+      "product": {
+        "description": "KI-gestützter Produkterstellungsentwurf mit Attribut-, Option-, Produkttyp- und Preisvalidierung"
+      },
+      "quote": {
+        "description": "KI-gestützte Angebotserstellung mit Kunden- und Produktsuche"
+      },
+      "whats-new-monthly": {
+        "description": "Autonome monatliche „What's New“-Wachstums-Cron-Generierung, bewertet von einem KI-Juror"
+      },
+      "whats-new-weekly": {
+        "description": "Autonome wöchentliche Cron-Generation „What's New“, bewertet von einem KI-Juror"
+      }
+    },
+    "pageDescription": "Führen Sie verfügbare KI-Benchmarks mit Live-Administratordaten durch, bewahren Sie jeden Lauf auf und bewerten Sie die generierte Ausgabe.",
+    "pageTitle": "KI-Benchmarks",
+    "markdown": {
+      "agentTime": "**Agentzeit:** {{duration}}",
+      "aiJudge": "KI-Richter – {{score}} %",
+      "benchmark": "Benchmark: {{agent}}",
+      "description": "**Beschreibung:** {{description}}",
+      "deterministicComparison": "Deterministischer Vergleich – {{score}} %",
+      "error": "**Fehler:** {{error}}",
+      "highlights": "**Highlights:**",
+      "liveRunOutput": "Live-Run-Ausgabe",
+      "period": "**Zeitraum:** {{period}}",
+      "problems": "**Probleme:**",
+      "prompt": "**Eingabeaufforderung:** {{prompt}}",
+      "skipped": "**Übersprungen:** {{reason}}",
+      "status": "**Status:** {{status}}",
+      "steps": "**Schritte:** {{count}}",
+      "strengths": "**Stärken:**",
+      "targetOrder": "**Zielbestellung:** #{{number}} - {{customer}}",
+      "targetProduct": "**Zielprodukt:** {{product}}",
+      "targetQuote": "**Zielangebot:** #{{number}} - {{customer}}",
+      "title": "**Titel:** {{title}}",
+      "whatsNewOutput": "Was ist neu? Ausgabe"
+    },
+    "start": {
+      "agent": "Benchmark",
+      "autonomousDescription": "Dieser Cronjob verwendet seine Produktionsanweisungen. Der Lauf wird nach Abschluss des Arbeitsablaufs von einem KI-Schiedsrichter bewertet.",
+      "autonomousTitle": "Autonomer Benchmark",
+      "button": "Benchmark starten",
+      "description": "Angebots-, Bestell- und Produkt-Benchmarks vergleichen generierte Daten mit einem ausgewählten Ziel und bewerten den Lauf mit deterministischen Prüfungen und einem KI-Beurteiler. Autonome Cron-Benchmarks verwenden ihre Produktionsanweisungen.",
+      "noOrders": "Für diesen Kanal sind keine Bestellungen verfügbar.",
+      "noProducts": "Für diesen Kanal sind keine Produkte verfügbar.",
+      "noQuotes": "Für diesen Kanal sind keine Zitate verfügbar.",
+      "order": "Zielreihenfolge",
+      "orderHelp": "Als erwartete Ausgabe werden {{count}} Elemente verwendet.",
+      "product": "Zielprodukt",
+      "productHelp": "Als erwartete Ausgabe werden {{count}} Attribute verwendet.",
+      "prompt": "Benchmark-Eingabeaufforderung",
+      "promptHelp": "Die Eingabeaufforderung bleibt beim Benchmark-Lauf für spätere Vergleiche erhalten.",
+      "promptPlaceholder": "Beschreiben Sie, was der Agent erzeugen soll, als ob er das ausgewählte Ziel neu erstellen soll.",
+      "quote": "Zielangebot",
+      "quoteHelp": "Als erwartete Ausgabe werden {{count}} Elemente verwendet.",
+      "title": "Benchmark ausführen"
+    },
+    "started": "Benchmark gestartet",
+    "stats": {
+      "averageScore": "Durchschnittliche Punktzahl",
+      "completed": "Vollendet",
+      "total": "Läuft"
+    },
+    "status": {
+      "awaiting-user-input": "Warten auf Benutzereingaben",
+      "completed": "Vollendet",
+      "failed": "Fehlgeschlagen",
+      "running": "Läuft",
+      "starting": "Beginnt"
+    },
+    "superAdminOnly": "Nur Super Admin",
+    "superAdminOnlyDescription": "KI-Benchmark-Läufe nutzen Live-Daten und sind nur für Super-Admin-Benutzer verfügbar.",
+    "whatsNew": {
+      "campaignProposal": "Kampagnenvorschlag",
+      "campaignProposalCount": "{{count}} generiert",
+      "skipped": "Der Workflow hat diese Ausführung übersprungen.",
+      "title": "Was ist neu? Ausgabe"
+    }
+  }
+}

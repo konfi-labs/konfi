@@ -1,0 +1,85 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isAdmin() {
+      return request.auth != null
+      && request.auth.token.admin == true
+      && request.auth.token.accessLevel >= 1;
+    }
+
+    function isImageUpload(maxSize) {
+      return request.resource.size < maxSize
+      && request.resource.contentType.matches('image/(png|jpeg|jpg|webp)');
+    }
+
+    match /images {
+      allow read;
+    }
+    
+    match /carts/{customerId}/items/{itemId}/{fileName} {
+    	allow read, delete: if request.auth != null && request.auth.uid == customerId;
+      allow create: if request.auth != null
+      && request.auth.uid == customerId
+      && request.resource.size < 52428800
+      && (request.resource.contentType == 'application/pdf'
+      || request.resource.contentType == 'image/jpeg'
+      || request.resource.contentType == 'image/png'
+      || request.resource.contentType == 'image/tiff');
+    }
+    
+    match /orders/{customerId}/{orderId}/attachments/{fileName} {
+    	allow get, list, read: if request.auth != null
+      && (request.auth.uid == customerId
+      || request.auth.token.admin == true);
+      allow delete: if request.auth != null && request.auth.token.admin == true;
+      allow create: if request.auth != null && request.auth.token.admin == true && request.resource.size < 5242880 && request.resource.contentType == 'application/pdf';
+    }
+    
+    match /orders/{customerId}/{orderId}/items/{index}/{fileName} {
+    	allow get, list, read: if request.auth != null
+      && (request.auth.uid == customerId
+      || request.auth.token.admin == true);
+    }
+    
+    match /thumb_orders/{customerId}/{orderId}/items/{index}/{fileName} {
+    	allow get, list, read: if request.auth != null
+      && (request.auth.uid == customerId
+      || request.auth.token.admin == true);
+    }
+    
+    match /thumb_carts/{customerId}/items/{index}/{fileName} {
+    	allow get, list, read: if request.auth != null
+      && (request.auth.uid == customerId
+      || request.auth.token.admin == true);
+      allow create: if request.auth != null
+      && (request.auth.uid == customerId
+      || request.auth.token.admin == true)
+      && request.resource.size < 5242880
+      && request.resource.contentType == 'image/jpeg';
+    }
+    
+  	match /images/{fileName} {
+    	allow get, list, read: if true;
+      allow delete: if isAdmin();
+      allow create: if isAdmin() && isImageUpload(5242880);
+    }
+    
+    match /templates/{attributeId}/{fileName} {
+    	allow get, list, read: if true;
+      allow delete: if request.auth != null && request.auth.token.admin == true;
+      allow create: if request.auth != null && request.auth.token.admin == true && request.resource.size < 5242880 && request.resource.contentType == 'application/pdf';
+    }
+    
+    match /images/{productId}/{fileName} {
+    	allow get, list, read: if true;
+      allow delete: if isAdmin();
+      allow create: if isAdmin() && isImageUpload(5242880);
+    }
+    
+    match /images/channels/{channelId}/cms/hero/{fileName} {
+    	allow get, list, read: if true;
+      allow delete: if isAdmin();
+      allow create: if isAdmin() && isImageUpload(5242880);
+    }
+  }
+}

@@ -1,0 +1,556 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSuperAdmin()
+        || isSignedIn()
+          && request.auth.token.admin == true
+          && request.auth.token.accessLevel >= 1;
+    }
+
+    function isSuperAdmin() {
+      return isSignedIn()
+        && request.auth.token.admin == true
+        && request.auth.token.accessLevel == 9999;
+    }
+
+    function isLegacyDedicatedAdmin() {
+      return isSignedIn()
+        && request.auth.token.admin == true
+        && request.auth.token.accessLevel == 5000;
+    }
+
+    function membershipPath(tenantId) {
+      return /databases/(default)/documents/tenantMemberships/$(tenantId + "_" + request.auth.uid);
+    }
+
+    function isDedicatedDefaultTenant(tenantId) {
+      return tenantId == "default";
+    }
+
+    function hasActiveTenantMembership(tenantId) {
+      return isSignedIn()
+        && tenantId is string
+        && firestore.exists(membershipPath(tenantId))
+        && firestore.get(membershipPath(tenantId)).data.status == "ACTIVE";
+    }
+
+    function membershipHasFullTenantScope(membership) {
+      return membership.role == "OWNER"
+        || !membership.keys().hasAny(["channelIds"])
+        || membership.channelIds.size() == 0;
+    }
+
+    function membershipCanAccessChannel(membership, channelId) {
+      return membershipHasFullTenantScope(membership)
+        || membership.keys().hasAny(["channelIds"])
+          && membership.channelIds.hasAny([channelId]);
+    }
+
+    function hasTenantAdminMembership(tenantId) {
+      return isSuperAdmin()
+        || isAdmin()
+          && hasActiveTenantMembership(tenantId)
+          && firestore.get(membershipPath(tenantId)).data.role in [
+            "OWNER",
+            "ADMIN",
+          ];
+    }
+
+    function hasFullTenantAdminMembership(tenantId) {
+      return isSuperAdmin()
+        || isAdmin()
+          && hasActiveTenantMembership(tenantId)
+          && firestore.get(membershipPath(tenantId)).data.role in [
+            "OWNER",
+            "ADMIN",
+          ]
+          && membershipHasFullTenantScope(
+            firestore.get(membershipPath(tenantId)).data
+          );
+    }
+
+    function hasTenantChannelAdminMembership(tenantId, channelId) {
+      return isSuperAdmin()
+        || isAdmin()
+          && hasActiveTenantMembership(tenantId)
+          && firestore.get(membershipPath(tenantId)).data.role in [
+            "OWNER",
+            "ADMIN",
+          ]
+          && membershipCanAccessChannel(
+            firestore.get(membershipPath(tenantId)).data,
+            channelId
+          );
+    }
+
+    function hasLegacyDedicatedAdminAccess() {
+      return isLegacyDedicatedAdmin() || hasTenantAdminMembership("default");
+    }
+
+    function canReadLegacyCustomerFile(customerId) {
+      return isSignedIn()
+        && (
+          request.auth.uid == customerId
+          || hasLegacyDedicatedAdminAccess()
+        );
+    }
+
+    function canWriteLegacyCustomerFile(customerId) {
+      return isSignedIn()
+        && (
+          request.auth.uid == customerId
+          || hasLegacyDedicatedAdminAccess()
+        );
+    }
+
+    function customerPath(customerId) {
+      return /databases/(default)/documents/customers/$(customerId);
+    }
+
+    function isTenantCustomer(tenantId, customerId) {
+      return isSignedIn()
+        && request.auth.uid == customerId
+        && firestore.exists(customerPath(customerId))
+        && (
+          firestore.get(customerPath(customerId)).data.tenantId == tenantId
+          || (
+            !firestore.get(customerPath(customerId)).data.keys().hasAny([
+              "tenantId",
+            ])
+            && isDedicatedDefaultTenant(tenantId)
+          )
+        );
+    }
+
+    function isImageUpload(maxSize) {
+      return request.resource.size < maxSize
+        && request.resource.contentType.matches("image/(png|jpeg|jpg|webp)");
+    }
+
+    function isCartUpload() {
+      return request.resource.size < 52428800
+        && (
+          request.resource.contentType == "application/pdf"
+          || request.resource.contentType == "image/jpeg"
+          || request.resource.contentType == "image/png"
+          || request.resource.contentType == "image/tiff"
+        );
+    }
+
+    function isPdfUpload(maxSize) {
+      return request.resource.size < maxSize
+        && request.resource.contentType == "application/pdf";
+    }
+
+    function isAiImageUpload() {
+      return isImageUpload(26214400);
+    }
+
+    function isAiVideoUpload() {
+      return request.resource.size < 209715200
+        && request.resource.contentType.matches("video/(mp4|webm|quicktime)");
+    }
+
+    function isImpositionInputUpload() {
+      return request.resource.size < 104857600
+        && (
+          request.resource.contentType == "application/pdf"
+          || request.resource.contentType.matches("image/(png|jpeg|jpg|tiff)")
+        );
+    }
+
+    function isImpositionArchiveUpload() {
+      return request.resource.size < 209715200
+        && (
+          request.resource.contentType == "application/pdf"
+          || request.resource.contentType == "application/gzip"
+          || request.resource.contentType == "application/x-gzip"
+          || request.resource.contentType == "application/zip"
+          || request.resource.contentType == "application/x-tar"
+        );
+    }
+
+    function canReadTenantOrderFile(tenantId, customerId) {
+      return hasFullTenantAdminMembership(tenantId)
+        || isTenantCustomer(tenantId, customerId);
+    }
+
+    function canReadTenantChannelOrderFile(tenantId, channelId, customerId) {
+      return hasTenantChannelAdminMembership(tenantId, channelId)
+        || isTenantCustomer(tenantId, customerId);
+    }
+
+    match /tenants/{tenantId} {
+      match /carts/{customerId}/items/{itemId}/{fileName} {
+        allow read, delete: if isTenantCustomer(tenantId, customerId);
+        allow create: if isTenantCustomer(tenantId, customerId)
+          && isCartUpload();
+      }
+
+      match /thumb_carts/{customerId}/items/{itemId}/{fileName} {
+        allow read, delete: if isTenantCustomer(tenantId, customerId)
+          || hasTenantAdminMembership(tenantId);
+        allow create: if (
+          isTenantCustomer(tenantId, customerId)
+          || hasTenantAdminMembership(tenantId)
+        ) && request.resource.size < 5242880
+          && request.resource.contentType == "image/png";
+      }
+
+      match /preview_carts/{customerId}/items/{itemId}/{fileName} {
+        allow read: if isTenantCustomer(tenantId, customerId)
+          || hasTenantAdminMembership(tenantId);
+        allow create: if (
+          isTenantCustomer(tenantId, customerId)
+          || hasTenantAdminMembership(tenantId)
+        ) && request.resource.size < 5242880
+          && request.resource.contentType == "image/jpeg";
+      }
+
+      match /orders/{customerId}/{orderId}/items/{itemId}/{fileName} {
+        allow get, list, read: if canReadTenantOrderFile(tenantId, customerId);
+      }
+
+      match /thumb_orders/{customerId}/{orderId}/items/{itemId}/{fileName} {
+        allow get, list, read: if canReadTenantOrderFile(tenantId, customerId);
+        allow create, update, delete: if hasFullTenantAdminMembership(tenantId);
+      }
+
+      match /attachments/{customerId}/{orderId}/{fileName} {
+        allow get, list, read: if canReadTenantOrderFile(tenantId, customerId);
+        allow delete: if hasFullTenantAdminMembership(tenantId);
+        allow create: if hasFullTenantAdminMembership(tenantId)
+          && isPdfUpload(5242880);
+      }
+
+      match /channels/{channelId}/orders/{customerId}/{orderId}/items/{itemId}/{fileName} {
+        allow get, list, read: if canReadTenantChannelOrderFile(
+          tenantId,
+          channelId,
+          customerId
+        );
+      }
+
+      match /channels/{channelId}/thumb_orders/{customerId}/{orderId}/items/{itemId}/{fileName} {
+        allow get, list, read: if canReadTenantChannelOrderFile(
+          tenantId,
+          channelId,
+          customerId
+        );
+        allow create, update, delete: if hasTenantChannelAdminMembership(
+          tenantId,
+          channelId
+        );
+      }
+
+      match /channels/{channelId}/attachments/{customerId}/{orderId}/{fileName} {
+        allow get, list, read: if canReadTenantChannelOrderFile(
+          tenantId,
+          channelId,
+          customerId
+        );
+        allow delete: if hasTenantChannelAdminMembership(tenantId, channelId);
+        allow create: if hasTenantChannelAdminMembership(tenantId, channelId)
+          && isPdfUpload(5242880);
+      }
+
+      match /reports/{allFiles=**} {
+        allow get, list, read: if hasTenantAdminMembership(tenantId);
+      }
+
+      match /images/{allImages=**} {
+        allow get, list, read: if true;
+        allow create: if hasFullTenantAdminMembership(tenantId)
+          && isImageUpload(10485760);
+        allow update, delete: if hasFullTenantAdminMembership(tenantId);
+      }
+
+      match /images/channels/{channelId}/{allImages=**} {
+        allow get, list, read: if true;
+        allow create: if hasTenantChannelAdminMembership(tenantId, channelId)
+          && isImageUpload(10485760);
+        allow update, delete: if hasTenantChannelAdminMembership(
+          tenantId,
+          channelId
+        );
+      }
+
+      match /templates/{attributeId}/{fileName} {
+        allow get, list, read: if true;
+        allow create: if hasFullTenantAdminMembership(tenantId)
+          && isPdfUpload(5242880);
+        allow update, delete: if hasFullTenantAdminMembership(tenantId);
+      }
+
+      match /channels/{channelId}/products/{productId}/templates/{attributeId}/{fileName} {
+        allow get, list, read: if true;
+        allow create: if hasTenantChannelAdminMembership(tenantId, channelId)
+          && isPdfUpload(5242880);
+        allow update, delete: if hasTenantChannelAdminMembership(
+          tenantId,
+          channelId
+        );
+      }
+
+      match /impose_jobs/{allImages=**} {
+        allow get, list, read, delete: if hasTenantAdminMembership(tenantId);
+      }
+
+      match /ai/generated/{date}/{modelId}/{allImages=**} {
+        allow get, list, read, delete: if hasTenantAdminMembership(tenantId);
+        allow create: if hasTenantAdminMembership(tenantId)
+          && isAiImageUpload();
+      }
+
+      match /ai/generated-videos/{date}/{modelId}/{allImages=**} {
+        allow get, list, read, delete: if hasTenantAdminMembership(tenantId);
+        allow create: if hasTenantAdminMembership(tenantId)
+          && isAiVideoUpload();
+      }
+
+      match /ai/reference/{date}/{allImages=**} {
+        allow get, list, read, delete: if hasTenantAdminMembership(tenantId);
+        allow create: if hasTenantAdminMembership(tenantId)
+          && isAiImageUpload();
+      }
+
+      match /ai/generated/accounts/{accountId}/{date}/{modelId}/{allImages=**} {
+        allow get, list, read, delete: if hasTenantAdminMembership(tenantId)
+          && request.auth.uid == accountId;
+        allow create: if hasTenantAdminMembership(tenantId)
+          && request.auth.uid == accountId
+          && isAiImageUpload();
+      }
+
+      match /ai/generated-videos/accounts/{accountId}/{date}/{modelId}/{allImages=**} {
+        allow get, list, read, delete: if hasTenantAdminMembership(tenantId)
+          && request.auth.uid == accountId;
+        allow create: if hasTenantAdminMembership(tenantId)
+          && request.auth.uid == accountId
+          && isAiVideoUpload();
+      }
+
+      match /ai/reference/accounts/{accountId}/{date}/{allImages=**} {
+        allow get, list, read, delete: if hasTenantAdminMembership(tenantId)
+          && request.auth.uid == accountId;
+        allow create: if hasTenantAdminMembership(tenantId)
+          && request.auth.uid == accountId
+          && isAiImageUpload();
+      }
+
+      match /imposition/uploads/{date}/{fileName} {
+        allow get, list, read, delete: if hasTenantAdminMembership(tenantId);
+        allow create: if hasTenantAdminMembership(tenantId)
+          && isImpositionInputUpload();
+      }
+
+      match /imposition/results/accounts/{account}/{date}/{fileName} {
+        allow get, list, read, delete: if hasTenantAdminMembership(tenantId)
+          && request.auth.uid == account;
+        allow create: if hasTenantAdminMembership(tenantId)
+          && request.auth.uid == account
+          && isImpositionArchiveUpload();
+      }
+
+      match /store-ai-reference-images/{userId}/{allPaths=**} {
+        allow read: if isTenantCustomer(tenantId, userId);
+        allow create, update: if isTenantCustomer(tenantId, userId)
+          && request.auth.token.email_verified == true
+          && request.auth.token.firebase.sign_in_provider != "anonymous"
+          && request.resource.size < 4 * 1024 * 1024
+          && request.resource.contentType.matches("image/(png|jpeg|webp)");
+        allow delete: if isTenantCustomer(tenantId, userId);
+      }
+    }
+
+    match /images {
+      allow read;
+    }
+
+    match /carts/{customerId}/items/{itemId}/{fileName} {
+      allow read, delete: if isSignedIn() && request.auth.uid == customerId;
+      allow create: if isSignedIn()
+        && request.auth.uid == customerId
+        && isCartUpload();
+    }
+
+    match /attachments/{allFiles=**} {
+      allow get, list, read: if hasLegacyDedicatedAdminAccess();
+    }
+
+    match /reports/{allFiles=**} {
+      allow get, list, read: if hasLegacyDedicatedAdminAccess();
+    }
+
+    match /attachments/{customerId}/{orderId}/{fileName} {
+      allow get, list, read: if canReadLegacyCustomerFile(customerId);
+      allow delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isPdfUpload(5242880);
+    }
+
+    match /orders/{customerId}/{orderId}/items/{index}/{fileName} {
+      allow get, list, read: if canReadLegacyCustomerFile(customerId);
+    }
+
+    match /thumb_orders/{customerId}/{orderId}/items/{index}/{fileName} {
+      allow get, list, read: if canReadLegacyCustomerFile(customerId);
+      allow create, update, delete: if hasLegacyDedicatedAdminAccess();
+    }
+
+    match /thumb_carts/{customerId}/items/{index}/{fileName} {
+      allow get, list, read: if canReadLegacyCustomerFile(customerId);
+      allow create: if canWriteLegacyCustomerFile(customerId)
+        && request.resource.size < 5242880
+        && request.resource.contentType == "image/png";
+      allow delete: if canWriteLegacyCustomerFile(customerId)
+        && resource.contentType == "image/png";
+    }
+
+    match /preview_carts/{customerId}/items/{index}/{fileName} {
+      allow get, list, read: if canReadLegacyCustomerFile(customerId);
+      allow create: if canWriteLegacyCustomerFile(customerId)
+        && request.resource.size < 5242880
+        && request.resource.contentType == "image/jpeg";
+    }
+
+    match /images/{fileName} {
+      allow get, list, read: if true;
+      allow delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isImageUpload(5242880);
+    }
+
+    match /images/attributeOptionImages/{fileName} {
+      allow get, list, read: if true;
+      allow delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isImageUpload(5242880);
+    }
+
+    match /templates/{attributeId}/{fileName} {
+      allow get, list, read: if true;
+      allow delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isPdfUpload(5242880);
+    }
+
+    match /channels/{channelId}/products/{productId}/templates/{attributeId}/{fileName} {
+      allow get, list, read: if true;
+      allow delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isPdfUpload(5242880);
+    }
+
+    match /images/channels/{channelId}/cms/hero/{fileName} {
+      allow get, list, read: if true;
+      allow delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isImageUpload(5242880);
+    }
+
+    match /images/cms/blog/{fileName} {
+      allow get, list, read: if true;
+      allow delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isImageUpload(5242880);
+    }
+
+    match /images/cms/content/{fileName} {
+      allow get, list, read: if true;
+      allow delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isImageUpload(5242880);
+    }
+
+    match /images/channels/{channelId}/cms/main/{fileName} {
+      allow get, list, read: if true;
+      allow delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isImageUpload(5242880);
+    }
+
+    match /images/channels/{channelId}/products/{productId}/{fileName} {
+      allow get, list, read: if true;
+      allow delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isImageUpload(10485760);
+    }
+
+    match /impose_jobs/{allImages=**} {
+      allow get, list, read, delete: if hasLegacyDedicatedAdminAccess();
+    }
+
+    match /ai/generated/{date}/{modelId}/{allImages=**} {
+      allow get, list, read, delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isAiImageUpload();
+    }
+
+    match /ai/generated-videos/{date}/{modelId}/{allImages=**} {
+      allow get, list, read, delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isAiVideoUpload();
+    }
+
+    match /ai/reference/{date}/{allImages=**} {
+      allow get, list, read, delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isAiImageUpload();
+    }
+
+    match /ai/generated/accounts/{accountId}/{date}/{modelId}/{allImages=**} {
+      allow get, list, read, delete: if hasLegacyDedicatedAdminAccess()
+        && request.auth.uid == accountId;
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && request.auth.uid == accountId
+        && isAiImageUpload();
+    }
+
+    match /ai/generated-videos/accounts/{accountId}/{date}/{modelId}/{allImages=**} {
+      allow get, list, read, delete: if hasLegacyDedicatedAdminAccess()
+        && request.auth.uid == accountId;
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && request.auth.uid == accountId
+        && isAiVideoUpload();
+    }
+
+    match /ai/reference/accounts/{accountId}/{date}/{allImages=**} {
+      allow get, list, read, delete: if hasLegacyDedicatedAdminAccess()
+        && request.auth.uid == accountId;
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && request.auth.uid == accountId
+        && isAiImageUpload();
+    }
+
+    match /imposition/uploads/{date}/{fileName} {
+      allow get, list, read, delete: if hasLegacyDedicatedAdminAccess();
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && isImpositionInputUpload();
+    }
+
+    match /imposition/results/accounts/{account}/{date}/{fileName} {
+      allow get, list, read, delete: if hasLegacyDedicatedAdminAccess()
+        && request.auth.uid == account;
+      allow create: if hasLegacyDedicatedAdminAccess()
+        && request.auth.uid == account
+        && isImpositionArchiveUpload();
+    }
+
+    match /store-ai-reference-images/{userId}/{allPaths=**} {
+      allow read: if isSignedIn() && request.auth.uid == userId;
+      allow create, update: if isSignedIn()
+        && request.auth.uid == userId
+        && request.auth.token.email_verified == true
+        && request.auth.token.firebase.sign_in_provider != "anonymous"
+        && request.resource.size < 4 * 1024 * 1024
+        && request.resource.contentType.matches("image/(png|jpeg|webp)");
+      allow delete: if isSignedIn() && request.auth.uid == userId;
+    }
+  }
+}

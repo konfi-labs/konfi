@@ -1,0 +1,2189 @@
+{
+  "account": {
+    "basic": "Basique",
+    "changePassword": "Changer le mot de passe",
+    "changePasswordDescription": "Modifiez facilement et en toute sécurité le mot de passe de votre compte.",
+    "confirmEmail": "Confirmez votre adresse email",
+    "confirmEmailDescription": "Un lien de vérification a été envoyé à l'adresse e-mail fournie",
+    "confirmNewPassword": "Confirmer le nouveau mot de passe",
+    "confirmRemoveAccount": "Etes-vous sûr de vouloir supprimer votre compte ?",
+    "created": "Compte créé",
+    "createdDescription": "Nous avons créé un compte pour vous",
+    "generations": {
+      "cardDescription": "Parcourez, prévisualisez et téléchargez les graphiques que vous avez générés avec l'IA.",
+      "description": "Passez en revue les graphiques que vous avez générés, découvrez-les en taille réelle et téléchargez à nouveau les fichiers finaux chaque fois que vous en avez besoin.",
+      "downloadButton": "Télécharger",
+      "emptyDescription": "Les graphiques générés à partir de la page produit et du panier apparaîtront ici une fois terminés.",
+      "emptyTitle": "Aucune génération enregistrée pour l'instant",
+      "label": "Générations d'IA",
+      "loadError": "Nous n'avons pas pu charger vos générations d'IA enregistrées pour le moment.",
+      "previewButton": "Aperçu",
+      "previewTitle": "Aperçu graphique généré",
+      "singleSide": "Un seul côté",
+      "title": "Générations d'IA",
+      "unknownDate": "Date inconnue",
+      "unnamedProduct": "Graphique généré"
+    },
+    "newPassword": "Nouveau mot de passe",
+    "newsletter": "Bulletin",
+    "oldPassword": "Ancien mot de passe",
+    "passwordPlaceholder": "6 caractères ou plus",
+    "removeAccount": "Supprimer le compte",
+    "removeAccountDescription": "Supprimez facilement et en toute sécurité votre compte et toutes vos données.",
+    "removeAccountTitle": "Supprimer le compte",
+    "removeAccountWarning": "Toutes vos informations seront supprimées de notre base de données. Cette opération ne peut pas être annulée, alors assurez-vous de vouloir réellement supprimer votre compte.",
+    "resetPassword": "Réinitialisez votre mot de passe",
+    "settings": "Paramètres",
+    "unsubscribeFromNewsletter": "Se désabonner de la newsletter"
+  },
+  "discount": {
+    "withCode": "Avec le code \"{{code}}\" moins cher par"
+  },
+  "actions": {
+    "cancelChanges": "Annuler les modifications",
+    "copied": "Copiez !",
+    "copy": "Copie",
+    "createImposition": "Créer une imposition",
+    "discardChanges": "Ignorer les modifications",
+    "importTable": "Tableau d'importation",
+    "loadTemplate": "Charger",
+    "save": "Sauvegarder",
+    "saveChanges": "Enregistrer les modifications"
+  },
+  "active": "Actif",
+  "ActivityStatus": {
+    "EMAIL_SENT": "E-mail envoyé à :",
+    "FILES_STATUS_UPDATE": "Mise à jour de l'état des fichiers vers",
+    "ORDER_STATUS_UPDATE": "Mise à jour du statut de la commande vers",
+    "PAYMENT_METHOD_CHANGED": "Mode de paiement modifié en",
+    "PAYMENT_STATUS_UPDATE": "Mise à jour du statut de paiement vers"
+  },
+  "ActivityStatusShort": {
+    "EMAIL_SENT": "E-mail",
+    "FILES_STATUS_UPDATE": "Statut des fichiers",
+    "ORDER_STATUS_UPDATE": "Statut de la commande",
+    "PAYMENT_METHOD_CHANGED": "Mode de paiement modifié",
+    "PAYMENT_STATUS_UPDATE": "Statut de paiement"
+  },
+  "AddressTypeEnum": {
+    "BILLING": "Adresse de facturation",
+    "SHIPPING": "Adresse de livraison"
+  },
+  "ApplicationMethodAllocation": {
+    "ACROSS": "Pour tous les articles ensemble",
+    "EACH": "Verser chaque article séparément"
+  },
+  "ApplicationMethodTargetTypes": {
+    "ITEMS": "Articles du panier",
+    "ORDER": "Commande entière",
+    "SHIPPING_METHODS": "Méthodes d'expédition"
+  },
+  "ApplicationMethodTypes": {
+    "FIXED": "Montant fixe",
+    "PERCENTAGE": "Pourcentage"
+  },
+  "AttributeInputTypeEnum": {
+    "ADVANCED_FINISHING": "Finition avancée",
+    "DROPDOWN": "Liste déroulante",
+    "DROPDOWN_COLOR": "Liste déroulante avec couleurs",
+    "RADIO_GROUP": "Bouton-radio",
+    "RADIO_GROUP_COLOR": "Boutons radio avec couleurs",
+    "RADIO_GROUP_IMAGE": "Boutons radio avec images"
+  },
+  "auth": {
+    "accountDisabled": "Le compte a été désactivé.",
+    "accountNotFound": "Le compte avec l'adresse e-mail fournie n'existe pas.",
+    "emailAlreadyExists": "Un compte avec l'e-mail fourni existe déjà.",
+    "forgot": {
+      "heroHeading": "Donnez vie à vos idées avec nous dès aujourd'hui !",
+      "submitButton": "Soumettre",
+      "title": "Réinitialisez votre mot de passe"
+    },
+    "google": {
+      "accountExistsWithDifferentProvider": "Un compte avec cette adresse email existe déjà. Connectez-vous avec votre méthode existante pour continuer.",
+      "button": "Continuer avec Google",
+      "credentialAlreadyInUse": "Ce compte Google est déjà lié à un autre profil. Connectez-vous avec Google pour continuer.",
+      "divider": "ou continuez avec l'e-mail",
+      "notEnabled": "La connexion Google n'est pas encore activée pour cette boutique.",
+      "popupBlocked": "La connexion à Google a été bloquée par votre navigateur. Autorisez les fenêtres contextuelles et réessayez.",
+      "unauthorizedDomain": "Ce domaine n'est pas encore autorisé pour la connexion Google.",
+      "unavailable": "La connexion Google n'est pas disponible pour le moment. Veuillez réessayer plus tard."
+    },
+    "internalError": "Le serveur d'authentification a rencontré une erreur inattendue lors du traitement de la demande.",
+    "invalidCredentials": "Identifiants invalides",
+    "loggedIn": "Connecté",
+    "loggedInDescription": "Vous êtes connecté avec succès.",
+    "loggedOut": "Déconnecté",
+    "loggedOutDescription": "Vous avez été déconnecté.",
+    "login": {
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "exemple@mail.com",
+      "forgotPasswordLink": "Vous avez oublié votre mot de passe ?",
+      "loginButton": "Se connecter",
+      "noAccountText": "Vous n'avez pas encore de compte ? S'inscrire.",
+      "passwordLabel": "Mot de passe",
+      "passwordPlaceholder": "6 caractères ou plus",
+      "registerLink": "S'inscrire",
+      "tagline": "Donnez vie à vos idées avec nous dès aujourd'hui !",
+      "title": "Se connecter"
+    },
+    "loginError": "Erreur de connexion",
+    "noAuthorization": "Aucune autorisation",
+    "noCustomerData": "Aucune donnée client",
+    "passwordChanged": "Mot de passe modifié",
+    "passwordChangedDescription": "Votre mot de passe a été modifié avec succès.",
+    "register": {
+      "andText": "et",
+      "displayNameLabel": "Nom et prénom",
+      "displayNamePlaceholder": "Jean Dupont",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "exemple@mail.com",
+      "loginLink": "Se connecter",
+      "passwordHelperText": "Une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial",
+      "passwordLabel": "Mot de passe",
+      "passwordPlaceholder": "6 caractères ou plus",
+      "privacyPolicyLink": "politique de confidentialité",
+      "registerButton": "S'inscrire",
+      "tagline": "Donnez vie à vos idées avec nous dès aujourd'hui !",
+      "termsLink": "conditions de service",
+      "termsText": "En cliquant sur le bouton ci-dessus, vous acceptez le",
+      "title": "S'inscrire"
+    },
+    "unknownError": "Quelqu'un a choisi s'est mal passé, veuillez contacter l'administrateur. Code d'erreur : {{errorCode}}",
+    "weakPassword": "Le mot de passe doit comporter au moins 6 caractères."
+  },
+  "BackPageRotation": {
+    "ROTATION_0": "Aucun",
+    "ROTATION_180": "Rotation à 180°",
+    "ROTATION_270": "Rotation à 270°",
+    "ROTATION_90": "Rotation à 90°"
+  },
+  "billingAddress": {
+    "notSavedError": "L'adresse de facturation n'a pas été enregistrée, code d'erreur : {{error}}",
+    "notSavedNotCustomer": "L'adresse de facturation n'a pas été enregistrée, l'utilisateur n'est pas un client"
+  },
+  "BindingEdge": {
+    "BOTTOM": "Bas",
+    "LEFT": "Gauche",
+    "RIGHT": "Droite",
+    "TOP": "Haut"
+  },
+  "BleedType": {
+    "BLEED_INCLUDED": "Le fichier inclut le fond perdu",
+    "DIFFERENTIAL_DIFFUSION": "Générer un fond perdu",
+    "NO_BLEED": "Pas de dépression",
+    "ONE_POINT_FIVE_MM_SCALE": "Ajouter 1,5 mm (mise à l'échelle)",
+    "TWO_MM_MIRROR": "Ajouter 2 mm (réflexion miroir)"
+  },
+  "blog": {
+    "backToBlog": "Retour au blog",
+    "empty": "Aucun article de blog trouvé.",
+    "emptyDescription": "Essayez d'ajuster vos filtres ou revenez plus tard.",
+    "loading": "Chargement...",
+    "minRead": "cours min.",
+    "notFound": "Article de blog introuvable.",
+    "relatedPosts": "Articles connexes",
+    "views": "vues"
+  },
+  "CampaignAvailabilityTypeEnum": {
+    "ONLINE": "En ligne",
+    "POS": "Point de vente"
+  },
+  "CampaignBudgetTypes": {
+    "SPEND": "Montant",
+    "USAGE": "Usage"
+  },
+  "cart": {
+    "addProductAgain": "Ajouter à nouveau le produit au panier",
+    "addProducts": "Ajouter des produits au panier",
+    "discountRemoved": "Le code promotionnel {{code}} a été supprimé",
+    "empty": "Le panier est vide",
+    "error": {
+      "cantAddProduct": "Impossible d'ajouter le produit au panier",
+      "cantContinueAsGuest": "Impossible de continuer en tant qu'invité"
+    },
+    "full": "Le panier est plein (max. 10 produits)",
+    "goToStore": "Aller au magasin",
+    "guest": {
+      "acceptTerms": {
+        "part1": "En cliquant sur le bouton ci-dessus, vous acceptez",
+        "part2": "les conditions de service",
+        "part3": "et",
+        "part4": "la politique de confidentialité"
+      },
+      "cantContinueAsGuest": "Pour ajouter un produit au panier et passer une commande, vous devez vous connecter, vous inscrire ou vous pouvez continuer vos achats en tant qu'invité.",
+      "continueAsGuest": "Continuer en tant qu'invité",
+      "loginOrRegister": "Connectez-vous ou inscrivez-vous",
+      "shouldContinueAsGuest": "Vous souhaitez passer une commande en tant qu'invité ?"
+    },
+    "invalidPrice": "Le prix du produit {{productName}} - {{description}} n'est pas valide",
+    "itemRemoved": "L'article a été supprimé du panier",
+    "label": "Panier",
+    "missingFiles": {
+      "action": "Joindre des fichiers",
+      "description": "Ce produit n'a aucun fichier d'impression joint. Ajoutez votre illustration avant de passer la commande — et si les fichiers disparaissent après avoir rechargé la page, veuillez les joindre à nouveau.",
+      "title": "Aucun fichier joint"
+    },
+    "noPaymentOptions": "Aucune option de paiement disponible",
+    "noShippingOptions": "Aucune option d'expédition disponible",
+    "priceCheckError": "Une erreur s'est produite lors de la vérification du prix du produit {{productName}} - {{description}}",
+    "preflightChecking": {
+      "description": "Nous générons l'aperçu et vérifions les problèmes d'impression en arrière-plan.",
+      "title": "Vérification du fichier téléchargé"
+    },
+    "productAdded": "Le produit a été ajouté au panier",
+    "productUnavailable": "Le produit n'est plus disponible",
+    "removeProduct": "Supprimer le produit du panier",
+    "validationError": "Une erreur s'est produite lors de la validation du panier",
+    "goToCart": "Aller au panier"
+  },
+  "category": {
+    "created": "Catégorie créée",
+    "createdDescription": "Nouvelle catégorie créée avec succès",
+    "notCreated": "La catégorie n'a pas été créée, code d'erreur : {{error}}",
+    "notUpdated": "La catégorie n'a pas été mise à jour, code d'erreur : {{error}}",
+    "updated": "Catégorie mise à jour",
+    "updatedDescription": "La catégorie {{name}} a bien été mise à jour"
+  },
+  "combination": {
+    "configuration": "Configuration",
+    "faq": {
+      "customSize": {
+        "answer": "Oui, de nombreux produits prennent en charge les dimensions personnalisées. Activez l'option de format personnalisé dans le configurateur pour saisir vos propres largeur et hauteur.",
+        "question": "Puis-je commander une taille personnalisée ?"
+      },
+      "fileRequirements": {
+        "answer": "Nous acceptons les fichiers PDF, PNG, JPEG et TIFF. Pour de meilleurs résultats, fournissez des PDF vectoriels avec des polices encadrées et un fond perdu de 3 mm.",
+        "question": "Quels formats de fichiers acceptez-vous ?"
+      },
+      "minimumOrder": {
+        "answer": "Les quantités minimales varient selon le produit. Vérifiez le sélecteur de quantité sur la page du produit pour connaître le montant disponible le plus bas.",
+        "question": "Y a-t-il une quantité minimum de commande ?"
+      },
+      "shipping": {
+        "answer": "Nous expédions par courrier suivi à travers la Pologne et l'UE. Les frais de port sont calculés au moment du moment en fonction du poids de la commande de paiement et de la destination.",
+        "question": "Comment fonctionne l'expédition ?"
+      },
+      "turnaround": {
+        "answer": "Les dates de livraison estimées sont affichées à côté de chaque option de quantité dans le sélecteur de quantité et dans le panier, afin que vous puissiez choisir le calendrier qui vous convient.",
+        "question": "Combien de temps dure la production ?"
+      },
+      "viewAll": "Afficher toutes les questions fréquemment posées"
+    },
+    "specialNotes": "Information",
+    "tabs": {
+      "description": "Description",
+      "faq": "FAQ",
+      "reviews": "Avis"
+    }
+  },
+  "common": {
+    "accept": "Accepter",
+    "add": "Ajouter",
+    "addresses": "Adresses",
+    "back": "Dos",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "create": "Créer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "email": "E-mail",
+    "error": "Erreur",
+    "gross": "Brut",
+    "info": "Information",
+    "invoice": "Facture",
+    "itemsSelected": "{{count}} éléments sélectionnés",
+    "loading": "Chargement...",
+    "loadMore": "Chargeur plus",
+    "moreItems": "+{{count}} plus",
+    "net": "Filet",
+    "new": "NEW",
+    "next": "Suivant",
+    "no": "No",
+    "noAddresses": "Aucune adresse",
+    "noAddressesDescription": "Vous n'avez aucune adresse enregistrée pour le moment.",
+    "noBillingAddress": "Pas de facture",
+    "noOptionsAvailable": "Aucune option disponible",
+    "noOrder": "Pas de commande",
+    "noOrders": "Aucune commande",
+    "noOrdersDescription": "Vous n'avez aucune commande pour le moment.",
+    "noRatingsDescription": "Vous n'avez aucune note à ajouter pour le moment.",
+    "noRatingsToAdd": "Aucune note à ajouter",
+    "orderBy": "Commandant par",
+    "orders": "Ordres",
+    "password": "Mot de passe",
+    "pleaseWait": "S'il vous plaît, attendez",
+    "preview": "Aperçu",
+    "ratings": "Notes",
+    "remove": "Retirer",
+    "save": "Sauvegarder",
+    "saved": "Sauvé !",
+    "selectLanguage": "Sélectionnez la langue",
+    "selectPlaceholder": "Sélectionnez {{attributeName}}...",
+    "submit": "Soumettre",
+    "success": "Succès",
+    "tryAgain": "Veuillez réessayer plus tard",
+    "unavailable": "Indisponible",
+    "update": "Mise à jour",
+    "warning": "Avertissement",
+    "yes": "Oui"
+  },
+  "complaint": {
+    "created": "Plainte créée",
+    "createdDescription": "Nouvelle plainte créée avec succès",
+    "createdDev": "Plainte créée sans sauvegarde (DEV)",
+    "createdDevDescription": "Nouvelle plainte créée avec succès",
+    "notCreated": "La plainte n'a pas été créée",
+    "notCreatedError": "La réclamation n'a pas été créée, code d'erreur : {{error}}",
+    "notFound": "Plainte introuvable pour modification"
+  },
+  "ComplaintStatus": {
+    "NEW": "Nouveau",
+    "PROCESSING": "Traitement",
+    "RESOLVED": "Résolu"
+  },
+  "ConsentSettings": {
+    "ad_personalization": "Consentement aux annonces personnalisées",
+    "ad_storage": "Permet le stockage de données telles que les cookies liés à la publicité",
+    "ad_user_data": "Consentement à l'envoi de données utilisateur à Google à des fins publicitaires",
+    "analytics_storage": "Permet le stockage d'analyses, par ex. heure de la visite (obligatoire)",
+    "functionality_storage": "Permet le stockage des fonctions du site, par ex. paramètres de langue (obligatoire)",
+    "personalization_storage": "Permet le stockage de la personnalisation, par ex. vidéo de recommandations",
+    "security_storage": "Permet le stockage lié à la sécurité, par ex. authentification (obligatoire)"
+  },
+  "contact": {
+    "notSavedError": "Le contact n'a pas été enregistré, code d'erreur : {{error}}",
+    "notSavedNotCustomer": "Le contact n'a pas été enregistré, l'utilisateur n'est pas un client"
+  },
+  "Currency": {
+    "EUR": "€",
+    "GBP": "£",
+    "PLN": "PLN",
+    "USD": "$"
+  },
+  "CUSTOM_FORMAT_PARAMETERS": "Paramètres de format personnalisés",
+  "customer": {
+    "notSavedError": "Le client n'a pas été enregistré, code d'erreur : {{error}}"
+  },
+  "customFormatInput": {
+    "addedSizes": "Tailles ajoutées ({{count}})",
+    "addSize": "Ajouter une taille",
+    "heading": "Taille",
+    "height": "Hauteur",
+    "heightRange": "Taille (de {{minHeight}} à {{maxHeight}})",
+    "ratioDescription": "Le rapport est calculé en fonction de la largeur et de la hauteur.",
+    "ratioHeading": "Rapport",
+    "ratioRange": "Rapport (de {{minRatio}} à {{maxRatio}})",
+    "totalArea": "Superficie totale",
+    "width": "Largeur",
+    "widthRange": "Largeur (de {{minWidth}} à {{maxWidth}})"
+  },
+  "deliveryInfo": {
+    "heading": "Options de livraison disponibles"
+  },
+  "designSpec": {
+    "bleed": "Saigner",
+    "colors": "Jeu de couleurs",
+    "downloadTemplate": "Télécharger le modèle {{name}}",
+    "grossFormat": "Format brut (avant rognage)",
+    "heading": "Comment préparer les fichiers ?",
+    "minResolution": "Résolution minimale",
+    "netFormat": "Format net (après rognage)",
+    "templates": "Modèles"
+  },
+  "DiscountTypeEnum": {
+    "FIXED": "Montant fixe",
+    "PERCENTAGE": "Pourcentage"
+  },
+  "DuplexMode": {
+    "DUPLEX_LONG_EDGE": "Recto verso (bord long)",
+    "DUPLEX_SHORT_EDGE": "Duplex (cour bord)",
+    "SIMPLEX": "Simplexe"
+  },
+  "error": {
+    "cannotCreateOrderStoreChannel": "Impossible de créer une commande sur le canal du magasin",
+    "categoryNotFound": "Catégorie introuvable pour la modification",
+    "missingEmail": "Adresse e-mail manquante",
+    "missingEmailStripe": "Impossible de créer une session de paiement sans adresse e-mail",
+    "permissionDenied": "Autorisation refusée",
+    "somethingWrong": "Quelqu'un a choisi s'est mal passé"
+  },
+  "ERROR": {
+    "ANONYMOUS_SHIPPING_DOMESTIC_ONLY": "L’expédition anonyme de colis n’est disponible que pour les expéditions nationales.",
+    "BUYING_DISABLED": "Le traitement des commandes n'est pas disponible",
+    "INCOMPLETE_ORDER_DATA": "Données de commande incomplètes",
+    "INVALID_PRICES": "Prix ​​​​​​invalides, ajoute à nouveau les produits au panier",
+    "INVALID_PRODUCTS": "Produits invalides, ajoutés à nouveau des produits au panier",
+    "INVALID_STORE_CREDIT_CURRENCY": "Le crédit en magasin ne peut être utilisé que dans le dispositif du crédit en magasin.",
+    "INSUFFICIENT_STOCK": "Certains articles du panier ne sont plus disponibles dans la quantité demandée.",
+    "NOT_FOUND": "Pas trouvé",
+    "ORDER_CREATION_FAILED": "La création de la commande a échoué",
+    "STOCK_CHECK_FAILED": "Impossible de vérifier la disponibilité du stock. Veuillez réessayer.",
+    "STOCK_NOT_FOUND": "Certains articles du panier n'ont pas de fiche de stock.",
+    "STORE_CREDIT_EXCEEDS_BALANCE": "Le montant du crédit en magasin dépasse le solde disponible.",
+    "UNAUTHENTICATED": "Aucune autorisation",
+    "UNAUTHORIZED": "Aucune autorisation",
+    "WRONG_USER": "Mauvais utilisateur"
+  },
+  "errors": {
+    "fileProcessingError": "Erreur de traitement du fichier",
+    "somethingWentWrong": "Quelqu'un a choisi s'est mal passé",
+    "valueLabelPairsError": "Erreur lors de la création des paires valeur-étiquette"
+  },
+  "false": "No",
+  "file": {
+    "exportedSuccessfully": "Fichier exporté avec succès",
+    "exporting": "Exportation...",
+    "importedSuccessfully": "Fichier importé avec succès",
+    "processingError": "Erreur de traitement du fichier",
+    "processingErrorDetail": "Erreur de traitement du fichier : {{error}}"
+  },
+  "forgotPassword": {
+    "sent": "Le message a été envoyé",
+    "sentDescription": "Un lien de réinitialisation du mot de passe a été envoyé à l'adresse e-mail fournie"
+  },
+  "forms": {
+    "anonymousPackageLabelAddress": {
+      "city": "Ville",
+      "cityPlaceholder": "Ville",
+      "company": "Entreprise",
+      "companyPlaceholder": "Entreprise",
+      "description": "Facultatif. Si vous remplissez ces champs, cette adresse d'expéditeur peut être utilisée sur l'étiquette du colis au lieu de celle par défaut.",
+      "email": "E-mail",
+      "emailPlaceholder": "E-mail",
+      "labelName": "Nom de l'adresse de l'étiquette",
+      "labelNamePlaceholder": "par ex. Expéditeur sur l'étiquette",
+      "name": "Nom et prénom",
+      "namePlaceholder": "Nom et prénom",
+      "phone": "Téléphone",
+      "phonePlaceholder": "Téléphone",
+      "street": "Rue",
+      "streetPlaceholder": "Rue et numéro",
+      "zip": "Code postal",
+      "zipPlaceholder": "Code postal"
+    },
+    "anonymousPackageShipping": {
+      "description": "Si vous choisissez l'expédition anonyme, notre société n'apparaîtra pas sur l'étiquette d'expédition.",
+      "heading": "Souhaitez-vous que l’expédition du colis soit anonyme ?",
+      "internationalUnavailable": "L’expédition de colis anonyme n’est pas disponible pour les expéditions internationales.",
+      "label": "Expédition en colis anonyme",
+      "tooltip": "Selon l'entreprise de messagerie qui gère l'envoi, l'expéditeur apparaîtra comme l'adresse fournie ou le centre logistique du coursier. Le fournisseur d'expédition, tel qu'InPost ou DHL, sera choisi en fonction de la disponibilité d'expédition anonyme. L’expédition anonyme de colis n’est pas disponible avec le paiement à la livraison ou à l’expédition internationale."
+    },
+    "b2b": {
+      "labels": {
+        "businessDescription": "Description de l'entreprise",
+        "city": "Ville",
+        "companyName": "Nom de l'entreprise",
+        "nip": "NIP (numéro d'identification fiscale)",
+        "postalCode": "Code postal",
+        "street": "Rue"
+      },
+      "placeholders": {
+        "city": "Ville",
+        "companyName": "Nom de l'entreprise",
+        "min_150Max_500Chars": "min. 150 caractères maximum. 500 caractères",
+        "nip": "NIP",
+        "postalCode": "Code postal",
+        "street": "Rue"
+      }
+    },
+    "headings": {
+      "address": "Adresse",
+      "addresses": "Adresses",
+      "basicInformation": "Informations de base",
+      "billingAddress": "adresse de facturation",
+      "businessInformation": "Informations commerciales",
+      "contact": "Contact",
+      "contacts": "Contacts",
+      "customSizes": "Tailles personnalisées",
+      "delivery": "Livraison",
+      "deliveryNotes": "Livraison et notes",
+      "filePreparation": "Préparation du fichier",
+      "fileVerification": "Vérification des fichiers",
+      "freeShipping": "Livraison gratuite",
+      "locker": "Casier",
+      "options": "Possibilités",
+      "postalCodeMachine": "Machine à codes postaux",
+      "price": "Prix",
+      "priceRanges": "Gammes de prix",
+      "promotionRules": "Règles de promotion",
+      "quantities": "Quantités",
+      "realization": "Réalisation",
+      "settings": "Paramètres",
+      "shipping": "Expédition",
+      "shippingAddress": "adresse de livraison",
+      "shippingCosts": "Frais d'expédition",
+      "shippingNotes": "Livraison et notes",
+      "specification": "Spécification",
+      "tracking": "Suivi des colis",
+      "verification": "Vérification des fichiers",
+      "volumes": "Volumes"
+    },
+    "help": {
+      "pageCount": "Choisissez entre {{minimum}} et {{maximum}} par étapes de {{step}}. Les pages de garde (+{{coverPages}}) sont corrigées."
+    },
+    "helperTexts": {
+      "invoiceNotes": "Ces notes seront visibles sur la facture.",
+      "invoiceRecipientEnabled": "À utiliser lorsqu'un destinataire autre que l'acheteur doit apparaître sur la facture.",
+      "jstRecipientEnabled": "À utiliser lorsqu'une unité gouvernementale locale polonaise doit apparaître comme destinataire de la facture."
+    },
+    "invoiceRecipientRoleOptions": {
+      "additionalBuyer": "Acheteur supplémentaire",
+      "employee": "Employé",
+      "jst": "Unité de gouvernement local",
+      "other": "Autre rôle",
+      "payer": "Partie payante",
+      "recipient": "Destinataire",
+      "vatGroupMember": "Membre du groupe TVA"
+    },
+    "pageCountBreakdown": "{{innerPages}} (intérieur) + {{coverPages}} (couverture)",
+    "labels": {
+      "active": "Actif",
+      "addressType": "Type d'adresse",
+      "apartment": "Appartement",
+      "attribute": "Attribut",
+      "availableDeliveryTypes": "Types de livraison disponibles",
+      "b2b": "B2B",
+      "billingAddress": "Adresse de facturation",
+      "carriedOutBy": "Réalisé par",
+      "categories": "Catégories",
+      "category": "Catégorie",
+      "chooseParcelLocker": "Choisissez un casier à colis",
+      "city": "Ville",
+      "color": "Couleur",
+      "companyData": "Données de l'entreprise",
+      "companyName": "Nom de l'entreprise",
+      "contact": "Contact",
+      "contactName": "Nom du contact",
+      "cost": "Coût",
+      "country": "Pays",
+      "currencies": "Devises",
+      "currency": "Devise",
+      "customer": "Client",
+      "customSizeName": "Nom de taille personnalisé",
+      "deadline": "Date limite",
+      "defaultOrder": "Ordre par défaut",
+      "delivery": "Livraison",
+      "deliveryAddress": "Adresse de livraison",
+      "description": "Description",
+      "difficulty": "Difficulté",
+      "discount": "Rabais",
+      "dpi": "Dpi",
+      "email": "E-mail",
+      "expirationDate": "Date d'expiration",
+      "express": "Exprimer",
+      "files": "Fichiers",
+      "filesStatus": "Statut des fichiers",
+      "fileVerification": "Vérification des fichiers",
+      "fullName": "Nom et prénom",
+      "height": "Hauteur",
+      "heightStep": "Étape de hauteur",
+      "identifier": "Identifiant",
+      "invoice": "Facture",
+      "invoiceNotes": "Notes de facture",
+      "invoiceRecipientCity": "Ville destinataire",
+      "invoiceRecipientEnabled": "Destinataire de la facture",
+      "invoiceRecipientName": "Nom du destinataire",
+      "invoiceRecipientNip": "PIN du destinataire",
+      "invoiceRecipientPostalCode": "Code postal du destinataire",
+      "invoiceRecipientRole": "Rôle du destinataire",
+      "invoiceRecipientRoleDescription": "Description du rôle",
+      "invoiceRecipientStreet": "Rue du destinataire",
+      "jstRecipientCity": "Ville bénéficiaire de la JST",
+      "jstRecipientEnabled": "Bénéficiaire polonais de la JST",
+      "jstRecipientName": "Nom du destinataire JST",
+      "jstRecipientNip": "NIP du destinataire JST",
+      "jstRecipientPostalCode": "Code postal du destinataire JST",
+      "jstRecipientStreet": "Rue du destinataire JST",
+      "label": "Étiquette",
+      "likeCompany": "Comme l'entreprise",
+      "likeHome": "Comme à la maison",
+      "link": "Lien",
+      "locale": "Lieu",
+      "locker": "Casier",
+      "mailLink": "Lien de messagerie",
+      "markup": "Balisage",
+      "maximumHeight": "Hauteur maximale",
+      "maximumOrder": "Commande maximale",
+      "maximumPurchaseValue": "Valeur d'achat maximale",
+      "maximumRatio": "Rapport maximal",
+      "maximumWidth": "Largeur maximale",
+      "message": "Message",
+      "minimumHeight": "Hauteur minimale",
+      "minimumOrder": "Commande minimale",
+      "minimumPurchaseValue": "Valeur d'achat minimale",
+      "minimumRatio": "Rapport minimum",
+      "minimumWidth": "Largeur minimale",
+      "name": "Nom",
+      "nip": "Numéro d'identification fiscale",
+      "notes": "Remarques",
+      "number": "Nombre",
+      "operator": "Opérateur",
+      "orderNotes": "Notes de commande",
+      "pageCount": "Nombre de pages",
+      "pages": "Pages",
+      "paymentDocument": "Document de paiement",
+      "paymentStatus": "Statut de paiement",
+      "paymentType": "Mode de paiement",
+      "person": "Personne",
+      "personName": "Nom et prénom",
+      "phone": "Téléphone",
+      "photo": "Photo",
+      "photos": "Photos",
+      "postalCode": "Code postal",
+      "preferredUnit": "Unité préférée",
+      "priceType": "Type de prix",
+      "printingMethods": "Méthodes d'impression",
+      "printType": "Type d'impression",
+      "priority": "Priorité",
+      "processingType": "Type de traitement",
+      "product": "Produit",
+      "products": "Produits",
+      "promotionRules": "Règles de promotion",
+      "publicationDate": "Date de parution",
+      "quantityStep": "Étape de quantité",
+      "sameAsBilling": "Identique à l'adresse de facturation",
+      "saveBillingAddress": "Enregistrer l'adresse de facturation",
+      "saveContact": "Enregistrer le contact",
+      "saveCustomer": "Enregistrer le client",
+      "saveShippingAddress": "Enregistrer l'adresse de livraison",
+      "shippingAddress": "Adresse de livraison",
+      "shippingOption": "Option d'expédition",
+      "slug": "Limace",
+      "specialNotes": "Remarques spéciales",
+      "standard": "Standard",
+      "status": "Statut",
+      "step": "Étape",
+      "street": "Rue",
+      "subtitle": "Sous-titre",
+      "threshold": "Seuil",
+      "title": "Titre",
+      "trackingNumber": "Numéro de suivi",
+      "translation": "Traduction",
+      "unit": "Unir",
+      "unitsPerSheet": "Unités par feuille",
+      "value": "Valeur",
+      "verification": "Vérification des fichiers",
+      "wantInvoice": "Je souhaite recevoir une facture",
+      "warehouses": "Entrepôts",
+      "width": "Largeur",
+      "widthStep": "Étape de largeur",
+      "zip": "Fermeture éclair"
+    },
+    "placeholders": {
+      "3dModelPreview": "Modèle d'aperçu 3D",
+      "active": "Actif",
+      "allowCustomPrice": "Autoriser le prix personnalisé",
+      "allowCustomSize": "Autoriser la taille personnalisée",
+      "apartment": "1",
+      "attributeAffectsPrice": "L'attribut affecte le prix",
+      "attributeContainsSizes": "L'attribut contient des tailles",
+      "availableForPurchase": "Disponible à l'achat",
+      "bleed": "Saigner",
+      "city": "Ville",
+      "comments": "Commentaires",
+      "companyName": "Nom de l'entreprise",
+      "contactName": "Nom du contact",
+      "country": "Pays",
+      "currency": "Devise",
+      "customDimension": "Dimension personnalisée",
+      "customSizeName": "Nom de taille personnalisé",
+      "deadline": "Date limite",
+      "decidesRequiredPages": "Décide du nombre de pages requises",
+      "defaultOrder": "Ordre par défaut",
+      "description": "Description",
+      "difficulty": "Difficulté",
+      "difficulty_1_10": "Difficulté de 1 à 10",
+      "domainEmail": "nom@domaine",
+      "dpi": "Dpi",
+      "email": "E-mail",
+      "enableBuying": "Activer l'achat ?",
+      "enableFreeShipping": "Activer la livraison gratuite ?",
+      "enableUnderConstruction": "Activer le mode en construction ?",
+      "enterHeight": "Entrez la hauteur...",
+      "enterLink": "Entrez le lien",
+      "enterOptionCost": "Entrez le coût de l'option...",
+      "enterPageCount": "Entrez le nombre de pages...",
+      "enterRuleDescription": "Entrez la description de la règle",
+      "enterUnitsPerSheet": "Entrez les unités par feuille...",
+      "enterWidth": "Entrez la largeur...",
+      "exactTime": "Heure exacte",
+      "example_5000": "5000",
+      "example_500000": "500000",
+      "example_5000000": "5000000",
+      "exampleA4": "A4",
+      "exampleA4Lowercase": "a4",
+      "exampleStreet": "Exemple",
+      "fullName": "Nom et prénom",
+      "height": "Hauteur",
+      "heightStep": "Marche de hauteur",
+      "hideOption": "Masquer l'option",
+      "home": "Maison",
+      "identifier": "Identifiant",
+      "includeBleed": "Inclure le fond perdu",
+      "isTest": "Est-ce un test",
+      "janKowalski": "Jean Dupont",
+      "jstRecipientName": "Nom de l'unité de gouvernement local",
+      "likeCompany": "par ex. Entreprise",
+      "likeHome": "par ex. Maison",
+      "link": "Lien",
+      "locale": "Sélectionnez les paramètres régionaux...",
+      "markup": "Balisage",
+      "maximumHeight": "Hauteur maximale",
+      "maximumOrder": "Commande maximale",
+      "maximumRatio": "Rapport maximal",
+      "maximumWidth": "Largeur maximale",
+      "minimumHeight": "Hauteur minimale",
+      "minimumOrder": "Commande minimale",
+      "minimumRatio": "Rapport minimum",
+      "minimumWidth": "Largeur minimale",
+      "mySubtitle": "Mon sous-titre",
+      "myTitle": "Mon titre",
+      "name": "Nom",
+      "nameDomainPl": "nom@domaine.com",
+      "nip": "Pincer",
+      "nipNumber": "0000000000",
+      "invoiceNotes": "Notes visibles sur la facture",
+      "invoiceRecipientName": "Nom du destinataire",
+      "invoiceRecipientRole": "Sélectionnez le rôle du destinataire",
+      "invoiceRecipientRoleDescription": "Entrez le rôle du destinataire",
+      "notes": "Remarques",
+      "number": "1",
+      "paymentDocument": "Document de paiement",
+      "phone": "123456789",
+      "poland": "Pologne",
+      "postalCode": "00-000",
+      "price": "Prix",
+      "priceType": "Type de prix",
+      "printType": "Type d'impression",
+      "priority": "Priorité",
+      "published": "Publié",
+      "recommendOnHomepage": "Recommander sur la page d'accueil",
+      "requireThisAttribute": "Exiger cet attribut",
+      "saveAddress": "Enregistrer l'adresse",
+      "saveAsNewBillingAddress": "Enregistrer comme nouvelle adresse de facturation",
+      "saveAsNewContact": "Enregistrer comme nouveau contact",
+      "saveAsNewCustomer": "S'inscrire en tant que nouveau client",
+      "saveShippingAddress": "Enregistrer l'adresse de livraison",
+      "search": "Recherche...",
+      "selectAddressType": "Sélectionnez le type d'adresse...",
+      "selectAttribute": "Sélectionnez l'attribut...",
+      "selectAttributeType": "Sélectionnez le type d'attribut...",
+      "selectBillingAddress": "Sélectionnez l'adresse de facturation...",
+      "selectCarriedOutBy": "Sélection effectuée par",
+      "selectCategory": "Sélectionnez la catégorie",
+      "selectContact": "Sélectionnez un contact...",
+      "selectCurrencies": "Sélectionnez les appareils...",
+      "selectCurrency": "Sélectionnez la devise...",
+      "selectDelivery": "Sélectionnez l'option de livraison...",
+      "selectDeliveryAddress": "Sélectionnez l'adresse de livraison",
+      "selectDeliveryTypes": "Sélectionnez les types de livraison",
+      "selectFilesStatus": "Sélectionnez l'état des fichiers",
+      "selectModel": "Sélectionnez le modèle...",
+      "selectOperator": "Sélectionnez l'opérateur",
+      "selectPaymentStatus": "Sélectionnez le statut de paiement",
+      "selectPaymentType": "Sélectionnez le type de paiement",
+      "selectPrintingMethods": "Sélectionnez les méthodes d'impression...",
+      "selectShippingAddress": "Sélectionnez l'adresse de livraison...",
+      "selectStatus": "Sélectionnez le statut...",
+      "selectWarehouses": "Sélectionnez les entrepôts...",
+      "shippingPossible": "Expédition possible",
+      "siteUnderConstruction": "Le chantier est en construction",
+      "slug": "limace",
+      "specialNotes": "Notes spéciales",
+      "step": "Étape",
+      "street": "Rue",
+      "streetAndNumber": "Rue et numéro, appartement, unité",
+      "taxId": "Numéro d'identification fiscale",
+      "threshold": "Seuil",
+      "title": "Titre",
+      "trackingNumber": "Numéro de suivi",
+      "underConstruction": "Le chantier est en construction",
+      "validateRatio": "Valider le ratio",
+      "value": "Valeur",
+      "verification": "Vérification des fichiers",
+      "wantInvoice": "Je souhaite recevoir une facture",
+      "warsaw": "Varsovie",
+      "width": "Largeur",
+      "widthStep": "Étape de largeur",
+      "zero": "Zéro",
+      "zip": "Fermeture éclair"
+    }
+  },
+  "FormTypes": {
+    "CONVERT": "Convertir",
+    "CREATE": "Créer",
+    "DUPLICATE": "Copie",
+    "UPDATE": "Modifier"
+  },
+  "languages": {
+    "cs": "Ceština",
+    "de": "Deutsch",
+    "en": "Anglais",
+    "fr": "Français",
+    "pl": "Pologne",
+    "sk": "Slovénie",
+    "uk": "Українська"
+  },
+  "LayoutType": {
+    "BOOKLET": "Brochure",
+    "CUT_STACK": "Couper la pile",
+    "DUTCH_CUT": "Coupe hollandaise",
+    "N_UP": "N-Up",
+    "SHUFFLE": "Mélangeur",
+    "STEP_AND_REPEAT": "Étape et répétition"
+  },
+  "login": {
+    "guestSuccess": "Vous êtes connecté en tant qu'invité",
+    "success": "Connecté",
+    "successDescription": "Vous êtes connecté à votre compte"
+  },
+  "logout": {
+    "success": "Déconnecté",
+    "successDescription": "Vous avez été déconnecté de votre compte"
+  },
+  "mfa": {
+    "description": "Ajoutez une couche de sécurité supplémentaire à votre compte en activant l'authentification à deux facteurs à l'aide d'une application d'authentification.",
+    "emailVerification": {
+      "description": "Vérifiez votre boîte de réception pour un lien de vérification. MFA peut être activé une fois votre adresse e-mail vérifiée.",
+      "resend": "Envoyer l'e-mail de vérification",
+      "sendFailed": "Échec de l'envoi de l'e-mail de vérification",
+      "sentDescription": "Vérifiez votre boîte de réception et suivez le lien pour vérifier votre adresse e-mail.",
+      "sentTitle": "E-mail de vérification envoyé",
+      "title": "Vérifiez votre e-mail pour activer MFA"
+    },
+    "enable": "Activer l'authentification à deux facteurs",
+    "enrolledOn": "Inscrivez-vous au {{date}}",
+    "errors": {
+      "codeLength": "Veuillez saisir un code à 6 chiffres.",
+      "emailNotVerified": "E-mail non vérifié",
+      "emailNotVerifiedDescription": "Vérifiez votre adresse e-mail avant d'activer l'authentification à deux facteurs.",
+      "enrollmentFailed": "L'inscription a échoué",
+      "invalidCode": "Code invalide",
+      "invalidVerificationCode": "Code de vérification invalide. Veuillez vérifier et réessayer.",
+      "notAuthenticated": "Non authentifié",
+      "notAuthenticatedDescription": "Veuillez vous connecter pour activer MFA.",
+      "noTotpFactor": "Aucun facteur TOTP trouvé pour ce compte.",
+      "recentLoginRequiredDescription": "Pour des raisons de sécurité, veuillez vous reconnecter et réessayer cette action.",
+      "recentLoginRequiredTitle": "Ré-authentification requise",
+      "unenrollFailed": "Échec de la désactivation de MFA",
+      "unknownError": "Une erreur inconnue s'est produite.",
+      "verificationFailed": "La vérification a échoué"
+    },
+    "factorName": "Demande d'authentification",
+    "issuerName": "Konfi",
+    "remove": "Retirer",
+    "sectionDescription": "Gérez l'authentification à deux facteurs pour votre compte.",
+    "sectionTitle": "Sécurité",
+    "setup": {
+      "manualEntry": "Vous ne parvenez pas à numériser ? Saisissez ce code manuellement :",
+      "step1Description": "Ouvrez votre application d'authentification (par exemple, Google Authenticator, Authy) et scannez ce code QR.",
+      "step1Title": "Étape 1 : Scannez le code QR",
+      "step2Description": "Entrez le code à 6 chiffres affiché dans votre application d'authentification pour vérifier la configuration.",
+      "step2Title": "Étape 2 : Entrez le code de vérification"
+    },
+    "status": {
+      "disabled": "L'authentification à deux facteurs est désactivée",
+      "disabledDescription": "Activez l'authentification à deux facteurs pour ajouter une couche de sécurité supplémentaire à votre compte.",
+      "enabled": "L'authentification à deux facteurs est activée",
+      "enabledDescription": "Votre compte est protégé par une application d'authentification."
+    },
+    "success": {
+      "enrolled": "MFA activé",
+      "enrolledDescription": "L'authentification à deux facteurs a été activée pour votre compte.",
+      "unenrolled": "MFA désactivé",
+      "unenrolledDescription": "L'authentification à deux facteurs a été désactivée pour votre compte."
+    },
+    "title": "Authentification à deux facteurs",
+    "unenroll": {
+      "confirm": "Désactiver MFA",
+      "title": "Désactiver l'authentification à deux facteurs",
+      "warningDescription": "Après avoir désactivé l'authentification à deux facteurs, votre compte ne sera protégé que par votre mot de passe.",
+      "warningTitle": "Cela réduira la sécurité de votre compte"
+    },
+    "verification": {
+      "description": "Saisissez le code à 6 chiffres de votre application d'authentification pour finaliser la connexion.",
+      "hint": "Ouvrez votre application d'authentification (par exemple, Google Authenticator, Authy) pour obtenir votre code de vérification.",
+      "title": "Authentification à deux facteurs",
+      "verify": "Vérifier"
+    },
+    "verificationCode": "Le code de vérification",
+    "verify": "Vérifier et activer"
+  },
+  "newsletter": {
+    "description": "Recevez des mises à jour sur les promotions, les offres exclusives et les nouveaux produits !",
+    "disclaimer": "*Offre spéciale disponible exclusivement pour les achats en ligne !",
+    "subscribeButton": "S'abonner",
+    "subscribed": "Inscription à la newsletter avec succès",
+    "subscribeError": "Échec de l'inscription à la newsletter",
+    "title": "Abonnez-vous à la newsletter et bénéficiez de 10% de réduction",
+    "unsubscribed": "Désabonnement réussi de la newsletter",
+    "unsubscribeError": "Échec de la désinscription de la newsletter"
+  },
+  "NEWSLETTER_ERRORS": {
+    "already-exists": "Déjà abonné",
+    "internal": "Erreur interne du serveur",
+    "not-found": "Pas trouvé",
+    "unauthenticated": "Aucune autorisation"
+  },
+  "NEWSLETTER_SUBSCRIBE_MESSAGES": {
+    "SUCCESS": "Abonné avec succès",
+    "UPDATED": "Mise à jour réussie"
+  },
+  "NEWSLETTER_UNSUBSCRIBE_MESSAGES": {
+    "SUCCESS": "Désabonnement réussi"
+  },
+  "NoteCategory": {
+    "CUSTOMER": "Client",
+    "GENERAL": "Général",
+    "INTERNAL": "Interne",
+    "INVOICE": "Facture",
+    "ORDER": "Commande",
+    "PAYMENT": "Paiement",
+    "PRODUCT": "Produit",
+    "QUOTE": "Citation",
+    "SHIPPING": "Expédition",
+    "TASK": "Tâche"
+  },
+  "NoteEntityType": {
+    "CUSTOMER": "Client",
+    "ORDER": "Commande",
+    "PRODUCT": "Produit"
+  },
+  "NotePriority": {
+    "HIGH": "Haute priorité",
+    "LOW": "Faible priorité",
+    "MEDIUM": "Priorité moyenne",
+    "URGENT": "Urgent!"
+  },
+  "notes": {
+    "assigneesUpdated": "Destinataires mis à jour",
+    "assigneesUpdatedDescription": "Les destinataires ont été mis à jour.",
+    "assigneesUpdateError": "Une erreur s'est produite lors de la mise à jour des destinataires."
+  },
+  "op": {
+    "==": "est égal",
+    "in": "in"
+  },
+  "optionalConsent": "Afficher les paramètres de consentement facultatifs",
+  "options": {
+    "pairsCreationError": "Erreur lors de la création des paires valeur-étiquette : {{error}}"
+  },
+  "order": {
+    "created": "Commande créée",
+    "createdDescription": "Nouvelle commande créée avec succès",
+    "createdDev": "Commande créée sans sauvegarde (DEV)",
+    "createdDevDescription": "Nouvelle commande créée avec succès",
+    "createWzCi": "Créer un CI",
+    "fulfilled": "Réaliser",
+    "generated": "Commande générée",
+    "generatedDescription": "La commande a été générée sur la base des informations du client",
+    "generationFailed": "Échec de la génération de la commande",
+    "inProgress": "En cours",
+    "notCreated": "La commande n'a pas été créée",
+    "notCreatedError": "La commande n'a pas été créée, code d'erreur : {{error}}",
+    "notFoundForEdit": "Commande introuvable pour modification",
+    "notUpdatedError": "La commande n'a pas été mise à jour, code d'erreur : {{error}}",
+    "setFulfilled": "Prêt à être rempli",
+    "setFulfilledConfirmation": "Voulez-vous définir le statut sur « Exécuté » ?",
+    "setInProgress": "En cours",
+    "setInProgressConfirmation": "Voulez-vous définir le statut sur « En cours » ?",
+    "showDetails": "Afficher les détails",
+    "updated": "Commande mise à jour",
+    "updatedDescription": "Commande mise à jour avec succès",
+    "updatedDev": "Commande mise à jour sans sauvegarde (DEV)",
+    "updatedDevDescription": "Commande mise à jour avec succès"
+  },
+  "orderCard": {
+    "changePayment": "Changer le mode de paiement",
+    "downloadInvoice": "Télécharger la facture"
+  },
+  "orderDetails": {
+    "freeShipping": "Gratuit!",
+    "heading": "CV",
+    "productValue": "Valeur du produit :",
+    "saved": "Inscrire :",
+    "shippingValue": "Expédition:",
+    "storeCredit": "Crédit magasin :",
+    "summaryInfo": "*Les prix incluent la TVA.",
+    "total": "Total:"
+  },
+  "orders": {
+    "billingEmptyState": "Ce client n'a aucune adresse de facturation enregistrée. Remplissez les détails de facturation ci-dessous.",
+    "contactEmptyState": "Ce client n'a aucun contact. Remplissez les coordonnées ci-dessous."
+  },
+  "OrderFilesStatus": {
+    "FILES_ARE_READY": "Prêt pour l'impression",
+    "FOR_PREPARATION": "Pour la préparation",
+    "FOR_VERIFICATION": "Pour vérification",
+    "UNDER_DESIGN": "En cours de conception",
+    "WAITING_FOR_FILES": "En attente de fichiers",
+    "WAITING_FOR_FILES_APPROVAL": "En attente de l'approbation du client"
+  },
+  "orderPage": {
+    "activity": {
+      "collapse": "Effondrement",
+      "expand": "Développeur",
+      "heading": "Activité"
+    },
+    "attachments": "Pièces jointes",
+    "customer": {
+      "anonymousPackageShipping": "Expédition en colis anonyme",
+      "billing": "adresse de facturation",
+      "contact": "Contact",
+      "heading": "Client",
+      "invoiceRecipient": "Destinataire de la facture",
+      "shipping": "adresse de livraison",
+      "tracking": "Suivre l'expédition"
+    },
+    "items": "Articles",
+    "payment": {
+      "changeError": "Échec de la modification du mode de paiement",
+      "changeMethod": "Changer de mode de paiement",
+      "changeMethodTitle": "Changer le mode de paiement",
+      "changeSuccess": "Mode de paiement mis à jour",
+      "copyPaymentLink": "Copier le lien de paiement",
+      "heading": "Paiement",
+      "methodUpdated": "Le mode de paiement a été mis à jour",
+      "netTotal": "Total net",
+      "partial_sum": "Somme partielle",
+      "redirectingToPayment": "Redirection vers le paiement...",
+      "selectNewMethod": "Sélectionnez un nouveau mode de paiement pour cette commande",
+      "shipping": "Expédition",
+      "storeCredit": "Crédit en magasin",
+      "taxTotal": "Impôt",
+      "total": "Total",
+      "updateMethod": "Mettre à jour le mode de paiement",
+      "tracking": "Suivre l'expédition"
+    },
+    "rma": {
+      "createErrorTitle": "La demande RMA n'a pas été envoyée",
+      "createSuccessDescription": "Nous examinons votre demande et vous contactezons.",
+      "createSuccessTitle": "Demande RMA envoyée",
+      "description": "Soumettez une demande de retour, d'échange ou de réclamation pour cette commande.",
+      "descriptionHint": "Minimum 10 caractères.",
+      "descriptionLabel": "Ce qui est dépassé ?",
+      "descriptionPlaceholder": "Décrivez le problème, la résolution attendue et tous les détails qui nous aideront à examiner la demande…",
+      "empty": "Aucune demande RMA n’a encore été soumise.",
+      "errors": {
+        "customerNotFound": "Connectez-vous à nouveau avant d'envoyer la demande.",
+        "descriptionTooLong": "Raccourcissez la description et réessayez.",
+        "descriptionTooShort": "Ajoutez au moins 10 caractères pour décrire le problème.",
+        "invalidItems": "Sélectionnez au moins un article de commande.",
+        "missingContext": "Rechargez la commande et réessayez.",
+        "orderNotFound": "Rechargez la commande et réessayez.",
+        "unauthorized": "Connectez-vous à nouveau avant d'envoyer la demande.",
+        "unknown": "Réessayez ou contactez l'assistance."
+      },
+      "heading": "Retours et réclamations",
+      "itemsLabel": "Articles concernés",
+      "loading": "Chargement des demandes RMA…",
+      "quantityLabel": "Quantité concernée",
+      "submit": "Soumettre la demande",
+      "typeLabel": "Type de demande",
+      "typePlaceholder": "Sélectionnez le type de demande"
+    },
+    "specialNotes": {
+      "empty": "Pas de remarques particulières",
+      "heading": "Remarques spéciales"
+    }
+  },
+  "RmaRequestStatus": {
+    "APPROVED": "Approuvé",
+    "CANCELED": "Annulé",
+    "COMPLETED": "Complet",
+    "NEW": "Nouveau",
+    "REJECTED": "Rejeté",
+    "UNDER_REVIEW": "En cours de révision"
+  },
+  "RmaRequestType": {
+    "CLAIM": "Réclamer",
+    "EXCHANGE": "Échange",
+    "RETURN": "Retour"
+  },
+  "OrderStatus": {
+    "CANCELED": "Annulé",
+    "DELAYED": "Retardé",
+    "DELIVERED": "Livré",
+    "DRAFT": "Brouillon",
+    "FULFILLED": "Réaliser",
+    "IN_PROGRESS": "En cours",
+    "NEW": "Nouveau",
+    "PICKED_UP": "Ramassé",
+    "READY": "Prêt",
+    "SHIPPED": "Expédié",
+    "UNDER_REVIEW": "En cours de révision",
+    "WAITING_FOR_MATERIALS": "En attente de matériel"
+  },
+  "PaperOrientations": {
+    "LANDSCAPE": "Paysage",
+    "PORTRAIT": "Portrait"
+  },
+  "PaperSizes": {
+    "10x14": "10x14 (254x356mm)",
+    "11x17": "11x17 (279x432mm)",
+    "2A0": "2A0 (1 189 x 1 682 mm)",
+    "4A0": "4A0 (1 682 x 2 378 mm)",
+    "A0": "A0 (841x1189mm)",
+    "A1": "A1 (594 x 841 mm)",
+    "A10": "A10 (26x37mm)",
+    "A2": "A2 (420 x 594 mm)",
+    "A2EXTRA": "A2 Extra (445x619 mm)",
+    "A3": "A3 (297 x 420 mm)",
+    "A3EXTRA": "A3 supplémentaire (322 x 445 mm)",
+    "A3SUPER": "A3 Super (305 x 508 mm)",
+    "A4": "A4 (210x297mm)",
+    "A4EXTRA": "A4 supplémentaire (235x322 mm)",
+    "A4LONG": "A4 long (210 x 348 mm)",
+    "A4SUPER": "A4 Super (229 x 322 mm)",
+    "A5": "A5 (148x210mm)",
+    "A5EXTRA": "A5 supplémentaire (173 x 235 mm)",
+    "A6": "A6 (105x148mm)",
+    "A7": "A7 (74x105mm)",
+    "A8": "A8 (52x74mm)",
+    "A9": "A9 (37x52mm)",
+    "ARCH1": "Arc1 (229x305 mm)",
+    "ARCH2": "Arc2 (305x457 mm)",
+    "ARCH3": "Arc3 (457x610 mm)",
+    "ARCH4": "Arc4 (610x914 mm)",
+    "ARCH5": "Arc5 (914x1219 mm)",
+    "ARCH6": "Arch6 (1219x1524 mm)",
+    "ARCHA": "ArchA (229x305 mm)",
+    "ARCHB": "ArcB (305x457 mm)",
+    "ARCHC": "ArchC (457x610 mm)",
+    "ARCHD": "ArchD (610x914 mm)",
+    "ARCHE": "ArcheE (914x1219 mm)",
+    "ARCHE1": "ArchE1 (762x1067 mm)",
+    "ARCHE2": "ArchE2 (965x1321 mm)",
+    "ARCHE3": "ArchE3 (991x1321 mm)",
+    "B0": "B0 (1000x1414mm)",
+    "B1": "B1 (707 x 1 000 mm)",
+    "B10": "B10 (31x44mm)",
+    "B2": "B2 (500x707mm)",
+    "B3": "B3 (353x500mm)",
+    "B4": "B4 (250x353mm)",
+    "B5": "B5 (176x250mm)",
+    "B6": "B6 (125x176mm)",
+    "B7": "B7 (88x125mm)",
+    "B8": "B8 (62x88mm)",
+    "B9": "B9 (44x62mm)",
+    "C0": "C0 (917x1297mm)",
+    "C1": "C1 (648 x 917 mm)",
+    "C10": "C10 (28x40mm)",
+    "C2": "C2 (458 x 648 mm)",
+    "C3": "C3 (324 x 458 mm)",
+    "C4": "C4 (229x324mm)",
+    "C5": "C5 (162x229mm)",
+    "C6": "C6 (114x162mm)",
+    "C7": "C7 (81x114mm)",
+    "C8": "C8 (57x81mm)",
+    "C9": "C9 (40x57mm)",
+    "EXECUTIVE": "Exécutif (184x267 mm)",
+    "FLSA": "FLSA (216x330mm)",
+    "FLSE": "FLSE (216x330 mm)",
+    "FOLIO": "Folio (216x330 mm)",
+    "GOVERNMENTLEGAL": "Légal gouvernemental (216x330 mm)",
+    "GOVERNMENTLETTER": "Lettre gouvernementale (203x267 mm)",
+    "HALFLETTER": "Demi-lettre (140x216 mm)",
+    "JUNIORLEGAL": "Junior Légal (127x203 mm)",
+    "LEDGER": "Registre (432x279 mm)",
+    "LEGAL": "Légal - États-Unis (216 x 356 mm)",
+    "LETTER": "Lettre - États-Unis (216x279 mm)",
+    "MEMO": "Mémo (140x216 mm)",
+    "NOTE": "Remarque (190x254 mm)",
+    "SOB5EXTRA": "B5 supplémentaire (201x276 mm)",
+    "SRA0": "SRA0 (900x1280mm)",
+    "SRA1": "SRA1 (640 x 900 mm)",
+    "SRA2": "SRA2 (450x640 mm)",
+    "SRA3": "SRA3 (320x450 mm)",
+    "SRA4": "SRA4 (225x320mm)",
+    "SRA5": "SRA5 (160x225 mm)",
+    "STATEMENT": "Déclaration (140x216 mm)",
+    "SUPERA3": "Super A3 (305 x 487 mm)",
+    "SUPERA4": "Super A4 (227 x 356 mm)",
+    "TABLOID": "Tabloïd (279x432 mm)"
+  },
+  "password": {
+    "changed": "Le mot de passe a été modifié"
+  },
+  "paymentStatus": "Paiement",
+  "PaymentStatus": {
+    "CANCELED": "Annulé",
+    "COMPLETED": "Complet",
+    "DRAFT": "Brouillon",
+    "NEW": "Nouveau",
+    "PARTIALLY_PAID": "Partiellement payé",
+    "PENDING": "En attente",
+    "REFUNDED": "Remboursé"
+  },
+  "PaymentType": {
+    "ALLEGRO": "Allegro",
+    "BANK_TRANSFER": "Virement bancaire",
+    "CARD": "Carte",
+    "DEFERRED": "Confirmation de commande/CI",
+    "ON_DELIVERY": "Paiement à la livraison",
+    "ON_PICKUP": "Au ramassage",
+    "PROFORMA": "Proforma",
+    "PRZELEWY24": "Przelewy24",
+    "STRIPE": "Bande"
+  },
+  "PreflightRules": {
+    "PreflightRulesMaxVersion": "Version PDF",
+    "PreflightRulesMinPpi": "Basse résolution",
+    "PreflightRulesNoColor": "Aucun espace colorimétrique détecté",
+    "PreflightRulesNoFilespecs": "Fichiers non intégrés",
+    "PreflightRulesNoGreyscale": "Niveaux de gris",
+    "PreflightRulesNoPalettenized": "Palette de couleurs",
+    "PreflightRulesNoRgb": "Couleurs RVB",
+    "PreflightRulesNoTransparency": "Transparence",
+    "PreflightRulesOnlyEmbeddedFonts": "Politiques non intégrées"
+  },
+  "price": {
+    "beforeDiscount": "Prix ​​avant remise",
+    "noConfiguration": "Aucune configuration trouvée",
+    "thresholdSummaryItem": "> {{threshold}} {{unit}} {{unitPrice}}",
+    "thresholdSummaryLabel": "Niveaux de prix",
+    "thresholdDetail": "Niveau à partir de {{threshold}} {{unit}}"
+  },
+  "PriceTypeEnum": {
+    "MATRIX": "Matrice",
+    "SINGLE": "Célibataire",
+    "THRESHOLD": "Seuil"
+  },
+  "PrintingMethod": {
+    "CUTTING": "Coupe",
+    "DIGITAL": "Numérique",
+    "DTF": "DTF",
+    "ECO_SOLVENT": "Eco-solvant",
+    "INSTALLATION": "Installation",
+    "LARGE_FORMAT": "Grand format",
+    "LASER": "Laser",
+    "OFFSET": "Compenser",
+    "UV": "UV"
+  },
+  "product": {
+    "finishing": {
+      "configure": "Configurer la finition",
+      "cutToSize": "Coupé à la taille",
+      "cutToSizeHint": "Coupez tous les bords à la taille finale. Cela supprime les renforts et les tunnels, mais les œillets peuvent rester activés.",
+      "currentConfiguration": "Configuration actuelle",
+      "dialogDescription": "Choisissez les options de bord qui doivent être appliquées à ce produit. Coupé sur mesure, il dégage les renforts et les tunnels, mais peut rester combiné avec des œillets.",
+      "dialogTitle": "Finition avancée",
+      "edit": "Modifier la finition",
+      "grommets": "Oeillets",
+      "grommetsHint": "Ajoutez des œillets sur les bords sélectionnés. Peut être combiné avec un renfort sur le même chant ou avec une découpe sur mesure.",
+      "grommetsOffsetEnd": "Distance du dernier coin (cm)",
+      "grommetsOffsetEndHint": "Laisse un espace libre après le dernier œillet sur chaque bord sélectionné.",
+      "grommetsOffsetStart": "Distance du premier coin (cm)",
+      "grommetsOffsetStartHint": "Laisse un espace libre avant le premier œillet sur chaque bord sélectionné.",
+      "grommetsSettings": "Espacement des œillets et distances des pièces",
+      "grommetsSettingsEmpty": "Sélectionnez au moins un bord d'œillet pour ajuster l'espacement et les distances des pièces.",
+      "grommetsSpacing": "Espacement (cm)",
+      "grommetsSpacingHint": "Distance entre les œillets consécutifs sur chaque bord sélectionné.",
+      "grommetsSummary": "Espacement {{spacing}} cm • premier coin {{offsetStart}} cm • dernier coin {{offsetEnd}} cm",
+      "none": "Aucun",
+      "noneSelected": "Aucune finition sélectionnée",
+      "preset": "Préréglage",
+      "presetPlaceholder": "Choisissez le préréglage…",
+      "presets": "Préréglages",
+      "reinforcement": "Renforcement",
+      "reinforcementHint": "Renforcez les bords sélectionnés.",
+      "sides": {
+        "bottom": "Bas",
+        "left": "Gauche",
+        "right": "Droite",
+        "top": "Haut"
+      },
+      "sidesTitle": "Finition par face",
+      "tunnel": "Tunnel",
+      "tunnelHint": "Tunnel soudé sur bords sélectionnés. Ne peut être combiné avec des renforts ou des œillets sur le même bord.",
+      "unavailableWithCutToSize": "Indisponible lorsque Couper à la taille est activé."
+    }
+  },
+  "productCard": {
+    "from": "À partir de",
+    "new": "Nouveau"
+  },
+  "ProductFilters": {
+    "category": "Catégorie",
+    "isNew": "Nouveaux produits",
+    "price": "Prix ​​à partir de"
+  },
+  "ProductFiltersIsNew": {
+    "false": "Tous",
+    "true": "Nouveau"
+  },
+  "products": {
+    "b2bCustomerNotice": {
+      "description": "Vous avez accès à des tarifs spéciaux B2B.",
+      "link": "Voir les produits B2B",
+      "title": "Clientèle B2B"
+    },
+    "clearAllFilters": "Tout effacer",
+    "filteredCount": "{{count}} produits trouvés",
+    "imageGeneration": {
+      "acceptButton": "Accepter et joindre à l'article du panier",
+      "acceptButtonMultiple": "Acceptez et joignez tous les fichiers à l'article du panier",
+      "acceptSuccess": {
+        "description": "Le graphique de production final généré a été joint à cet article du panier.",
+        "title": "Graphique ci-joint"
+      },
+      "addToCartButton": "Ajouter au panier avec le fichier généré",
+      "addToCartButtonMultiple": "Ajouter au panier avec tous les fichiers générés",
+      "addToCartLoading": "Ajout au panier…",
+      "addToCartSuccess": {
+        "description": "Un nouvel article du panier a été créé avec les fichiers finaux générés en pièce jointe.",
+        "title": "Ajouté au panier"
+      },
+      "anonymousHint": "Les comptes invités et anonymes ne peuvent pas utiliser la génération d’images. Créez ou connectez-vous d’abord à un compte complet.",
+      "authHint": "Connectez-vous avec un compte client standard pour débloquer la génération d’images.",
+      "cartButton": "Générer un graphique avec l'IA",
+      "cartButtonGenerating": "Génération en cours",
+      "cartButtonReview": "Examiner le graphique généré",
+      "cartDialogTitle": "Générer et joindre le graphique final",
+      "currentFormat": "Format actuel   : {{width}} × {{height}} mm",
+      "currentFormatMissing": "Le format actuel sera dérivé de la configuration du produit.",
+      "currentPages": "{{count}} pages",
+      "dataUsageDescription": "Vos images d'invitation et de référence sont envoyées à Google Vertex AI pour génération. N'incluez pas de données confidentielles ou personnelles.",
+      "dataUsageTitle": "Comment vos données sont utilisées",
+      "description": "Décrivez le projet, choisissez un style et génèrez un graphique de production final.",
+      "downloadButtonMultiple": "Télécharger des graphiques",
+      "downloadButton": "Télécharger le graphique",
+      "dialogTitle": "Studio graphique IA",
+      "durationBadge": "Jusqu'à 1 minute",
+      "emailHint": "Vérifiez votre adresse e-mail avant de générer des images. Après avoir confirmé le lien, actualisez cette page.",
+      "errors": {
+        "acceptFailed": "Échec de la fixation du graphique généré.",
+        "addToCartUnavailable": "La configuration actuelle du produit n'est pas encore prête à être ajoutée au panier.",
+        "anonymousNotAllowed": "Les comptes anonymes ne peuvent pas utiliser la génération d'images.",
+        "authRequired": "Connectez-vous pour générer des images.",
+        "disabledForProduct": "La génération graphique AI n’est pas activée pour ce produit.",
+        "emailNotVerified": "Vérifiez votre adresse e-mail avant de générer des images.",
+        "generationFailed": "La génération d'images a échoué.",
+        "invalidFileSize": "Les images de référence doivent faire 4 Mo ou moins.",
+        "invalidFileType": "Seules les images de référence PNG, JPG et WebP sont prises en charge.",
+        "missingChannel": "La génération d’images est temporairement indisponible.",
+        "monthlyBudgetExceeded": "La génération graphique IA est temporairement indisponible car le budget du service de ce mois-ci a été atteint. Veuillez réessayer le mois prochain."
+      },
+      "attaching": "Attacheur…",
+      "generateButton": "Générer le graphique final",
+      "generating": "Générateur…",
+      "generationElapsed": "{{count}}s se sont dépassés",
+      "generationStatusOvertime": "Cela peut prendre jusqu'à une minute. Finalisation de l'image maintenant…",
+      "generationStatusRemaining": "Temps restant  : environ {{count}} secondes.",
+      "generationStatusTitle": "Création de votre graphique de production…",
+      "generateHint": "Le style sélectionné et votre brief sont fusionnés dans l'invitation de génération côté serveur avant la création de l'illustration finale.",
+      "devLimitsBadge": "Aucune limite horaire en développement",
+      "devLimitsDescription": "Le mode développement supprime la limite horaire. Les vérifications des invitations, des fichiers et des comptes s'appliquent toujours.",
+      "devRemainingAttempts": "Mode développement : limite horaire désactivée pour les tests.",
+      "heroDescription": "Rédigez le brief, choisissez un style, ajoutez des références si nécessaire et générez l'illustration finale pour ce produit.",
+      "heroEyebrow": "Studio de conception d'impression IA",
+      "heroTitle": "Créez plus rapidement un concept prêt à imprimer.",
+      "highlights": {
+        "productionDescription": "Le flux de travail évite les maquettes et pousse le résultat vers des planches d'illustrations adaptées à la production imprimée.",
+        "productionTitle": "Sortie adaptée à la production",
+        "referencesDescription": "Les images facultatives fournies pour guider la composition, la palette et la typographie sans copier le travail source.",
+        "referencesTitle": "Idée par référence",
+        "speedDescription": "La plupart des générations se terminent en une minute environ, vous pouvez donc itérer rapidement.",
+        "speedTitle": "Boucle de révision rapide",
+        "styleDescription": "Choisissez une direction avant de générer afin que l'invitation finale reflète l'ambiance souhaitée.",
+        "styleTitle": "Préréglages de style"
+      },
+      "improvePromptDescription": "Facultatif : laissez l'IA affiner votre brief avant de le générer.",
+      "improvePromptLabel": "Améliorer mon brief avec l'IA avant de générer",
+      "largeFormatDescription": "Les formats supérieurs à 500 × 500 mm seront mis à l'échelle et vérifiés manuellement avant la production. Gardez les mises en page audacieuses et lisibles à distance.",
+      "largeFormatTitle": "Vérification grand format",
+      "limitsBadge": "{{count}} par heure",
+      "limitsDescription": "Les clients vérifiés peuvent générer jusqu'à {{count}} graphiques finaux par heure. Les invitations doivent contenir {{min}}-{{max}} mots et vous pouvez ajouter jusqu'à {{references}} images de référence.",
+      "limitsTitle": "Limites et éligibilité",
+      "modelBadge": "Nano Banane 2",
+      "multipleSidesNotice": "Les deux faces imprimables ont été générées sous forme de fichiers séparés.",
+      "openButton": "Studio graphique IA ouvert",
+      "openButtonDescription": "Rédigez un bref détaillé, choisissez un style, ajoutez des références facultatives et générez un graphique prêt pour la production dans un espace de travail raffiné.",
+      "openButtonDescriptionGenerating": "La génération continue en arrière-plan. Rouvrez le studio pour suivre la progression et télécharger le résultat lorsqu'il est prêt.",
+      "openButtonDescriptionReady": "Votre dernier graphique généré est prêt à être révisé, téléchargé ou joint.",
+      "promptError": "Utilisez entre 30 et 500 mots.",
+      "promptHelper": "Découvrez l'objectif, le public, les couleurs et le contenu incontournable en 30 à 500 mots.",
+      "promptLabel": "Dossier de conception",
+      "promptPlaceholder": "Exemple : Concevez un dépliant moderne pour un événement de dégustation de café au printemps. Utilisez un fond crème chaud, des accents de vert foncé, une typographie épurée sans empattement et une sensation éditoriale haut de gamme. Mettez en valeur la date de dégustation, les places limitées et un subtil motif de feuille de café illustré…",
+      "promptUsedTitle": "Invitateur utilisé",
+      "referenceBadge": "{{count}} références / {{size}} Mo max",
+      "referenceDropzoneDescription": "PNG, JPG ou WebP uniquement. Jusqu'à {{count}} fichiers, {{size}} Mo chacun.",
+      "referenceDropzoneTitle": "Faites glisser et déposez les images de référence ici ou cliquez pour parcourir",
+      "referenceHelper": "Jusqu'à 3 fichiers. Utilisez-les uniquement comme source d’inspiration.",
+      "referenceLabel": "Images de référence (facultatif)",
+      "remainingAttempts": "Générations restantes cette heure : {{count}}",
+      "resultAlt": "Aperçu graphique de la production finale générée",
+      "resultAltWithSide": "Aperçu graphique de production finale {{side}} généré",
+      "resultTitle": "Graphique final généré",
+      "resultTitleMultiple": "Graphiques finaux générés",
+      "sides": {
+        "back": "Face arrière",
+        "front": "Face avant"
+      },
+      "success": {
+        "description": "Votre graphique final de production d’IA est prêt.",
+        "title": "Image prête"
+      },
+      "styleHelper": "Cette préférence est ajoutée à l'invitation côté serveur.",
+      "styleLabel": "Choisissez une direction de style",
+      "styles": {
+        "elegancki": {
+          "description": "Un équilibre haut de gamme avec des détails raffinés.",
+          "label": "Élégant"
+        },
+        "kreatywny": {
+          "description": "Des idées plus audacieuses et une mise en page plus expressive.",
+          "label": "Créatif"
+        },
+        "minimalistyczny": {
+          "description": "Des mises en page calmes avec une typographie épurée.",
+          "label": "Minimaliste"
+        },
+        "nowoczesny": {
+          "description": "Contraste frais et structure géométrique claire.",
+          "label": "Moderne"
+        }
+      },
+      "title": "Générez un graphique de production final avec l'IA",
+      "triggerStatus": {
+        "anonymous": "Invitation verrouillée",
+        "authRequired": "Compte requis",
+        "email": "Vérifier l'e-mail",
+        "generating": "Génération en cours",
+        "ready": "Prêt",
+        "review": "Révision prête"
+      },
+      "tutorial": {
+        "step1": "Décrivez l'objectif, le public, les couleurs et le contenu incontournable.",
+        "step2": "Choisissez un style et ajoutez des références uniquement si elles permettent d'orienter la direction.",
+        "step3": "Activez une rapide si vous souhaitez que l’IA resserre d’abord le dossier.",
+        "step4": "Si le mode d'impression sélectionné est recto verso, l'outil générera des fichiers recto et verso séparés."
+      },
+      "tutorialTitle": "Tutoriel rapide",
+      "wordBadge": "{{min}}-{{max}} mots",
+      "wordCount": "{{count}} / {{max}} mots",
+      "workspaceCards": {
+        "brief": "Bref détaillé",
+        "production": "Mise en page axée sur l'impression",
+        "references": "Références utiles",
+        "style": "Une orientation stylistique claire"
+      },
+      "workspaceChecklistLabel": "Les meilleurs résultats obtenus de :",
+      "workspaceDescription": "Nous affinons votre brief sur le serveur avant génération.",
+      "workspaceEyebrow": "Espace de travail de conception IA",
+      "workspaceTitle": "Décrivez l'idée, choisissez un style et générationz des illustrations prêtes à être imprimées."
+    },
+    "noResults": "Aucun produit ne correspond à vos filtres",
+    "noResultsDescription": "Essayez de supprimer certains filtres ou de vérifier d'autres catégories.",
+    "notFoundDescription": "Nous n'avons pas trouvé de produit pour l'identifiant fourni.",
+    "notFoundTitle": "Produit introuvable"
+  },
+  "profile": {
+    "account": "Compte",
+    "logout": "Déconnexion",
+    "myAccount": "Mon compte",
+    "orders": "Ordres",
+    "settings": "Paramètres",
+    "yourDiscount": "VOTRE RABAIS : {{discount}}%"
+  },
+  "PromotionRuleAttributes": {
+    "CATEGORY": "Catégorie",
+    "CURRENCY": "Devise",
+    "PRODUCT": "Produit",
+    "USER": "Utilisateur"
+  },
+  "promotions": {
+    "apply": "Appliquer",
+    "applying": "Chargement…",
+    "applyPromotionCode": "Appliquer le code promotionnel",
+    "availablePromotions": "Promotions disponibles",
+    "checkOtherCategories": "Vérifiez les autres catégories",
+    "codeLabel": "Code:",
+    "discountOn": "Remise sur {{target}}",
+    "discountSuffix": {
+      "currency": " PLN",
+      "percentage": "%"
+    },
+    "heading": "Promotions",
+    "minimumOrderValueNotMet": "Le total minimum de commande pour cette promotion est de {{amount}}",
+    "noItems": "Aucun article trouvé",
+    "promotionalProducts": "Produits promotionnels",
+    "promotionCodeAlreadyApplied": "Le code promotionnel a déjà été appliqué",
+    "promotionCodeApplied": "Le code promotionnel {{code}} a été appliqué",
+    "promotionCodeNotFound": "Code promotionnel introuvable",
+    "rememberToApply": "Pensez à appliquer la promotion dans le panier.",
+    "seeProducts": "Voir les produits",
+    "targets": {
+      "entireOrder": "commande entière",
+      "selectedProducts": "produits sélectionnés",
+      "shipping": "expédition"
+    }
+  },
+  "PromotionTypes": {
+    "BUYGET": "Achetez X, obtenez Y",
+    "STANDARD": "Standard"
+  },
+  "ProofingOptions": {
+    "MANUAL": "La commande sera envoyée directement pour le traitement.",
+    "RUN_AS_IS": "Notre équipe vérifiera manuellement votre dossier. Cette option peut prolonger considérablement le temps de traitement. Après vérification, vous devrez peut-être approuver les fichiers pour poursuivre le traitement."
+  },
+  "quantity": {
+    "error": {
+      "alreadyExists": "Cette quantité existe déjà",
+      "inRange": "La quantité doit être comprise entre {{minimumOrder}} et {{maximumOrder}}",
+      "notAvailable": "Cette quantité n'est pas disponible pour cette configuration",
+      "steps": "La quantité doit être un multiple de {{step}}"
+    },
+    "heading": "Quantité",
+    "placeholder": "Ajoutez votre propre quantité (de {{minimumOrder}} à {{maximumOrder}}, tous les {{step}})"
+  },
+  "quote": {
+    "created": "Devis créé",
+    "createdDescription": "Nouveau devis créé avec succès",
+    "createdDev": "Devis créé sans sauvegarde (DEV)",
+    "createdDevDescription": "Nouveau devis créé avec succès sans enregistrer",
+    "notCreated": "Le devis n'a pas été créé",
+    "notCreatedError": "Le devis n'a pas été créé, code d'erreur : {{error}}",
+    "notFound": "Citation introuvable pour modification"
+  },
+  "rating": {
+    "addRating": "Ajouter une note",
+    "rateStar": "Tarif {{index}}",
+    "selectRating": "Veuillez sélectionner une note !",
+    "submitError": "Une erreur s'est produite lors de la soumission de votre note !",
+    "thankYou": "Merci pour votre note !"
+  },
+  "RATINGS_COUNT_few": "{{count}} Remarques",
+  "RATINGS_COUNT_many": "{{count}} Remarques",
+  "RATINGS_COUNT_one": "{{count}} Remarque",
+  "RATINGS_COUNT_other": "{{count}} Remarques",
+  "requiredConsent": "Consentements requis",
+  "ROUTES": {
+    "aboutUs": "À propos de nous",
+    "account": "Compte",
+    "b2b": "B2B",
+    "blog": "Blogue",
+    "cart": "Panier",
+    "checkout": "Vérifier",
+    "contact": "Contact",
+    "cooperation": "Coopération",
+    "faq": "FAQ",
+    "generalConditionsOfSale": "Conditions Générales de Vente",
+    "help": "Aide",
+    "home": "Maison",
+    "order": "Commande",
+    "orders": "Ordres",
+    "privacyPolicy": "politique de confidentialité",
+    "products": "Produits",
+    "quotes": "Citations",
+    "ratings": "Notes",
+    "regulations": "Règlements",
+    "rejections": "Fichiers rejetés",
+    "settings": "Paramètres"
+  },
+  "settings": {
+    "storeUndefined": "Les paramètres du magasin ne sont pas définis, vous pouvez les modifier dans Configuration > Paramètres du magasin"
+  },
+  "shippingAddress": {
+    "notSavedError": "L'adresse de livraison n'a pas été enregistrée, code d'erreur : {{error}}",
+    "notSavedNotCustomer": "L'adresse de livraison n'a pas été enregistrée, l'utilisateur n'est pas un client"
+  },
+  "ShippingOptions": {
+    "AMBRO_EXPRESS": "AmbroExpress",
+    "COMPANY_COURIER": "Courrier de l'entreprise",
+    "CUSTOM": "Coutume",
+    "DHL": "DHL",
+    "DHL_PICKUP": "Point de retrait DHL",
+    "DPD": "DPD",
+    "DPD_PICKUP": "Point de retrait DPD",
+    "FEDEX": "FedEx",
+    "GLS": "GLS",
+    "INPOST": "Courrier InPost",
+    "ORLEN_PACZKA": "Colis Orlen",
+    "PACZKOMATY_INPOST": "Casiers à colis InPost",
+    "PERSONAL_COLLECTION": "Personnel de ramassage",
+    "PUNKT_FEDEX": "Point de retrait FedEx",
+    "UPS": "UPS",
+    "UPS_ACCESS_POINT": "Point d'accès UPS"
+  },
+  "ShippingTypes": {
+    "COURIER": "Courrier",
+    "CUSTOM": "Coutume",
+    "PARCEL_DELIVERY_LOCKER": "Casiers à colis",
+    "PERSONAL_COLLECTION": "Personnel de ramassage"
+  },
+  "status": "Statut",
+  "store": {
+    "acceptedFileFormats": "Formats de fichiers acceptés :",
+    "acceptedFiles": "Fichiers acceptés :",
+    "acceptRequiredOnly": "Acceptez uniquement les consentements requis",
+    "acceptSelected": "Accepter les consentements sélectionnés",
+    "currency": {
+      "label": "Devise",
+      "select": "Sélectionnez la devise"
+    },
+    "account": {
+      "addresses": "Adresses",
+      "addressesDescription": "Modifier les adresses de livraison des commandes",
+      "addReviews": "Ajouter des avis aux produits achetés",
+      "basic": "Basique",
+      "confirmEmail": "Confirmez votre adresse email",
+      "confirmEmailDescription": "Un lien de vérification a été envoyé à l'adresse e-mail fournie",
+      "confirmRemoveAccount": "Etes-vous sûr de vouloir supprimer votre compte ?",
+      "created": "Compte créé",
+      "createdDescription": "Nous avons créé un compte pour vous",
+      "help": "Aide",
+      "helpDescription": "Parcourir les pages d'aide disponibles",
+      "label": "Compte",
+      "logout": "Déconnexion",
+      "orders": "Ordres",
+      "ordersDescription": "Vérifier l'état des commandes et suivre les expéditions",
+      "other": "Autre",
+      "passwordPlaceholder": "6 caractères ou plus",
+      "profile": "Profil",
+      "removeAccount": "Supprimer le compte",
+      "removeAccountWarning": "Toutes vos informations seront supprimées de notre base de données. Cette opération ne peut pas être annulée, alors assurez-vous de vouloir réellement supprimer votre compte.",
+      "reviews": "Avis",
+      "reviewsDescription": "Ajouter des avis pour les produits achetés",
+      "signin": "Se connecter",
+      "signup": "S'inscrire"
+    },
+    "assistant": {
+      "ariaLabel": "Demander à l'assistant",
+      "authRequired": "Connectez-vous à un compte régulier pour utiliser l'assistant.",
+      "contact": "Contact",
+      "contactPage": "Page de contact",
+      "heroPlaceholder": "Décrivez ce dont vous avez besoin d’imprimer…",
+      "inputPlaceholder": "Écrire un message…",
+      "open": "Ouvrir l'assistant",
+      "productLink": "Ouvrir",
+      "quickContact": "Contact",
+      "quickFiles": "Comment préparer les fichiers ?",
+      "send": "Envoyer un message",
+      "thinking": "L'assistant prépare une réponse",
+      "title": "Assistant",
+      "unavailable": "L'Assistant n'est pas disponible pour le moment.",
+      "welcome": "Dis-moi ce que tu veux imprimer. Je peux suggérer des produits, partager des coordonnées et expliquer la préparation de base d'un dossier."
+    },
+    "activeFormExists": "Vous disposez déjà d'un formulaire actif",
+    "activeFormExistsDesc": "Vous pouvez le voir dans l'onglet B2B",
+    "address": "Adresse",
+    "attachFiles": "Joindre des fichiers",
+    "availability": {
+      "onlineAndPos": "*Offre spéciale disponible en ligne et en magasin physique !",
+      "onlineOnly": "*Offre spéciale disponible exclusivement pour les achats en ligne !",
+      "posOnly": "*Offre spéciale disponible exclusivement en magasin physique !"
+    },
+    "b2bForm": "Formulaire B2B",
+    "b2bNotificationFailed": "Votre demande a été enregistrée, mais l'e-mail de notification n'a pas pu être envoyé.",
+    "cantFindProduct": "Vous ne trouvez pas le bon produit ?",
+    "cart": {
+      "addProductAgain": "Ajouter à nouveau le produit au panier",
+      "addProducts": "Ajouter des produits au panier",
+      "addToCart": "Ajouter au panier",
+      "buyButton": "Acheter et payer",
+      "calculationInfo": "*Le prix d'expédition peut changer lors du calcul à l'étape suivante.",
+      "checkout": "Vérifier",
+      "discountRemoved": "Le code promotionnel {{code}} a été supprimé",
+      "empty": "Le panier est vide",
+      "estimatedDelivery": "Expédition estimée :",
+      "full": "Le panier est plein (max. 10 produits)",
+      "goToCart": "Aller au panier",
+      "goToStore": "Aller au magasin",
+      "invalidPrice": "Le prix du produit {{productName}} - {{description}} n'est pas valide",
+      "itemRemoved": "L'article a été supprimé du panier",
+      "label": "Panier",
+      "noPaymentOptions": "Aucune option de paiement disponible",
+      "noShippingOptions": "Aucune option d'expédition disponible",
+      "paymentUnavailableDescription": "Cette vitrine n’a configuré aucun mode de paiement utilisable. Veuillez contacter l'équipe du magasin avant de passer une commande.",
+      "paymentUnavailableTitle": "Le paiement n'est pas disponible",
+      "ordersDisabled": "Les commandes sont désactivées !",
+      "ordersDisabledDescription": "Vous pouvez parcourir les produits, mais vous ne pouvez pas passer de commande pour le moment.",
+      "payment": "Paiement",
+      "priceCheckError": "Une erreur s'est produite lors de la vérification du prix du produit {{productName}} - {{description}}",
+      "productAdded": "Le produit a été ajouté au panier",
+      "products": "Produits",
+      "productUnavailable": "Le produit n'est plus disponible",
+      "przelewy24Info1": "J'ai déclaré lu le",
+      "przelewy24Info2": "termes et conditions et",
+      "przelewy24Info3": "obligation d'information",
+      "przelewy24Info4": "du service Przelewy24",
+      "readdToCart": "Ajouter à nouveau le produit au panier",
+      "removeFromCart": "Supprimer le panier",
+      "removeProduct": "Supprimer le produit du panier",
+      "sendFilesViaMailInfo": "Si vous avez des fichiers dont la taille dépasse notre limite, vous pouvez les envoyer via des services tels que WeTransfer, Google Drive ou d'autres plateformes de partage de fichiers à : {{email}}",
+      "shipping": "Expédition",
+      "termsAccept1": "J'ai lu et j'accepte le",
+      "termsAccept2": "termes et conditions",
+      "termsAccept3": "du service",
+      "useStoreCredit": "Utiliser le crédit du magasin {{amount}}",
+      "validationError": "Une erreur s'est produite lors de la validation du panier"
+    },
+    "checkout": {
+      "accountNumber": "Numéro de compte :",
+      "bankDetails": "Détails du virement bancaire :",
+      "configurationUnavailableDescription": "Il manque une configuration de paiement dans cette vitrine. Veuillez contacter l'équipe du magasin avant de passer une commande.",
+      "configurationUnavailableTitle": "Le paiement n'est pas disponible",
+      "error": "Erreur !",
+      "goToOrders": "Aller aux commandes",
+      "goToPayment": "Aller au paiement",
+      "orderProcessing": "Votre commande est en cours de traitement...",
+      "paymentUnavailableDescription": "Cette vitrine n’a configuré aucun mode de paiement utilisable. Veuillez contacter l'équipe du magasin avant de passer une commande.",
+      "paymentUnavailableTitle": "Le paiement n'est pas disponible",
+      "processing": "Traitement...",
+      "redirectCountdown": "Vous serez redirigé vers la page de paiement dans {{count}} secondes.",
+      "redirectManual": "Si vous n'avez pas été automatiquement redirigé vers la page de paiement, cliquez sur le bouton ci-dessous.",
+      "success": "Succès!",
+      "thankYou": "Merci d'avoir passé votre commande."
+    },
+    "contact": "Contact",
+    "contactUs": "Contactez-nous:",
+    "cookieDataTypes": "affichage du produit, contenu du panier, partage de contenu ou de produit, autorisation, lancement et finalisation du paiement",
+    "cookiePurpose": "à des fins telles que la diffusion et la personnalisation du contenu et des publicités et l'analyse du trafic du site Web.",
+    "cookieUsageDescription": "Nous et nos partenaires utilisons des cookies pour stocker et accéder à des données telles que :",
+    "cooperation": "Coopération",
+    "customerNotFound": "Client introuvable",
+    "discountOn": "Remise sur {{target}}",
+    "dragFileHere": "Faites glisser le fichier ici ou cliquez pour sélectionner le fichier.",
+    "dropFilesHere": "Déposez les fichiers ici...",
+    "errorCode": "Code d'erreur : {{error}}",
+    "faq": "FAQ",
+    "fileRetentionNotice": {
+      "description": "Nous stockons les fichiers téléchargés uniquement pendant le temps nécessaire au traitement de votre commande. Si vous souhaitez les conserver pour une utilisation ultérieure, veuillez les télécharger et les enregistrer vous-même.",
+      "title": "Stockage de fichiers temporaires"
+    },
+    "footer": {
+      "aboutUs": "À propos de nous",
+      "contactDetails": "Coordonnées",
+      "findUs": "Trouvez-nous",
+      "help": "Aide",
+      "paymentsNote": "Modes de paiement acceptés :",
+      "terms": "Termes et conditions",
+      "termsOfUse": "En utilisant le service, vous confirmez que vous avez lu et accepté les directives présentées dans les conditions d'utilisation et la politique de confidentialité."
+    },
+    "formSent": "Le formulaire a été envoyé",
+    "generalConditionsOfSale": "Conditions Générales de Vente",
+    "maintenance": {
+      "contact": "Contactez-nous",
+      "description": "Nous préparons ce magasin pour les visiteurs. Veuillez revenir bientôt.",
+      "title": "La vitrine est temporairement indisponible"
+    },
+    "editor": {
+      "actions": {
+        "addBlock": "Ajouter un bloc",
+        "addSection": "Ajouter une rubrique",
+        "hide": "Cacher",
+        "moveDown": "Descendre",
+        "moveUp": "Monter",
+        "publish": "Publier",
+        "publishing": "Édition…",
+        "remove": "Retirer",
+        "rollback": "Restauration",
+        "show": "Montrer"
+      },
+      "autosave": {
+        "error": "Échec de l'enregistrement automatique",
+        "idle": "Les modifications sont enregistrées automatiquement",
+        "saved": "Brouillon enregistré",
+        "saving": "Économie…"
+      },
+      "block": {
+        "autoTranslationInfo": "Comment fonctionne la traduction automatique",
+        "autoTranslationTooltip": "Écrivez ce bloc dans la langue sélectionnée. Lorsque vous publiez, le texte polonais ou anglais manquant est généré automatiquement et les traductions manuelles existantes sont conservées.",
+        "body": "Texte long",
+        "builtInDescription": "Cette section utilise les données du magasin ou les traductions existantes. Utilisez les commandes de la section elle-même pour le déplacer, le masquer ou la supprimer.",
+        "builtInTitle": "Section intégrée",
+        "ctaHref": "Lien du bouton",
+        "ctaLabel": "Texte du bouton",
+        "fields": {
+          "featuredProductsDescription": "Description des sections",
+          "featuredProductsTitle": "Titre de section",
+          "heroCtaHref": "Lien du bouton principal",
+          "heroCtaLabel": "Texte du bouton principal",
+          "heroDescription": "Description du héros",
+          "heroImageUrl": "Lien vers l'image du héros",
+          "heroTitle": "Titre du héros",
+          "howItWorksDescription": "Description des sections",
+          "howItWorksTitle": "Titre de section",
+          "newsletterCtaLabel": "Texte du bouton S'abonner",
+          "newsletterDescription": "Description du bulletin d'information",
+          "newsletterDisclaimer": "Clause de non-responsabilité",
+          "newsletterTitle": "Titre du bulletin d'information",
+          "popularDescription": "Description des sections",
+          "popularTitle": "Titre de section",
+          "richTextBody": "Texte",
+          "richTextCtaHref": "Lien du bouton",
+          "richTextCtaLabel": "Texte du bouton",
+          "richTextImageUrl": "Image",
+          "richTextTitle": "Titre",
+          "testimonialsDescription": "Description des sections",
+          "testimonialsTitle": "Titre de section",
+          "trustGridDescription": "Description des sections",
+          "trustGridTitle": "Titre de section"
+        },
+        "heading": "Titre principal",
+        "heroCmsDescription": "Modifiez les diapositives, le texte, les liens et les médias du héros dans Admin CMS. Ce panneau contrôle la disposition des héros.",
+        "heroCmsLink": "Ouvrir le CMS d'administration",
+        "heroCmsTitle": "Contenu Hero géré dans le CMS",
+        "hidden": "Cache",
+        "imageDropzoneDescription": "PNG, JPG ou WebP de moins de 5 Mo.",
+        "language": "Langue d'édition",
+        "subtitle": "Description du Brève",
+        "title": "Bloc sélectionné",
+        "variant": "Variation de mise en page",
+        "variants": {
+          "assistant": {
+            "compact": "Inviter de compactage",
+            "default": "Défaut",
+            "panel": "Panneau encadré"
+          },
+          "campaigns": {
+            "compact": "Promotions compactes",
+            "default": "Défaut",
+            "featured": "Promotions en vedette"
+          },
+          "featured-products": {
+            "compact": "Grille compacte",
+            "default": "Défaut",
+            "spotlight": "Grille de projecteurs"
+          },
+          "hero": {
+            "default": "Défaut",
+            "editorial": "Division éditoriale",
+            "fullscreen": "Plein écran"
+          },
+          "how-it-works": {
+            "compact": "Étapes compactes",
+            "default": "Défaut",
+            "timeline": "Chronologie"
+          },
+          "newsletter": {
+            "default": "Défaut",
+            "inline": "En ligne",
+            "minimal": "Minimal"
+          },
+          "popular-products": {
+            "compact": "Grille compacte",
+            "default": "Défaut",
+            "editorial": "Grille éditoriale"
+          },
+          "rich-text-cta": {
+            "centered": "Centre",
+            "default": "Défaut",
+            "split": "Diviser"
+          },
+          "testimonials": {
+            "compact": "Compacts d'examens",
+            "default": "Défaut",
+            "spotlight": "Mettre en lumière"
+          },
+          "trust-grid": {
+            "cards": "Cartes",
+            "default": "Défaut",
+            "strip": "Bande d'icônes"
+          }
+        },
+        "visible": "Visible"
+      },
+      "image": {
+        "previewAlt": "Aperçu de l'image actuelle",
+        "rejected": "Ce fichier image ne peut pas être utilisé.",
+        "upload": "Télécharger",
+        "uploadError": "Le téléchargement a échoué. Essayez un fichier image plus petit.",
+        "useLink": "Utiliser le lien"
+      },
+      "languages": {
+        "cs": "Ceština",
+        "de": "Deutsch",
+        "en": "Anglais",
+        "fr": "Français",
+        "pl": "polonais",
+        "sk": "Slovénie",
+        "uk": "Українська"
+      },
+      "maintenance": {
+        "description": "Lorsqu'il est activé, les visiteurs voient l'écran de maintenance tandis que les éditeurs peuvent continuer à prévisualiser cette vitrine.",
+        "title": "Mode entretien"
+      },
+      "panel": {
+        "hideEditor": "Masquer les outils d'édition",
+        "noBlockSelected": "Cliquez sur une section dans l'aperçu pour la modifier.",
+        "preview": "Aperçu",
+        "sessionChecking": "Vérification de la session d'édition",
+        "sessionExpired": "La session de modification a expiré",
+        "sessionRemaining": "{{time}} reste",
+        "showEditor": "Afficher l'éditeur",
+        "tabs": {
+          "advanced": "Avancé",
+          "section": "Section",
+          "theme": "Thème"
+        },
+        "title": "Éditeur de magasin"
+      },
+      "presets": {
+        "assistant": "Assistant",
+        "campaigns": "Campagnes",
+        "featured-products": "En vedette",
+        "hero": "Héros",
+        "how-it-works": "Comment ça marche",
+        "newsletter": "Bulletin",
+        "popular-products": "Populaire",
+        "rich-text-cta": "Texte et CTA",
+        "testimonials": "Témoignages",
+        "trust-grid": "Grille de confiance"
+      },
+      "revisions": {
+        "areas": {
+          "home": "Maison",
+          "sharing": "Partage",
+          "theme": "Thème"
+        },
+        "empty": "Aucune révision publiée pour le moment.",
+        "publish": "Publier",
+        "rollback": "Restauration",
+        "title": "Révisions récentes"
+      },
+      "sharing": {
+        "description": "Contrôlez l'icône du navigateur et les images d'aperçu des réseaux sociaux pour cette vitrine.",
+        "favicon": "Icône de favori",
+        "faviconDropzoneDescription": "PNG, SVG ou ICO de moins de 1 Mo.",
+        "openGraphDropzoneDescription": "PNG ou JPG, idéalement 1200 x 630 px.",
+        "openGraphImage": "Image d'aperçu social",
+        "title": "Partage"
+      },
+      "theme": {
+        "accentColor": "Couleur d'accentuation",
+        "buttonStyle": "Style de bouton",
+        "buttonStyleOptions": {
+          "outline": "Contour",
+          "solid": "Solide",
+          "subtle": "Subtil"
+        },
+        "gradient": "Dégradé (Principal → Accent)",
+        "gradientDescription": "Mélangez vos couleurs sur les arrière-plans des héros et des newsletters.",
+        "gradientNeedsColors": "Choisissez les deux couleurs pour activer le dégradé.",
+        "logo": "Logo",
+        "logoDropzoneDescription": "PNG, JPG, SVG ou WebP de moins de 2 Mo.",
+        "pickColorFromPage": "Choisissez la couleur sur la page",
+        "presetOptions": {
+          "classic": "Classique",
+          "forest": "Forêt",
+          "ink": "Encre",
+          "ocean": "Océan",
+          "plum": "Prune",
+          "sunset": "Coucher de soleil"
+        },
+        "presets": "Préréglages de style",
+        "primaryColor": "Couleur principale",
+        "radius": "Arrondi",
+        "radiusOptions": {
+          "3xl": "Rond supplémentaire",
+          "default": "Défaut",
+          "md": "Doux",
+          "none": "Carré",
+          "xl": "Rond"
+        },
+        "title": "Thème"
+      }
+    },
+    "home": {
+      "featured": "Vérifiez ce que nous recommandons",
+      "featuredDescription": "Des formats flexibles, des finitions fiables et des produits qui font une forte première impression.",
+      "featuredEyebrow": "Choix sélectionnés",
+      "hero": {
+        "eyebrow": "Impression en ligne prête à imprimer",
+        "fallbackDescription": "Téléchargez, vérifiez, produisez et expédiez en un seul flux propre, avec des matériaux réels, des prix clairs et une livraison suivie.",
+        "fallbackTitle": "Imprimez des travaux d'une qualité exceptionnelle avant d'arriver sur la presse",
+        "proofLabel": "Télécharger vers la livraison",
+        "proofValue": "Prépresse, production et expédition suivies dans un seul flux de travail rationalisé.",
+        "secondaryCta": "Parcourir tous les produits"
+      },
+      "howItWorks": {
+        "description": "Un court flux en six étapes, du briefing au porte-à-porte, avec une vérification des fichiers au milieu, là où cela compte.",
+        "steps": {
+          "choose": "Choisissez un produit",
+          "configure": "Configurer les options",
+          "pay": "Payez en toute sécurité",
+          "proof": "Nous vérifions votre dossier",
+          "receive": "Recevoir la livraison",
+          "upload": "Téléchargez votre fichier"
+        },
+        "title": "Comment ça marche"
+      },
+      "popular": "Le plus souvent choisi",
+      "popularDescription": "Les formats que les clients commandent le plus lorsqu’ils ont besoin de résultats fiables et rapides.",
+      "popularEyebrow": "Répéter les favoris",
+      "testimonials": {
+        "description": "Commentaires réels des clients qui ont commandé, téléchargé et reçu l’impression terminée.",
+        "eyebrow": "Avis Google",
+        "next": "Revue Suivante",
+        "prev": "Avis précédent",
+        "title": "Ce qui différencie nos clients"
+      },
+      "trust": {
+        "ecoFriendly": {
+          "description": "Papier FSC et encres vertes",
+          "title": "Écologique"
+        },
+        "fastProduction": {
+          "description": "À partir de 24h, délai d'exécution disponible",
+          "title": "Production rapide"
+        },
+        "freeFileCheck": {
+          "description": "Nous vérifions avant d'imprimer",
+          "title": "Vérification gratuite des fichiers"
+        },
+        "qualityGuarantee": {
+          "description": "Papier de qualité supérieure et impression précise",
+          "title": "Garantie de qualité"
+        },
+        "securePayments": {
+          "description": "Stripe, Przelewy24 et plus",
+          "title": "Paiements sécurisés"
+        },
+        "trackedShipping": {
+          "description": "Livraison par courrier à travers PL et UE",
+          "title": "Expédition suivie"
+        }
+      },
+      "trustDescription": "De la vérification des fichiers à la finition, chaque étape est conçue pour que le processus reste clair, rapide et prêt pour la production.",
+      "trustHeading": "Conçu pour les travaux d'impression exigeants, sans approximations",
+      "trustLabel": "Pourquoi les équipes reviennent toujours"
+    },
+    "maxFileSize": "Taille maximale du fichier :",
+    "fileExists": "Fichier déjà sélectionné",
+    "fileInvalid": "Le fichier n'a pas pu être téléchargé",
+    "fileInvalidType": "Type de fichier invalide",
+    "fileTooLarge": "Le fichier est trop volumineux",
+    "fileTooSmall": "Le fichier est trop petit",
+    "navigation": {
+      "allProducts": "Tous les produits",
+      "loadingProducts": "Chargement des produits…",
+      "products": "Produits"
+    },
+    "newsletter": {
+      "signup": "Abonnez-vous à la newsletter",
+      "signupButton": "S'abonner",
+      "description": "Recevez des mises à jour sur les promotions, les offres exclusives et les nouveaux produits !",
+      "disclaimer": "*Offre spéciale disponible uniquement pour les achats en ligne !",
+      "subscribeButton": "S'abonner",
+      "subscribeError": "Impossible de s'abonner à la newsletter",
+      "subscribed": "Inscription réussie à la newsletter",
+      "title": "Abonnez-vous à la newsletter et bénéficiez de 10% de réduction",
+      "unsubscribeError": "Impossible de se désabonner de la newsletter",
+      "unsubscribed": "Désabonnement réussi de la newsletter"
+    },
+    "og": {
+      "subtitle": "Impression professionnelle en ligne",
+      "title": "Imprimerie en ligne"
+    },
+    "order": {
+      "showDetails": "Afficher les détails"
+    },
+    "orderAndPay": "Commandez et payez",
+    "orderPreview": "Aperçu de la commande",
+    "password": {
+      "change": "Changer le mot de passe",
+      "save": "Sauvegarder"
+    },
+    "payment": "Paiement",
+    "preview3D": "Aperçu 3D",
+    "preview3DDescription": "Il est important de noter que l'aperçu 3D est rendu à une résolution inférieure à celle du produit final. Il s'agit d'une approche recommandée qui permet un traitement des données plus rapide et un fonctionnement plus fluide.",
+    "preview3DDisclaimer": "L'aperçu est uniquement destiné à des fins visuelles et n'est pas destiné à créer des matériaux finaux de haute qualité.",
+    "preview3DInfo": "Informations d'aperçu 3D",
+    "preview3DNextPage": "Suivant",
+    "preview3DPage": "Page",
+    "preview3DPreviousPage": "Précédent",
+    "privacyPolicy": "politique de confidentialité",
+    "privacyTitle": "Nous nous soucions de votre vie privée",
+    "promotions": "Promotions",
+    "recommendations": {
+      "title": "Produits recommandés"
+    },
+    "regulations": "Règlements",
+    "rejectedFiles": "Fichiers rejetés :",
+    "tooManyFiles": "Trop de fichiers",
+    "rejections": "Rejets",
+    "remove": "Retirer",
+    "reviewOptional": "Révision (facultatif)",
+    "search": {
+      "loading": "Chargement...",
+      "noResults": "Aucun produit trouvé",
+      "placeholder": "Recherche...",
+      "viewAll": "Voir tous les résultats pour {{query}}"
+    },
+    "searchPage": {
+      "emptyQueryDescription": "Recherchez par nom de produit, catégorie ou format d'impression.",
+      "emptyQueryTitle": "Trouver des produits imprimés",
+      "linkedChannel": "Produit partagé",
+      "metadataDescription": "Retrouvez les produits disponibles dans ce magasin.",
+      "metadataTitle": "Recherche",
+      "metadataTitleWithQuery": "Résultats de recherche pour {{query}}",
+      "noResultsDescription": "Essayez une autre expression ou parcourez les catégories de produits.",
+      "noResultsTitle": "Aucun produit trouvé",
+      "resultCount": "{{count}} produits trouvés",
+      "submit": "Recherche",
+      "title": "Recherche",
+      "titleWithQuery": "Résultats de recherche pour {{query}}"
+    },
+    "sendForm": "Envoyer le formulaire",
+    "shipping": "Expédition",
+    "somethingWentWrong": "Quelqu'un a choisi s'est mal passé",
+    "uploadAndAttachFiles": "Télécharger et joindre des fichiers",
+    "writeReviewPlaceholder": "Écrivez un avis...",
+    "products": {
+      "customProduct": "Produit personnalisé"
+    },
+    "rating": {
+      "selectRating": "Veuillez sélectionner une note !",
+      "submitError": "Une erreur s'est produite lors de la soumission de la note !",
+      "thankYou": "Merci pour votre note !"
+    }
+  },
+  "summary": {
+    "addToCart": "Ajouter au panier",
+    "badConfiguration": "Configuration invalide",
+    "heading": "CV",
+    "noConfiguration": "Aucune configuration",
+    "saveAsNew": "Ajouter un nouvel article au panier",
+    "saveConfiguration": "Enregistrer la configuration"
+  },
+  "templates": "Modèles",
+  "ThreeDModels": {
+    "ASTAND": "Un stand",
+    "BOX": "Boite",
+    "BOOKLET": "Brochure",
+    "CANVAS": "Toile",
+    "CUP": "Tasse",
+    "FLAT": "Impression à plat",
+    "FLYERS": "Dépliants",
+    "LBANNER": "Bannière en L",
+    "PIN": "Épingle",
+    "ROLLUP_PREMIUM": "Prime de cumul",
+    "ROLLUP_STANDARD": "Norme de cumul",
+    "TOOTHPICK": "Drapeau cure-dent",
+    "XBANNER": "Bannière X"
+  },
+  "totalPrice": "Prix",
+  "true": "Oui",
+  "ui": {
+    "country": {
+      "poland": "Pologne"
+    }
+  },
+  "Unit": {
+    "CM2": "cm²",
+    "CMB": "cmb",
+    "HOUR": "h",
+    "KM": "km",
+    "M2": "m²",
+    "MB": "ml",
+    "PCS": "pièces.",
+    "SHEET": "feuille"
+  },
+  "volumes": {
+    "missing": "Tomes manquants"
+  }
+}

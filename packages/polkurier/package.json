@@ -1,0 +1,39 @@
+{
+  "name": "@konfi/polkurier",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "repository": "https://github.com/konfi-labs/konfi/tree/main/packages/polkurier",
+  "main": "index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "import": "./index.ts",
+      "require": "./index.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "transpile": "tsc",
+    "generate-sdks": "kiota generate -l TypeScript -c PolkurierClient -d ./polkurier-api.yml -o ./client --co"
+  },
+  "dependencies": {
+    "@microsoft/kiota-abstractions": "catalog:",
+    "@microsoft/kiota-bundle": "catalog:",
+    "@microsoft/kiota-http-fetchlibrary": "catalog:",
+    "@microsoft/kiota-serialization-form": "catalog:",
+    "@microsoft/kiota-serialization-json": "catalog:",
+    "@microsoft/kiota-serialization-multipart": "catalog:",
+    "@microsoft/kiota-serialization-text": "catalog:"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "catalog:",
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,2189 @@
+{
+  "account": {
+    "basic": "Základní",
+    "changePassword": "Změnit heslo",
+    "changePasswordDescription": "Snadno a bezpečně změňte heslo k účtu.",
+    "confirmEmail": "Potvrďte e-mailovou adresu",
+    "confirmEmailDescription": "Na zadanou e-mailovou adresu byl odeslán ověřovací odkaz",
+    "confirmNewPassword": "Potvrďte nové heslo",
+    "confirmRemoveAccount": "Opravdu chcete odstranit svůj účet?",
+    "created": "Účet vytvořen",
+    "createdDescription": "Vytvořili jsme pro vás účet",
+    "generations": {
+      "cardDescription": "Procházejte, prohlížejte a stahujte grafiku, kterou jste vygenerovali pomocí AI.",
+      "description": "Zkontrolujte vygenerovanou grafiku, znovu ji otevřete v plné velikosti a stáhněte si konečné soubory znovu, kdykoli je budete potřebovat.",
+      "downloadButton": "Stáhnout",
+      "emptyDescription": "Po dokončení se zde objeví vygenerovaná grafika z produktové stránky a košíku.",
+      "emptyTitle": "Zatím žádné uložené generace",
+      "label": "generace AI",
+      "loadError": "Vaše uložené generace umělé inteligence jsme teď nemohli načíst.",
+      "previewButton": "Náhled",
+      "previewTitle": "Generovaný grafický náhled",
+      "singleSide": "Jedna strana",
+      "title": "generace AI",
+      "unknownDate": "Neznámé datum",
+      "unnamedProduct": "Vygenerovaná grafika"
+    },
+    "newPassword": "Nové heslo",
+    "newsletter": "Bulletin",
+    "oldPassword": "Staré heslo",
+    "passwordPlaceholder": "6 nebo více znaků",
+    "removeAccount": "Odebrat účet",
+    "removeAccountDescription": "Snadno a bezpečně odstraňte svůj účet a všechna svá data.",
+    "removeAccountTitle": "Odebrat účet",
+    "removeAccountWarning": "Všechny vaše informace budou odstraněny z naší databáze. Tuto operaci nelze vrátit zpět, takže se ujistěte, že svůj účet opravdu chcete odstranit.",
+    "resetPassword": "Obnovte heslo",
+    "settings": "Nastavení",
+    "unsubscribeFromNewsletter": "Odhlásit odběr newsletteru"
+  },
+  "discount": {
+    "withCode": "S kódem \"{{code}}\" levnější o"
+  },
+  "actions": {
+    "cancelChanges": "Zrušit změny",
+    "copied": "Zkopírováno!",
+    "copy": "Kopírovat",
+    "createImposition": "Vytvořit uložení",
+    "discardChanges": "Zahodit změny",
+    "importTable": "Import tabulky",
+    "loadTemplate": "Načíst",
+    "save": "Uložit",
+    "saveChanges": "Uložte změny"
+  },
+  "active": "Aktivní",
+  "ActivityStatus": {
+    "EMAIL_SENT": "E-mail odeslán na adresu:",
+    "FILES_STATUS_UPDATE": "Aktualizace stavu souborů na",
+    "ORDER_STATUS_UPDATE": "Aktualizace stavu objednávky na",
+    "PAYMENT_METHOD_CHANGED": "Způsob platby se změnil na",
+    "PAYMENT_STATUS_UPDATE": "Aktualizace stavu platby na"
+  },
+  "ActivityStatusShort": {
+    "EMAIL_SENT": "E-mail",
+    "FILES_STATUS_UPDATE": "Stav souborů",
+    "ORDER_STATUS_UPDATE": "Stav objednávky",
+    "PAYMENT_METHOD_CHANGED": "Způsob platby změněn",
+    "PAYMENT_STATUS_UPDATE": "Stav platby"
+  },
+  "AddressTypeEnum": {
+    "BILLING": "Fakturační adresa",
+    "SHIPPING": "Dodací adresa"
+  },
+  "ApplicationMethodAllocation": {
+    "ACROSS": "Pro všechny položky dohromady",
+    "EACH": "Pro každou položku zvlášť"
+  },
+  "ApplicationMethodTargetTypes": {
+    "ITEMS": "Položky košíku",
+    "ORDER": "Celá objednávka",
+    "SHIPPING_METHODS": "Způsoby dopravy"
+  },
+  "ApplicationMethodTypes": {
+    "FIXED": "Pevná částka",
+    "PERCENTAGE": "Procento"
+  },
+  "AttributeInputTypeEnum": {
+    "ADVANCED_FINISHING": "Pokročilé dokončovací práce",
+    "DROPDOWN": "Rozbalovací seznam",
+    "DROPDOWN_COLOR": "Rozbalovací seznam s barvami",
+    "RADIO_GROUP": "Přepínací tlačítka",
+    "RADIO_GROUP_COLOR": "Přepínače s barvami",
+    "RADIO_GROUP_IMAGE": "Přepínače s obrázky"
+  },
+  "auth": {
+    "accountDisabled": "Účet byl deaktivován.",
+    "accountNotFound": "Účet se zadanou e-mailovou adresou neexistuje.",
+    "emailAlreadyExists": "Účet se zadaným e-mailem již existuje.",
+    "forgot": {
+      "heroHeading": "Oživte své nápady s námi ještě dnes!",
+      "submitButton": "Odeslat",
+      "title": "Obnovte heslo"
+    },
+    "google": {
+      "accountExistsWithDifferentProvider": "Účet s tímto e-mailem již existuje. Chcete-li pokračovat, přihlaste se pomocí své stávající metody.",
+      "button": "Pokračujte s Googlem",
+      "credentialAlreadyInUse": "Tento účet Google je již propojen s jiným profilem. Chcete-li pokračovat, přihlaste se pomocí účtu Google.",
+      "divider": "nebo pokračujte e-mailem",
+      "notEnabled": "Pro tento obchod zatím není povoleno přihlášení přes Google.",
+      "popupBlocked": "Přihlášení přes Google bylo zablokováno vaším prohlížečem. Povolte vyskakovací okna a zkuste to znovu.",
+      "unauthorizedDomain": "Tato doména zatím není autorizována pro přihlášení přes Google.",
+      "unavailable": "Přihlášení přes Google je momentálně nedostupné. Zkuste to znovu později."
+    },
+    "internalError": "Ověřovací server narazil při zpracování požadavku na neočekávanou chybu.",
+    "invalidCredentials": "Neplatné přihlašovací údaje",
+    "loggedIn": "Přihlášeno",
+    "loggedInDescription": "Úspěšně jste se přihlásili.",
+    "loggedOut": "Odhlášen",
+    "loggedOutDescription": "Byli jste odhlášeni.",
+    "login": {
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "example@mail.com",
+      "forgotPasswordLink": "Zapomněli jste heslo?",
+      "loginButton": "Přihlášení",
+      "noAccountText": "Ještě nemáte účet? Zaregistrujte se.",
+      "passwordLabel": "Heslo",
+      "passwordPlaceholder": "6 nebo více znaků",
+      "registerLink": "Zaregistrujte se",
+      "tagline": "Oživte své nápady s námi ještě dnes!",
+      "title": "Přihlášení"
+    },
+    "loginError": "Chyba přihlášení",
+    "noAuthorization": "Bez oprávnění",
+    "noCustomerData": "Žádné zákaznické údaje",
+    "passwordChanged": "Heslo změněno",
+    "passwordChangedDescription": "Vaše heslo bylo úspěšně změněno.",
+    "register": {
+      "andText": "a",
+      "displayNameLabel": "Celé jméno",
+      "displayNamePlaceholder": "John Doe",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "example@mail.com",
+      "loginLink": "Přihlaste se",
+      "passwordHelperText": "Jedno velké písmeno, jedno malé písmeno, jedna číslice a jeden speciální znak",
+      "passwordLabel": "Heslo",
+      "passwordPlaceholder": "6 nebo více znaků",
+      "privacyPolicyLink": "zásady ochrany osobních údajů",
+      "registerButton": "Zaregistrujte se",
+      "tagline": "Oživte své nápady s námi ještě dnes!",
+      "termsLink": "podmínky služby",
+      "termsText": "Kliknutím na tlačítko výše souhlasíte",
+      "title": "Zaregistrujte se"
+    },
+    "unknownError": "Něco se pokazilo, kontaktujte prosím administrátora. Kód chyby: {{errorCode}}",
+    "weakPassword": "Heslo by mělo mít alespoň 6 znaků."
+  },
+  "BackPageRotation": {
+    "ROTATION_0": "žádný",
+    "ROTATION_180": "Otočit o 180°",
+    "ROTATION_270": "Otočit o 270°",
+    "ROTATION_90": "Otočit o 90°"
+  },
+  "billingAddress": {
+    "notSavedError": "Fakturační adresa nebyla uložena, kód chyby: {{error}}",
+    "notSavedNotCustomer": "Fakturační adresa nebyla uložena, uživatel není zákazník"
+  },
+  "BindingEdge": {
+    "BOTTOM": "Spodní",
+    "LEFT": "Vlevo",
+    "RIGHT": "Správně",
+    "TOP": "Nahoru"
+  },
+  "BleedType": {
+    "BLEED_INCLUDED": "Soubor obsahuje spadávku",
+    "DIFFERENTIAL_DIFFUSION": "Generovat krvácení",
+    "NO_BLEED": "Žádné krvácení",
+    "ONE_POINT_FIVE_MM_SCALE": "Přidat 1,5 mm (měřítko)",
+    "TWO_MM_MIRROR": "Přidejte 2 mm (zrcadlový odraz)"
+  },
+  "blog": {
+    "backToBlog": "Zpět na Blog",
+    "empty": "Nebyly nalezeny žádné příspěvky na blogu.",
+    "emptyDescription": "Zkuste upravit filtry nebo se vraťte později.",
+    "loading": "Načítání...",
+    "minRead": "min přečteno",
+    "notFound": "Blogový příspěvek nebyl nalezen.",
+    "relatedPosts": "Související příspěvky",
+    "views": "pohledy"
+  },
+  "CampaignAvailabilityTypeEnum": {
+    "ONLINE": "Online",
+    "POS": "Prodejní místo"
+  },
+  "CampaignBudgetTypes": {
+    "SPEND": "Částka",
+    "USAGE": "Využití"
+  },
+  "cart": {
+    "addProductAgain": "Znovu přidejte produkt do košíku",
+    "addProducts": "Přidejte produkty do košíku",
+    "discountRemoved": "Propagační kód {{code}} byl odstraněn",
+    "empty": "Košík je prázdný",
+    "error": {
+      "cantAddProduct": "Produkt nelze přidat do košíku",
+      "cantContinueAsGuest": "Nelze pokračovat jako host"
+    },
+    "full": "Košík je plný (max. 10 produktů)",
+    "goToStore": "Přejít do obchodu",
+    "guest": {
+      "acceptTerms": {
+        "part1": "Kliknutím na výše uvedené tlačítko souhlasíte",
+        "part2": "podmínky služby",
+        "part3": "a",
+        "part4": "zásady ochrany osobních údajů"
+      },
+      "cantContinueAsGuest": "Chcete-li přidat produkt do košíku a provést objednávku, musíte se přihlásit, zaregistrovat, nebo můžete pokračovat v nákupu jako host.",
+      "continueAsGuest": "Pokračujte jako host",
+      "loginOrRegister": "Přihlaste se nebo se zaregistrujte",
+      "shouldContinueAsGuest": "Chcete provést objednávku jako host?"
+    },
+    "invalidPrice": "Cena produktu {{productName}} – {{description}} je neplatná",
+    "itemRemoved": "Položka byla odstraněna z košíku",
+    "label": "Košík",
+    "missingFiles": {
+      "action": "Připojit soubory",
+      "description": "K tomuto produktu nejsou připojeny žádné tiskové soubory. Před zadáním objednávky přidejte své umělecké dílo – a pokud soubory po opětovném načtení stránky zmizí, připojte je znovu.",
+      "title": "Nejsou připojeny žádné soubory"
+    },
+    "noPaymentOptions": "Žádné dostupné možnosti platby",
+    "noShippingOptions": "Žádné dostupné možnosti dopravy",
+    "priceCheckError": "Při kontrole ceny produktu {{productName}} – {{description}} došlo k chybě",
+    "preflightChecking": {
+      "description": "Na pozadí generujeme náhled a kontrolujeme tiskové problémy.",
+      "title": "Kontrola nahraného souboru"
+    },
+    "productAdded": "Produkt byl přidán do košíku",
+    "productUnavailable": "Produkt již není dostupný",
+    "removeProduct": "Odstraňte produkt z košíku",
+    "validationError": "Při ověřování košíku došlo k chybě",
+    "goToCart": "Přejít do košíku"
+  },
+  "category": {
+    "created": "Kategorie vytvořena",
+    "createdDescription": "Nová kategorie byla úspěšně vytvořena",
+    "notCreated": "Kategorie nebyla vytvořena, kód chyby: {{error}}",
+    "notUpdated": "Kategorie nebyla aktualizována, kód chyby: {{error}}",
+    "updated": "Kategorie aktualizována",
+    "updatedDescription": "Kategorie {{name}} byla úspěšně aktualizována"
+  },
+  "combination": {
+    "configuration": "Konfigurace",
+    "faq": {
+      "customSize": {
+        "answer": "Ano – mnoho produktů podporuje vlastní rozměry. Chcete-li zadat vlastní šířku a výšku, povolte v konfigurátoru možnost vlastního formátu.",
+        "question": "Mohu si objednat vlastní velikost?"
+      },
+      "fileRequirements": {
+        "answer": "Přijímáme soubory PDF, PNG, JPEG a TIFF. Nejlepších výsledků dosáhnete, když dodáte vektorová PDF s obrysovými fonty a 3 mm spadávkou.",
+        "question": "Jaké formáty souborů přijímáte?"
+      },
+      "minimumOrder": {
+        "answer": "Minimální množství se liší podle produktu. Nejnižší dostupné množství najdete ve voliči množství na stránce produktu.",
+        "question": "Existuje minimální množství objednávky?"
+      },
+      "shipping": {
+        "answer": "Zasíláme prostřednictvím sledovaného kurýra po celém Polsku a EU. Cena dopravy se počítá při pokladně na základě hmotnosti objednávky a místa určení.",
+        "question": "Jak funguje lodní doprava?"
+      },
+      "turnaround": {
+        "answer": "Předpokládaná data dodání se zobrazují vedle každé možnosti množství ve výběru množství a v košíku, takže si můžete vybrat časovou osu, která vám vyhovuje.",
+        "question": "Jak dlouho trvá výroba?"
+      },
+      "viewAll": "Zobrazit všechny často kladené otázky"
+    },
+    "specialNotes": "Informace",
+    "tabs": {
+      "description": "Popis",
+      "faq": "FAQ",
+      "reviews": "Recenze"
+    }
+  },
+  "common": {
+    "accept": "Přijmout",
+    "add": "Přidat",
+    "addresses": "Adresy",
+    "back": "Zpět",
+    "cancel": "Zrušit",
+    "close": "Zavřít",
+    "confirm": "Potvrďte",
+    "create": "Vytvořit",
+    "delete": "Smazat",
+    "edit": "Upravit",
+    "email": "E-mail",
+    "error": "Chyba",
+    "gross": "Hrubý",
+    "info": "Informace",
+    "invoice": "Faktura",
+    "itemsSelected": "Počet vybraných položek: {{count}}",
+    "loading": "Načítání...",
+    "loadMore": "Načíst více",
+    "moreItems": "+{{count}} dalších",
+    "net": "Síť",
+    "new": "NEW",
+    "next": "Další",
+    "no": "ne",
+    "noAddresses": "Žádné adresy",
+    "noAddressesDescription": "Momentálně nemáte žádné uložené adresy.",
+    "noBillingAddress": "Žádná faktura",
+    "noOptionsAvailable": "Nejsou k dispozici žádné možnosti",
+    "noOrder": "Žádná objednávka",
+    "noOrders": "Žádné rozkazy",
+    "noOrdersDescription": "Momentálně nemáte žádné objednávky.",
+    "noRatingsDescription": "Momentálně nemáte žádná hodnocení, která byste mohli přidat.",
+    "noRatingsToAdd": "Žádné hodnocení k přidání",
+    "orderBy": "Objednávejte podle",
+    "orders": "Objednávky",
+    "password": "Heslo",
+    "pleaseWait": "Čekejte prosím",
+    "preview": "Náhled",
+    "ratings": "Hodnocení",
+    "remove": "Odebrat",
+    "save": "Uložit",
+    "saved": "Uloženo!",
+    "selectLanguage": "Vyberte jazyk",
+    "selectPlaceholder": "Vyberte {{attributeName}}...",
+    "submit": "Odeslat",
+    "success": "Úspěch",
+    "tryAgain": "Zkuste to znovu později",
+    "unavailable": "Není k dispozici",
+    "update": "Aktualizovat",
+    "warning": "Varování",
+    "yes": "Ano"
+  },
+  "complaint": {
+    "created": "Stížnost vytvořena",
+    "createdDescription": "Nová stížnost byla úspěšně vytvořena",
+    "createdDev": "Stížnost vytvořena bez uložení (DEV)",
+    "createdDevDescription": "Nová stížnost byla úspěšně vytvořena",
+    "notCreated": "Stížnost nebyla vytvořena",
+    "notCreatedError": "Stížnost nebyla vytvořena, kód chyby: {{error}}",
+    "notFound": "Stížnost nebyla nalezena k úpravě"
+  },
+  "ComplaintStatus": {
+    "NEW": "Nové",
+    "PROCESSING": "Zpracování",
+    "RESOLVED": "Vyřešeno"
+  },
+  "ConsentSettings": {
+    "ad_personalization": "Souhlas s personalizovanými reklamami",
+    "ad_storage": "Umožňuje ukládání dat, jako jsou soubory cookie související s reklamou",
+    "ad_user_data": "Souhlas se zasíláním uživatelských dat společnosti Google pro reklamní účely",
+    "analytics_storage": "Umožňuje ukládání analýz, např. čas návštěvy (vyžadováno)",
+    "functionality_storage": "Umožňuje ukládání funkcí webu, např. nastavení jazyka (vyžadováno)",
+    "personalization_storage": "Umožňuje uložení personalizace, např. video doporučení",
+    "security_storage": "Umožňuje ukládání související se zabezpečením, např. ověření (vyžadováno)"
+  },
+  "contact": {
+    "notSavedError": "Kontakt nebyl uložen, kód chyby: {{error}}",
+    "notSavedNotCustomer": "Kontakt nebyl uložen, uživatel není zákazník"
+  },
+  "Currency": {
+    "EUR": "€",
+    "GBP": "£",
+    "PLN": "PLN",
+    "USD": "$"
+  },
+  "CUSTOM_FORMAT_PARAMETERS": "Parametry vlastního formátu",
+  "customer": {
+    "notSavedError": "Zákazník nebyl uložen, kód chyby: {{error}}"
+  },
+  "customFormatInput": {
+    "addedSizes": "Přidané velikosti ({{count}})",
+    "addSize": "Přidejte velikost",
+    "heading": "Velikost",
+    "height": "Výška",
+    "heightRange": "Výška (od {{minHeight}} do {{maxHeight}})",
+    "ratioDescription": "Poměr se vypočítá na základě šířky a výšky.",
+    "ratioHeading": "Poměr",
+    "ratioRange": "Poměr (od {{minRatio}} do {{maxRatio}})",
+    "totalArea": "Celková plocha",
+    "width": "Šířka",
+    "widthRange": "Šířka (od {{minWidth}} do {{maxWidth}})"
+  },
+  "deliveryInfo": {
+    "heading": "Dostupné možnosti doručení"
+  },
+  "designSpec": {
+    "bleed": "Vykrvácet",
+    "colors": "Barevné schéma",
+    "downloadTemplate": "Stáhnout šablonu {{name}}",
+    "grossFormat": "Hrubý formát (před oříznutím)",
+    "heading": "Jak připravit soubory?",
+    "minResolution": "Minimální rozlišení",
+    "netFormat": "Čistý formát (po oříznutí)",
+    "templates": "Šablony"
+  },
+  "DiscountTypeEnum": {
+    "FIXED": "Pevná částka",
+    "PERCENTAGE": "Procento"
+  },
+  "DuplexMode": {
+    "DUPLEX_LONG_EDGE": "Duplex (dlouhý okraj)",
+    "DUPLEX_SHORT_EDGE": "Duplex (krátký okraj)",
+    "SIMPLEX": "Simplexní"
+  },
+  "error": {
+    "cannotCreateOrderStoreChannel": "Nelze vytvořit objednávku na kanálu obchodu",
+    "categoryNotFound": "Kategorie nebyla nalezena pro úpravy",
+    "missingEmail": "Chybí e-mailová adresa",
+    "missingEmailStripe": "Bez e-mailové adresy nelze vytvořit platební relaci",
+    "permissionDenied": "Povolení odepřeno",
+    "somethingWrong": "Něco se pokazilo"
+  },
+  "ERROR": {
+    "ANONYMOUS_SHIPPING_DOMESTIC_ONLY": "Anonymní zasílání balíků je k dispozici pouze pro vnitrostátní přepravu.",
+    "BUYING_DISABLED": "Zpracování objednávky není k dispozici",
+    "INCOMPLETE_ORDER_DATA": "Neúplné údaje objednávky",
+    "INVALID_PRICES": "Neplatné ceny, znovu přidejte produkty do košíku",
+    "INVALID_PRODUCTS": "Neplatné produkty, přidejte produkty znovu do košíku",
+    "INVALID_STORE_CREDIT_CURRENCY": "Kredit obchodu lze použít pouze v měně kreditu obchodu.",
+    "INSUFFICIENT_STOCK": "Některé položky košíku již nejsou dostupné v požadovaném množství.",
+    "NOT_FOUND": "Nenalezeno",
+    "ORDER_CREATION_FAILED": "Vytvoření objednávky se nezdařilo",
+    "STOCK_CHECK_FAILED": "Nepodařilo se ověřit dostupnost skladu. Zkuste to prosím znovu.",
+    "STOCK_NOT_FOUND": "U některých položek košíku chybí skladové záznamy.",
+    "STORE_CREDIT_EXCEEDS_BALANCE": "Výše kreditu obchodu přesahuje dostupný zůstatek.",
+    "UNAUTHENTICATED": "Žádná oprávnění",
+    "UNAUTHORIZED": "Žádná oprávnění",
+    "WRONG_USER": "Špatný uživatel"
+  },
+  "errors": {
+    "fileProcessingError": "Chyba při zpracování souboru",
+    "somethingWentWrong": "Něco se pokazilo",
+    "valueLabelPairsError": "Při vytváření párů hodnota-štítek došlo k chybě"
+  },
+  "false": "ne",
+  "file": {
+    "exportedSuccessfully": "Soubor byl úspěšně exportován",
+    "exporting": "Exportování...",
+    "importedSuccessfully": "Soubor byl úspěšně importován",
+    "processingError": "Chyba při zpracování souboru",
+    "processingErrorDetail": "Chyba při zpracování souboru: {{error}}"
+  },
+  "forgotPassword": {
+    "sent": "Zpráva byla odeslána",
+    "sentDescription": "Na zadanou e-mailovou adresu byl odeslán odkaz pro obnovení hesla"
+  },
+  "forms": {
+    "anonymousPackageLabelAddress": {
+      "city": "město",
+      "cityPlaceholder": "město",
+      "company": "Společnost",
+      "companyPlaceholder": "Společnost",
+      "description": "Volitelné. Pokud vyplníte tato pole, může být tato adresa odesílatele použita na štítku zásilky namísto naší výchozí.",
+      "email": "E-mail",
+      "emailPlaceholder": "E-mail",
+      "labelName": "Název adresy štítku",
+      "labelNamePlaceholder": "např. Odesílatel na štítku",
+      "name": "Celé jméno",
+      "namePlaceholder": "Jméno a příjmení",
+      "phone": "Telefon",
+      "phonePlaceholder": "Telefon",
+      "street": "Ulice",
+      "streetPlaceholder": "Ulice a číslo",
+      "zip": "PSČ",
+      "zipPlaceholder": "PSČ"
+    },
+    "anonymousPackageShipping": {
+      "description": "Pokud zvolíte anonymní zasílání balíků, naše společnost se na štítku zásilky neobjeví.",
+      "heading": "Chcete, aby zásilka balíku byla anonymní?",
+      "internationalUnavailable": "Anonymní přeprava balíků není k dispozici pro mezinárodní přepravu.",
+      "label": "Anonymní zasílání balíků",
+      "tooltip": "V závislosti na kurýrní společnosti, která zásilku zpracovává, se odesílatel objeví jako poskytnutá adresa nebo logistické centrum kurýra. Poskytovatel přepravy, jako je InPost nebo DHL, bude vybrán na základě anonymní dostupnosti zásilky. Anonymní zasílání balíků není možné s dobírkou nebo mezinárodní dopravou."
+    },
+    "b2b": {
+      "labels": {
+        "businessDescription": "Popis činnosti",
+        "city": "město",
+        "companyName": "Název společnosti",
+        "nip": "NIP (daňové identifikační číslo)",
+        "postalCode": "PSČ",
+        "street": "Ulice"
+      },
+      "placeholders": {
+        "city": "město",
+        "companyName": "Název společnosti",
+        "min_150Max_500Chars": "min. 150 znaků, max. 500 znaků",
+        "nip": "NIP",
+        "postalCode": "PSČ",
+        "street": "Ulice"
+      }
+    },
+    "headings": {
+      "address": "Adresa",
+      "addresses": "Adresy",
+      "basicInformation": "Základní informace",
+      "billingAddress": "Fakturační adresa",
+      "businessInformation": "Obchodní informace",
+      "contact": "Kontakt",
+      "contacts": "Kontakty",
+      "customSizes": "Vlastní velikosti",
+      "delivery": "Doručení",
+      "deliveryNotes": "Doručení a poznámky",
+      "filePreparation": "Příprava souboru",
+      "fileVerification": "Ověření souboru",
+      "freeShipping": "Doprava zdarma",
+      "locker": "Skříňka",
+      "options": "Možnosti",
+      "postalCodeMachine": "Stroj na PSČ",
+      "price": "Cena",
+      "priceRanges": "Cenové rozpětí",
+      "promotionRules": "Pravidla propagace",
+      "quantities": "Množství",
+      "realization": "Realizace",
+      "settings": "Nastavení",
+      "shipping": "Doprava",
+      "shippingAddress": "Dodací adresa",
+      "shippingCosts": "Přepravní náklady",
+      "shippingNotes": "Doručení a poznámky",
+      "specification": "Specifikace",
+      "tracking": "Sledování zásilek",
+      "verification": "Ověření souboru",
+      "volumes": "Svazky"
+    },
+    "help": {
+      "pageCount": "Vyberte si od {{minimum}} do {{maximum}} v krocích {{step}}. Titulní stránky (+{{coverPages}}) jsou opraveny."
+    },
+    "helperTexts": {
+      "invoiceNotes": "Tyto poznámky budou viditelné na faktuře.",
+      "invoiceRecipientEnabled": "Použijte, pokud by se na faktuře měl objevit jiný příjemce než kupující.",
+      "jstRecipientEnabled": "Použijte, když by se jako příjemce faktury měla objevit polská místní vládní jednotka."
+    },
+    "invoiceRecipientRoleOptions": {
+      "additionalBuyer": "Další kupující",
+      "employee": "Zaměstnanec",
+      "jst": "Místní vládní jednotka",
+      "other": "Jiná role",
+      "payer": "Platící strana",
+      "recipient": "Příjemce",
+      "vatGroupMember": "Člen skupiny pro DPH"
+    },
+    "pageCountBreakdown": "{{innerPages}} (vnitřní) + {{coverPages}} (obálka)",
+    "labels": {
+      "active": "Aktivní",
+      "addressType": "Typ adresy",
+      "apartment": "Byt",
+      "attribute": "Atribut",
+      "availableDeliveryTypes": "Dostupné typy doručení",
+      "b2b": "B2B",
+      "billingAddress": "Fakturační adresa",
+      "carriedOutBy": "Provádí",
+      "categories": "Kategorie",
+      "category": "Kategorie",
+      "chooseParcelLocker": "Vyberte si schránku na balíky",
+      "city": "město",
+      "color": "Barva",
+      "companyData": "Údaje o společnosti",
+      "companyName": "Název společnosti",
+      "contact": "Kontakt",
+      "contactName": "Jméno kontaktu",
+      "cost": "náklady",
+      "country": "země",
+      "currencies": "Měny",
+      "currency": "Měna",
+      "customer": "Zákazník",
+      "customSizeName": "Název vlastní velikosti",
+      "deadline": "Termín",
+      "defaultOrder": "Výchozí objednávka",
+      "delivery": "Doručení",
+      "deliveryAddress": "Doručovací adresa",
+      "description": "Popis",
+      "difficulty": "Obtížnost",
+      "discount": "Sleva",
+      "dpi": "Dpi",
+      "email": "E-mail",
+      "expirationDate": "Datum vypršení platnosti",
+      "express": "Vyjádřit",
+      "files": "Soubory",
+      "filesStatus": "Stav souborů",
+      "fileVerification": "Ověření souboru",
+      "fullName": "Celé jméno",
+      "height": "Výška",
+      "heightStep": "Výškový krok",
+      "identifier": "Identifikátor",
+      "invoice": "Faktura",
+      "invoiceNotes": "Poznámky k faktuře",
+      "invoiceRecipientCity": "Město příjemce",
+      "invoiceRecipientEnabled": "Příjemce faktury",
+      "invoiceRecipientName": "Jméno příjemce",
+      "invoiceRecipientNip": "NIP příjemce",
+      "invoiceRecipientPostalCode": "PSČ příjemce",
+      "invoiceRecipientRole": "Role příjemce",
+      "invoiceRecipientRoleDescription": "Popis role",
+      "invoiceRecipientStreet": "Ulice příjemce",
+      "jstRecipientCity": "Město příjemce JST",
+      "jstRecipientEnabled": "Polský příjemce JST",
+      "jstRecipientName": "Jméno příjemce JST",
+      "jstRecipientNip": "NIP příjemce JST",
+      "jstRecipientPostalCode": "PSČ příjemce JST",
+      "jstRecipientStreet": "Ulice příjemce JST",
+      "label": "Štítek",
+      "likeCompany": "Jako Společnost",
+      "likeHome": "Jako Domov",
+      "link": "Odkaz",
+      "locale": "Národní prostředí",
+      "locker": "Skříňka",
+      "mailLink": "Odkaz na mail",
+      "markup": "Označení",
+      "maximumHeight": "Maximální výška",
+      "maximumOrder": "Maximální objednávka",
+      "maximumPurchaseValue": "Maximální hodnota nákupu",
+      "maximumRatio": "Maximální poměr",
+      "maximumWidth": "Maximální šířka",
+      "message": "Zpráva",
+      "minimumHeight": "Minimální výška",
+      "minimumOrder": "Minimální objednávka",
+      "minimumPurchaseValue": "Minimální hodnota nákupu",
+      "minimumRatio": "Minimální poměr",
+      "minimumWidth": "Minimální šířka",
+      "name": "Jméno",
+      "nip": "DIČ",
+      "notes": "Poznámky",
+      "number": "Číslo",
+      "operator": "Operátor",
+      "orderNotes": "Poznámky k objednávce",
+      "pageCount": "Počet stran",
+      "pages": "Stránky",
+      "paymentDocument": "Platební doklad",
+      "paymentStatus": "Stav platby",
+      "paymentType": "Typ platby",
+      "person": "Osoba",
+      "personName": "Celé jméno",
+      "phone": "Telefon",
+      "photo": "Foto",
+      "photos": "Fotografie",
+      "postalCode": "PSČ",
+      "preferredUnit": "Preferovaná jednotka",
+      "priceType": "Typ ceny",
+      "printingMethods": "Způsoby tisku",
+      "printType": "Typ tisku",
+      "priority": "Priorita",
+      "processingType": "Typ zpracování",
+      "product": "Produkt",
+      "products": "Produkty",
+      "promotionRules": "Pravidla propagace",
+      "publicationDate": "Datum zveřejnění",
+      "quantityStep": "Krok množství",
+      "sameAsBilling": "Stejná jako fakturační adresa",
+      "saveBillingAddress": "Uložit fakturační adresu",
+      "saveContact": "Uložit kontakt",
+      "saveCustomer": "Uložit zákazníka",
+      "saveShippingAddress": "Uložit dodací adresu",
+      "shippingAddress": "Dodací adresa",
+      "shippingOption": "Možnost dopravy",
+      "slug": "Slimák",
+      "specialNotes": "Zvláštní poznámky",
+      "standard": "Standardní",
+      "status": "Stav",
+      "step": "Krok",
+      "street": "Ulice",
+      "subtitle": "Titulky",
+      "threshold": "Práh",
+      "title": "Název",
+      "trackingNumber": "Sledovací číslo",
+      "translation": "Překlad",
+      "unit": "Jednotka",
+      "unitsPerSheet": "Jednotky na list",
+      "value": "Hodnota",
+      "verification": "Ověření souboru",
+      "wantInvoice": "Chci obdržet fakturu",
+      "warehouses": "Sklady",
+      "width": "Šířka",
+      "widthStep": "Krok šířky",
+      "zip": "zip"
+    },
+    "placeholders": {
+      "3dModelPreview": "Šablona 3D náhledu",
+      "active": "Aktivní",
+      "allowCustomPrice": "Povolit vlastní cenu",
+      "allowCustomSize": "Povolit vlastní velikost",
+      "apartment": "1",
+      "attributeAffectsPrice": "Atribut ovlivňuje cenu",
+      "attributeContainsSizes": "Atribut obsahuje velikosti",
+      "availableForPurchase": "K dispozici ke koupi",
+      "bleed": "Vykrvácet",
+      "city": "město",
+      "comments": "Komentáře",
+      "companyName": "Název společnosti",
+      "contactName": "Jméno kontaktu",
+      "country": "země",
+      "currency": "Měna",
+      "customDimension": "Vlastní rozměr",
+      "customSizeName": "Název vlastní velikosti",
+      "deadline": "Termín",
+      "decidesRequiredPages": "Rozhoduje o počtu požadovaných stran",
+      "defaultOrder": "Výchozí pořadí",
+      "description": "Popis",
+      "difficulty": "Obtížnost",
+      "difficulty_1_10": "Obtížnost od 1 do 10",
+      "domainEmail": "jméno@doména",
+      "dpi": "Dpi",
+      "email": "E-mail",
+      "enableBuying": "Povolit nákup?",
+      "enableFreeShipping": "Povolit dopravu zdarma?",
+      "enableUnderConstruction": "Povolit režim ve výstavbě?",
+      "enterHeight": "Zadejte výšku...",
+      "enterLink": "Zadejte odkaz",
+      "enterOptionCost": "Zadejte cenu opce...",
+      "enterPageCount": "Zadejte počet stránek...",
+      "enterRuleDescription": "Zadejte popis pravidla",
+      "enterUnitsPerSheet": "Zadejte jednotky na list...",
+      "enterWidth": "Zadejte šířku...",
+      "exactTime": "Přesný čas",
+      "example_5000": "5000",
+      "example_500000": "500000",
+      "example_5000000": "5000000",
+      "exampleA4": "A4",
+      "exampleA4Lowercase": "a4",
+      "exampleStreet": "Příklad",
+      "fullName": "Celé jméno",
+      "height": "Výška",
+      "heightStep": "Výškový krok",
+      "hideOption": "Možnost Skrýt",
+      "home": "Domů",
+      "identifier": "Identifikátor",
+      "includeBleed": "Zahrnout krvácení",
+      "isTest": "Je test",
+      "janKowalski": "John Smith",
+      "jstRecipientName": "Název místní vládní jednotky",
+      "likeCompany": "např. Společnost",
+      "likeHome": "např. Domů",
+      "link": "Odkaz",
+      "locale": "Vyberte národní prostředí...",
+      "markup": "Označení",
+      "maximumHeight": "Maximální výška",
+      "maximumOrder": "Maximální objednávka",
+      "maximumRatio": "Maximální poměr",
+      "maximumWidth": "Maximální šířka",
+      "minimumHeight": "Minimální výška",
+      "minimumOrder": "Minimální objednávka",
+      "minimumRatio": "Minimální poměr",
+      "minimumWidth": "Minimální šířka",
+      "mySubtitle": "Můj titulek",
+      "myTitle": "Můj titul",
+      "name": "Jméno",
+      "nameDomainPl": "jmeno@domena.com",
+      "nip": "Nip",
+      "nipNumber": "0000000000",
+      "invoiceNotes": "Poznámky viditelné na faktuře",
+      "invoiceRecipientName": "Jméno příjemce",
+      "invoiceRecipientRole": "Vyberte roli příjemce",
+      "invoiceRecipientRoleDescription": "Zadejte roli příjemce",
+      "notes": "Poznámky",
+      "number": "1",
+      "paymentDocument": "Platební doklad",
+      "phone": "123456789",
+      "poland": "Polsko",
+      "postalCode": "00-000",
+      "price": "Cena",
+      "priceType": "Typ ceny",
+      "printType": "Typ tisku",
+      "priority": "Priorita",
+      "published": "Publikováno",
+      "recommendOnHomepage": "Doporučit na domovské stránce",
+      "requireThisAttribute": "Vyžadovat tento atribut",
+      "saveAddress": "Uložit adresu",
+      "saveAsNewBillingAddress": "Uložit jako novou fakturační adresu",
+      "saveAsNewContact": "Uložit jako nový kontakt",
+      "saveAsNewCustomer": "Uložit jako nový zákazník",
+      "saveShippingAddress": "Uložit dodací adresu",
+      "search": "Hledat...",
+      "selectAddressType": "Vyberte typ adresy...",
+      "selectAttribute": "Vyberte atribut...",
+      "selectAttributeType": "Vyberte typ atributu...",
+      "selectBillingAddress": "Vyberte fakturační adresu...",
+      "selectCarriedOutBy": "Vybrat provedl",
+      "selectCategory": "Vyberte kategorii",
+      "selectContact": "Vyberte kontakt...",
+      "selectCurrencies": "Vyberte měny...",
+      "selectCurrency": "Vyberte měnu...",
+      "selectDelivery": "Vyberte možnost doručení...",
+      "selectDeliveryAddress": "Vyberte doručovací adresu",
+      "selectDeliveryTypes": "Vyberte typy doručení",
+      "selectFilesStatus": "Vyberte stav souborů",
+      "selectModel": "Vyberte model...",
+      "selectOperator": "Vyberte operátora",
+      "selectPaymentStatus": "Vyberte stav platby",
+      "selectPaymentType": "Vyberte typ platby",
+      "selectPrintingMethods": "Vyberte způsob tisku...",
+      "selectShippingAddress": "Vyberte dodací adresu...",
+      "selectStatus": "Vyberte stav...",
+      "selectWarehouses": "Vyberte sklady...",
+      "shippingPossible": "Doprava možná",
+      "siteUnderConstruction": "Místo je ve výstavbě",
+      "slug": "slimák",
+      "specialNotes": "Zvláštní poznámky",
+      "step": "Krok",
+      "street": "Ulice",
+      "streetAndNumber": "Ulice a číslo, byt, jednotka",
+      "taxId": "DIČ",
+      "threshold": "Práh",
+      "title": "Název",
+      "trackingNumber": "Sledovací číslo",
+      "underConstruction": "Místo je ve výstavbě",
+      "validateRatio": "Ověřit poměr",
+      "value": "Hodnota",
+      "verification": "Ověření souboru",
+      "wantInvoice": "Chci obdržet fakturu",
+      "warsaw": "Varšava",
+      "width": "Šířka",
+      "widthStep": "Krok šířky",
+      "zero": "nula",
+      "zip": "zip"
+    }
+  },
+  "FormTypes": {
+    "CONVERT": "Převést",
+    "CREATE": "Vytvořit",
+    "DUPLICATE": "Kopírovat",
+    "UPDATE": "Upravit"
+  },
+  "languages": {
+    "cs": "Čeština",
+    "de": "německy",
+    "en": "anglicky",
+    "fr": "Français",
+    "pl": "Polski",
+    "sk": "slovenština",
+    "uk": "Українська"
+  },
+  "LayoutType": {
+    "BOOKLET": "Brožura",
+    "CUT_STACK": "Cut Stack",
+    "DUTCH_CUT": "Holandský střih",
+    "N_UP": "N-Up",
+    "SHUFFLE": "Zamíchat",
+    "STEP_AND_REPEAT": "Krok a opakujte"
+  },
+  "login": {
+    "guestSuccess": "Jste přihlášeni jako host",
+    "success": "Přihlášeno",
+    "successDescription": "Byli jste přihlášeni ke svému účtu"
+  },
+  "logout": {
+    "success": "Odhlášen",
+    "successDescription": "Byli jste odhlášeni ze svého účtu"
+  },
+  "mfa": {
+    "description": "Přidejte do svého účtu další vrstvu zabezpečení tím, že povolíte dvoufaktorové ověřování pomocí ověřovací aplikace.",
+    "emailVerification": {
+      "description": "Zkontrolujte, zda v doručené poště nemáte ověřovací odkaz. MFA lze povolit po ověření vašeho e-mailu.",
+      "resend": "Znovu odeslat ověřovací e-mail",
+      "sendFailed": "Odeslání ověřovacího e-mailu se nezdařilo",
+      "sentDescription": "Zkontrolujte svou doručenou poštu a kliknutím na odkaz ověřte svou e-mailovou adresu.",
+      "sentTitle": "Ověřovací e-mail odeslán",
+      "title": "Chcete-li aktivovat MFA, ověřte svůj e-mail"
+    },
+    "enable": "Povolit dvoufaktorové ověření",
+    "enrolledOn": "Zapsáno dne {{date}}",
+    "errors": {
+      "codeLength": "Zadejte 6místný kód.",
+      "emailNotVerified": "E-mail není ověřen",
+      "emailNotVerifiedDescription": "Před povolením dvoufaktorového ověřování ověřte svou e-mailovou adresu.",
+      "enrollmentFailed": "Registrace se nezdařila",
+      "invalidCode": "Neplatný kód",
+      "invalidVerificationCode": "Neplatný ověřovací kód. Zkontrolujte prosím a zkuste to znovu.",
+      "notAuthenticated": "Neověřeno",
+      "notAuthenticatedDescription": "Pro aktivaci MFA se prosím přihlaste.",
+      "noTotpFactor": "Pro tento účet nebyl nalezen žádný faktor TOTP.",
+      "recentLoginRequiredDescription": "Z bezpečnostních důvodů se prosím znovu přihlaste a opakujte tuto akci.",
+      "recentLoginRequiredTitle": "Je vyžadováno opětovné ověření",
+      "unenrollFailed": "MFA se nepodařilo zakázat",
+      "unknownError": "Došlo k neznámé chybě.",
+      "verificationFailed": "Ověření se nezdařilo"
+    },
+    "factorName": "Aplikace Authenticator",
+    "issuerName": "Konfi",
+    "remove": "Odebrat",
+    "sectionDescription": "Spravujte pro svůj účet dvoufaktorové ověřování.",
+    "sectionTitle": "Bezpečnost",
+    "setup": {
+      "manualEntry": "Nemůžete skenovat? Zadejte tento kód ručně:",
+      "step1Description": "Otevřete aplikaci pro ověřování (např. Google Authenticator, Authy) a naskenujte tento QR kód.",
+      "step1Title": "Krok 1: Naskenujte QR kód",
+      "step2Description": "Pro ověření nastavení zadejte 6místný kód zobrazený ve vaší ověřovací aplikaci.",
+      "step2Title": "Krok 2: Zadejte ověřovací kód"
+    },
+    "status": {
+      "disabled": "Dvoufaktorové ověřování je zakázáno",
+      "disabledDescription": "Povolte dvoufaktorové ověřování a přidejte do svého účtu další vrstvu zabezpečení.",
+      "enabled": "Je povolena dvoufaktorová autentizace",
+      "enabledDescription": "Váš účet je chráněn pomocí ověřovací aplikace."
+    },
+    "success": {
+      "enrolled": "MFA povoleno",
+      "enrolledDescription": "Pro váš účet bylo povoleno dvoufaktorové ověřování.",
+      "unenrolled": "MFA deaktivováno",
+      "unenrolledDescription": "Dvoufaktorové ověřování bylo pro váš účet zakázáno."
+    },
+    "title": "Dvoufaktorová autentizace",
+    "unenroll": {
+      "confirm": "Zakázat MFA",
+      "title": "Zakázat dvoufaktorové ověřování",
+      "warningDescription": "Po deaktivaci dvoufaktorové autentizace bude váš účet chráněn pouze vaším heslem.",
+      "warningTitle": "Tím se sníží zabezpečení vašeho účtu"
+    },
+    "verification": {
+      "description": "Dokončete přihlášení zadáním 6místného kódu z aplikace pro ověřování.",
+      "hint": "Otevřete aplikaci pro ověřování (např. Google Authenticator, Authy) a získejte ověřovací kód.",
+      "title": "Dvoufaktorová autentizace",
+      "verify": "Ověřte"
+    },
+    "verificationCode": "Ověřovací kód",
+    "verify": "Ověřit a povolit"
+  },
+  "newsletter": {
+    "description": "Získejte aktualizace o akcích, exkluzivních nabídkách a nových produktech!",
+    "disclaimer": "*Speciální nabídka dostupná výhradně pro online nákupy!",
+    "subscribeButton": "Přihlásit se k odběru",
+    "subscribed": "Odebírání newsletteru bylo úspěšné",
+    "subscribeError": "Přihlášení k odběru newsletteru se nezdařilo",
+    "title": "Přihlaste se k odběru newsletteru a získejte 10% slevu",
+    "unsubscribed": "Odběr newsletteru byl úspěšně odhlášen",
+    "unsubscribeError": "Zrušení odběru newsletteru se nezdařilo"
+  },
+  "NEWSLETTER_ERRORS": {
+    "already-exists": "Již přihlášeno",
+    "internal": "Interní chyba serveru",
+    "not-found": "Nenalezeno",
+    "unauthenticated": "Žádná oprávnění"
+  },
+  "NEWSLETTER_SUBSCRIBE_MESSAGES": {
+    "SUCCESS": "Úspěšně přihlášeni",
+    "UPDATED": "Úspěšně aktualizováno"
+  },
+  "NEWSLETTER_UNSUBSCRIBE_MESSAGES": {
+    "SUCCESS": "Úspěšně odhlášeno"
+  },
+  "NoteCategory": {
+    "CUSTOMER": "Zákazník",
+    "GENERAL": "Generál",
+    "INTERNAL": "Interní",
+    "INVOICE": "Faktura",
+    "ORDER": "Objednat",
+    "PAYMENT": "Platba",
+    "PRODUCT": "Produkt",
+    "QUOTE": "Citace",
+    "SHIPPING": "Doprava",
+    "TASK": "Úkol"
+  },
+  "NoteEntityType": {
+    "CUSTOMER": "Zákazník",
+    "ORDER": "Objednat",
+    "PRODUCT": "Produkt"
+  },
+  "NotePriority": {
+    "HIGH": "Vysoká priorita",
+    "LOW": "Nízká priorita",
+    "MEDIUM": "Střední priorita",
+    "URGENT": "Naléhavé!"
+  },
+  "notes": {
+    "assigneesUpdated": "Přiřazení aktualizováni",
+    "assigneesUpdatedDescription": "Přiřazení byli aktualizováni.",
+    "assigneesUpdateError": "Při aktualizaci příjemců došlo k chybě."
+  },
+  "op": {
+    "==": "rovná se",
+    "in": "v"
+  },
+  "optionalConsent": "Zobrazit volitelná nastavení souhlasu",
+  "options": {
+    "pairsCreationError": "Chyba při vytváření párů hodnota-štítek: {{error}}"
+  },
+  "order": {
+    "created": "Objednávka vytvořena",
+    "createdDescription": "Nová objednávka byla úspěšně vytvořena",
+    "createdDev": "Objednávka vytvořena bez uložení (DEV)",
+    "createdDevDescription": "Nová objednávka byla úspěšně vytvořena",
+    "createWzCi": "Vytvořit CI",
+    "fulfilled": "Splněno",
+    "generated": "Objednávka vygenerována",
+    "generatedDescription": "Objednávka byla vygenerována na základě informací o zákazníkovi",
+    "generationFailed": "Objednávku se nepodařilo vygenerovat",
+    "inProgress": "Probíhá",
+    "notCreated": "Objednávka nebyla vytvořena",
+    "notCreatedError": "Objednávka nebyla vytvořena, kód chyby: {{error}}",
+    "notFoundForEdit": "Objednávka nebyla nalezena k úpravě",
+    "notUpdatedError": "Objednávka nebyla aktualizována, kód chyby: {{error}}",
+    "setFulfilled": "Nastaveno na splněno",
+    "setFulfilledConfirmation": "Chcete nastavit stav na 'Splněno'?",
+    "setInProgress": "Nastaveno na probíhá",
+    "setInProgressConfirmation": "Chcete nastavit stav na „Probíhá“?",
+    "showDetails": "Zobrazit podrobnosti",
+    "updated": "Objednávka aktualizována",
+    "updatedDescription": "Objednávka byla úspěšně aktualizována",
+    "updatedDev": "Objednávka aktualizována bez uložení (DEV)",
+    "updatedDevDescription": "Objednávka byla úspěšně aktualizována"
+  },
+  "orderCard": {
+    "changePayment": "Změnit způsob platby",
+    "downloadInvoice": "Stáhnout fakturu"
+  },
+  "orderDetails": {
+    "freeShipping": "Zdarma!",
+    "heading": "Shrnutí",
+    "productValue": "Hodnota produktu:",
+    "saved": "Uloženo:",
+    "shippingValue": "Doprava:",
+    "storeCredit": "Kredit obchodu:",
+    "summaryInfo": "*Ceny jsou včetně DPH.",
+    "total": "Celkem:"
+  },
+  "orders": {
+    "billingEmptyState": "Tento zákazník nemá uložené žádné fakturační adresy. Níže vyplňte fakturační údaje.",
+    "contactEmptyState": "Tento zákazník nemá žádné kontakty. Níže vyplňte kontaktní údaje."
+  },
+  "OrderFilesStatus": {
+    "FILES_ARE_READY": "Připraveno k tisku",
+    "FOR_PREPARATION": "Na přípravu",
+    "FOR_VERIFICATION": "Pro ověření",
+    "UNDER_DESIGN": "Podle návrhu",
+    "WAITING_FOR_FILES": "Čekání na soubory",
+    "WAITING_FOR_FILES_APPROVAL": "Čekání na schválení zákazníkem"
+  },
+  "orderPage": {
+    "activity": {
+      "collapse": "kolaps",
+      "expand": "Rozbalit",
+      "heading": "Aktivita"
+    },
+    "attachments": "Přílohy",
+    "customer": {
+      "anonymousPackageShipping": "Anonymní zasílání balíků",
+      "billing": "Fakturační adresa",
+      "contact": "Kontakt",
+      "heading": "Zákazník",
+      "invoiceRecipient": "Příjemce faktury",
+      "shipping": "Dodací adresa",
+      "tracking": "Sledovat zásilku"
+    },
+    "items": "Položky",
+    "payment": {
+      "changeError": "Nepodařilo se změnit platební metodu",
+      "changeMethod": "Změňte způsob platby",
+      "changeMethodTitle": "Změnit způsob platby",
+      "changeSuccess": "Způsob platby byl aktualizován",
+      "copyPaymentLink": "Zkopírujte odkaz pro platbu",
+      "heading": "Platba",
+      "methodUpdated": "Způsob platby byl aktualizován",
+      "netTotal": "Čistý součet",
+      "partial_sum": "Částečný součet",
+      "redirectingToPayment": "Přesměrování na platbu...",
+      "selectNewMethod": "Vyberte nový způsob platby pro tuto objednávku",
+      "shipping": "Doprava",
+      "storeCredit": "Prodejní kredit",
+      "taxTotal": "daň",
+      "total": "Celkem",
+      "updateMethod": "Aktualizujte platební metodu",
+      "tracking": "Sledovat zásilku"
+    },
+    "rma": {
+      "createErrorTitle": "Požadavek RMA nebyl odeslán",
+      "createSuccessDescription": "Vaši žádost posoudíme a budeme Vás kontaktovat.",
+      "createSuccessTitle": "Požadavek RMA odeslán",
+      "description": "Odešlete žádost o vrácení, výměnu nebo reklamaci této objednávky.",
+      "descriptionHint": "Minimálně 10 znaků.",
+      "descriptionLabel": "Co se stalo?",
+      "descriptionPlaceholder": "Popište problém, očekávané řešení a veškeré podrobnosti, které nám pomohou žádost zkontrolovat…",
+      "empty": "Dosud nebyly odeslány žádné žádosti o RMA.",
+      "errors": {
+        "customerNotFound": "Před odesláním požadavku se znovu přihlaste.",
+        "descriptionTooLong": "Zkraťte popis a zkuste to znovu.",
+        "descriptionTooShort": "Přidejte alespoň 10 znaků k popisu problému.",
+        "invalidItems": "Vyberte alespoň jednu položku objednávky.",
+        "missingContext": "Znovu načtěte objednávku a zkuste to znovu.",
+        "orderNotFound": "Znovu načtěte objednávku a zkuste to znovu.",
+        "unauthorized": "Před odesláním požadavku se znovu přihlaste.",
+        "unknown": "Zkuste to znovu nebo kontaktujte podporu."
+      },
+      "heading": "Vrácení zboží a reklamace",
+      "itemsLabel": "Dotčené položky",
+      "loading": "Načítání požadavků RMA…",
+      "quantityLabel": "Ovlivněné množství",
+      "submit": "Odeslat žádost",
+      "typeLabel": "Typ požadavku",
+      "typePlaceholder": "Vyberte typ požadavku"
+    },
+    "specialNotes": {
+      "empty": "Žádné zvláštní poznámky",
+      "heading": "Zvláštní poznámky"
+    }
+  },
+  "RmaRequestStatus": {
+    "APPROVED": "Schváleno",
+    "CANCELED": "Zrušeno",
+    "COMPLETED": "Dokončeno",
+    "NEW": "Nové",
+    "REJECTED": "Odmítnuto",
+    "UNDER_REVIEW": "Probíhá kontrola"
+  },
+  "RmaRequestType": {
+    "CLAIM": "Nárokovat",
+    "EXCHANGE": "Výměna",
+    "RETURN": "Návrat"
+  },
+  "OrderStatus": {
+    "CANCELED": "Zrušeno",
+    "DELAYED": "Zpožděno",
+    "DELIVERED": "Doručeno",
+    "DRAFT": "Koncept",
+    "FULFILLED": "Splněno",
+    "IN_PROGRESS": "Probíhá",
+    "NEW": "Nové",
+    "PICKED_UP": "Sebráno",
+    "READY": "Připraveno",
+    "SHIPPED": "Odesláno",
+    "UNDER_REVIEW": "Probíhá kontrola",
+    "WAITING_FOR_MATERIALS": "Čekání na materiály"
+  },
+  "PaperOrientations": {
+    "LANDSCAPE": "Krajina",
+    "PORTRAIT": "Portrét"
+  },
+  "PaperSizes": {
+    "10x14": "10x14 (254x356 mm)",
+    "11x17": "11x17 (279x432 mm)",
+    "2A0": "2A0 (1189x1682 mm)",
+    "4A0": "4A0 (1682x2378 mm)",
+    "A0": "A0 (841 x 1189 mm)",
+    "A1": "A1 (594 x 841 mm)",
+    "A10": "A10 (26x37 mm)",
+    "A2": "A2 (420 x 594 mm)",
+    "A2EXTRA": "A2 Extra (445 x 619 mm)",
+    "A3": "A3 (297 x 420 mm)",
+    "A3EXTRA": "A3 Extra (322x445 mm)",
+    "A3SUPER": "A3 Super (305 x 508 mm)",
+    "A4": "A4 (210 x 297 mm)",
+    "A4EXTRA": "A4 Extra (235x322 mm)",
+    "A4LONG": "A4 dlouhý (210x348 mm)",
+    "A4SUPER": "A4 Super (229 x 322 mm)",
+    "A5": "A5 (148 x 210 mm)",
+    "A5EXTRA": "A5 Extra (173x235 mm)",
+    "A6": "A6 (105 x 148 mm)",
+    "A7": "A7 (74 x 105 mm)",
+    "A8": "A8 (52 x 74 mm)",
+    "A9": "A9 (37x52 mm)",
+    "ARCH1": "Oblouk1 (229x305 mm)",
+    "ARCH2": "Oblouk2 (305x457 mm)",
+    "ARCH3": "Oblouk 3 (457x610 mm)",
+    "ARCH4": "Oblouk 4 (610x914 mm)",
+    "ARCH5": "Arch5 (914x1219 mm)",
+    "ARCH6": "Arch6 (1219x1524 mm)",
+    "ARCHA": "ArchA (229x305 mm)",
+    "ARCHB": "ArchB (305x457 mm)",
+    "ARCHC": "ArchC (457x610 mm)",
+    "ARCHD": "ArchD (610x914 mm)",
+    "ARCHE": "ArchE (914x1219 mm)",
+    "ARCHE1": "ArchE1 (762x1067 mm)",
+    "ARCHE2": "ArchE2 (965x1321 mm)",
+    "ARCHE3": "ArchE3 (991 x 1321 mm)",
+    "B0": "B0 (1000x1414 mm)",
+    "B1": "B1 (707x1000 mm)",
+    "B10": "B10 (31x44 mm)",
+    "B2": "B2 (500x707 mm)",
+    "B3": "B3 (353 x 500 mm)",
+    "B4": "B4 (250x353 mm)",
+    "B5": "B5 (176x250 mm)",
+    "B6": "B6 (125 x 176 mm)",
+    "B7": "B7 (88x125 mm)",
+    "B8": "B8 (62x88 mm)",
+    "B9": "B9 (44x62 mm)",
+    "C0": "C0 (917 x 1297 mm)",
+    "C1": "C1 (648 x 917 mm)",
+    "C10": "C10 (28x40 mm)",
+    "C2": "C2 (458 x 648 mm)",
+    "C3": "C3 (324x458 mm)",
+    "C4": "C4 (229x324 mm)",
+    "C5": "C5 (162 x 229 mm)",
+    "C6": "C6 (114 x 162 mm)",
+    "C7": "C7 (81x114 mm)",
+    "C8": "C8 (57x81 mm)",
+    "C9": "C9 (40x57 mm)",
+    "EXECUTIVE": "Executive (184 x 267 mm)",
+    "FLSA": "FLSA (216x330 mm)",
+    "FLSE": "FLSE (216x330 mm)",
+    "FOLIO": "Folio (216x330 mm)",
+    "GOVERNMENTLEGAL": "Státní zákon (216 x 330 mm)",
+    "GOVERNMENTLETTER": "Vládní dopis (203 x 267 mm)",
+    "HALFLETTER": "Poloviční písmeno (140 x 216 mm)",
+    "JUNIORLEGAL": "Junior Legal (127x203 mm)",
+    "LEDGER": "Ledger (432x279 mm)",
+    "LEGAL": "Právní – USA (216x356 mm)",
+    "LETTER": "Letter – US (216x279 mm)",
+    "MEMO": "Poznámka (140 x 216 mm)",
+    "NOTE": "Poznámka (190 x 254 mm)",
+    "SOB5EXTRA": "B5 Extra (201x276 mm)",
+    "SRA0": "SRA0 (900x1280 mm)",
+    "SRA1": "SRA1 (640x900 mm)",
+    "SRA2": "SRA2 (450x640 mm)",
+    "SRA3": "SRA3 (320x450 mm)",
+    "SRA4": "SRA4 (225x320 mm)",
+    "SRA5": "SRA5 (160x225 mm)",
+    "STATEMENT": "Statement (140x216 mm)",
+    "SUPERA3": "Super A3 (305 x 487 mm)",
+    "SUPERA4": "Super A4 (227 x 356 mm)",
+    "TABLOID": "Tabloid (279 x 432 mm)"
+  },
+  "password": {
+    "changed": "Heslo bylo změněno"
+  },
+  "paymentStatus": "Platba",
+  "PaymentStatus": {
+    "CANCELED": "Zrušeno",
+    "COMPLETED": "Dokončeno",
+    "DRAFT": "Koncept",
+    "NEW": "Nové",
+    "PARTIALLY_PAID": "Částečně zaplaceno",
+    "PENDING": "Čeká na vyřízení",
+    "REFUNDED": "Vráceno"
+  },
+  "PaymentType": {
+    "ALLEGRO": "Allegro",
+    "BANK_TRANSFER": "Bankovní převod",
+    "CARD": "Karta",
+    "DEFERRED": "Potvrzení objednávky/CI",
+    "ON_DELIVERY": "Na dobírku",
+    "ON_PICKUP": "Při vyzvednutí",
+    "PROFORMA": "Proforma",
+    "PRZELEWY24": "Przelewy24",
+    "STRIPE": "Proužek"
+  },
+  "PreflightRules": {
+    "PreflightRulesMaxVersion": "PDF verze",
+    "PreflightRulesMinPpi": "Nízké rozlišení",
+    "PreflightRulesNoColor": "Nebyl zjištěn žádný barevný prostor",
+    "PreflightRulesNoFilespecs": "Nevložené soubory",
+    "PreflightRulesNoGreyscale": "Stupně šedi",
+    "PreflightRulesNoPalettenized": "Barevná paleta",
+    "PreflightRulesNoRgb": "RGB barvy",
+    "PreflightRulesNoTransparency": "Transparentnost",
+    "PreflightRulesOnlyEmbeddedFonts": "Nezabudovaná písma"
+  },
+  "price": {
+    "beforeDiscount": "Cena před slevou",
+    "noConfiguration": "Nebyla nalezena žádná konfigurace",
+    "thresholdSummaryItem": "> {{threshold}} {{unit}} {{unitPrice}}",
+    "thresholdSummaryLabel": "Cenové úrovně",
+    "thresholdDetail": "Úroveň z {{threshold}} {{unit}}"
+  },
+  "PriceTypeEnum": {
+    "MATRIX": "Matice",
+    "SINGLE": "Svobodný",
+    "THRESHOLD": "Práh"
+  },
+  "PrintingMethod": {
+    "CUTTING": "Řezání",
+    "DIGITAL": "Digitální",
+    "DTF": "DTF",
+    "ECO_SOLVENT": "Ekologické rozpouštědlo",
+    "INSTALLATION": "Instalace",
+    "LARGE_FORMAT": "Velký formát",
+    "LASER": "laser",
+    "OFFSET": "Offset",
+    "UV": "UV"
+  },
+  "product": {
+    "finishing": {
+      "configure": "Nakonfigurujte dokončování",
+      "cutToSize": "Nakrájejte na velikost",
+      "cutToSizeHint": "Ořízněte všechny okraje na konečnou velikost. Tím se odstraní výztuže a tunely, ale průchodky mohou zůstat aktivní.",
+      "currentConfiguration": "Aktuální konfigurace",
+      "dialogDescription": "Vyberte možnosti okrajů, které se mají použít na tento produkt. Střih na míru odstraňuje výztuhy a tunely, ale může zůstat v kombinaci s průchodkami.",
+      "dialogTitle": "Pokročilé dokončovací práce",
+      "edit": "Dokončení úprav",
+      "grommets": "Průchodky",
+      "grommetsHint": "Přidejte průchodky na vybrané hrany. Lze kombinovat s výztuhou na stejném okraji nebo se zastřižením na míru.",
+      "grommetsOffsetEnd": "Vzdálenost od posledního rohu (cm)",
+      "grommetsOffsetEndHint": "Ponechá volné místo za poslední průchodkou na každé vybrané hraně.",
+      "grommetsOffsetStart": "Vzdálenost od prvního rohu (cm)",
+      "grommetsOffsetStartHint": "Ponechává volný prostor před první průchodkou na každé vybrané hraně.",
+      "grommetsSettings": "Rozteč průchodek a rohové vzdálenosti",
+      "grommetsSettingsEmpty": "Vyberte alespoň jednu hranu průchodky pro úpravu rozestupů a vzdáleností rohů.",
+      "grommetsSpacing": "Rozteč (cm)",
+      "grommetsSpacingHint": "Vzdálenost mezi po sobě jdoucími průchodkami na každé vybrané hraně.",
+      "grommetsSummary": "Vzdálenost {{spacing}} cm • první roh {{offsetStart}} cm • poslední roh {{offsetEnd}} cm",
+      "none": "žádný",
+      "noneSelected": "Není vybrána žádná úprava",
+      "preset": "Přednastaveno",
+      "presetPlaceholder": "Vyberte předvolbu…",
+      "presets": "Předvolby",
+      "reinforcement": "Posílení",
+      "reinforcementHint": "Vyztužení vybraných hran.",
+      "sides": {
+        "bottom": "Spodní",
+        "left": "Vlevo",
+        "right": "Správně",
+        "top": "Nahoru"
+      },
+      "sidesTitle": "Dokončení na každou stranu",
+      "tunnel": "Tunel",
+      "tunnelHint": "Svařovaný tunel na vybraných hranách. Nelze kombinovat s výztuží nebo průchodkami na stejném okraji.",
+      "unavailableWithCutToSize": "Není k dispozici, pokud je povolena možnost Oříznout na velikost."
+    }
+  },
+  "productCard": {
+    "from": "Počínaje od",
+    "new": "Nové"
+  },
+  "ProductFilters": {
+    "category": "Kategorie",
+    "isNew": "Nové produkty",
+    "price": "Cena od"
+  },
+  "ProductFiltersIsNew": {
+    "false": "všechny",
+    "true": "Nové"
+  },
+  "products": {
+    "b2bCustomerNotice": {
+      "description": "Máte přístup ke speciálním cenám B2B.",
+      "link": "Zobrazit B2B produkty",
+      "title": "B2B zákazník"
+    },
+    "clearAllFilters": "Vymazat vše",
+    "filteredCount": "Počet nalezených produktů: {{count}}",
+    "imageGeneration": {
+      "acceptButton": "Přijměte a připojte položku do košíku",
+      "acceptButtonMultiple": "Přijměte a připojte všechny soubory k položce košíku",
+      "acceptSuccess": {
+        "description": "K této položce košíku byla připojena vygenerovaná grafika finální výroby.",
+        "title": "Grafika přiložena"
+      },
+      "addToCartButton": "Přidejte do košíku s vygenerovaným souborem",
+      "addToCartButtonMultiple": "Přidejte do košíku se všemi vygenerovanými soubory",
+      "addToCartLoading": "Přidávání do košíku…",
+      "addToCartSuccess": {
+        "description": "Byla vytvořena nová položka košíku s připojenými vygenerovanými konečnými soubory.",
+        "title": "Přidáno do košíku"
+      },
+      "anonymousHint": "Host a anonymní účty nemohou používat generování obrázků. Nejprve si vytvořte úplný účet nebo se k němu přihlaste.",
+      "authHint": "Chcete-li odemknout generování obrázků, přihlaste se pomocí standardního zákaznického účtu.",
+      "cartButton": "Vytvářejte grafiku pomocí AI",
+      "cartButtonGenerating": "Probíhá generace",
+      "cartButtonReview": "Zkontrolujte vygenerovanou grafiku",
+      "cartDialogTitle": "Vygenerujte a připojte finální grafiku",
+      "currentFormat": "Aktuální formát: {{width}} × {{height}} mm",
+      "currentFormatMissing": "Aktuální formát bude odvozen z konfigurace produktu.",
+      "currentPages": "{{count}} stránek",
+      "dataUsageDescription": "Vaše výzva a referenční obrázky jsou odeslány do Google Vertex AI ke generování. Neuvádějte důvěrné nebo osobní údaje.",
+      "dataUsageTitle": "Jak jsou vaše data využívána",
+      "description": "Popište projekt, vyberte styl a vygenerujte finální produkční grafiku.",
+      "downloadButtonMultiple": "Stáhněte si grafiku",
+      "downloadButton": "Stáhnout grafiku",
+      "dialogTitle": "AI grafické studio",
+      "durationBadge": "Do 1 minuty",
+      "emailHint": "Před generováním obrázků ověřte svou e-mailovou adresu. Po potvrzení odkazu obnovte tuto stránku.",
+      "errors": {
+        "acceptFailed": "Vygenerovanou grafiku se nepodařilo připojit.",
+        "addToCartUnavailable": "Aktuální konfigurace produktu ještě není připravena k přidání do košíku.",
+        "anonymousNotAllowed": "Anonymní účty nemohou používat generování obrázků.",
+        "authRequired": "Chcete-li generovat obrázky, přihlaste se.",
+        "disabledForProduct": "Generování AI grafiky není pro tento produkt povoleno.",
+        "emailNotVerified": "Před generováním obrázků ověřte svou e-mailovou adresu.",
+        "generationFailed": "Generování obrázku se nezdařilo.",
+        "invalidFileSize": "Referenční obrázky musí mít velikost 4 MB nebo menší.",
+        "invalidFileType": "Podporovány jsou pouze referenční obrázky PNG, JPG a WebP.",
+        "missingChannel": "Generování obrázků je dočasně nedostupné.",
+        "monthlyBudgetExceeded": "Generování grafiky AI je dočasně nedostupné, protože byl vyčerpán rozpočet na tento měsíc. Zkuste to prosím znovu příští měsíc."
+      },
+      "attaching": "Připojování…",
+      "generateButton": "Vygenerujte finální grafiku",
+      "generating": "Generování…",
+      "generationElapsed": "Uplynulo {{count}} s",
+      "generationStatusOvertime": "To může trvat až minutu. Nyní se dokončuje obrázek…",
+      "generationStatusRemaining": "Odhadovaný zbývající čas: přibližně {{count}} sekund.",
+      "generationStatusTitle": "Vytváření produkční grafiky…",
+      "generateHint": "Vybraný styl a vaše zadání jsou sloučeny do výzvy pro generování na straně serveru před vytvořením konečné kresby.",
+      "devLimitsBadge": "Žádné hodinové omezení ve vývoji",
+      "devLimitsDescription": "Vývojový režim odstraňuje hodinový limit. Stále platí kontroly výzev, souborů a účtů.",
+      "devRemainingAttempts": "Vývojový režim: hodinový limit je pro testování zakázán.",
+      "heroDescription": "Napište zadání, vyberte styl, v případě potřeby přidejte reference a vygenerujte konečné umělecké dílo pro tento produkt.",
+      "heroEyebrow": "Studio tiskového designu AI",
+      "heroTitle": "Rychlejší vytvoření konceptu připraveného k tisku.",
+      "highlights": {
+        "productionDescription": "Pracovní postup se vyhýbá maketám a posouvá výsledek směrem k ploché kresbě vhodné pro tiskovou produkci.",
+        "productionTitle": "Výstup s ohledem na produkci",
+        "referencesDescription": "Volitelné obrázky pomáhají řídit kompozici, paletu a typografii bez kopírování zdrojové práce.",
+        "referencesTitle": "Referenční průvodce",
+        "speedDescription": "Většina generací skončí přibližně do minuty, takže můžete rychle opakovat.",
+        "speedTitle": "Rychlá recenzní smyčka",
+        "styleDescription": "Před generováním vyberte směr, aby konečná výzva odrážela náladu, kterou chcete.",
+        "styleTitle": "Předvolby stylu"
+      },
+      "improvePromptDescription": "Volitelné: před generováním nechte AI vypilovat váš brief.",
+      "improvePromptLabel": "Vylepšete svůj brief pomocí AI před generováním",
+      "largeFormatDescription": "Formáty nad 500 × 500 mm budou před výrobou upscalovány a ručně zkontrolovány. Udržujte rozvržení tučná a čitelná z dálky.",
+      "largeFormatTitle": "Velkoformátové ověření",
+      "limitsBadge": "{{count}} za hodinu",
+      "limitsDescription": "Verified customers can generate up to {{count}} final graphics per hour. Prompts must be {{min}}-{{max}} words, and you can add up to {{references}} reference images.",
+      "limitsTitle": "Limity a způsobilost",
+      "modelBadge": "Nano banán 2",
+      "multipleSidesNotice": "Obě tisknutelné strany byly generovány jako samostatné soubory.",
+      "openButton": "Otevřete grafické studio AI",
+      "openButtonDescription": "Napište podrobné zadání, vyberte styl, přidejte volitelné odkazy a vygenerujte grafiku připravenou k výrobě v jednom vyleštěném pracovním prostoru.",
+      "openButtonDescriptionGenerating": "Generace pokračuje na pozadí. Znovu otevřete studio a sledujte průběh a stáhněte si výsledek, až bude připraven.",
+      "openButtonDescriptionReady": "Vaše nejnovější vygenerovaná grafika je připravena ke kontrole, stažení nebo připojení.",
+      "promptError": "Použijte 30 až 500 slov.",
+      "promptHelper": "Pokryjte cíl, publikum, barvy a nezbytný obsah 30–500 slovy.",
+      "promptLabel": "Stručný design",
+      "promptPlaceholder": "Příklad: Navrhněte moderní leták pro jarní akci s ochutnávkou kávy. Použijte teplé krémové pozadí, sytě zelené akcenty, čistou bezpatkovou typografii a prémiový redakční dojem. Zvýrazněte datum degustace, omezený počet míst a jemně ilustrovaný motiv kávových lístků…",
+      "promptUsedTitle": "Použitá výzva",
+      "referenceBadge": "{{count}} reference / max. {{size}} MB",
+      "referenceDropzoneDescription": "Pouze PNG, JPG nebo WebP. Až {{count}} souborů, každý {{size}} MB.",
+      "referenceDropzoneTitle": "Sem přetáhněte referenční obrázky nebo kliknutím procházejte",
+      "referenceHelper": "Až 3 soubory. Použijte je pouze jako inspiraci.",
+      "referenceLabel": "Referenční obrázky (volitelné)",
+      "remainingAttempts": "Zbývající generace tuto hodinu: {{count}}",
+      "resultAlt": "Vygenerovaný grafický náhled finální výroby",
+      "resultAltWithSide": "Vygenerován {{side}} finální grafický náhled produkce",
+      "resultTitle": "Vygenerovaná finální grafika",
+      "resultTitleMultiple": "Vygenerovaná finální grafika",
+      "sides": {
+        "back": "Zadní strana",
+        "front": "Přední strana"
+      },
+      "success": {
+        "description": "Vaše konečná produkční grafika AI je připravena.",
+        "title": "Obrázek připraven"
+      },
+      "styleHelper": "Tato předvolba je přidána do výzvy na straně serveru.",
+      "styleLabel": "Vyberte směr stylu",
+      "styles": {
+        "elegancki": {
+          "description": "Prémiové vyvážení s rafinovanými detaily.",
+          "label": "Elegantní"
+        },
+        "kreatywny": {
+          "description": "Odvážnější nápady a výraznější rozvržení.",
+          "label": "Kreativní"
+        },
+        "minimalistyczny": {
+          "description": "Klidné rozvržení s čistou typografií.",
+          "label": "Minimalistický"
+        },
+        "nowoczesny": {
+          "description": "Svěží kontrast a jasná geometrická struktura.",
+          "label": "Moderní"
+        }
+      },
+      "title": "Vytvořte finální produkční grafiku pomocí AI",
+      "triggerStatus": {
+        "anonymous": "Host uzamčen",
+        "authRequired": "Účet je vyžadován",
+        "email": "Ověřte e-mail",
+        "generating": "Probíhá generace",
+        "ready": "Připraveno",
+        "review": "Recenze připravena"
+      },
+      "tutorial": {
+        "step1": "Popište cíl, publikum, barvy a nezbytný obsah.",
+        "step2": "Vyberte si styl a přidejte odkazy pouze v případě, že pomáhají řídit směr.",
+        "step3": "Pokud chcete, aby umělá inteligence nejprve utáhla zadání, povolte rychlé vylepšení.",
+        "step4": "Pokud je vybraný režim tisku oboustranný, nástroj vygeneruje samostatné přední a zadní soubory."
+      },
+      "tutorialTitle": "Rychlý návod",
+      "wordBadge": "{{min}}-{{max}} slov",
+      "wordCount": "{{count}} / {{max}} slov",
+      "workspaceCards": {
+        "brief": "Podrobný stručný popis",
+        "production": "Rozvržení zaměřené na tisk",
+        "references": "Užitečné reference",
+        "style": "Jasný stylový směr"
+      },
+      "workspaceChecklistLabel": "Nejlepší výsledky pocházejí z:",
+      "workspaceDescription": "Vaše zadání na serveru před generováním zpřesníme.",
+      "workspaceEyebrow": "Pracovní prostor návrhu AI",
+      "workspaceTitle": "Popište nápad, vyberte styl a vytvořte kresbu připravenou k tisku."
+    },
+    "noResults": "Vašim filtrům neodpovídají žádné produkty",
+    "noResultsDescription": "Zkuste odstranit některé filtry nebo zkontrolovat jiné kategorie.",
+    "notFoundDescription": "Pro zadaný identifikátor jsme nenašli produkt.",
+    "notFoundTitle": "Produkt nenalezen"
+  },
+  "profile": {
+    "account": "účet",
+    "logout": "Odhlášení",
+    "myAccount": "Můj účet",
+    "orders": "Objednávky",
+    "settings": "Nastavení",
+    "yourDiscount": "VAŠE SLEVA: {{discount}} %"
+  },
+  "PromotionRuleAttributes": {
+    "CATEGORY": "Kategorie",
+    "CURRENCY": "Měna",
+    "PRODUCT": "Produkt",
+    "USER": "Uživatel"
+  },
+  "promotions": {
+    "apply": "Použít",
+    "applying": "Načítání…",
+    "applyPromotionCode": "Použijte propagační kód",
+    "availablePromotions": "Dostupné akce",
+    "checkOtherCategories": "Podívejte se na další kategorie",
+    "codeLabel": "kód: ",
+    "discountOn": "Sleva na {{target}}",
+    "discountSuffix": {
+      "currency": "PLN",
+      "percentage": "%"
+    },
+    "heading": "Propagační akce",
+    "minimumOrderValueNotMet": "Minimální celková objednávka pro tuto akci je {{amount}}",
+    "noItems": "Nebyly nalezeny žádné položky",
+    "promotionalProducts": "Propagační produkty",
+    "promotionCodeAlreadyApplied": "Propagační kód již byl použit",
+    "promotionCodeApplied": "Propagační kód {{code}} byl použit",
+    "promotionCodeNotFound": "Propagační kód nebyl nalezen",
+    "rememberToApply": "Nezapomeňte uplatnit akci v košíku.",
+    "seeProducts": "Viz produkty",
+    "targets": {
+      "entireOrder": "celou objednávku",
+      "selectedProducts": "vybrané produkty",
+      "shipping": "expedice"
+    }
+  },
+  "PromotionTypes": {
+    "BUYGET": "Kupte X a získejte Y",
+    "STANDARD": "Standardní"
+  },
+  "ProofingOptions": {
+    "MANUAL": "Objednávka bude odeslána přímo ke zpracování.",
+    "RUN_AS_IS": "Náš tým váš soubor ručně zkontroluje. Tato možnost může výrazně prodloužit dobu zpracování. Po ověření možná budete muset soubory schválit, abyste mohli pokračovat ve zpracování."
+  },
+  "quantity": {
+    "error": {
+      "alreadyExists": "Toto množství již existuje",
+      "inRange": "Množství musí být mezi {{minimumOrder}} a {{maximumOrder}}",
+      "notAvailable": "Toto množství není pro tuto konfiguraci k dispozici",
+      "steps": "Množství musí být násobkem {{step}}"
+    },
+    "heading": "množství",
+    "placeholder": "Přidejte své vlastní množství (od {{minimumOrder}} do {{maximumOrder}}, každý {{step}})"
+  },
+  "quote": {
+    "created": "Nabídka vytvořena",
+    "createdDescription": "Nová nabídka byla úspěšně vytvořena",
+    "createdDev": "Nabídka vytvořena bez uložení (DEV)",
+    "createdDevDescription": "Nová nabídka byla úspěšně vytvořena bez uložení",
+    "notCreated": "Nabídka nebyla vytvořena",
+    "notCreatedError": "Nabídka nebyla vytvořena, kód chyby: {{error}}",
+    "notFound": "Nabídka nebyla nalezena k úpravě"
+  },
+  "rating": {
+    "addRating": "Přidat hodnocení",
+    "rateStar": "Hodnotit {{index}}",
+    "selectRating": "Vyberte hodnocení!",
+    "submitError": "Při odesílání vašeho hodnocení došlo k chybě!",
+    "thankYou": "Děkujeme za vaše hodnocení!"
+  },
+  "RATINGS_COUNT_few": "{{count}} hodnocení",
+  "RATINGS_COUNT_many": "{{count}} hodnocení",
+  "RATINGS_COUNT_one": "{{count}} hodnocení",
+  "RATINGS_COUNT_other": "{{count}} hodnocení",
+  "requiredConsent": "Požadované souhlasy",
+  "ROUTES": {
+    "aboutUs": "O nás",
+    "account": "účet",
+    "b2b": "B2B",
+    "blog": "Blog",
+    "cart": "Košík",
+    "checkout": "Pokladna",
+    "contact": "Kontakt",
+    "cooperation": "Spolupráce",
+    "faq": "FAQ",
+    "generalConditionsOfSale": "Všeobecné podmínky prodeje",
+    "help": "Pomoc",
+    "home": "Domů",
+    "order": "Objednat",
+    "orders": "Objednávky",
+    "privacyPolicy": "Zásady ochrany osobních údajů",
+    "products": "Produkty",
+    "quotes": "Citáty",
+    "ratings": "Hodnocení",
+    "regulations": "Předpisy",
+    "rejections": "Zamítnuté soubory",
+    "settings": "Nastavení"
+  },
+  "settings": {
+    "storeUndefined": "Nastavení obchodu nejsou definována, můžete je upravit v Konfigurace > Nastavení obchodu"
+  },
+  "shippingAddress": {
+    "notSavedError": "Dodací adresa nebyla uložena, kód chyby: {{error}}",
+    "notSavedNotCustomer": "Dodací adresa nebyla uložena, uživatel není zákazník"
+  },
+  "ShippingOptions": {
+    "AMBRO_EXPRESS": "AmbroExpress",
+    "COMPANY_COURIER": "Firemní kurýr",
+    "CUSTOM": "Vlastní",
+    "DHL": "DHL",
+    "DHL_PICKUP": "Výdejní místo DHL",
+    "DPD": "DPD",
+    "DPD_PICKUP": "Výdejní místo DPD",
+    "FEDEX": "FedEx",
+    "GLS": "GLS",
+    "INPOST": "Kurýr InPost",
+    "ORLEN_PACZKA": "Orlen Parcel",
+    "PACZKOMATY_INPOST": "Schránky na balíky InPost",
+    "PERSONAL_COLLECTION": "Osobní odběr",
+    "PUNKT_FEDEX": "Výdejní místo FedEx",
+    "UPS": "UPS",
+    "UPS_ACCESS_POINT": "Přístupový bod UPS"
+  },
+  "ShippingTypes": {
+    "COURIER": "Kurýr",
+    "CUSTOM": "Vlastní",
+    "PARCEL_DELIVERY_LOCKER": "Schránky na balíky",
+    "PERSONAL_COLLECTION": "Osobní odběr"
+  },
+  "status": "Stav",
+  "store": {
+    "acceptedFileFormats": "Přijímané formáty souborů:",
+    "acceptedFiles": "Přijímané soubory:",
+    "acceptRequiredOnly": "Přijměte pouze požadované souhlasy",
+    "acceptSelected": "Přijměte vybrané souhlasy",
+    "currency": {
+      "label": "Měna",
+      "select": "Vyberte měnu"
+    },
+    "account": {
+      "addresses": "Adresy",
+      "addressesDescription": "Upravit dodací adresy pro objednávky",
+      "addReviews": "Přidejte recenze k zakoupeným produktům",
+      "basic": "Základní",
+      "confirmEmail": "Potvrďte e-mailovou adresu",
+      "confirmEmailDescription": "Na zadanou e-mailovou adresu byl odeslán ověřovací odkaz",
+      "confirmRemoveAccount": "Opravdu chcete odstranit svůj účet?",
+      "created": "Účet vytvořen",
+      "createdDescription": "Vytvořili jsme pro vás účet",
+      "help": "Pomoc",
+      "helpDescription": "Procházet dostupné stránky nápovědy",
+      "label": "účet",
+      "logout": "Odhlášení",
+      "orders": "Objednávky",
+      "ordersDescription": "Zkontrolujte stav objednávky a sledujte zásilky",
+      "other": "Jiné",
+      "passwordPlaceholder": "6 nebo více znaků",
+      "profile": "Profil",
+      "removeAccount": "Odebrat účet",
+      "removeAccountWarning": "Všechny vaše informace budou odstraněny z naší databáze. Tuto operaci nelze vrátit zpět, takže se ujistěte, že svůj účet opravdu chcete odstranit.",
+      "reviews": "Recenze",
+      "reviewsDescription": "Přidejte recenze na zakoupené produkty",
+      "signin": "Přihlaste se",
+      "signup": "Zaregistrujte se"
+    },
+    "assistant": {
+      "ariaLabel": "Zeptejte se asistenta",
+      "authRequired": "Chcete-li asistenta používat, přihlaste se k běžnému účtu.",
+      "contact": "Kontakt",
+      "contactPage": "Kontaktní stránka",
+      "heroPlaceholder": "Popište, co potřebujete vytisknout…",
+      "inputPlaceholder": "Napište zprávu…",
+      "open": "Otevřete asistenta",
+      "productLink": "Otevřít",
+      "quickContact": "Kontakt",
+      "quickFiles": "Jak připravit soubory?",
+      "send": "Odeslat zprávu",
+      "thinking": "Asistent připravuje odpověď",
+      "title": "asistent",
+      "unavailable": "Asistent je momentálně nedostupný.",
+      "welcome": "Řekněte mi, co chcete vytisknout. Mohu navrhnout produkty, sdílet kontaktní údaje a vysvětlit základní přípravu souborů."
+    },
+    "activeFormExists": "Již máte aktivní formulář",
+    "activeFormExistsDesc": "Můžete to vidět v záložce B2B",
+    "address": "Adresa",
+    "attachFiles": "Připojit soubory",
+    "availability": {
+      "onlineAndPos": "*Speciální nabídka dostupná online i v kamenném obchodě!",
+      "onlineOnly": "*Speciální nabídka dostupná výhradně pro online nákupy!",
+      "posOnly": "*Speciální nabídka dostupná výhradně ve fyzické prodejně!"
+    },
+    "b2bForm": "B2B formulář",
+    "b2bNotificationFailed": "Váš požadavek byl uložen, ale e-mail s upozorněním nebylo možné odeslat.",
+    "cantFindProduct": "Nemůžete najít správný produkt?",
+    "cart": {
+      "addProductAgain": "Znovu přidejte produkt do košíku",
+      "addProducts": "Přidejte produkty do košíku",
+      "addToCart": "Přidat do košíku",
+      "buyButton": "Koupit a zaplatit",
+      "calculationInfo": "*Cena dopravy se může během výpočtu v dalším kroku změnit.",
+      "checkout": "Pokladna",
+      "discountRemoved": "Propagační kód {{code}} byl odstraněn",
+      "empty": "Košík je prázdný",
+      "estimatedDelivery": "Odhadovaná zásilka: ",
+      "full": "Košík je plný (max. 10 produktů)",
+      "goToCart": "Přejít do košíku",
+      "goToStore": "Přejděte do Obchodu",
+      "invalidPrice": "Cena produktu {{productName}} – {{description}} je neplatná",
+      "itemRemoved": "Položka byla odstraněna z košíku",
+      "label": "Košík",
+      "noPaymentOptions": "Žádné dostupné možnosti platby",
+      "noShippingOptions": "Žádné dostupné možnosti dopravy",
+      "paymentUnavailableDescription": "Tato výloha nemá nakonfigurované žádné použitelné platební metody. Před zadáním objednávky kontaktujte tým obchodu.",
+      "paymentUnavailableTitle": "Pokladna není k dispozici",
+      "ordersDisabled": "Objednávky jsou zakázány!",
+      "ordersDisabledDescription": "Můžete procházet produkty, ale v tuto chvíli nemůžete zadávat objednávky.",
+      "payment": "Platba",
+      "priceCheckError": "Při kontrole ceny produktu {{productName}} – {{description}} došlo k chybě",
+      "productAdded": "Produkt byl přidán do košíku",
+      "products": "Produkty",
+      "productUnavailable": "Produkt již není dostupný",
+      "przelewy24Info1": "Prohlašuji, že jsem četl ",
+      "przelewy24Info2": "obchodní podmínky a ",
+      "przelewy24Info3": "informační povinnost",
+      "przelewy24Info4": " služby Przelewy24",
+      "readdToCart": "Znovu přidejte produkt do košíku",
+      "removeFromCart": "Odebrat z košíku",
+      "removeProduct": "Odstraňte produkt z košíku",
+      "sendFilesViaMailInfo": "Pokud máte soubory větší než náš limit, můžete je odeslat prostřednictvím služeb jako WeTransfer, Disk Google nebo jiných platforem pro sdílení souborů na adresu: {{email}}",
+      "shipping": "Doprava",
+      "termsAccept1": "Přečetl jsem a přijímám ",
+      "termsAccept2": "podmínky",
+      "termsAccept3": " služby",
+      "useStoreCredit": "Použijte kredit obchodu ve výši {{amount}}",
+      "validationError": "Při ověřování košíku došlo k chybě"
+    },
+    "checkout": {
+      "accountNumber": "Číslo účtu:",
+      "bankDetails": "Údaje o bankovním převodu:",
+      "configurationUnavailableDescription": "V této výloze chybí konfigurace pokladny. Před zadáním objednávky kontaktujte tým obchodu.",
+      "configurationUnavailableTitle": "Pokladna není k dispozici",
+      "error": "Chyba!",
+      "goToOrders": "Přejděte na Objednávky",
+      "goToPayment": "Přejděte na Platba",
+      "orderProcessing": "Vaše objednávka se zpracovává...",
+      "paymentUnavailableDescription": "Tato výloha nemá nakonfigurované žádné použitelné platební metody. Před zadáním objednávky kontaktujte tým obchodu.",
+      "paymentUnavailableTitle": "Pokladna není k dispozici",
+      "processing": "Zpracovává se...",
+      "redirectCountdown": "Za {{count}} sekund budete přesměrováni na platební stránku.",
+      "redirectManual": "Pokud jste nebyli automaticky přesměrováni na platební stránku, klikněte na tlačítko níže.",
+      "success": "Úspěch!",
+      "thankYou": "děkujeme za objednávku."
+    },
+    "contact": "Kontakt",
+    "contactUs": "Kontaktujte nás:",
+    "cookieDataTypes": "zobrazení produktu, obsah košíku, sdílení obsahu nebo produktu, autorizace, zahájení a dokončení platby",
+    "cookiePurpose": "pro účely, jako je doručování a personalizace obsahu a reklam a analýza návštěvnosti webových stránek.",
+    "cookieUsageDescription": "My a naši partneři používáme soubory cookie k ukládání a přístupu k údajům, jako jsou:",
+    "cooperation": "Spolupráce",
+    "customerNotFound": "Zákazník nenalezen",
+    "discountOn": "Sleva na {{target}}",
+    "dragFileHere": "Přetáhněte soubor sem nebo kliknutím vyberte soubor.",
+    "dropFilesHere": "Sem přetáhněte soubory...",
+    "errorCode": "Kód chyby: {{error}}",
+    "faq": "FAQ",
+    "fileRetentionNotice": {
+      "description": "Nahrané soubory uchováváme pouze po dobu nezbytně nutnou ke zpracování vaší objednávky. Pokud si je chcete ponechat pro pozdější použití, stáhněte si je a uložte sami.",
+      "title": "Dočasné úložiště souborů"
+    },
+    "footer": {
+      "aboutUs": "O nás",
+      "contactDetails": "Kontaktní údaje",
+      "findUs": "Najděte nás",
+      "help": "Pomoc",
+      "paymentsNote": "Přijímané způsoby platby:",
+      "terms": "Smluvní podmínky",
+      "termsOfUse": "Používáním služby potvrzujete, že jste si přečetli a přijímáte pokyny uvedené v podmínkách používání a zásadách ochrany osobních údajů."
+    },
+    "formSent": "Formulář byl odeslán",
+    "generalConditionsOfSale": "Všeobecné podmínky prodeje",
+    "maintenance": {
+      "contact": "Kontaktujte nás",
+      "description": "Tento obchod pro návštěvníky připravujeme. Vraťte se prosím brzy.",
+      "title": "Výloha je dočasně nedostupná"
+    },
+    "editor": {
+      "actions": {
+        "addBlock": "Přidat blok",
+        "addSection": "Přidat sekci",
+        "hide": "Skrýt",
+        "moveDown": "Přesunout dolů",
+        "moveUp": "Posunout nahoru",
+        "publish": "Publikovat",
+        "publishing": "Publikování…",
+        "remove": "Odebrat",
+        "rollback": "Vrátit zpět",
+        "show": "Zobrazit"
+      },
+      "autosave": {
+        "error": "Automatické ukládání se nezdařilo",
+        "idle": "Změny se automaticky uloží",
+        "saved": "Koncept byl uložen",
+        "saving": "Ukládání…"
+      },
+      "block": {
+        "autoTranslationInfo": "Jak funguje automatický překlad",
+        "autoTranslationTooltip": "Napište tento blok ve zvoleném jazyce. Když publikujete, chybějící polský nebo anglický text se vygeneruje automaticky a stávající ruční překlady se zachovají.",
+        "body": "Dlouhý Text",
+        "builtInDescription": "Tato sekce používá data z úložiště nebo existující překlady. Pomocí ovládacích prvků na samotné sekci ji můžete přesunout, skrýt nebo odstranit.",
+        "builtInTitle": "Vestavěná sekce",
+        "ctaHref": "Odkaz na tlačítko",
+        "ctaLabel": "Text tlačítka",
+        "fields": {
+          "featuredProductsDescription": "Popis sekce",
+          "featuredProductsTitle": "Nadpis sekce",
+          "heroCtaHref": "Odkaz hlavního tlačítka",
+          "heroCtaLabel": "Text hlavního tlačítka",
+          "heroDescription": "Popis hrdiny",
+          "heroImageUrl": "Odkaz na obrázek hrdiny",
+          "heroTitle": "Titulek hrdiny",
+          "howItWorksDescription": "Popis sekce",
+          "howItWorksTitle": "Nadpis sekce",
+          "newsletterCtaLabel": "Text tlačítka odběru",
+          "newsletterDescription": "Popis zpravodaje",
+          "newsletterDisclaimer": "Zřeknutí se odpovědnosti",
+          "newsletterTitle": "Záhlaví zpravodaje",
+          "popularDescription": "Popis sekce",
+          "popularTitle": "Nadpis sekce",
+          "richTextBody": "Text",
+          "richTextCtaHref": "Odkaz na tlačítko",
+          "richTextCtaLabel": "Text tlačítka",
+          "richTextImageUrl": "Obrázek",
+          "richTextTitle": "Směr",
+          "testimonialsDescription": "Popis sekce",
+          "testimonialsTitle": "Nadpis sekce",
+          "trustGridDescription": "Popis sekce",
+          "trustGridTitle": "Nadpis sekce"
+        },
+        "heading": "Hlavní nadpis",
+        "heroCmsDescription": "Upravujte snímky hrdiny, text, odkazy a média v Admin CMS. Tento panel ovládá rozložení hrdiny.",
+        "heroCmsLink": "Otevřete Admin CMS",
+        "heroCmsTitle": "Hero Content spravovaný v CMS",
+        "hidden": "Skrytá",
+        "imageDropzoneDescription": "PNG, JPG nebo WebP do 5 MB.",
+        "language": "Jazyk úprav",
+        "subtitle": "Krátký popis",
+        "title": "Vybraný blok",
+        "variant": "Variace rozložení",
+        "variants": {
+          "assistant": {
+            "compact": "Kompaktní výzva",
+            "default": "Výchozí",
+            "panel": "Rámovaný panel"
+          },
+          "campaigns": {
+            "compact": "Kompaktní promo akce",
+            "default": "Výchozí",
+            "featured": "Doporučené propagace"
+          },
+          "featured-products": {
+            "compact": "Kompaktní mřížka",
+            "default": "Výchozí",
+            "spotlight": "Mřížka reflektorů"
+          },
+          "hero": {
+            "default": "Výchozí",
+            "editorial": "Redakční rozdělení",
+            "fullscreen": "Celá obrazovka"
+          },
+          "how-it-works": {
+            "compact": "Kompaktní kroky",
+            "default": "Výchozí",
+            "timeline": "Časová osa"
+          },
+          "newsletter": {
+            "default": "Výchozí",
+            "inline": "Inline",
+            "minimal": "Minimální"
+          },
+          "popular-products": {
+            "compact": "Kompaktní mřížka",
+            "default": "Výchozí",
+            "editorial": "Redakční mřížka"
+          },
+          "rich-text-cta": {
+            "centered": "Na střed",
+            "default": "Výchozí",
+            "split": "Rozdělit"
+          },
+          "testimonials": {
+            "compact": "Kompaktní recenze",
+            "default": "Výchozí",
+            "spotlight": "Spotlight"
+          },
+          "trust-grid": {
+            "cards": "Karty",
+            "default": "Výchozí",
+            "strip": "Proužek ikon"
+          }
+        },
+        "visible": "Viditelné"
+      },
+      "image": {
+        "previewAlt": "Náhled aktuálního obrázku",
+        "rejected": "Tento soubor obrázku nelze použít.",
+        "upload": "Nahrát",
+        "uploadError": "Nahrání se nezdařilo. Zkuste menší soubor obrázku.",
+        "useLink": "Použít odkaz"
+      },
+      "languages": {
+        "cs": "Čeština",
+        "de": "německy",
+        "en": "anglicky",
+        "fr": "Français",
+        "pl": "Polski",
+        "sk": "slovenština",
+        "uk": "Українська"
+      },
+      "maintenance": {
+        "description": "Když je tato možnost povolena, návštěvníci uvidí obrazovku údržby, zatímco editoři si mohou nadále prohlížet náhled tohoto obchodu.",
+        "title": "Režim údržby"
+      },
+      "panel": {
+        "hideEditor": "Skrýt nástroje pro úpravy",
+        "noBlockSelected": "Kliknutím na sekci v náhledu ji upravíte.",
+        "preview": "Náhled",
+        "sessionChecking": "Kontrola relace úprav",
+        "sessionExpired": "Platnost relace úprav vypršela",
+        "sessionRemaining": "Zbývá {{time}}",
+        "showEditor": "Zobrazit editor",
+        "tabs": {
+          "advanced": "Pokročilé",
+          "section": "sekce",
+          "theme": "téma"
+        },
+        "title": "Editor obchodu"
+      },
+      "presets": {
+        "assistant": "asistent",
+        "campaigns": "Kampaně",
+        "featured-products": "Nejlepší",
+        "hero": "Hrdina",
+        "how-it-works": "Jak to funguje",
+        "newsletter": "Bulletin",
+        "popular-products": "Populární",
+        "rich-text-cta": "Text & CTA",
+        "testimonials": "Posudky",
+        "trust-grid": "Trust Grid"
+      },
+      "revisions": {
+        "areas": {
+          "home": "Domů",
+          "sharing": "Sdílení",
+          "theme": "téma"
+        },
+        "empty": "Zatím žádné zveřejněné revize.",
+        "publish": "Publikovat",
+        "rollback": "Vrátit zpět",
+        "title": "Nedávné revize"
+      },
+      "sharing": {
+        "description": "Ovládejte ikonu prohlížeče a sociální náhledové obrázky pro tento obchod.",
+        "favicon": "Favicon",
+        "faviconDropzoneDescription": "PNG, SVG nebo ICO do 1 MB.",
+        "openGraphDropzoneDescription": "PNG nebo JPG, ideálně 1200 x 630 px.",
+        "openGraphImage": "Sociální náhledový obrázek",
+        "title": "Sdílení"
+      },
+      "theme": {
+        "accentColor": "Barva zvýraznění",
+        "buttonStyle": "Styl tlačítka",
+        "buttonStyleOptions": {
+          "outline": "Obrys",
+          "solid": "Pevné",
+          "subtle": "Jemný"
+        },
+        "gradient": "Přechod (Hlavní → Akcent)",
+        "gradientDescription": "Smíchá vaše barvy na pozadí hrdiny a zpravodaje.",
+        "gradientNeedsColors": "Chcete-li povolit přechod, vyberte obě barvy.",
+        "logo": "Logo",
+        "logoDropzoneDescription": "PNG, JPG, SVG nebo WebP do 2 MB.",
+        "pickColorFromPage": "Vyberte barvu ze stránky",
+        "presetOptions": {
+          "classic": "klasické",
+          "forest": "Les",
+          "ink": "Inkoust",
+          "ocean": "oceán",
+          "plum": "Švestka",
+          "sunset": "Západ slunce"
+        },
+        "presets": "Předvolby stylu",
+        "primaryColor": "Hlavní barva",
+        "radius": "Zaokrouhlování",
+        "radiusOptions": {
+          "3xl": "Extra kulatá",
+          "default": "Výchozí",
+          "md": "Měkký",
+          "none": "náměstí",
+          "xl": "Kulaté"
+        },
+        "title": "téma"
+      }
+    },
+    "home": {
+      "featured": "Zkontrolujte, co doporučujeme",
+      "featuredDescription": "Flexibilní formáty, spolehlivé povrchové úpravy a produkty, které udělají silný první dojem.",
+      "featuredEyebrow": "Vybrané výběry",
+      "hero": {
+        "eyebrow": "Online tisk připravený pro tisk",
+        "fallbackDescription": "Nahrajte, zkontrolujte, vyrobte a odešlete v jednom čistém toku – se skutečnými materiály, jasnými cenami a sledovaným doručením.",
+        "fallbackTitle": "Tiskněte dílo, které vypadá prvotřídně, než se dostane do tisku",
+        "proofLabel": "Nahrát do doručení",
+        "proofValue": "Předtisková příprava, výroba a sledovaná přeprava v jednom zjednodušeném pracovním postupu.",
+        "secondaryCta": "Procházet všechny produkty"
+      },
+      "howItWorks": {
+        "description": "Krátký tok v šesti krocích od stručné zprávy až ke dveřím — s ověřením souboru uprostřed, kde na tom záleží.",
+        "steps": {
+          "choose": "Vyberte produkt",
+          "configure": "Konfigurace možností",
+          "pay": "Zaplaťte bezpečně",
+          "proof": "Zkontrolujeme váš soubor",
+          "receive": "Přijmout zásilku",
+          "upload": "Nahrajte svůj soubor"
+        },
+        "title": "Jak to funguje"
+      },
+      "popular": "Nejčastěji se volí",
+      "popularDescription": "Formáty si zákazníci nejčastěji objednávají, když potřebují rychlé spolehlivé výsledky.",
+      "popularEyebrow": "Opakujte oblíbené",
+      "testimonials": {
+        "description": "Skutečná zpětná vazba od zákazníků, kteří si objednali, nahráli a obdrželi hotový tisk.",
+        "eyebrow": "recenze Google",
+        "next": "Další recenze",
+        "prev": "Předchozí recenze",
+        "title": "Co říkají naši zákazníci"
+      },
+      "trust": {
+        "ecoFriendly": {
+          "description": "FSC papír a zelené inkousty",
+          "title": "Ekologické"
+        },
+        "fastProduction": {
+          "description": "Od 24h obrat k dispozici",
+          "title": "Rychlá výroba"
+        },
+        "freeFileCheck": {
+          "description": "Před tiskem ověřujeme",
+          "title": "Bezplatná kontrola souborů"
+        },
+        "qualityGuarantee": {
+          "description": "Prémiový papír a přesný tisk",
+          "title": "Záruka kvality"
+        },
+        "securePayments": {
+          "description": "Stripe, Przelewy24 a další",
+          "title": "Bezpečné platby"
+        },
+        "trackedShipping": {
+          "description": "Doručení kurýrem po PL a EU",
+          "title": "Sledovaná zásilka"
+        }
+      },
+      "trustDescription": "Od kontroly souboru až po dokončení je každý krok navržen tak, aby byl proces jasný, rychlý a připravený na výrobu.",
+      "trustHeading": "Vytvořeno pro náročné tiskové úlohy, nikoli pro dohady",
+      "trustLabel": "Proč se týmy stále vracejí"
+    },
+    "maxFileSize": "Maximální velikost souboru:",
+    "fileExists": "Soubor je již vybrán",
+    "fileInvalid": "Soubor se nepodařilo nahrát",
+    "fileInvalidType": "Neplatný typ souboru",
+    "fileTooLarge": "Soubor je příliš velký",
+    "fileTooSmall": "Soubor je příliš malý",
+    "navigation": {
+      "allProducts": "Všechny produkty",
+      "loadingProducts": "Načítání produktů…",
+      "products": "Produkty"
+    },
+    "newsletter": {
+      "signup": "Přihlaste se k odběru Newsletteru",
+      "signupButton": "Přihlásit se k odběru",
+      "description": "Získejte aktualizace o akcích, exkluzivních nabídkách a nových produktech!",
+      "disclaimer": "*Speciální nabídka pouze pro online nákupy!",
+      "subscribeButton": "Přihlásit se k odběru",
+      "subscribeError": "Nelze se přihlásit k odběru newsletteru",
+      "subscribed": "Úspěšně přihlášeni k odběru newsletteru",
+      "title": "Přihlaste se k odběru newsletteru a získejte slevu 10 %.",
+      "unsubscribeError": "Z odběru newsletteru se nepodařilo odhlásit",
+      "unsubscribed": "Odběr newsletteru byl úspěšně odhlášen"
+    },
+    "og": {
+      "subtitle": "Profesionální online tisk",
+      "title": "Online Print House"
+    },
+    "order": {
+      "showDetails": "Zobrazit podrobnosti"
+    },
+    "orderAndPay": "Objednejte a zaplaťte",
+    "orderPreview": "Náhled objednávky",
+    "password": {
+      "change": "Změňte heslo",
+      "save": "Uložit"
+    },
+    "payment": "Platba",
+    "preview3D": "3D náhled",
+    "preview3DDescription": "Je důležité si uvědomit, že 3D náhled je vykreslen v nižším rozlišení než finální produkt. Toto je doporučený přístup, který umožňuje rychlejší zpracování dat a plynulejší provoz.",
+    "preview3DDisclaimer": "Náhled je pouze pro vizuální účely a není určen pro vytváření finálních vysoce kvalitních materiálů.",
+    "preview3DInfo": "Informace o 3D náhledu",
+    "preview3DNextPage": "Další",
+    "preview3DPage": "stránku",
+    "preview3DPreviousPage": "Předchozí",
+    "privacyPolicy": "Zásady ochrany osobních údajů",
+    "privacyTitle": "Záleží nám na vašem soukromí",
+    "promotions": "Propagační akce",
+    "recommendations": {
+      "title": "Doporučené produkty"
+    },
+    "regulations": "Předpisy",
+    "rejectedFiles": "Odmítnuté soubory:",
+    "tooManyFiles": "Příliš mnoho souborů",
+    "rejections": "Odmítnutí",
+    "remove": "Odebrat",
+    "reviewOptional": "Recenze (volitelné)",
+    "search": {
+      "loading": "Načítání...",
+      "noResults": "Nebyly nalezeny žádné produkty",
+      "placeholder": "Hledat...",
+      "viewAll": "Zobrazit všechny výsledky pro {{query}}"
+    },
+    "searchPage": {
+      "emptyQueryDescription": "Vyhledávejte podle názvu produktu, kategorie nebo formátu tisku.",
+      "emptyQueryTitle": "Najděte tiskové produkty",
+      "linkedChannel": "Sdílený produkt",
+      "metadataDescription": "Najděte produkty dostupné v tomto obchodě.",
+      "metadataTitle": "Hledat",
+      "metadataTitleWithQuery": "Výsledky vyhledávání pro {{query}}",
+      "noResultsDescription": "Zkuste jinou frázi nebo procházejte kategorie produktů.",
+      "noResultsTitle": "Nebyly nalezeny žádné produkty",
+      "resultCount": "Počet nalezených produktů: {{count}}",
+      "submit": "Hledat",
+      "title": "Hledat",
+      "titleWithQuery": "Výsledky vyhledávání pro {{query}}"
+    },
+    "sendForm": "Odeslat formulář",
+    "shipping": "Doprava",
+    "somethingWentWrong": "Něco se pokazilo",
+    "uploadAndAttachFiles": "Nahrajte a připojte soubory",
+    "writeReviewPlaceholder": "Napsat recenzi...",
+    "products": {
+      "customProduct": "Produkt na zakázku"
+    },
+    "rating": {
+      "selectRating": "Vyberte hodnocení!",
+      "submitError": "Při odesílání hodnocení došlo k chybě!",
+      "thankYou": "Děkujeme za vaše hodnocení!"
+    }
+  },
+  "summary": {
+    "addToCart": "Přidat do košíku",
+    "badConfiguration": "Neplatná konfigurace",
+    "heading": "Shrnutí",
+    "noConfiguration": "Žádná konfigurace",
+    "saveAsNew": "Přidat jako nové zboží do košíku",
+    "saveConfiguration": "Uložit konfiguraci"
+  },
+  "templates": "Šablony",
+  "ThreeDModels": {
+    "ASTAND": "A-stojan",
+    "BOX": "Krabice",
+    "BOOKLET": "Brožura",
+    "CANVAS": "Plátno",
+    "CUP": "pohár",
+    "FLAT": "Plochý potisk",
+    "FLYERS": "Letáky",
+    "LBANNER": "L-banner",
+    "PIN": "Kolík",
+    "ROLLUP_PREMIUM": "Rollup premium",
+    "ROLLUP_STANDARD": "Rollup standard",
+    "TOOTHPICK": "Vlajka párátka",
+    "XBANNER": "X-banner"
+  },
+  "totalPrice": "Cena",
+  "true": "Ano",
+  "ui": {
+    "country": {
+      "poland": "Polsko"
+    }
+  },
+  "Unit": {
+    "CM2": "cm²",
+    "CMB": "cmb",
+    "HOUR": "h",
+    "KM": "km",
+    "M2": "m²",
+    "MB": "ml",
+    "PCS": "ks",
+    "SHEET": "list"
+  },
+  "volumes": {
+    "missing": "Chybějící svazky"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ESNext", "dom", "dom.iterable"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "allowJs": true,
+    "noEmit": true,
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "types": ["node", "google.maps"],
+    "plugins": [
+      {
+        "name": "next"
+      },
+      {
+        "name": "workflow"
+      }
+    ],
+    "paths": {
+      "@/components/*": ["./app/[lng]/components/*"],
+      "components/*": ["./app/[lng]/components/*"],
+      "@/lib/*": ["./lib/*"],
+      "lib/*": ["./lib/*"],
+      "@/theme/*": ["./theme/*"],
+      "theme/*": ["./theme/*"],
+      "@/hooks/*": ["./hooks/*"],
+      "hooks/*": ["./hooks/*"],
+      "@/context/*": ["./context/*"],
+      "context/*": ["./context/*"],
+      "@/actions": ["./app/actions/index"],
+      "actions": ["./app/actions/index"],
+      "@/actions/*": ["./app/actions/*"],
+      "actions/*": ["./app/actions/*"],
+      "@/actions/polkurier": ["./app/actions/polkurier"],
+      "@/actions/epaka": ["./app/actions/epaka"],
+      "@/actions/fakturownia": ["./app/actions/fakturownia"],
+      "@konfi/components": ["../../packages/components/dist"],
+      "@konfi/components/shared/ButtonLink": [
+        "../../packages/components/dist/components/shared/ButtonLink"
+      ],
+      "@konfi/components/shared/Image": [
+        "../../packages/components/dist/components/shared/Image"
+      ],
+      "@konfi/components/shared/InpostGeowidget": [
+        "../../packages/components/dist/components/shared/form/field-controllers/InpostGeowidget"
+      ],
+      "@konfi/components/shared/LanguageSwitcher": [
+        "../../packages/components/dist/components/shared/common/LanguageSwitcher"
+      ],
+      "@konfi/components/shared/Link": [
+        "../../packages/components/dist/components/shared/Link"
+      ],
+      "@konfi/components/shared/LinkOverlay": [
+        "../../packages/components/dist/components/shared/LinkOverlay"
+      ],
+      "@konfi/components/shared/Logo": [
+        "../../packages/components/dist/components/shared/layout/Logo"
+      ],
+      "@konfi/components/shared/MaterialSymbol": [
+        "../../packages/components/dist/components/shared/MaterialSymbol"
+      ],
+      "@konfi/components/shared/ScrollToBottom": [
+        "../../packages/components/dist/components/shared/common/ScrollToBottom"
+      ],
+      "@konfi/components/ui/*": [
+        "../../packages/components/dist/components/ui/*"
+      ],
+      "@konfi/firebase": ["../../packages/firebase/dist"],
+      "@konfi/google": ["../../packages/google/dist"],
+      "@konfi/utils": ["../../packages/utils/dist"],
+      "@konfi/utils/*": ["../../packages/utils/dist/*"],
+      "@konfi/types": ["../../packages/types/dist"],
+      "@konfi/polkurier": ["../../packages/polkurier/dist"],
+      "@konfi/fakturownia": ["../../packages/fakturownia/out"],
+      "@/i18n/*": ["./app/i18n/*"],
+      "i18n/*": ["./app/i18n/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "app/.well-known/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mdx",
+    ".next/types/**/*.ts",
+    "../../mdx-components.tsx",
+    "../../packages/firebase/src/model-config.ts",
+    "../../packages/utils/src/server/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "vitest.config.ts",
+    "**/*.stories.ts",
+    "**/*.stories.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/__tests__/**"
+  ]
+}

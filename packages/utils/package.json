@@ -1,0 +1,144 @@
+{
+  "name": "@konfi/utils",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "repository": "https://github.com/konfi-labs/konfi/tree/main/packages/utils",
+  "files": [
+    "dist"
+  ],
+  "main": "src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "require": "./dist/index.js"
+    },
+    "./browser-platform": {
+      "types": "./src/browser-platform.ts",
+      "import": "./src/browser-platform.ts",
+      "require": "./dist/browser-platform.js"
+    },
+    "./constants": {
+      "types": "./src/constants.ts",
+      "import": "./src/constants.ts",
+      "require": "./dist/constants.js"
+    },
+    "./currencies": {
+      "types": "./src/currencies.ts",
+      "import": "./src/currencies.ts",
+      "require": "./dist/currencies.js"
+    },
+    "./business-taxonomy": {
+      "types": "./src/business-taxonomy.ts",
+      "import": "./src/business-taxonomy.ts",
+      "require": "./dist/business-taxonomy.js"
+    },
+    "./formatters": {
+      "types": "./src/formatters/index.ts",
+      "import": "./src/formatters/index.ts",
+      "require": "./dist/formatters/index.js"
+    },
+    "./getters": {
+      "types": "./src/getters/index.ts",
+      "import": "./src/getters/index.ts",
+      "require": "./dist/getters/index.js"
+    },
+    "./order-item-status": {
+      "types": "./src/order-item-status.ts",
+      "import": "./src/order-item-status.ts",
+      "require": "./dist/order-item-status.js"
+    },
+    "./order-rule-presets": {
+      "types": "./src/order-rule-presets.ts",
+      "import": "./src/order-rule-presets.ts",
+      "require": "./dist/order-rule-presets.js"
+    },
+    "./order-workflow-statuses": {
+      "types": "./src/order-workflow-statuses.ts",
+      "import": "./src/order-workflow-statuses.ts",
+      "require": "./dist/order-workflow-statuses.js"
+    },
+    "./payment-methods": {
+      "types": "./src/payment-methods.ts",
+      "import": "./src/payment-methods.ts",
+      "require": "./dist/payment-methods.js"
+    },
+    "./printing-methods": {
+      "types": "./src/printing-methods.ts",
+      "import": "./src/printing-methods.ts",
+      "require": "./dist/printing-methods.js"
+    },
+    "./reducers": {
+      "types": "./src/reducers/index.ts",
+      "import": "./src/reducers/index.ts",
+      "require": "./dist/reducers/index.js"
+    },
+    "./routes": {
+      "types": "./src/routes.ts",
+      "import": "./src/routes.ts",
+      "require": "./dist/routes.js"
+    },
+    "./safe-local-storage": {
+      "types": "./src/safe-local-storage.ts",
+      "import": "./src/safe-local-storage.ts",
+      "require": "./dist/safe-local-storage.js"
+    },
+    "./shipping-methods": {
+      "types": "./src/shipping-methods.ts",
+      "import": "./src/shipping-methods.ts",
+      "require": "./dist/shipping-methods.js"
+    },
+    "./status-color": {
+      "types": "./src/status-color.ts",
+      "import": "./src/status-color.ts",
+      "require": "./dist/status-color.js"
+    },
+    "./support-taxonomy": {
+      "types": "./src/support-taxonomy.ts",
+      "import": "./src/support-taxonomy.ts",
+      "require": "./dist/support-taxonomy.js"
+    },
+    "./units-proofing": {
+      "types": "./src/units-proofing.ts",
+      "import": "./src/units-proofing.ts",
+      "require": "./dist/units-proofing.js"
+    },
+    "./validators": {
+      "types": "./src/validators/index.ts",
+      "import": "./src/validators/index.ts",
+      "require": "./dist/validators/index.js"
+    },
+    "./server/mcp-oauth-core": {
+      "types": "./src/server/mcp-oauth-core.ts",
+      "import": "./src/server/mcp-oauth-core.ts",
+      "require": "./dist/server/mcp-oauth-core.js"
+    },
+    "./server/storefront-editor-session": {
+      "types": "./src/server/storefront-editor-session.ts",
+      "import": "./src/server/storefront-editor-session.ts",
+      "require": "./dist/server/storefront-editor-session.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "transpile": "tsc"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "catalog:",
+    "@konfi/types": "workspace:*",
+    "better-all": "catalog:",
+    "es-toolkit": "catalog:",
+    "i18next": "catalog:",
+    "next": "catalog:",
+    "react-hook-form": "catalog:",
+    "swr": "catalog:",
+    "yup": "catalog:"
+  },
+  "devDependencies": {
+    "firebase": "catalog:",
+    "typescript": "catalog:"
+  }
+}

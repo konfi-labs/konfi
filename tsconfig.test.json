@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "target": "esnext",
+    "module": "esnext",
+    "types": ["vitest/globals"]
+  },
+  "references": [{ "path": "." }],
+  "include": ["**/*.test.ts", "**/*.test.tsx"]
+}

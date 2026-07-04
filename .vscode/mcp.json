@@ -1,0 +1,48 @@
+{
+	"servers": {
+		"context7": {
+			"type": "http",
+			"url": "https://mcp.context7.com/mcp"
+		},
+		"Sentry": {
+			"type": "http",
+			"url": "https://mcp.sentry.dev/mcp"
+		},
+		"chakra-ui": {
+			"command": "npx",
+			"args": [
+				"-y",
+				"@chakra-ui/react-mcp@latest"
+			],
+			"type": "stdio"
+		},
+		"chrome-devtools": {
+			"command": "npx",
+			"args": [
+				"chrome-devtools-mcp@latest"
+			],
+			"type": "stdio"
+		},
+		"next-devtools": {
+			"command": "npx",
+			"args": [
+				"-y",
+				"next-devtools-mcp@latest"
+			],
+			"type": "stdio"
+		},
+		"storybook": {
+			"type": "http",
+			"url": "http://localhost:6006/mcp"
+		},
+		"Linear": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"mcp-remote",
+				"https://mcp.linear.app/mcp"
+			]
+		}
+	},
+	"inputs": []
+}

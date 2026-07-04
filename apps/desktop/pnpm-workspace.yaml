@@ -1,0 +1,14 @@
+allowBuilds:
+  electron: true
+  electron-winstaller: false
+  sharp: true
+
+catalog:
+  "@types/node": ^24.2.1
+  typescript: ~6.0.3
+
+nodeLinker: hoisted
+
+supportedArchitectures:
+  cpu: [x64, arm64]
+  os: [win32, darwin, current]
