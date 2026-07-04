@@ -6,26 +6,6 @@ functions, an Electron desktop wrapper, shared UI and domain packages, generated
 external-service clients, and Rust/WASM utilities for workbook parsing,
 preflight, and imposition tasks.
 
-## Repository status
-
-This repository is being prepared for an open-source release. The root package
-stays `"private": true` because this is an application monorepo, not because
-open source requires publishing packages. Making the repository public under
-Apache-2.0 does not imply publishing any workspace package to npm, and it does
-not grant rights to use Konfi trademarks beyond the license terms.
-
-Before making a fork or upstream repository public, complete the remaining
-release-readiness checks:
-
-- run a current-tree and full-history secret scan
-- rotate any credential that appears in history
-- confirm redistribution rights for generated API clients and checked-in API
-  specifications
-- decide whether private production integrations should be public, mocked, or
-  split out
-- review tests, fixtures, screenshots, Storybook stories, docs, and changelogs
-  for customer, supplier, staff, order, pricing, or production data
-
 ## Apps
 
 | App              | Description                                        | Default port |
