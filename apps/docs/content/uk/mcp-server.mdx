@@ -1,0 +1,136 @@
+---
+title: Сервер MCP
+description: Підключення AI-агентів до затверджених інструментів Konfi, перелік інструментів, приклади запитів і форми відповідей.
+---
+
+# Сервер MCP
+
+Konfi надає адміністративний сервер MCP за endpoint `/mcp`. Агентний клієнт
+підключається через Streamable HTTP, проходить OAuth-автентифікацію, отримує
+список інструментів, дозволених для поточного користувача, і викликає їх зі
+структурованими вхідними даними.
+
+Список інструментів залежить від ролі, OAuth scopes і доступу до каналів.
+Більшість інструментів працює лише на читання. Інструменти із записом зберігають
+чернетки для перевірки в Konfi і не створюють фінальні записи напряму.
+
+## Рівні доступу
+
+- **Базовий користувач**: контекст користувача, канали, читання продуктів і пояснення ціни.
+- **Адміністратор**: операційні інструменти читання і створення чернеток для перевірки.
+- **Суперадміністратор**: доступ адміністратора плюс чутливіші чернетки змін бізнес-даних.
+
+## Групи інструментів
+
+| Область | Інструменти | Для чого використовувати |
+| --- | --- | --- |
+| Контекст і виявлення | `get_current_user_context`, `list_channels`, `list_business_resources` | Перевірити користувача, scopes, видимі канали та бізнес-ресурси. |
+| Бізнес-записи | `search_business_records`, `query_firestore_records`, `get_business_record`, `save_business_update_draft` | Шукати, запитувати, читати і готувати контрольовані зміни дозволених ресурсів. |
+| Замовлення | `search_orders`, `list_orders`, `get_order`, `get_order_by_number`, `suggest_order_items` | Знаходити замовлення, читати підсумки, переглядати найновіші та пропонувати позиції для чернеток. |
+| Продукти і ціни | `search_products`, `list_products`, `get_product`, `get_product_configuration_schema`, `list_product_price_rows`, `get_product_dynamic_pricing_config`, `explain_price` | Читати каталог, конфігурації, рядки цін, динамічні ціни та пояснення ціни. |
+| Чернетки | `get_draft_schema`, `get_konfi_drafting_docs`, `get_draft_resource_options`, `save_draft`, `get_saved_draft` | Підготувати чернетки категорій, типів продуктів, пропозицій, замовлень і продуктів на основі реальних даних Konfi. |
+| Витрати | `get_product_costs`, `list_product_cost_mappings`, `get_attribute_option_costs`, `search_cost_evidence`, `search_material_costs` | Читати затверджені докази витрат з Fakturownia без зміни цін. |
+| Клієнти | `search_customers`, `get_customer` | Шукати видимих клієнтів і читати відредаговані підсумки. |
+
+## Загальні ресурси
+
+Загальні інструменти працюють, зокрема, з `campaigns`, `promotions`,
+`fakturowniaInvoices`, `notes`, `channelSettings`, `suppliers`, `warehouses`,
+`products`, `categories`, `orders`, `quotes` і `complaints`. Спочатку викликай
+`list_business_resources`, бо він повертає точний список, поля для пошуку і
+прив'язку до каналу.
+
+## Приклади запитів
+
+Значення нижче є ілюстративними. Реальні відповіді залежать від облікового
+запису, scopes, каналів і даних Konfi.
+
+### Перевірити доступ
+
+Запит:
+
+```text
+Перевір, які канали Konfi та інструменти MCP я можу використовувати, і підсумуй, які дані ти можеш безпечно читати.
+```
+
+Типовий перебіг:
+
+```text
+get_current_user_context -> list_channels -> list_business_resources
+```
+
+Приклад відповіді:
+
+```json
+{
+  "scopes": ["channels:read", "orders:read", "products:read"],
+  "channels": [{ "id": "channel_main", "name": "Main store" }],
+  "safeSummary": "Я можу читати замовлення, продукти та затверджені бізнес-ресурси для Main store. Фінальні записи напряму не створюю."
+}
+```
+
+### Отримати найновіше замовлення
+
+Запит:
+
+```text
+Покажи найновіше замовлення в каналі Main store і підсумуй статус, клієнта та позиції.
+```
+
+Типовий перебіг:
+
+```text
+list_channels -> list_orders -> get_order
+```
+
+Приклад відповіді:
+
+```json
+{
+  "order": {
+    "number": 10452,
+    "status": "IN_PROGRESS",
+    "customer": "Example Company",
+    "items": [{ "name": "Business cards", "quantity": 500 }]
+  },
+  "summary": "Замовлення #10452 перебуває в роботі і містить одну позицію візиток."
+}
+```
+
+### Зберегти чернетку пропозиції
+
+Запит:
+
+```text
+Підготуй чернетку пропозиції для Example Company: 500 візиток з матовою ламінацією. Збережи її для перевірки адміністратором.
+```
+
+Типовий перебіг:
+
+```text
+search_customers -> search_products -> get_draft_schema -> get_draft_resource_options -> suggest_order_items -> save_draft
+```
+
+Приклад відповіді:
+
+```json
+{
+  "draftRunId": "mcp_draft_abc123",
+  "draftType": "quote",
+  "status": "mcp_draft",
+  "openUrl": "https://admin.example.com/uk/tools/tasks/mcp_draft_abc123",
+  "summary": "Чернетку пропозиції збережено для перевірки. Фінальну пропозицію не створено."
+}
+```
+
+## Правила для агентів
+
+- Спочатку визнач канали і ресурси.
+- Для інструментів, прив'язаних до каналу, надавай перевагу `channelName` з
+  `list_channels`.
+- Для видимих номерів замовлень на кшталт `#10452` використовуй
+  `get_order_by_number`.
+- Для найновіших замовлень використовуй `list_orders`.
+- Варіанти конфігурації продукту тримай у контексті агента.
+- Зміни пропонуй через `save_draft` або `save_business_update_draft`; фінальні
+  дії залишаються за людиною в Konfi.

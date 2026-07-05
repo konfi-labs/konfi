@@ -1,0 +1,52 @@
+---
+title: Clients
+description: Gérer fiches clients, groupes, paniers, notes et contexte de commande.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Clients
+
+Les fiches clients conservent les informations de contact, de facturation et de
+contexte opérationnel utilisées par les commandes et la boutique.
+
+## Trouver un client
+
+- Ouvre **Clients** dans la navigation principale.
+- Recherche par nom de client.
+- Actualise la liste si un autre opérateur a pu la modifier.
+- Ouvre l'aperçu ou le détail avant de changer des données partagées.
+
+## Entretenir les fiches
+
+- **Ajouter un client** crée une nouvelle fiche.
+- Les actions de ligne permettent modifier, dupliquer ou désactiver.
+- Vérifie nom, contact, données de facturation et identifiants avant de créer
+  une commande ou une facture.
+
+## Exemple de fiche client
+
+<StoryFrame
+  id="admin-docs-examples--customer-profile-form-fr"
+  title="Formulaire client"
+  height={900}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Groupes et paniers
+
+- **Groupes clients** segmentent les clients pour les règles opérationnelles.
+- Une action de ligne relie un client à un groupe.
+- **Paniers clients** donne le contexte provenant de la boutique en ligne.
+
+## Notes
+
+- Crée une note depuis les actions de ligne.
+- Les notes client conviennent aux informations de compte qui ne doivent pas
+  vivre seulement sur une commande.
+
+## Changements sûrs
+
+- Duplique un client pour créer un compte proche mais séparé.
+- Désactive au lieu d'écraser une identité historique.
+- Vérifie les commandes liées avant de changer les champs de facturation.

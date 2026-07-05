@@ -1,0 +1,57 @@
+---
+title: Customers
+description: Manage customer records, groups, carts, notes, and order context.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Customers
+
+Customers keep the reusable billing, contact, grouping, and operational context
+used by orders and store activity.
+
+## Find Customers
+
+- Open **Customers** from the main admin navigation.
+- Search by customer name.
+- Use refresh when another operator may have edited the customer list.
+- Open a customer preview or detail page before changing shared data used by
+  orders.
+
+## Create and Maintain Records
+
+- Use **Add Customer** to create a new record.
+- Use row actions to edit, duplicate, or deactivate a customer.
+- Keep customer name, contact person, billing data, and identifiers current
+  before creating orders or invoices from that record.
+
+## Customer Form Example
+
+<StoryFrame
+  id="admin-docs-examples--customer-profile-form"
+  title="Customer profile form"
+  height={900}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Groups and Carts
+
+- **Customer groups** help segment customers for operational rules and reusable
+  assignment.
+- Use the row action to link a customer to a group.
+- **Customer carts** expose stored cart activity when you need context from the
+  storefront.
+
+## Notes
+
+- Use customer row actions to create a note linked to the customer.
+- Notes are useful for account-level information that should not be stored only
+  on a single order.
+
+## Safe Changes
+
+- Duplicate a customer when you need a new related account without rewriting the
+  original record.
+- Deactivate instead of editing historical identity data when old orders still
+  need to reference the original customer.
+- Review linked orders before changing billing-sensitive fields.

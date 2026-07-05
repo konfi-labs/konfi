@@ -11,6 +11,26 @@ body,
   min-height: 100%;
 }
 
+html {
+  background: #ffffff;
+  color-scheme: light;
+}
+
+html.dark,
+html:has(body.dark),
+body.dark {
+  background: #09090b;
+  color-scheme: dark;
+}
+
 body {
   margin: 0;
+  background: inherit;
+}
+
+#storybook-root,
+#storybook-docs,
+.sb-show-main,
+.docs-story {
+  background: inherit;
 }

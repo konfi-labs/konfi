@@ -1,0 +1,189 @@
+---
+title: Products
+description: Maintain channel products, prices, catalog media, translations, and operational links.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Products
+
+Products define what the store and admin order forms can sell. Product data is
+channel-scoped, so always check the active channel before creating or editing.
+
+## Product Model
+
+Treat a product as the reusable sellable configuration for one channel. A product
+can also be exposed to other channels through links, but its source record still
+lives under the channel where it was created.
+
+- **Source channel** controls the product record, prices, media, SEO, and
+  translations.
+- **Linked channels** can find and use the product without copying it into a
+  second catalog.
+- **Customer links** mark a product as customer-specific. In order pricing,
+  globally configured customer discounts are not applied to products linked to
+  that customer.
+- **Supplier and warehouse links** keep operational context close to the product
+  for purchasing and fulfillment.
+- **Storefront visibility** depends on active state, publication dates,
+  expiration dates, price validity, translations, and cache revalidation after
+  save.
+
+## Product List
+
+- Open **Catalog** and use the **Products** section.
+- Search by product name or refresh the list when catalog data may be stale.
+- Use **Manage Product Images** for shared product media.
+- Use **Manage dynamic pricing presets** before assigning reusable dynamic
+  pricing rules.
+- Use **Add Product** to create a new product. Development builds may also show
+  an import action.
+
+## Product Actions
+
+From the product row action menu you can:
+
+- Edit or duplicate a product.
+- Create a note linked to the product.
+- Open product ratings.
+- Link the product to a channel, customer, supplier, or warehouse.
+- Delete the product after confirming it is no longer needed.
+
+## Create a Product
+
+Use this workflow for a new product that should be available in the active
+channel:
+
+1. Open **Catalog** -> **Products** and confirm the active channel.
+2. Select **Add Product**.
+3. Fill name, description, category, active state, and channel context.
+4. Add SEO slug, title, and description before publishing to the storefront.
+5. Choose the price type and complete the required price fields.
+6. Select product type, attributes, page-count behavior, and size/order limits
+   when the product needs configuration.
+7. Add media and product-specific images.
+8. Preview the storefront configuration and listing prices.
+9. Save the product, then review translations and storefront visibility.
+
+## Product Form
+
+The product form covers:
+
+- Name, description, category, active state, and channel.
+- SEO slug, title, and description for storefront pages.
+- Images and product-specific media.
+- Price type, price tables, matrix or threshold pricing, and dynamic pricing.
+- Attributes, product type, page-count pricing, expiration, and store listing
+  price previews.
+
+## Product Form Example
+
+<StoryFrame
+  id="admin-docs-examples--product-form"
+  title="Product form"
+  height={900}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Pricing Workflows
+
+- Use a single price for simple fixed products.
+- Use volume or threshold prices when the product has quantity breaks.
+- Use matrix pricing when price depends on a combination of attributes.
+- Use page-count pricing for products where the number of pages changes the
+  price.
+- Use dynamic pricing presets for reusable rules, then link those presets from
+  product forms.
+- Preview default, low, and high listing prices before saving products that
+  appear in the storefront.
+
+## Price Tier Example
+
+Use this embedded example when checking threshold or volume pricing behavior. It
+shows how price tiers are presented when a product has multiple quantity breaks.
+
+<StoryFrame
+  id="shared-components--price-threshold-volume-cards"
+  title="Product price tier cards"
+  height={520}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Link Products to Channels
+
+Use **Link to Channel** when the same product should be available in another
+channel without maintaining a duplicate record.
+
+1. Open the product row action menu.
+2. Select **Link to Channel**.
+3. Choose a target channel. The dialog only lists channels other than the active
+   one.
+4. Confirm with **Link**.
+5. Refresh product search or open an order form in the target channel to verify
+   the product is available.
+
+The link updates the product's linked-channel list and refreshes the product
+search index. It does not create a separate product document in the target
+channel. Edit the source product when prices, SEO, media, or configuration need
+to change.
+
+## Link Products to Customers
+
+Use **Link to Customer** for products that should be associated with a specific
+account, such as negotiated items, private catalog products, or repeat-order
+templates.
+
+1. Open the product row action menu.
+2. Select **Link to Customer**.
+3. Search for and select the customer.
+4. Confirm with **Link**.
+5. In a new order for that customer, check the linked-products area and verify
+   the product can be selected.
+
+Customer links are stored on the customer record. They also change pricing
+behavior: the customer's global discount is not automatically applied to linked
+products unless the order item uses its own custom discount.
+
+## Example Workflows
+
+### Publish a Storefront Product
+
+Create the product, add valid prices, assign category and SEO, upload media,
+review translations, then verify it from the storefront or an order form in the
+same channel.
+
+### Reuse a Product in Another Channel
+
+Create and test the product in the source channel, use **Link to Channel**, then
+search for it in the target channel. Keep future product edits on the source
+record.
+
+### Prepare a Customer-Specific Product
+
+Create the product with the agreed specification, link it to the customer, and
+create a test order for that customer to confirm selection and discount behavior.
+
+### Update a Priced Product
+
+Check whether the product uses fixed, matrix, page-count, or dynamic pricing.
+Update the relevant price table, preview listing prices, save, and verify order
+pricing before operators use it for live quotes.
+
+## Translations and Storefront Impact
+
+- Product translations can be generated and reviewed from catalog translation
+  controls.
+- Slug changes affect storefront product URLs and metadata cache.
+- Pricing, availability, shipping, and express settings can affect how products
+  appear in storefront lists and checkout.
+- Linked-channel products can affect search and order forms outside the source
+  channel, so verify every channel where the product is exposed.
+
+## Before Publishing
+
+- Confirm the product is in the intended category and channel.
+- Check at least one valid price exists for the selected price type.
+- Preview product media and SEO values.
+- Review dynamic pricing rules before enabling dynamic products.
+- Check linked customers and channels before deleting or heavily changing a
+  product used by other workflows.

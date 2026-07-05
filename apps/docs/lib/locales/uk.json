@@ -1,0 +1,46 @@
+{
+  "footer": {
+    "copyright": "Konfi."
+  },
+  "lastUpdated": "Останнє оновлення",
+  "layout": {
+    "editLink": "Редагувати цю сторінку",
+    "feedback": "Є питання? Надішліть відгук",
+    "themeSwitch": {
+      "dark": "Темна",
+      "light": "Світла",
+      "system": "Системна"
+    },
+    "toc": {
+      "backToTop": "Повернутися вгору",
+      "title": "На цій сторінці"
+    }
+  },
+  "metadata": {
+    "description": "Документація платформи Konfi.",
+    "template": "%s | Документація Konfi",
+    "title": "Документація Konfi"
+  },
+  "navbar": {
+    "logo": "Документація Konfi"
+  },
+  "pageActions": {
+    "chatGptPrompt": "Прочитай {{url}}, щоб я міг ставити запитання про цю сторінку.",
+    "copied": "Скопійовано",
+    "copyPage": "Копіювати сторінку",
+    "copyPageDescription": "Копіювати сторінку як Markdown для інструментів штучного інтелекту",
+    "menuLabel": "Дії сторінки",
+    "openInChatGPT": "Відкрити в ChatGPT",
+    "openInChatGPTDescription": "Ставити запитання про цю сторінку"
+  },
+  "search": {
+    "emptyResult": "Відповідної документації не знайдено.",
+    "errorText": "Не вдалося завантажити індекс пошуку.",
+    "loading": "Завантаження індексу пошуку...",
+    "placeholder": "Шукати в документації Konfi..."
+  },
+  "storyFrame": {
+    "loadingExample": "Завантаження прикладу...",
+    "openExample": "Відкрити інтерактивний приклад"
+  }
+}

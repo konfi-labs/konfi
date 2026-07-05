@@ -1,0 +1,221 @@
+---
+title: MCP server
+description: Connect AI agents to approved Konfi tools and understand the tools, prompts, and output shapes.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# MCP Server
+
+Konfi exposes an MCP server at the admin `/mcp` endpoint. Agent clients connect
+over Streamable HTTP, authenticate with OAuth, discover the tools allowed for
+the signed-in user, and call those tools with structured inputs.
+
+The server is permission-aware. A tool appears only when the OAuth scopes, Konfi
+role, and channel access allow it. Most tools are read-only. The write-capable
+tools create drafts for human review in Konfi instead of creating or updating
+final business records directly.
+
+## Access Levels
+
+- **Basic user**: user context, channels, product reads, and price explanation.
+- **Admin**: read-only operational tools plus reviewed draft creation.
+- **Super admin**: admin access plus higher-risk draft and business update tools.
+
+## Tool Groups
+
+| Area | Tools | What agents use them for |
+| --- | --- | --- |
+| Context and discovery | `get_current_user_context`, `list_channels`, `list_business_resources` | Learn the signed-in actor, available scopes, visible channels, and generic business resources. |
+| Generic business records | `search_business_records`, `query_firestore_records`, `get_business_record`, `save_business_update_draft` | Search, query, inspect, and prepare reviewed updates for allowlisted resources such as campaigns, promotions, invoices, notes, settings, suppliers, warehouses, products, categories, orders, quotes, and complaints. |
+| Orders | `search_orders`, `list_orders`, `get_order`, `get_order_by_number`, `suggest_order_items` | Find orders, read redacted order summaries, list recent orders, and suggest configured line items for quote or order drafts. |
+| Products and pricing | `search_products`, `list_products`, `get_product`, `get_product_configuration_schema`, `list_product_price_rows`, `get_product_dynamic_pricing_config`, `explain_price` | Search catalog products, inspect selectable configuration, read price rows, inspect dynamic pricing, and explain a product price for a quantity and configuration. |
+| Drafting | `get_draft_schema`, `get_konfi_drafting_docs`, `get_draft_resource_options`, `save_draft`, `get_saved_draft` | Ground category, product type, quote, order, and product drafts in real schema and selectable Konfi data, then save a reviewable draft task. |
+| Costs | `get_product_costs`, `list_product_cost_mappings`, `get_attribute_option_costs`, `search_cost_evidence`, `search_material_costs` | Inspect approved Fakturownia cost evidence and material-cost mappings without exposing unrestricted invoice dumps or changing prices. |
+| Customers | `search_customers`, `get_customer` | Search visible customers and fetch redacted customer summaries without email, phone, or addresses. |
+
+## Generic Resources
+
+The generic business record tools can expose these allowlisted resources when
+the signed-in user has access:
+
+`agents`, `attributes`, `b2bInquiries`, `campaigns`, `categories`,
+`channelCms`, `channelMetadata`, `channelPages`, `channelSettings`,
+`complaints`, `designatedPickupAreas`, `dynamicPricingPresets`,
+`emailOrderImports`, `externalProducts`, `externalProviders`,
+`fakturowniaInvoices`, `generatedOrderItems`, `impositionWorkflows`, `members`,
+`notes`, `orders`, `productTypes`, `products`, `promotions`, `quotes`,
+`scheduleRules`, `schedules`, `shiftRequests`, `suppliers`, and `warehouses`.
+
+Use `list_business_resources` first. It returns resource descriptions, whether
+the resource is channel-scoped, and fields that are useful for search.
+
+## Prompt Examples
+
+The examples below show useful agent prompts and representative output shapes.
+The values are illustrative; real output depends on the connected account,
+granted scopes, channel access, and current Konfi data.
+
+<StoryFrame
+  id="admin-components--assistant-sample-messages"
+  title="Admin assistant sample prompts"
+  height={460}
+  globals="theme:light;appTheme:admin"
+/>
+
+### Inspect Access
+
+Prompt:
+
+```text
+Check which Konfi channels and MCP tools I can use, then tell me what data you can safely read.
+```
+
+Likely tool flow:
+
+```text
+get_current_user_context -> list_channels -> list_business_resources
+```
+
+Example output:
+
+```json
+{
+  "actor": { "email": "operator@example.com", "kind": "oauth-user" },
+  "scopes": ["channels:read", "orders:read", "products:read"],
+  "channels": [{ "id": "channel_main", "name": "Main store" }],
+  "safeSummary": "I can read orders, products, customers, costs, and allowlisted business records for Main store. I cannot create final records directly."
+}
+```
+
+### Find the Latest Order
+
+Prompt:
+
+```text
+Show me the newest order in the Main store channel and summarize its status, customer label, and items.
+```
+
+Likely tool flow:
+
+```text
+list_channels -> list_orders -> get_order
+```
+
+Example output:
+
+```json
+{
+  "order": {
+    "id": "order_123",
+    "number": 10452,
+    "status": "IN_PROGRESS",
+    "customer": "Example Company",
+    "items": [
+      { "name": "Business cards", "quantity": 500, "status": "READY" }
+    ]
+  },
+  "summary": "Order #10452 is in progress for Example Company. It contains one ready business-card item."
+}
+```
+
+### Explain a Product Price
+
+Prompt:
+
+```text
+Find the business card product in Main store and explain the price for 500 pieces with matte laminate.
+```
+
+Likely tool flow:
+
+```text
+search_products -> get_product_configuration_schema -> explain_price
+```
+
+Example output:
+
+```json
+{
+  "product": { "id": "prod_business_cards", "name": "Business cards" },
+  "configuration": {
+    "quantity": 500,
+    "selectedAttributeOptions": { "finish": "matte_laminate" }
+  },
+  "price": {
+    "currency": "PLN",
+    "net": 12000,
+    "gross": 14760,
+    "unit": "minor"
+  },
+  "explanation": "The price came from the product price table for 500 pieces and the matte laminate option."
+}
+```
+
+### Prepare a Quote Draft
+
+Prompt:
+
+```text
+Prepare a quote draft for Example Company: 500 business cards, matte laminate, delivery next week. Save it for admin review.
+```
+
+Likely tool flow:
+
+```text
+search_customers -> search_products -> get_draft_schema -> get_draft_resource_options -> suggest_order_items -> save_draft
+```
+
+Example output:
+
+```json
+{
+  "draftRunId": "mcp_draft_abc123",
+  "draftType": "quote",
+  "status": "mcp_draft",
+  "openUrl": "https://admin.example.com/pl/tools/tasks/mcp_draft_abc123",
+  "summary": "Quote draft saved for review. No final quote was created."
+}
+```
+
+### Analyze Material Costs
+
+Prompt:
+
+```text
+For business cards, find recent approved cost evidence for 350 gsm paper and summarize latest and average net cost.
+```
+
+Likely tool flow:
+
+```text
+search_products -> search_material_costs
+```
+
+Example output:
+
+```json
+{
+  "query": "350 gsm paper business cards",
+  "latestNetCost": 32.4,
+  "averageNetCost": 31.8,
+  "unitBasis": "sheet",
+  "sampleCount": 4,
+  "evidence": [
+    { "invoiceNumber": "FV/12/2026", "supplier": "Paper Supplier", "date": "2026-06-14" }
+  ],
+  "note": "This is read-only cost evidence. The MCP server does not recommend or update product prices."
+}
+```
+
+## Safety Rules for Agents
+
+- Discover channels and resources before making channel-scoped calls.
+- Prefer `channelName` from `list_channels`; use `channelId` only when needed.
+- Use `get_order_by_number` for visible order numbers such as `#10452`.
+- Use `list_orders` for newest or recent orders.
+- Keep product configuration choices in the agent context; the MCP server does
+  not store selection state.
+- Use `save_draft` or `save_business_update_draft` for proposed changes. Final
+  creation, update, approval, refund, or deletion still requires a human admin
+  in Konfi.

@@ -1,0 +1,134 @@
+---
+title: Serveur MCP
+description: Connecter des agents IA aux outils Konfi approuvés et comprendre les outils, prompts et formes de résultat.
+---
+
+# Serveur MCP
+
+Konfi expose le serveur MCP admin sur `/mcp`. Les clients agents se connectent
+en Streamable HTTP, s'authentifient avec OAuth, découvrent les outils autorisés
+pour l'utilisateur connecté, puis les appellent avec des entrées structurées.
+
+La liste des outils dépend du rôle, des étendues OAuth et de l'accès aux canaux.
+La plupart des outils sont en lecture seule. Les outils capables d'écrire créent
+des brouillons à relire dans Konfi, sans créer ni modifier directement les
+enregistrements finaux.
+
+## Niveaux d'accès
+
+- **Utilisateur de base** : contexte utilisateur, canaux, lecture produit et explication de prix.
+- **Administrateur** : outils opérationnels en lecture seule et création de brouillons relus.
+- **Super administrateur** : accès administrateur plus brouillons et propositions de mise à jour plus sensibles.
+
+## Groupes d'outils
+
+| Zone | Outils | Utilisation |
+| --- | --- | --- |
+| Contexte et découverte | `get_current_user_context`, `list_channels`, `list_business_resources` | Vérifier l'utilisateur, les étendues, les canaux visibles et les ressources métier. |
+| Enregistrements métier | `search_business_records`, `query_firestore_records`, `get_business_record`, `save_business_update_draft` | Rechercher, interroger, consulter et préparer des mises à jour relues pour les ressources autorisées. |
+| Commandes | `search_orders`, `list_orders`, `get_order`, `get_order_by_number`, `suggest_order_items` | Trouver des commandes, lire des résumés, lister les plus récentes et proposer des lignes pour brouillons. |
+| Produits et prix | `search_products`, `list_products`, `get_product`, `get_product_configuration_schema`, `list_product_price_rows`, `get_product_dynamic_pricing_config`, `explain_price` | Lire catalogue, configuration, lignes de prix, prix dynamique et explications de prix. |
+| Brouillons | `get_draft_schema`, `get_konfi_drafting_docs`, `get_draft_resource_options`, `save_draft`, `get_saved_draft` | Préparer des brouillons de catégorie, type produit, devis, commande ou produit avec des données Konfi réelles. |
+| Coûts | `get_product_costs`, `list_product_cost_mappings`, `get_attribute_option_costs`, `search_cost_evidence`, `search_material_costs` | Lire les preuves de coûts Fakturownia approuvées sans changer les prix. |
+| Clients | `search_customers`, `get_customer` | Rechercher les clients visibles et lire des résumés expurgés. |
+
+## Ressources génériques
+
+Les outils métier génériques peuvent couvrir `campaigns`, `promotions`,
+`fakturowniaInvoices`, `notes`, `channelSettings`, `suppliers`, `warehouses`,
+`products`, `categories`, `orders`, `quotes` et `complaints`. Utilise
+`list_business_resources` d'abord pour connaître la liste exacte, les champs de
+recherche et les ressources liées à un canal.
+
+## Exemples de prompts
+
+Les valeurs sont illustratives. Les résultats réels dépendent du compte, des
+étendues, des canaux et des données Konfi.
+
+### Vérifier l'accès
+
+Prompt :
+
+```text
+Vérifie les canaux Konfi et les outils MCP que je peux utiliser, puis résume les données que tu peux lire en sécurité.
+```
+
+Flux typique :
+
+```text
+get_current_user_context -> list_channels -> list_business_resources
+```
+
+Exemple de sortie :
+
+```json
+{
+  "scopes": ["channels:read", "orders:read", "products:read"],
+  "channels": [{ "id": "channel_main", "name": "Main store" }],
+  "safeSummary": "Je peux lire les commandes, produits et ressources métier approuvées pour Main store. Je ne crée pas d'enregistrements finaux directement."
+}
+```
+
+### Lire la dernière commande
+
+Prompt :
+
+```text
+Montre la commande la plus récente du canal Main store et résume son statut, son client et ses articles.
+```
+
+Flux typique :
+
+```text
+list_channels -> list_orders -> get_order
+```
+
+Exemple de sortie :
+
+```json
+{
+  "order": {
+    "number": 10452,
+    "status": "IN_PROGRESS",
+    "customer": "Example Company",
+    "items": [{ "name": "Business cards", "quantity": 500 }]
+  },
+  "summary": "La commande #10452 est en cours et contient une ligne de cartes de visite."
+}
+```
+
+### Enregistrer un brouillon de devis
+
+Prompt :
+
+```text
+Prépare un brouillon de devis pour Example Company : 500 cartes de visite avec laminage mat. Enregistre-le pour relecture admin.
+```
+
+Flux typique :
+
+```text
+search_customers -> search_products -> get_draft_schema -> get_draft_resource_options -> suggest_order_items -> save_draft
+```
+
+Exemple de sortie :
+
+```json
+{
+  "draftRunId": "mcp_draft_abc123",
+  "draftType": "quote",
+  "status": "mcp_draft",
+  "openUrl": "https://admin.example.com/fr/tools/tasks/mcp_draft_abc123",
+  "summary": "Le brouillon de devis a été enregistré pour relecture. Aucun devis final n'a été créé."
+}
+```
+
+## Règles pour agents
+
+- Découvrir d'abord les canaux et ressources.
+- Préférer `channelName` depuis `list_channels`.
+- Utiliser `get_order_by_number` pour les numéros visibles comme `#10452`.
+- Utiliser `list_orders` pour les commandes les plus récentes.
+- Garder les choix de configuration produit dans le contexte agent.
+- Proposer les changements avec `save_draft` ou `save_business_update_draft`;
+  les actions finales restent dans Konfi avec un humain.

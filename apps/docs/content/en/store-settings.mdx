@@ -1,0 +1,65 @@
+---
+title: Store settings
+description: Configure channel storefront buying, shipping, checkout, SEO metadata, content, and automation.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Store Settings
+
+Store settings control channel storefront behavior. Open **Configuration**,
+then **Store settings**, and confirm the selected channel before saving changes.
+
+## Shopping Tab
+
+The Shopping tab is always available and includes:
+
+- Buying settings: enable storefront buying and set minimum and maximum order
+  values.
+- Free shipping: enable the threshold and set the minimum amount.
+- Under-construction mode: temporarily block or message the storefront.
+- Checkout settings: allow invoice requests and decide whether checkout blocks
+  out-of-stock products.
+- Express processing: enable an express surcharge percentage.
+- Shipping option prices: configure prices for supported shipping methods such
+  as courier, DHL, DPD, FedEx, InPost, parcel lockers, personal collection, and
+  custom delivery.
+
+## Store Settings Example
+
+<StoryFrame
+  id="admin-docs-examples--store-settings"
+  title="Store settings"
+  height={860}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Agent Custom Product
+
+The Store settings page also contains the Agent custom product panel. Select one
+single-price product with custom price enabled so future agent workflows can
+preserve supplier item names and prices.
+
+## Metadata Tab
+
+The Metadata tab is available outside the shared SaaS runtime. Use it to manage
+SEO metadata for store routes:
+
+- Page title and description.
+- Keywords.
+- Open Graph title, description, and image.
+- Localized metadata translations.
+
+## Content Tab
+
+The Content tab is available outside the shared SaaS runtime. Use it to manage
+store page content and localized content translations.
+
+## Saving Changes
+
+- Settings are saved per channel.
+- Only changed setting groups are written.
+- Product and store caches are revalidated after settings that affect storefront
+  display, prices, or checkout.
+- Refresh Store Settings if another operator may have saved changes while the
+  page was open.

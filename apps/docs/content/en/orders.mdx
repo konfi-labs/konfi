@@ -1,0 +1,70 @@
+---
+title: Orders
+description: Manage orders from intake through production, invoicing, shipping, and follow-up.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Orders
+
+Orders are the main operating record for production work. Use the home page for
+active Kanban and production queues, the Orders page for search and bulk work,
+and the order detail page when you need the complete history of one order.
+
+## Open the Right View
+
+- **Home** shows the Kanban and Production tabs for active work.
+- **Orders** shows the searchable order list with filters, pagination, sorting,
+  row previews, and bulk invoice selection when Fakturownia is configured.
+- **Order detail** opens from an order row and is the place to edit customer,
+  deadline, execution, files, payments, invoices, shipping, notes, and status.
+
+## Find and Triage Orders
+
+- Search by the fields selected in the search-field menu.
+- Filter by exact customer, rule presets, custom filters, date range, and store
+  channel inclusion when the channel is available.
+- Use refresh before acting on a stale list, especially after another operator
+  changes order state.
+- Open row previews when you only need file or line-item context.
+
+## Create and Update Orders
+
+- Use **New Order** for manual intake.
+- Use row actions to duplicate an order, edit basic data, add attachments,
+  upload payment proof, create notes, report item problems, or open complaints.
+- In the detail view, update customer, deadline, execution data, order items,
+  item fulfillment state, priority, and production assignment.
+
+## Order Workflow Example
+
+<StoryFrame
+  id="admin-docs-examples--order-intake-and-fulfillment"
+  title="Order intake and fulfillment"
+  height={960}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Status, Production, and Notifications
+
+- Status changes can trigger warnings, actor selection, and customer email
+  prompts depending on the configured workflow.
+- Production item actions include marking work in progress, picked up, delivered,
+  or blocked by an item problem.
+- Print actions are available from the detail view for full order, production,
+  and customer-facing printouts.
+
+## Finance and Shipping
+
+- When Fakturownia is connected, use order actions for proforma and VAT invoice
+  workflows, including creating a VAT invoice from an existing proforma.
+- Payment proof and payment documents are stored on the order detail page.
+- When courier integrations are configured, the detail page exposes parcel and
+  tracking actions.
+
+## Before Closing an Order
+
+- Confirm the customer and delivery data.
+- Check every order item has the expected files and production state.
+- Confirm payment, invoice, and shipment records match the actual fulfillment.
+- Review notes, complaints, and risk analysis if the order has exceptions.

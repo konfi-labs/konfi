@@ -1,0 +1,46 @@
+{
+  "footer": {
+    "copyright": "Konfi."
+  },
+  "lastUpdated": "Dernière mise à jour",
+  "layout": {
+    "editLink": "Modifier cette page",
+    "feedback": "Une question ? Envoyer un retour",
+    "themeSwitch": {
+      "dark": "Sombre",
+      "light": "Clair",
+      "system": "Système"
+    },
+    "toc": {
+      "backToTop": "Retour en haut",
+      "title": "Sur cette page"
+    }
+  },
+  "metadata": {
+    "description": "Documentation de la plateforme Konfi.",
+    "template": "%s | Docs Konfi",
+    "title": "Docs Konfi"
+  },
+  "navbar": {
+    "logo": "Docs Konfi"
+  },
+  "pageActions": {
+    "chatGptPrompt": "Lis {{url}} pour que je puisse poser des questions sur cette page.",
+    "copied": "Copié",
+    "copyPage": "Copier la page",
+    "copyPageDescription": "Copier la page en Markdown pour les outils d'intelligence artificielle",
+    "menuLabel": "Actions de la page",
+    "openInChatGPT": "Ouvrir dans ChatGPT",
+    "openInChatGPTDescription": "Poser des questions sur cette page"
+  },
+  "search": {
+    "emptyResult": "Aucune documentation correspondante.",
+    "errorText": "L'index de recherche n'a pas pu être chargé.",
+    "loading": "Chargement de l'index de recherche...",
+    "placeholder": "Rechercher dans les docs Konfi..."
+  },
+  "storyFrame": {
+    "loadingExample": "Chargement de l'exemple...",
+    "openExample": "Ouvrir l'exemple interactif"
+  }
+}

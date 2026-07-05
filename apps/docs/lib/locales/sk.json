@@ -1,0 +1,46 @@
+{
+  "footer": {
+    "copyright": "Konfi."
+  },
+  "lastUpdated": "Naposledy aktualizované",
+  "layout": {
+    "editLink": "Upraviť túto stránku",
+    "feedback": "Máte otázku? Pošlite spätnú väzbu",
+    "themeSwitch": {
+      "dark": "Tmavý",
+      "light": "Svetlý",
+      "system": "Systémový"
+    },
+    "toc": {
+      "backToTop": "Späť hore",
+      "title": "Na tejto stránke"
+    }
+  },
+  "metadata": {
+    "description": "Dokumentácia platformy Konfi.",
+    "template": "%s | Dokumentácia Konfi",
+    "title": "Dokumentácia Konfi"
+  },
+  "navbar": {
+    "logo": "Dokumentácia Konfi"
+  },
+  "pageActions": {
+    "chatGptPrompt": "Prečítaj {{url}}, aby som sa mohol pýtať na túto stránku.",
+    "copied": "Skopírované",
+    "copyPage": "Kopírovať stránku",
+    "copyPageDescription": "Kopírovať stránku ako Markdown pre nástroje umelej inteligencie",
+    "menuLabel": "Akcie stránky",
+    "openInChatGPT": "Otvoriť v ChatGPT",
+    "openInChatGPTDescription": "Klásť otázky k tejto stránke"
+  },
+  "search": {
+    "emptyResult": "Nenašla sa žiadna zodpovedajúca dokumentácia.",
+    "errorText": "Index vyhľadávania sa nepodarilo načítať.",
+    "loading": "Načítava sa index vyhľadávania...",
+    "placeholder": "Hľadať v dokumentácii Konfi..."
+  },
+  "storyFrame": {
+    "loadingExample": "Načítava sa príklad...",
+    "openExample": "Otvoriť živý príklad"
+  }
+}

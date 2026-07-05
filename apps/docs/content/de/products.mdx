@@ -1,0 +1,179 @@
+---
+title: Produkte
+description: Kanalprodukte, Preise, Medien, Übersetzungen und operative Verknüpfungen pflegen.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Produkte
+
+Produkte bestimmen, was im Shop und in Admin-Auftragsformularen verkauft werden
+kann. Produktdaten sind kanalabhängig.
+
+## Produktmodell
+
+Betrachte ein Produkt als wiederverwendbare Verkaufskonfiguration für einen
+Kanal. Ein Produkt kann über Verknüpfungen auch in anderen Kanälen verfügbar
+sein, der Quelldatensatz bleibt jedoch im Kanal, in dem er erstellt wurde.
+
+- **Quellkanal** steuert Produktdatensatz, Preise, Medien, SEO und
+  Übersetzungen.
+- **Verknüpfte Kanäle** können das Produkt finden und verwenden, ohne eine Kopie
+  im zweiten Katalog zu pflegen.
+- **Kundenverknüpfungen** markieren ein Produkt als kundenspezifisch. In der
+  Auftragskalkulation wird der globale Kundenrabatt nicht automatisch auf
+  Produkte angewendet, die mit diesem Kunden verknüpft sind.
+- **Lieferanten- und Lagerverknüpfungen** halten Einkaufs- und
+  Fulfillment-Kontext am Produkt.
+- **Shop-Sichtbarkeit** hängt von Aktivstatus, Veröffentlichungsdaten,
+  Ablaufdaten, gültigen Preisen, Übersetzungen und Cache-Revalidierung nach dem
+  Speichern ab.
+
+## Produktliste
+
+- Öffne **Katalog** und den Bereich **Produkte**.
+- Suche nach Namen oder aktualisiere die Liste.
+- **Produktbilder verwalten** öffnet gemeinsame Katalogmedien.
+- **Dynamische Preis-Presets verwalten** pflegt wiederverwendbare Preisregeln.
+- **Produkt hinzufügen** erstellt ein neues Produkt.
+
+## Produktaktionen
+
+Im Zeilenmenü kannst du:
+
+- Produkte bearbeiten oder duplizieren,
+- eine Produktnotiz erstellen,
+- Bewertungen öffnen,
+- Produkte mit Kanal, Kunde, Lieferant oder Lager verknüpfen,
+- Produkte nach Prüfung löschen.
+
+## Produkt erstellen
+
+Nutze diesen Ablauf für ein neues Produkt, das im aktiven Kanal verfügbar sein
+soll:
+
+1. Öffne **Katalog** -> **Produkte** und prüfe den aktiven Kanal.
+2. Wähle **Produkt hinzufügen**.
+3. Fülle Name, Beschreibung, Kategorie, Aktivstatus und Kanalkontext aus.
+4. Ergänze SEO-Slug, Titel und Beschreibung vor der Veröffentlichung im Shop.
+5. Wähle den Preistyp und vervollständige die erforderlichen Preisfelder.
+6. Wähle Produkttyp, Attribute, Seitenzahlverhalten sowie Größen- oder
+   Mengenlimits, wenn das Produkt konfigurierbar ist.
+7. Füge Medien und produktspezifische Bilder hinzu.
+8. Prüfe die Shop-Konfiguration und die Listenpreise in der Vorschau.
+9. Speichere das Produkt und kontrolliere anschließend Übersetzungen und
+   Shop-Sichtbarkeit.
+
+## Produktformular
+
+Das Formular umfasst Name, Beschreibung, Kategorie, Aktivstatus, Kanal, SEO,
+Bilder, Preistyp, Preistabellen, Matrix- und Schwellenpreise, dynamische Preise,
+Attribute, Produkttyp, Seitenzahlpreise und Shop-Preisvorschau.
+
+## Beispiel für das Produktformular
+
+<StoryFrame
+  id="admin-docs-examples--product-form-de"
+  title="Produktformular"
+  height={900}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Preisabläufe
+
+- Verwende einen Einzelpreis für einfache Festpreisprodukte.
+- Verwende Volumen- oder Schwellenpreise, wenn das Produkt Mengenstaffeln hat.
+- Verwende Matrixpreise, wenn der Preis von einer Kombination aus Attributen
+  abhängt.
+- Verwende Seitenzahlpreise, wenn die Seitenzahl den Preis verändert.
+- Verwende dynamische Preis-Presets für wiederverwendbare Regeln und verknüpfe
+  sie anschließend im Produktformular.
+- Prüfe Standard-, niedrige und hohe Listenpreise vor dem Speichern von
+  Produkten, die im Shop erscheinen.
+
+## Beispiel für Preisstaffeln
+
+Dieses eingebettete Beispiel zeigt, wie Preisstaffeln dargestellt werden, wenn
+ein Produkt mehrere Mengenbereiche hat.
+
+<StoryFrame
+  id="shared-components--price-threshold-volume-cards"
+  title="Preisstaffelkarten"
+  height={520}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Produkte mit Kanälen verknüpfen
+
+Nutze **Mit Kanal verknüpfen**, wenn dasselbe Produkt in einem anderen Kanal
+verfügbar sein soll, ohne einen doppelten Datensatz zu pflegen.
+
+1. Öffne das Aktionsmenü der Produktzeile.
+2. Wähle **Mit Kanal verknüpfen**.
+3. Wähle den Zielkanal. Der Dialog listet nur Kanäle außer dem aktiven Kanal.
+4. Bestätige mit **Verknüpfen**.
+5. Aktualisiere die Produktsuche oder öffne ein Auftragsformular im Zielkanal,
+   um die Verfügbarkeit zu prüfen.
+
+Die Verknüpfung aktualisiert die Kanal-Liste des Produkts und den Suchindex. Sie
+erstellt keinen separaten Produktdatensatz im Zielkanal. Bearbeite das
+Quellprodukt, wenn Preise, SEO, Medien oder Konfiguration geändert werden müssen.
+
+## Produkte mit Kunden verknüpfen
+
+Nutze **Mit Kunde verknüpfen** für Produkte, die einem bestimmten Konto
+zugeordnet werden sollen, etwa verhandelte Artikel, private Katalogprodukte oder
+Vorlagen für Wiederholaufträge.
+
+1. Öffne das Aktionsmenü der Produktzeile.
+2. Wähle **Mit Kunde verknüpfen**.
+3. Suche und wähle den Kunden.
+4. Bestätige mit **Verknüpfen**.
+5. Prüfe in einem neuen Auftrag für diesen Kunden den Bereich der verknüpften
+   Produkte und die Produktauswahl.
+
+Kundenverknüpfungen werden am Kundendatensatz gespeichert. Sie ändern auch die
+Preislogik: Der globale Kundenrabatt wird nicht automatisch auf verknüpfte
+Produkte angewendet, außer die Auftragsposition nutzt einen eigenen Rabatt.
+
+## Beispielabläufe
+
+### Produkt im Shop veröffentlichen
+
+Erstelle das Produkt, ergänze gültige Preise, weise Kategorie und SEO zu, lade
+Medien hoch, prüfe Übersetzungen und verifiziere es anschließend im Shop oder in
+einem Auftragsformular desselben Kanals.
+
+### Produkt in einem anderen Kanal wiederverwenden
+
+Erstelle und teste das Produkt im Quellkanal, nutze **Mit Kanal verknüpfen** und
+suche es danach im Zielkanal. Künftige Änderungen bleiben am Quelldatensatz.
+
+### Kundenspezifisches Produkt vorbereiten
+
+Erstelle das Produkt mit der vereinbarten Spezifikation, verknüpfe es mit dem
+Kunden und erstelle einen Testauftrag, um Auswahl und Rabattverhalten zu prüfen.
+
+### Produktpreise aktualisieren
+
+Prüfe, ob das Produkt Fest-, Matrix-, Seitenzahl- oder dynamische Preise nutzt.
+Aktualisiere die passende Preistabelle, prüfe die Listenpreisvorschau, speichere
+und verifiziere die Auftragskalkulation vor Live-Angeboten.
+
+## Übersetzungen und Shop
+
+- Produktübersetzungen werden im Katalog verwaltet.
+- Slug-Änderungen beeinflussen Produkt-URLs und Metadaten-Cache.
+- Preise, Verfügbarkeit, Versand und Expressoptionen beeinflussen Listen und
+  Kaufabschluss.
+- Verknüpfte Kanalprodukte können Suche und Auftragsformulare außerhalb des
+  Quellkanals beeinflussen. Prüfe daher jeden Kanal, in dem das Produkt
+  verfügbar ist.
+
+## Vor Veröffentlichung
+
+- Kanal, Kategorie und Aktivstatus prüfen.
+- Mindestens einen gültigen Preis für den gewählten Preistyp sicherstellen.
+- Medien, SEO und dynamische Regeln vor dem Speichern kontrollieren.
+- Verknüpfte Kunden und Kanäle prüfen, bevor ein Produkt gelöscht oder stark
+  verändert wird.

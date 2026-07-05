@@ -1,0 +1,57 @@
+---
+title: Ustawienia sklepu
+description: Konfiguracja zakupów, dostawy, realizacji zakupu, SEO, treści i automatyzacji sklepu.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Ustawienia sklepu
+
+Ustawienia sklepu sterują zachowaniem sklepu internetowego dla wybranego kanału. Otwórz
+**Konfiguracja**, potem **Ustawienia sklepu**, i sprawdź aktywny kanał przed
+zapisem.
+
+## Karta Zakupy
+
+Ta karta jest zawsze dostępna i obejmuje:
+
+- zakupy w sklepie oraz minimalną i maksymalną wartość zamówienia,
+- darmową dostawę i próg kwotowy,
+- tryb pod budową z komunikatem,
+- realizację zakupu, prośby o fakturę i politykę stanów magazynowych,
+- ekspresową realizację oraz procent dopłaty,
+- ceny metod dostawy, w tym kurier, DHL, DPD, FedEx, InPost, paczkomaty, odbiór
+  osobisty i dostawę własną.
+
+## Przykład ustawień sklepu
+
+<StoryFrame
+  id="admin-docs-examples--store-settings-pl"
+  title="Ustawienia sklepu"
+  height={860}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Produkt niestandardowy dla agenta
+
+Panel zapisuje jeden produkt z pojedynczą ceną i włączoną ceną niestandardową.
+Agenci mogą później użyć go do pozycji z ceną od dostawcy.
+
+## Metadane
+
+Karta Metadane jest dostępna poza współdzielonym środowiskiem SaaS. Ustawia SEO
+dla tras sklepu: tytuł, opis, słowa kluczowe oraz tytuł, opis i obraz Open
+Graph, razem z tłumaczeniami.
+
+## Treść
+
+Karta Treść jest dostępna poza współdzielonym środowiskiem SaaS. Służy do treści
+stron sklepu i ich tłumaczeń.
+
+## Zapis
+
+- Ustawienia zapisują się dla każdego kanału.
+- Zapisywane są tylko zmienione grupy ustawień.
+- Pamięć podręczna sklepu i produktów jest odświeżana po zmianach wpływających
+  na ceny, wyświetlanie albo realizację zakupu.
+- Użyj **Odśwież ustawienia sklepu**, jeśli strona była długo otwarta.

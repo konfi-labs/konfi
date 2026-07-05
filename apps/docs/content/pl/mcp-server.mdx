@@ -1,0 +1,218 @@
+---
+title: Serwer MCP
+description: Połącz agentów AI z zatwierdzonymi narzędziami Konfi i poznaj narzędzia, polecenia oraz kształty wyników.
+---
+
+# Serwer MCP
+
+Konfi udostępnia serwer MCP pod endpointem administracyjnym `/mcp`. Klient
+agentowy łączy się przez Streamable HTTP, uwierzytelnia przez OAuth, odkrywa
+narzędzia dostępne dla zalogowanego użytkownika i wywołuje je ze strukturalnymi
+danymi wejściowymi.
+
+Serwer uwzględnia uprawnienia. Narzędzie pojawia się tylko wtedy, gdy pozwalają
+na to zakresy OAuth, rola w Konfi i dostęp do kanału. Większość narzędzi jest
+tylko do odczytu. Narzędzia zapisujące tworzą wersje robocze do ręcznego
+przeglądu w Konfi, a nie finalne rekordy biznesowe.
+
+## Poziomy dostępu
+
+- **Użytkownik podstawowy**: kontekst użytkownika, kanały, odczyt produktów i
+  wyjaśnianie ceny.
+- **Administrator**: narzędzia operacyjne tylko do odczytu oraz tworzenie wersji
+  roboczych do przeglądu.
+- **Superadministrator**: dostęp administratora oraz bardziej wrażliwe wersje
+  robocze i propozycje aktualizacji rekordów biznesowych.
+
+## Grupy narzędzi
+
+| Obszar | Narzędzia | Do czego używa ich agent |
+| --- | --- | --- |
+| Kontekst i odkrywanie | `get_current_user_context`, `list_channels`, `list_business_resources` | Sprawdzenie zalogowanej osoby, zakresów, widocznych kanałów i ogólnych zasobów biznesowych. |
+| Rekordy biznesowe | `search_business_records`, `query_firestore_records`, `get_business_record`, `save_business_update_draft` | Wyszukiwanie, zapytania, podgląd i przygotowanie propozycji zmian dla dozwolonych zasobów, takich jak kampanie, promocje, faktury, notatki, ustawienia, dostawcy, magazyny, produkty, kategorie, zamówienia, oferty i reklamacje. |
+| Zamówienia | `search_orders`, `list_orders`, `get_order`, `get_order_by_number`, `suggest_order_items` | Szukanie zamówień, odczyt zredagowanych podsumowań, lista najnowszych zamówień i propozycje skonfigurowanych pozycji do wersji roboczych ofert lub zamówień. |
+| Produkty i ceny | `search_products`, `list_products`, `get_product`, `get_product_configuration_schema`, `list_product_price_rows`, `get_product_dynamic_pricing_config`, `explain_price` | Wyszukiwanie produktów, odczyt konfiguracji, tabel cen, ustawień cen dynamicznych i wyjaśnienie ceny dla ilości oraz konfiguracji. |
+| Wersje robocze | `get_draft_schema`, `get_konfi_drafting_docs`, `get_draft_resource_options`, `save_draft`, `get_saved_draft` | Oparcie wersji roboczych kategorii, typów produktów, ofert, zamówień i produktów na realnym schemacie oraz danych z Konfi, a potem zapis zadania do przeglądu. |
+| Koszty | `get_product_costs`, `list_product_cost_mappings`, `get_attribute_option_costs`, `search_cost_evidence`, `search_material_costs` | Odczyt zatwierdzonych dowodów kosztowych z Fakturowni i mapowań materiałowych bez dostępu do nieograniczonych zrzutów faktur oraz bez zmiany cen. |
+| Klienci | `search_customers`, `get_customer` | Wyszukiwanie widocznych klientów i odczyt zredagowanych podsumowań bez e-maili, telefonów i adresów. |
+
+## Zasoby ogólne
+
+Narzędzia ogólnych rekordów biznesowych mogą udostępniać te zatwierdzone zasoby,
+jeśli pozwalają na to uprawnienia użytkownika:
+
+`agents`, `attributes`, `b2bInquiries`, `campaigns`, `categories`,
+`channelCms`, `channelMetadata`, `channelPages`, `channelSettings`,
+`complaints`, `designatedPickupAreas`, `dynamicPricingPresets`,
+`emailOrderImports`, `externalProducts`, `externalProviders`,
+`fakturowniaInvoices`, `generatedOrderItems`, `impositionWorkflows`, `members`,
+`notes`, `orders`, `productTypes`, `products`, `promotions`, `quotes`,
+`scheduleRules`, `schedules`, `shiftRequests`, `suppliers` i `warehouses`.
+
+Najpierw użyj `list_business_resources`. Wynik pokazuje opis zasobu, informację
+czy zasób jest zależny od kanału oraz pola przydatne do wyszukiwania.
+
+## Przykładowe polecenia
+
+Poniższe przykłady pokazują przydatne polecenia dla agenta i reprezentatywne
+kształty wyników. Wartości są przykładowe; rzeczywiste wyniki zależą od konta,
+zakresów OAuth, dostępu do kanałów i aktualnych danych Konfi.
+
+### Sprawdzenie dostępu
+
+Polecenie:
+
+```text
+Sprawdź, z których kanałów i narzędzi MCP mogę korzystać, a potem podsumuj, jakie dane możesz bezpiecznie odczytać.
+```
+
+Typowy przebieg narzędzi:
+
+```text
+get_current_user_context -> list_channels -> list_business_resources
+```
+
+Przykładowy wynik:
+
+```json
+{
+  "actor": { "email": "operator@example.com", "kind": "oauth-user" },
+  "scopes": ["channels:read", "orders:read", "products:read"],
+  "channels": [{ "id": "channel_main", "name": "Sklep główny" }],
+  "safeSummary": "Mogę czytać zamówienia, produkty, klientów, koszty i zatwierdzone zasoby biznesowe dla kanału Sklep główny. Nie mogę tworzyć finalnych rekordów bez przeglądu w Konfi."
+}
+```
+
+### Najnowsze zamówienie
+
+Polecenie:
+
+```text
+Pokaż najnowsze zamówienie w kanale Sklep główny i streść jego status, klienta oraz pozycje.
+```
+
+Typowy przebieg narzędzi:
+
+```text
+list_channels -> list_orders -> get_order
+```
+
+Przykładowy wynik:
+
+```json
+{
+  "order": {
+    "id": "order_123",
+    "number": 10452,
+    "status": "IN_PROGRESS",
+    "customer": "Example Company",
+    "items": [
+      { "name": "Wizytówki", "quantity": 500, "status": "READY" }
+    ]
+  },
+  "summary": "Zamówienie #10452 jest w realizacji dla Example Company. Zawiera jedną gotową pozycję wizytówek."
+}
+```
+
+### Wyjaśnienie ceny produktu
+
+Polecenie:
+
+```text
+Znajdź produkt wizytówek w kanale Sklep główny i wyjaśnij cenę dla 500 sztuk z matowym laminatem.
+```
+
+Typowy przebieg narzędzi:
+
+```text
+search_products -> get_product_configuration_schema -> explain_price
+```
+
+Przykładowy wynik:
+
+```json
+{
+  "product": { "id": "prod_business_cards", "name": "Wizytówki" },
+  "configuration": {
+    "quantity": 500,
+    "selectedAttributeOptions": { "finish": "matte_laminate" }
+  },
+  "price": {
+    "currency": "PLN",
+    "net": 12000,
+    "gross": 14760,
+    "unit": "minor"
+  },
+  "explanation": "Cena pochodzi z tabeli cen produktu dla 500 sztuk i opcji matowego laminatu."
+}
+```
+
+### Przygotowanie wersji roboczej oferty
+
+Polecenie:
+
+```text
+Przygotuj wersję roboczą oferty dla Example Company: 500 wizytówek, matowy laminat, dostawa w przyszłym tygodniu. Zapisz ją do przeglądu przez administratora.
+```
+
+Typowy przebieg narzędzi:
+
+```text
+search_customers -> search_products -> get_draft_schema -> get_draft_resource_options -> suggest_order_items -> save_draft
+```
+
+Przykładowy wynik:
+
+```json
+{
+  "draftRunId": "mcp_draft_abc123",
+  "draftType": "quote",
+  "status": "mcp_draft",
+  "openUrl": "https://admin.example.com/pl/tools/tasks/mcp_draft_abc123",
+  "summary": "Wersja robocza oferty została zapisana do przeglądu. Nie utworzono finalnej oferty."
+}
+```
+
+### Analiza kosztów materiału
+
+Polecenie:
+
+```text
+Dla wizytówek znajdź ostatnie zatwierdzone koszty papieru 350 g i podsumuj najnowszy oraz średni koszt netto.
+```
+
+Typowy przebieg narzędzi:
+
+```text
+search_products -> search_material_costs
+```
+
+Przykładowy wynik:
+
+```json
+{
+  "query": "papier 350 g wizytówki",
+  "latestNetCost": 32.4,
+  "averageNetCost": 31.8,
+  "unitBasis": "arkusz",
+  "sampleCount": 4,
+  "evidence": [
+    { "invoiceNumber": "FV/12/2026", "supplier": "Paper Supplier", "date": "2026-06-14" }
+  ],
+  "note": "To dowód kosztowy tylko do odczytu. Serwer MCP nie rekomenduje ani nie aktualizuje cen produktów."
+}
+```
+
+## Zasady bezpieczeństwa dla agentów
+
+- Najpierw odkryj kanały i zasoby, zanim wykonasz wywołania zależne od kanału.
+- Preferuj `channelName` z `list_channels`; `channelId` stosuj tylko wtedy, gdy
+  jest potrzebny.
+- Używaj `get_order_by_number` dla widocznych numerów zamówień, takich jak
+  `#10452`.
+- Używaj `list_orders` dla najnowszych lub ostatnich zamówień.
+- Przechowuj wybory konfiguracji produktu w kontekście agenta. Serwer MCP nie
+  przechowuje stanu wyboru.
+- Używaj `save_draft` albo `save_business_update_draft` dla proponowanych zmian.
+  Finalne utworzenie, aktualizacja, zatwierdzenie, zwrot lub usunięcie nadal
+  wymaga człowieka w Konfi.

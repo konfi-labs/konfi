@@ -1,0 +1,48 @@
+---
+title: Categories
+description: Organize catalog products with channel categories, hierarchy, SEO, and translations.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Categories
+
+Categories organize products inside a channel catalog. The Categories section is
+available on the Catalog page below Products.
+
+## Category List
+
+- Search categories by name.
+- Refresh when another operator has changed catalog structure.
+- The table shows name, description, translation status, created date, and row
+  actions.
+
+## Create and Edit Categories
+
+- Use **Add Category** to create a category.
+- Use row actions to edit or duplicate an existing category.
+- Category fields include name, description, parent category, and SEO data.
+- Parent categories create hierarchy for product browsing and admin selection.
+
+## Category Editor Example
+
+<StoryFrame
+  id="admin-docs-examples--category-editor"
+  title="Category editor"
+  height={760}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Translations
+
+- Use the translation column to review and manage category translations.
+- Category translations are important for multilingual storefront navigation.
+- When creating or updating a category, auto-translation may run in the
+  background and can warn if it fails.
+
+## Deleting Categories
+
+- Delete only after checking that no products depend on the category.
+- If products are still assigned, move them to another category first.
+- Duplicating a category is safer than overwriting a working category when you
+  are testing a new catalog structure.

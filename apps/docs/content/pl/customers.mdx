@@ -1,0 +1,54 @@
+---
+title: Klienci
+description: Zarządzanie danymi klientów, grupami, koszykami, notatkami i kontekstem zamówień.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Klienci
+
+Rekord klienta przechowuje dane kontaktowe, rozliczeniowe i operacyjne używane
+w zamówieniach oraz aktywności sklepu.
+
+## Wyszukiwanie klientów
+
+- Otwórz **Klienci** z głównej nawigacji administracji.
+- Szukaj po nazwie klienta.
+- Odśwież listę, jeśli inny operator mógł wprowadzić zmiany.
+- Przed zmianą danych używanych przez zamówienia otwórz podgląd albo szczegóły
+  klienta.
+
+## Dane klienta
+
+- Użyj **Dodaj klienta**, aby utworzyć nowy rekord.
+- Akcje wiersza pozwalają edytować, duplikować albo dezaktywować klienta.
+- Przed utworzeniem zamówienia lub faktury sprawdź nazwę, osobę kontaktową,
+  dane rozliczeniowe i identyfikatory.
+
+## Przykład formularza klienta
+
+<StoryFrame
+  id="admin-docs-examples--customer-profile-form-pl"
+  title="Formularz klienta"
+  height={900}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Grupy i koszyki
+
+- **Grupy klientów** pomagają segmentować klientów i stosować wspólne reguły.
+- Akcja wiersza pozwala połączyć klienta z grupą.
+- **Koszyki klientów** pokazują kontekst aktywności ze sklepu.
+
+## Notatki
+
+- Utwórz notatkę z akcji wiersza klienta.
+- Notatki klienta są dobre dla informacji konta, które nie powinny istnieć tylko
+  przy jednym zamówieniu.
+
+## Bezpieczne zmiany
+
+- Duplikuj klienta, gdy potrzebujesz podobnego, ale osobnego konta.
+- Dezaktywuj zamiast nadpisywać dane historyczne, jeśli stare zamówienia nadal
+  odwołują się do oryginalnego klienta.
+- Przed zmianą danych rozliczeniowych sprawdź powiązane zamówienia.

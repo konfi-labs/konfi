@@ -1,0 +1,51 @@
+---
+title: Zákazníci
+description: Správa zákaznických záznamů, skupin, košíků, poznámek a kontextu objednávek.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Zákazníci
+
+Zákaznické záznamy drží kontaktní, fakturační a provozní kontext používaný v
+objednávkách a obchodě.
+
+## Najít zákazníka
+
+- Otevři **Zákazníci** v hlavní navigaci.
+- Hledej podle názvu zákazníka.
+- Obnov seznam, pokud mohl být změněn jiným operátorem.
+- Před změnou sdílených dat otevři náhled nebo detail.
+
+## Správa záznamů
+
+- **Přidat zákazníka** vytvoří nový záznam.
+- Akce řádku umožní upravit, duplikovat nebo deaktivovat zákazníka.
+- Před objednávkou nebo fakturou ověř název, kontaktní osobu, fakturační údaje a
+  identifikátory.
+
+## Ukázka formuláře zákazníka
+
+<StoryFrame
+  id="admin-docs-examples--customer-profile-form-cs"
+  title="Formulář zákazníka"
+  height={900}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Skupiny a košíky
+
+- **Skupiny zákazníků** segmentují zákazníky pro provozní pravidla.
+- Zákazníka lze připojit ke skupině z akce řádku.
+- **Košíky zákazníků** ukazují kontext z internetového obchodu.
+
+## Poznámky
+
+- Poznámku vytvoříš z akcí řádku zákazníka.
+- Hodí se pro informace k účtu, které nemají být jen u jedné objednávky.
+
+## Bezpečné změny
+
+- Duplikuj zákazníka pro podobný, ale samostatný účet.
+- Historický záznam raději deaktivuj, než přepisuj jeho identitu.
+- Před změnou fakturačních polí zkontroluj navázané objednávky.

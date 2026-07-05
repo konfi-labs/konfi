@@ -1,0 +1,178 @@
+---
+title: Produkty
+description: Obsługa produktów kanału, cen, mediów, tłumaczeń i powiązań operacyjnych.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Produkty
+
+Produkty definiują, co można sprzedawać w sklepie i formularzach zamówień
+administracji. Dane produktów są zależne od kanału.
+
+## Model produktu
+
+Traktuj produkt jako wielokrotnie używaną konfigurację sprzedażową dla jednego
+kanału. Produkt może być udostępniony innym kanałom przez powiązania, ale rekord
+źródłowy nadal znajduje się w kanale, w którym został utworzony.
+
+- **Kanał źródłowy** kontroluje rekord produktu, ceny, media, SEO i tłumaczenia.
+- **Powiązane kanały** mogą znaleźć i używać produktu bez kopiowania go do
+  drugiego katalogu.
+- **Powiązania z klientem** oznaczają produkt jako klientowski. W wycenie
+  zamówienia globalny rabat klienta nie jest automatycznie stosowany do
+  produktów powiązanych z tym klientem.
+- **Powiązania z dostawcą i magazynem** utrzymują kontekst zakupowy i
+  realizacyjny przy produkcie.
+- **Widoczność w sklepie** zależy od aktywności, dat publikacji, dat wygaśnięcia,
+  poprawnych cen, tłumaczeń i rewalidacji pamięci podręcznej po zapisie.
+
+## Lista produktów
+
+- Otwórz **Katalog** i sekcję **Produkty**.
+- Szukaj po nazwie albo odśwież listę, gdy dane mogły się zmienić.
+- **Zarządzaj obrazami produktów** prowadzi do wspólnych mediów katalogu.
+- **Zarządzaj presetami dynamicznych cen** pozwala przygotować reguły cenowe.
+- **Dodaj produkt** tworzy nowy produkt; w środowisku developerskim może być
+  widoczny także import.
+
+## Akcje produktu
+
+Z menu akcji wiersza możesz:
+
+- edytować albo duplikować produkt,
+- utworzyć notatkę,
+- otworzyć oceny produktu,
+- połączyć produkt z kanałem, klientem, dostawcą albo magazynem,
+- usunąć produkt po upewnieniu się, że nie jest już potrzebny.
+
+## Tworzenie produktu
+
+Użyj tego przepływu dla nowego produktu, który ma być dostępny w aktywnym kanale:
+
+1. Otwórz **Katalog** -> **Produkty** i sprawdź aktywny kanał.
+2. Wybierz **Dodaj produkt**.
+3. Uzupełnij nazwę, opis, kategorię, aktywność i kontekst kanału.
+4. Dodaj identyfikator adresu, tytuł i opis SEO przed publikacją w sklepie.
+5. Wybierz typ ceny i uzupełnij wymagane pola cenowe.
+6. Wybierz typ produktu, atrybuty, liczbę stron oraz limity rozmiaru albo nakładu,
+   jeśli produkt wymaga konfiguracji.
+7. Dodaj media i obrazy produktu.
+8. Sprawdź podgląd konfiguracji sklepu i ceny widoczne na liście.
+9. Zapisz produkt, a potem przejrzyj tłumaczenia i widoczność w sklepie.
+
+## Formularz produktu
+
+Formularz obejmuje nazwę, opis, kategorię, aktywność, kanał, SEO, obrazy, typ
+ceny, tabele cen, ceny matrycowe i progowe, ceny dynamiczne, atrybuty, typ
+produktu, liczbę stron, daty dostępności oraz podgląd ceny w sklepie.
+
+## Przykład formularza produktu
+
+<StoryFrame
+  id="admin-docs-examples--product-form-pl"
+  title="Formularz produktu"
+  height={900}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Przepływy cenowe
+
+- Użyj pojedynczej ceny dla prostych produktów stałych.
+- Użyj cen wolumenowych lub progowych, gdy produkt ma progi ilościowe.
+- Użyj cen matrycowych, gdy cena zależy od kombinacji atrybutów.
+- Użyj cen według liczby stron dla produktów, w których liczba stron zmienia
+  cenę.
+- Użyj presetów dynamicznych cen dla reguł wielokrotnego użytku, a potem
+  powiąż je w formularzu produktu.
+- Przed zapisem produktów widocznych w sklepie sprawdź domyślną, niską i wysoką
+  cenę listingu.
+
+## Przykład progów cenowych
+
+Ten przykład pomaga sprawdzić prezentację progów ilościowych lub wolumenowych
+dla produktu z kilkoma przedziałami nakładu.
+
+<StoryFrame
+  id="shared-components--price-threshold-volume-cards"
+  title="Karty progów cenowych produktu"
+  height={520}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Powiązanie produktu z kanałem
+
+Użyj **Połącz z kanałem**, gdy ten sam produkt ma być dostępny w innym kanale bez
+utrzymywania duplikatu rekordu.
+
+1. Otwórz menu akcji wiersza produktu.
+2. Wybierz **Połącz z kanałem**.
+3. Wybierz kanał docelowy. Dialog pokazuje tylko kanały inne niż aktywny.
+4. Potwierdź akcją **Połącz**.
+5. Odśwież wyszukiwanie produktów albo otwórz formularz zamówienia w kanale
+   docelowym i sprawdź, czy produkt jest dostępny.
+
+Powiązanie aktualizuje listę kanałów produktu i indeks wyszukiwania. Nie tworzy
+osobnego dokumentu produktu w kanale docelowym. Zmieniaj rekord źródłowy, gdy
+trzeba poprawić ceny, SEO, media albo konfigurację.
+
+## Powiązanie produktu z klientem
+
+Użyj **Połącz z klientem** dla produktów przypisanych do konkretnego konta:
+uzgodnionych pozycji, prywatnych produktów katalogu albo szablonów zamówień
+powtarzalnych.
+
+1. Otwórz menu akcji wiersza produktu.
+2. Wybierz **Połącz z klientem**.
+3. Wyszukaj i wybierz klienta.
+4. Potwierdź akcją **Połącz**.
+5. W nowym zamówieniu tego klienta sprawdź obszar produktów powiązanych i wybór
+   produktu.
+
+Powiązania z klientem są zapisywane na rekordzie klienta. Zmieniają też
+zachowanie cen: globalny rabat klienta nie jest automatycznie stosowany do
+produktów powiązanych, chyba że pozycja zamówienia używa własnego rabatu.
+
+## Przykładowe przepływy
+
+### Publikacja produktu w sklepie
+
+Utwórz produkt, dodaj poprawne ceny, przypisz kategorię i SEO, dodaj media,
+przejrzyj tłumaczenia, a potem zweryfikuj produkt w sklepie albo formularzu
+zamówienia tego samego kanału.
+
+### Użycie produktu w innym kanale
+
+Utwórz i przetestuj produkt w kanale źródłowym, użyj **Połącz z kanałem**, a
+potem wyszukaj go w kanale docelowym. Kolejne zmiany wykonuj na rekordzie
+źródłowym.
+
+### Produkt klientowski
+
+Utwórz produkt z uzgodnioną specyfikacją, połącz go z klientem i utwórz testowe
+zamówienie dla tego klienta, aby sprawdzić wybór produktu i zachowanie rabatu.
+
+### Aktualizacja produktu z cenami
+
+Sprawdź, czy produkt używa cen stałych, matrycowych, według liczby stron czy
+dynamicznych. Zmień właściwą tabelę cen, sprawdź podgląd cen, zapisz i
+zweryfikuj wycenę zamówienia przed użyciem w ofertach.
+
+## Tłumaczenia i sklep
+
+- Tłumaczenia produktów są dostępne w kontrolkach katalogu.
+- Zmiana identyfikatora adresu wpływa na adres produktu w sklepie i pamięć
+  podręczną metadanych.
+- Ceny, dostępność, dostawa i tryb ekspresowy wpływają na listy produktów i
+  realizację zakupu.
+- Produkty powiązane z kanałami wpływają na wyszukiwanie i formularze zamówień
+  poza kanałem źródłowym, więc sprawdź każdy kanał, w którym produkt jest
+  udostępniony.
+
+## Przed publikacją
+
+- Sprawdź kanał, kategorię i aktywność produktu.
+- Upewnij się, że wybrany typ ceny ma poprawną cenę.
+- Przejrzyj media, SEO i reguły dynamiczne przed zapisaniem.
+- Sprawdź powiązanych klientów i kanały przed usunięciem lub dużą zmianą
+  produktu używanego przez inne przepływy.

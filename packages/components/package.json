@@ -211,7 +211,7 @@
     "@testing-library/react": "catalog:",
     "@testing-library/user-event": "catalog:",
     "@types/google.maps": "^3.64.0",
-    "@types/mdx": "^2.0.13",
+    "@types/mdx": "2.0.14",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "typescript": "catalog:"

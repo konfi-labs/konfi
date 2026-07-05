@@ -1,0 +1,136 @@
+---
+title: MCP-Server
+description: Verbinde KI-Agenten mit genehmigten Konfi-Werkzeugen und verstehe Werkzeuge, Prompts und Ergebnisformen.
+---
+
+# MCP-Server
+
+Konfi stellt den Admin-MCP-Server unter `/mcp` bereit. Agenten-Clients verbinden
+sich über Streamable HTTP, authentifizieren sich mit OAuth, entdecken die für den
+angemeldeten Benutzer erlaubten Werkzeuge und rufen sie mit strukturierten
+Eingaben auf.
+
+Die Werkzeugliste hängt von Rolle, OAuth-Bereichen und Kanalzugriff ab. Die
+meisten Werkzeuge sind nur lesend. Schreibfähige Werkzeuge speichern Entwürfe
+zur menschlichen Prüfung in Konfi und erstellen keine finalen Datensätze direkt.
+
+## Zugriffsebenen
+
+- **Basisbenutzer**: Benutzerkontext, Kanäle, Produktlesen und Preiserklärung.
+- **Administrator**: lesende operative Werkzeuge plus geprüfte Entwurfserstellung.
+- **Superadministrator**: Administratorzugriff plus Entwürfe und Vorschläge für
+  Geschäftsdatenänderungen mit höherem Risiko.
+
+## Werkzeuggruppen
+
+| Bereich | Werkzeuge | Zweck |
+| --- | --- | --- |
+| Kontext und Entdeckung | `get_current_user_context`, `list_channels`, `list_business_resources` | Benutzer, Bereiche, sichtbare Kanäle und allgemeine Geschäftsressourcen prüfen. |
+| Geschäftsdaten | `search_business_records`, `query_firestore_records`, `get_business_record`, `save_business_update_draft` | Zugelassene Ressourcen suchen, abfragen, ansehen und geprüfte Aktualisierungsvorschläge speichern. |
+| Aufträge | `search_orders`, `list_orders`, `get_order`, `get_order_by_number`, `suggest_order_items` | Aufträge finden, neueste Aufträge listen, Zusammenfassungen lesen und Positionen für Entwürfe vorschlagen. |
+| Produkte und Preise | `search_products`, `list_products`, `get_product`, `get_product_configuration_schema`, `list_product_price_rows`, `get_product_dynamic_pricing_config`, `explain_price` | Produkte finden, Konfigurationen und Preiszeilen lesen sowie Preise erklären. |
+| Entwürfe | `get_draft_schema`, `get_konfi_drafting_docs`, `get_draft_resource_options`, `save_draft`, `get_saved_draft` | Entwürfe für Kategorie, Produkttyp, Angebot, Auftrag oder Produkt mit echten Konfi-Daten vorbereiten und zur Prüfung speichern. |
+| Kosten | `get_product_costs`, `list_product_cost_mappings`, `get_attribute_option_costs`, `search_cost_evidence`, `search_material_costs` | Genehmigte Fakturownia-Kostennachweise lesen, ohne Preise zu ändern. |
+| Kunden | `search_customers`, `get_customer` | Sichtbare Kunden suchen und redigierte Kundenzusammenfassungen lesen. |
+
+## Allgemeine Ressourcen
+
+Die allgemeinen Geschäftsdaten-Werkzeuge arbeiten mit zugelassenen Ressourcen wie
+`campaigns`, `promotions`, `fakturowniaInvoices`, `notes`, `channelSettings`,
+`suppliers`, `warehouses`, `products`, `categories`, `orders`, `quotes` und
+`complaints`. Verwende zuerst `list_business_resources`, um die genaue Liste,
+Suchfelder und Kanalbindung zu prüfen.
+
+## Beispielprompts
+
+Die Werte sind Beispiele. Reale Ergebnisse hängen von Konto, Bereichen,
+Kanalzugriff und aktuellen Konfi-Daten ab.
+
+### Zugriff prüfen
+
+Prompt:
+
+```text
+Prüfe, welche Konfi-Kanäle und MCP-Werkzeuge ich verwenden kann, und fasse zusammen, welche Daten du sicher lesen darfst.
+```
+
+Typischer Werkzeugablauf:
+
+```text
+get_current_user_context -> list_channels -> list_business_resources
+```
+
+Beispielausgabe:
+
+```json
+{
+  "scopes": ["channels:read", "orders:read", "products:read"],
+  "channels": [{ "id": "channel_main", "name": "Main store" }],
+  "safeSummary": "Ich kann Aufträge, Produkte und zugelassene Geschäftsdaten für Main store lesen. Finale Datensätze erstelle ich nicht direkt."
+}
+```
+
+### Neuesten Auftrag lesen
+
+Prompt:
+
+```text
+Zeige den neuesten Auftrag im Kanal Main store und fasse Status, Kunde und Positionen zusammen.
+```
+
+Typischer Werkzeugablauf:
+
+```text
+list_channels -> list_orders -> get_order
+```
+
+Beispielausgabe:
+
+```json
+{
+  "order": {
+    "number": 10452,
+    "status": "IN_PROGRESS",
+    "customer": "Example Company",
+    "items": [{ "name": "Business cards", "quantity": 500 }]
+  },
+  "summary": "Auftrag #10452 ist in Bearbeitung und enthält eine Visitenkartenposition."
+}
+```
+
+### Angebotsentwurf speichern
+
+Prompt:
+
+```text
+Bereite einen Angebotsentwurf für Example Company vor: 500 Visitenkarten mit matter Laminierung. Speichere ihn zur Admin-Prüfung.
+```
+
+Typischer Werkzeugablauf:
+
+```text
+search_customers -> search_products -> get_draft_schema -> get_draft_resource_options -> suggest_order_items -> save_draft
+```
+
+Beispielausgabe:
+
+```json
+{
+  "draftRunId": "mcp_draft_abc123",
+  "draftType": "quote",
+  "status": "mcp_draft",
+  "openUrl": "https://admin.example.com/de/tools/tasks/mcp_draft_abc123",
+  "summary": "Der Angebotsentwurf wurde zur Prüfung gespeichert. Es wurde kein finales Angebot erstellt."
+}
+```
+
+## Regeln für Agenten
+
+- Zuerst Kanäle und Ressourcen entdecken.
+- Für kanalbezogene Werkzeuge `channelName` aus `list_channels` bevorzugen.
+- Für sichtbare Auftragsnummern wie `#10452` `get_order_by_number` verwenden.
+- Für neueste Aufträge `list_orders` verwenden.
+- Produktkonfigurationen im Agentenkontext behalten; der MCP-Server speichert
+  keine Auswahlzustände.
+- Änderungen nur über `save_draft` oder `save_business_update_draft`
+  vorschlagen; finale Aktionen bleiben in Konfi beim Menschen.

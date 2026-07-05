@@ -1,0 +1,175 @@
+---
+title: Produkty
+description: Údržba produktů kanálu, cen, médií, překladů a provozních vazeb.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Produkty
+
+Produkty určují, co lze prodávat v obchodě a v administračních formulářích
+objednávek. Produktová data jsou navázaná na kanál.
+
+## Model produktu
+
+Produkt chápej jako opakovaně použitelnou prodejní konfiguraci pro jeden kanál.
+Produkt lze přes propojení zpřístupnit i dalším kanálům, ale zdrojový záznam
+zůstává v kanálu, kde vznikl.
+
+- **Zdrojový kanál** řídí záznam produktu, ceny, média, SEO a překlady.
+- **Propojené kanály** mohou produkt najít a použít bez kopírování do druhého
+  katalogu.
+- **Propojení se zákazníkem** označuje produkt jako zákaznický. Při výpočtu
+  objednávky se na produkty propojené s tímto zákazníkem automaticky neuplatní
+  globální sleva zákazníka.
+- **Propojení s dodavatelem a skladem** drží nákupní a realizační kontext přímo
+  u produktu.
+- **Viditelnost v obchodě** závisí na aktivním stavu, datech publikace, datech
+  expirace, platných cenách, překladech a revalidaci cache po uložení.
+
+## Seznam produktů
+
+- Otevři **Katalog** a sekci **Produkty**.
+- Hledej podle názvu nebo seznam obnov.
+- **Správa obrázků produktů** vede ke sdíleným médiím.
+- **Správa presetů dynamických cen** připravuje opakovaně použitelné cenové
+  pravidla.
+- **Přidat produkt** vytvoří nový produkt.
+
+## Akce produktu
+
+V menu řádku můžeš:
+
+- upravit nebo duplikovat produkt,
+- vytvořit poznámku,
+- otevřít hodnocení,
+- propojit produkt s kanálem, zákazníkem, dodavatelem nebo skladem,
+- produkt po kontrole smazat.
+
+## Vytvoření produktu
+
+Tento postup použij pro nový produkt, který má být dostupný v aktivním kanálu:
+
+1. Otevři **Katalog** -> **Produkty** a zkontroluj aktivní kanál.
+2. Vyber **Přidat produkt**.
+3. Vyplň název, popis, kategorii, aktivní stav a kontext kanálu.
+4. Před publikací v obchodě doplň SEO identifikátor adresy, titulek a popis.
+5. Vyber typ ceny a vyplň povinná cenová pole.
+6. Pokud je produkt konfigurovatelný, vyber typ produktu, atributy, chování
+   počtu stran a limity rozměru nebo nákladu.
+7. Přidej média a produktové obrázky.
+8. Zkontroluj náhled konfigurace obchodu a ceny v seznamu.
+9. Produkt ulož a potom ověř překlady a viditelnost v obchodě.
+
+## Formulář produktu
+
+Formulář zahrnuje název, popis, kategorii, aktivní stav, kanál, SEO, obrázky,
+typ ceny, cenové tabulky, maticové a prahové ceny, dynamické ceny, atributy, typ
+produktu, ceny podle počtu stran a náhled ceny v obchodě.
+
+## Ukázka formuláře produktu
+
+<StoryFrame
+  id="admin-docs-examples--product-form-cs"
+  title="Formulář produktu"
+  height={900}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Cenové postupy
+
+- Jednu cenu použij pro jednoduché produkty s pevnou cenou.
+- Objemové nebo prahové ceny použij, když má produkt množstevní stupně.
+- Maticové ceny použij, když cena závisí na kombinaci atributů.
+- Ceny podle počtu stran použij, když počet stran mění cenu.
+- Presety dynamických cen použij pro opakovaně použitelná pravidla a potom je
+  propoj ve formuláři produktu.
+- Před uložením produktů viditelných v obchodě zkontroluj výchozí, nízkou a
+  vysokou cenu v seznamu.
+
+## Ukázka cenových stupňů
+
+Tato ukázka ukazuje, jak se zobrazují cenové stupně u produktu s několika
+množstevními rozsahy.
+
+<StoryFrame
+  id="shared-components--price-threshold-volume-cards"
+  title="Karty cenových stupňů"
+  height={520}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Propojení produktu s kanálem
+
+Použij **Propojit s kanálem**, když má být stejný produkt dostupný v jiném
+kanálu bez údržby duplicitního záznamu.
+
+1. Otevři menu akcí řádku produktu.
+2. Vyber **Propojit s kanálem**.
+3. Vyber cílový kanál. Dialog zobrazuje jen kanály odlišné od aktivního.
+4. Potvrď akcí **Propojit**.
+5. Obnov vyhledávání produktů nebo otevři formulář objednávky v cílovém kanálu a
+   ověř dostupnost produktu.
+
+Propojení aktualizuje seznam kanálů produktu a vyhledávací index. Nevytváří
+samostatný dokument produktu v cílovém kanálu. Ceny, SEO, média a konfiguraci
+měň ve zdrojovém produktu.
+
+## Propojení produktu se zákazníkem
+
+Použij **Propojit se zákazníkem** pro produkty přiřazené konkrétnímu účtu,
+například sjednané položky, privátní katalogové produkty nebo šablony
+opakovaných objednávek.
+
+1. Otevři menu akcí řádku produktu.
+2. Vyber **Propojit se zákazníkem**.
+3. Vyhledej a vyber zákazníka.
+4. Potvrď akcí **Propojit**.
+5. V nové objednávce tohoto zákazníka zkontroluj oblast propojených produktů a
+   výběr produktu.
+
+Propojení se zákazníkem se ukládá na záznam zákazníka. Mění také cenové chování:
+globální sleva zákazníka se na propojené produkty automaticky neuplatní, pokud
+položka objednávky nepoužije vlastní slevu.
+
+## Ukázkové pracovní postupy
+
+### Publikovat produkt v obchodě
+
+Vytvoř produkt, přidej platné ceny, přiřaď kategorii a SEO, nahraj média,
+zkontroluj překlady a ověř produkt v obchodě nebo ve formuláři objednávky
+stejného kanálu.
+
+### Znovu použít produkt v jiném kanálu
+
+Vytvoř a otestuj produkt ve zdrojovém kanálu, použij **Propojit s kanálem** a
+potom produkt vyhledej v cílovém kanálu. Další změny prováděj na zdrojovém
+záznamu.
+
+### Připravit zákaznický produkt
+
+Vytvoř produkt s dohodnutou specifikací, propoj ho se zákazníkem a vytvoř
+testovací objednávku pro kontrolu výběru produktu a chování slevy.
+
+### Aktualizovat produkt s cenami
+
+Ověř, zda produkt používá pevné, maticové, stránkové nebo dynamické ceny.
+Uprav příslušnou cenovou tabulku, zkontroluj náhled cen, ulož a před živými
+nabídkami ověř výpočet objednávky.
+
+## Překlady a obchod
+
+- Překlady produktů se spravují v katalogu.
+- Změna identifikátoru adresy ovlivní URL produktu a mezipaměť metadat.
+- Ceny, dostupnost, doprava a expresní režim ovlivňují seznamy a dokončení
+  nákupu.
+- Produkty propojené s kanály mohou ovlivnit vyhledávání a formuláře objednávek
+  mimo zdrojový kanál, proto ověř každý kanál, kde je produkt dostupný.
+
+## Před publikací
+
+- Zkontroluj kanál, kategorii a aktivní stav.
+- Ověř alespoň jednu platnou cenu pro vybraný typ ceny.
+- Před uložením projdi média, SEO a dynamická pravidla.
+- Před smazáním nebo výraznou změnou produktu používaného jinde zkontroluj
+  propojené zákazníky a kanály.
