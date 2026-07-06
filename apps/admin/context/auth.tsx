@@ -311,8 +311,11 @@ function readGoogleAuthRedirectState(): GoogleAuthRedirectState | null {
 
   try {
     return JSON.parse(rawValue) as GoogleAuthRedirectState;
-  } catch (error) {
-    console.error("Failed to parse Google auth redirect state:", error);
+  } catch (parseRedirectStateError) {
+    console.error(
+      "Failed to parse Google auth redirect state:",
+      parseRedirectStateError,
+    );
     clearGoogleAuthRedirectState();
     return null;
   }
@@ -472,23 +475,29 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         void (async () => {
           try {
             await clearAdminPwaState();
-          } catch (error) {
+          } catch (clearPwaStateError) {
             console.warn(
               "[admin-sw] failed to clear PWA state during remote logout",
-              error,
+              clearPwaStateError,
             );
           }
 
           try {
             await signOut(auth);
-          } catch (error) {
-            console.error("Error signing out remote admin session:", error);
+          } catch (remoteSignOutError) {
+            console.error(
+              "Error signing out remote admin session:",
+              remoteSignOutError,
+            );
           }
 
           try {
             await handleIdToken("", true);
-          } catch (error) {
-            console.error("Error revoking remote admin session:", error);
+          } catch (remoteSessionRevokeError) {
+            console.error(
+              "Error revoking remote admin session:",
+              remoteSessionRevokeError,
+            );
           }
 
           pendingUnauthorizedRedirect.current = null;
@@ -629,8 +638,11 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
       try {
         await signOut(auth);
-      } catch (error) {
-        console.error("Error signing out unauthorized admin user:", error);
+      } catch (unauthorizedSignOutError) {
+        console.error(
+          "Error signing out unauthorized admin user:",
+          unauthorizedSignOutError,
+        );
       }
 
       router.replace(redirectWithReason as Route);
@@ -671,8 +683,11 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             if (redirect) {
               router.push(redirect as Route);
             }
-          } catch (error) {
-            console.error("Error during token handling:", error);
+          } catch (anonymousTokenHandlingError) {
+            console.error(
+              "Error during token handling:",
+              anonymousTokenHandlingError,
+            );
           }
         } else {
           if (isCurrentLoginPath() && readGoogleAuthRedirectState()) {
@@ -738,8 +753,11 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                 router.push(response.redirect as Route);
               }
             }
-          } catch (error) {
-            console.error("Error during token handling:", error);
+          } catch (sessionTokenHandlingError) {
+            console.error(
+              "Error during token handling:",
+              sessionTokenHandlingError,
+            );
           }
           const idTokenResult = await getIdTokenResult(_user);
           debugAdminAuthClient("client token claims", {
@@ -770,8 +788,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           if (idTokenResult.claims.admin) {
             try {
               setTenantAccess(await getCurrentTenantAccessAction());
-            } catch (error) {
-              console.error("Error loading tenant access:", error);
+            } catch (tenantAccessError) {
+              console.error("Error loading tenant access:", tenantAccessError);
               setTenantAccess(null);
             }
           }
@@ -780,8 +798,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setInitialLoading(false);
         isFirstLoad.current = false;
       });
-    } catch (error) {
-      console.error(error);
+    } catch (authStateSubscriptionError) {
+      console.error(authStateSubscriptionError);
       setUser(null);
       setUserInfo(null);
       setIsAdminClient(false);
@@ -858,8 +876,11 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           router.push(response.redirect as Route);
         }
         return true;
-      } catch (error) {
-        console.error("Error during token handling in login:", error);
+      } catch (completeLoginError) {
+        console.error(
+          "Error during token handling in login:",
+          completeLoginError,
+        );
         return false;
       }
     },
@@ -984,16 +1005,16 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           appendCurrentAuthErrorToLoginRedirect(window.location.pathname) ??
           window.location.pathname;
         router.replace(redirect as Route);
-      } catch (error) {
+      } catch (googleRedirectError) {
         if (cancelled) {
           return;
         }
 
         clearGoogleAuthRedirectState();
-        const errorCode = getFirebaseAuthErrorCode(error);
-        const errorDetail = getFirebaseAuthErrorDetail(error);
+        const errorCode = getFirebaseAuthErrorCode(googleRedirectError);
+        const errorDetail = getFirebaseAuthErrorDetail(googleRedirectError);
         if (errorCode === "auth/multi-factor-auth-required") {
-          setMfaError(error as MultiFactorError);
+          setMfaError(googleRedirectError as MultiFactorError);
           setLoading(false);
           setInitialLoading(false);
           isFirstLoad.current = false;
@@ -1002,7 +1023,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         console.error("Google redirect sign-in failed", {
           code: errorCode,
           detail: errorDetail,
-          error,
+          error: googleRedirectError,
         });
         setLoading(false);
         setInitialLoading(false);
@@ -1052,16 +1073,16 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         await completeLogin(userCredentials.user);
         setActionLoading(false);
         // await saveMessagingDeviceToken(userCredentials.user.uid);
-      } catch (error) {
+      } catch (loginError) {
         setActionLoading(false);
         // Check if this is an MFA required error using Firebase Auth error code
-        const errorCode = getFirebaseAuthErrorCode(error);
+        const errorCode = getFirebaseAuthErrorCode(loginError);
         if (errorCode === "auth/multi-factor-auth-required") {
           // Store the MFA error for the verification dialog
-          setMfaError(error as MultiFactorError);
+          setMfaError(loginError as MultiFactorError);
           return { mfaRequired: true };
         }
-        console.error(error);
+        console.error(loginError);
         toaster.error({
           title: t("auth.loginError", { defaultValue: "Login error" }),
           description: t("auth.invalidCredentials", {
@@ -1111,10 +1132,10 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             );
             setActionLoading(false);
             return;
-          } catch (error) {
-            const errorCode = getFirebaseAuthErrorCode(error);
+          } catch (popupError) {
+            const errorCode = getFirebaseAuthErrorCode(popupError);
             if (!shouldFallbackToGoogleRedirect(errorCode)) {
-              throw error;
+              throw popupError;
             }
 
             debugAdminAuthClient("google popup fallback to redirect", {
@@ -1129,12 +1150,12 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           ...(tenantContextHint ? { tenantContextHint } : {}),
         });
         await signInWithRedirect(auth, provider);
-      } catch (error) {
+      } catch (signInError) {
         setActionLoading(false);
-        const errorCode = getFirebaseAuthErrorCode(error);
-        const errorDetail = getFirebaseAuthErrorDetail(error);
+        const errorCode = getFirebaseAuthErrorCode(signInError);
+        const errorDetail = getFirebaseAuthErrorDetail(signInError);
         if (errorCode === "auth/multi-factor-auth-required") {
-          setMfaError(error as MultiFactorError);
+          setMfaError(signInError as MultiFactorError);
           return { mfaRequired: true };
         }
         if (
@@ -1147,7 +1168,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         console.error("Google sign-in failed", {
           code: errorCode,
           detail: errorDetail,
-          error,
+          error: signInError,
         });
         toaster.error({
           title: t("auth.loginError", { defaultValue: "Login error" }),
@@ -1177,18 +1198,21 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setActionLoading(true);
       try {
         await clearAdminPwaState();
-      } catch (error) {
+      } catch (clearPwaLogoutError) {
         console.warn(
           "[admin-sw] failed to clear PWA state during logout",
-          error,
+          clearPwaLogoutError,
         );
       }
       await signOut(auth);
       try {
         await handleIdToken("", true);
         // No need to handle redirect here as it's managed by onIdTokenChanged
-      } catch (error) {
-        console.error("Error during token handling in logout:", error);
+      } catch (logoutTokenHandlingError) {
+        console.error(
+          "Error during token handling in logout:",
+          logoutTokenHandlingError,
+        );
       }
       setUser(null);
       setIsAdminClient(false);
@@ -1204,8 +1228,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           defaultValue: "You have been logged out of your account",
         }),
       });
-    } catch (error) {
-      console.error(error);
+    } catch (logoutError) {
+      console.error(logoutError);
       setActionLoading(false);
     }
   }, [t]);
@@ -1232,8 +1256,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             }),
           });
           setActionLoading(false);
-        } catch (error) {
-          console.error(error);
+        } catch (passwordChangeError) {
+          console.error(passwordChangeError);
           setActionLoading(false);
         }
       }
