@@ -1,0 +1,52 @@
+---
+title: Kunden
+description: Kundendaten, Gruppen, Warenkörbe, Notizen und Auftragskontext verwalten.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Kunden
+
+Kundendatensätze speichern Kontakt-, Rechnungs- und Betriebskontext für Aufträge
+und Shop-Aktivität.
+
+## Kunden finden
+
+- Öffne **Kunden** in der Hauptnavigation.
+- Suche nach Kundennamen.
+- Aktualisiere die Liste, wenn andere Personen Änderungen vorgenommen haben.
+- Öffne Vorschau oder Detailseite, bevor gemeinsam genutzte Daten geändert werden.
+
+## Datensätze pflegen
+
+- **Kunde hinzufügen** erstellt einen neuen Datensatz.
+- Zeilenaktionen bearbeiten, duplizieren oder deaktivieren Kunden.
+- Prüfe Name, Kontaktperson, Rechnungsdaten und Kennungen vor neuen Aufträgen
+  oder Rechnungen.
+
+## Beispiel für das Kundenformular
+
+<StoryFrame
+  id="admin-docs-examples--customer-profile-form-de"
+  title="Kundenformular"
+  height={900}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Gruppen und Warenkörbe
+
+- **Kundengruppen** segmentieren Kunden für operative Regeln.
+- Kunden können über eine Zeilenaktion einer Gruppe zugeordnet werden.
+- **Kundenwarenkörbe** zeigen Kontext aus der Shop-Oberfläche.
+
+## Notizen
+
+- Lege Notizen über die Kunden-Zeilenaktion an.
+- Kundennotizen eignen sich für Kontoinformationen, die nicht nur an einem
+  Auftrag hängen sollen.
+
+## Sichere Änderungen
+
+- Dupliziere Kunden für ähnliche, aber getrennte Konten.
+- Deaktiviere historische Datensätze statt Identitätsdaten zu überschreiben.
+- Prüfe verknüpfte Aufträge vor Änderungen an rechnungsrelevanten Feldern.

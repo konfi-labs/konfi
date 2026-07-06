@@ -18,6 +18,7 @@ out/
 build
 resources
 next-env.d.ts
+_pagefind/
 
 # misc
 .DS_Store

@@ -18,10 +18,13 @@ service cloud.firestore {
         && request.auth.token.accessLevel == 9999;
     }
 
-    function isLegacyDedicatedAdmin() {
-      return isSignedIn()
-        && request.auth.token.admin == true
-        && request.auth.token.accessLevel == 5000;
+    // Dedicated/default runtime data may not have tenantMemberships records.
+    // This ruleset is safe to bridge with every normal admin only when
+    // tenantless and tenantId=="default" data belongs to that same runtime.
+    // If the database mixes unrelated tenant admins with default runtime data,
+    // narrow this helper with an explicit custom claim such as dedicated == true.
+    function isDedicatedDefaultAdmin() {
+      return isAdmin();
     }
 
     function isCourier() {
@@ -68,12 +71,21 @@ service cloud.firestore {
       return tenantId == "default";
     }
 
-    function isLegacyDedicatedTenantDocument(data) {
+    // Dedicated instance documents can be tenantless; default runtime documents
+    // use tenantId=="default". Keep this compatibility path scoped to those
+    // documents so hosted SaaS tenant data still requires tenantMemberships.
+    function isDedicatedDefaultTenantDocument(data) {
       return !hasTenantId(data) || isDedicatedDefaultTenant(data.tenantId);
     }
 
-    function canLegacyDedicatedAdminAccess(data) {
-      return isLegacyDedicatedAdmin() && isLegacyDedicatedTenantDocument(data);
+    function hasDedicatedDefaultTenantAccess(tenantId) {
+      return isDedicatedDefaultAdmin()
+        && tenantId is string
+        && isDedicatedDefaultTenant(tenantId);
+    }
+
+    function canDedicatedDefaultAdminAccess(data) {
+      return isDedicatedDefaultAdmin() && isDedicatedDefaultTenantDocument(data);
     }
 
     function hasActiveTenantMembership(tenantId) {
@@ -171,8 +183,12 @@ service cloud.firestore {
           );
     }
 
+    // Keep the dedicated/default fallback here as well as in document helpers:
+    // counters, channel-scoped writes, and similar metadata paths can check
+    // only tenantId or tenantId+channelId instead of a full document.
     function hasTenantWidePermission(tenantId, permission) {
       return isSuperAdmin()
+        || hasDedicatedDefaultTenantAccess(tenantId)
         || isAdmin()
           && hasActiveTenantMembership(tenantId)
           && membershipHasFullTenantScope(get(membershipPath(tenantId)).data)
@@ -184,6 +200,7 @@ service cloud.firestore {
 
     function hasTenantPermission(tenantId, permission) {
       return isSuperAdmin()
+        || hasDedicatedDefaultTenantAccess(tenantId)
         || isAdmin()
           && hasActiveTenantMembership(tenantId)
           && membershipDataHasPermission(
@@ -194,6 +211,7 @@ service cloud.firestore {
 
     function hasTenantChannelPermission(tenantId, channelId, permission) {
       return isSuperAdmin()
+        || hasDedicatedDefaultTenantAccess(tenantId)
         || isAdmin()
           && hasActiveTenantMembership(tenantId)
           && membershipCanAccessChannel(
@@ -208,7 +226,7 @@ service cloud.firestore {
 
     function canAdminReadTenantDocument(data) {
       return isSuperAdmin()
-        || canLegacyDedicatedAdminAccess(data)
+        || canDedicatedDefaultAdminAccess(data)
         || isAdmin()
           && hasTenantId(data)
           && hasFullTenantStaffMembership(data.tenantId);
@@ -249,7 +267,7 @@ service cloud.firestore {
 
     function canAdminWriteTenantDocument(data) {
       return isSuperAdmin()
-        || canLegacyDedicatedAdminAccess(data)
+        || canDedicatedDefaultAdminAccess(data)
         || isAdmin()
           && hasTenantId(data)
           && hasFullTenantAdminMembership(data.tenantId);
@@ -257,15 +275,15 @@ service cloud.firestore {
 
     function canUpdateTenantDocument() {
       return isSuperAdmin()
-        || canLegacyDedicatedAdminAccess(resource.data)
-          && canLegacyDedicatedAdminAccess(request.resource.data)
+        || canDedicatedDefaultAdminAccess(resource.data)
+          && canDedicatedDefaultAdminAccess(request.resource.data)
         || hasSameTenantId()
           && canAdminWriteTenantDocument(request.resource.data);
     }
 
     function canAdminCreateTenantDocumentWithPermission(data, permission) {
       return isSuperAdmin()
-        || canLegacyDedicatedAdminAccess(data)
+        || canDedicatedDefaultAdminAccess(data)
         || hasTenantId(data) && hasTenantWidePermission(data.tenantId, permission);
     }
 
@@ -279,8 +297,8 @@ service cloud.firestore {
 
     function canAdminUpdateTenantDocumentWithPermission(permission) {
       return isSuperAdmin()
-        || canLegacyDedicatedAdminAccess(resource.data)
-          && canLegacyDedicatedAdminAccess(request.resource.data)
+        || canDedicatedDefaultAdminAccess(resource.data)
+          && canDedicatedDefaultAdminAccess(request.resource.data)
         || hasSameTenantId()
           && hasTenantWidePermission(request.resource.data.tenantId, permission);
     }
@@ -315,9 +333,9 @@ service cloud.firestore {
             && data.tenantId == getChannelData(channelId).tenantId
           || hasTenantId(data)
             && isDedicatedDefaultTenant(data.tenantId)
-            && isLegacyDedicatedTenantDocument(getChannelData(channelId))
+            && isDedicatedDefaultTenantDocument(getChannelData(channelId))
           || !hasTenantId(data)
-            && isLegacyDedicatedTenantDocument(getChannelData(channelId))
+            && isDedicatedDefaultTenantDocument(getChannelData(channelId))
         );
     }
 
@@ -329,15 +347,15 @@ service cloud.firestore {
             && data.tenantId == getOrderData(channelId, orderId).tenantId
           || hasTenantId(data)
             && isDedicatedDefaultTenant(data.tenantId)
-            && isLegacyDedicatedTenantDocument(getOrderData(channelId, orderId))
+            && isDedicatedDefaultTenantDocument(getOrderData(channelId, orderId))
           || !hasTenantId(data)
-            && isLegacyDedicatedTenantDocument(getOrderData(channelId, orderId))
+            && isDedicatedDefaultTenantDocument(getOrderData(channelId, orderId))
         );
     }
 
     function canAdminReadChannelDocument(channelId, data) {
       return isSuperAdmin()
-        || canLegacyDedicatedAdminAccess(data)
+        || canDedicatedDefaultAdminAccess(data)
         || hasSameTenantAsChannel(channelId, data)
           && hasTenantId(getChannelData(channelId))
           && hasTenantChannelStaffMembership(
@@ -348,7 +366,7 @@ service cloud.firestore {
 
     function canAdminWriteChannelDocument(channelId, data) {
       return isSuperAdmin()
-        || canLegacyDedicatedAdminAccess(data)
+        || canDedicatedDefaultAdminAccess(data)
         || hasSameTenantAsChannel(channelId, data)
           && hasTenantId(getChannelData(channelId))
           && hasTenantChannelAdminMembership(
@@ -359,15 +377,15 @@ service cloud.firestore {
 
     function canUpdateChannelDocument(channelId) {
       return isSuperAdmin()
-        || canLegacyDedicatedAdminAccess(resource.data)
-          && canLegacyDedicatedAdminAccess(request.resource.data)
+        || canDedicatedDefaultAdminAccess(resource.data)
+          && canDedicatedDefaultAdminAccess(request.resource.data)
         || hasSameTenantId()
           && canAdminWriteChannelDocument(channelId, request.resource.data);
     }
 
     function canAdminCreateChannelDocumentWithPermission(channelId, data, permission) {
       return isSuperAdmin()
-        || canLegacyDedicatedAdminAccess(data)
+        || canDedicatedDefaultAdminAccess(data)
         || hasSameTenantAsChannel(channelId, data)
           && hasTenantId(getChannelData(channelId))
           && hasTenantChannelPermission(
@@ -379,8 +397,8 @@ service cloud.firestore {
 
     function canAdminUpdateChannelDocumentWithPermission(channelId, permission) {
       return isSuperAdmin()
-        || canLegacyDedicatedAdminAccess(resource.data)
-          && canLegacyDedicatedAdminAccess(request.resource.data)
+        || canDedicatedDefaultAdminAccess(resource.data)
+          && canDedicatedDefaultAdminAccess(request.resource.data)
         || hasSameTenantId()
           && hasSameTenantAsChannel(channelId, request.resource.data)
           && hasTenantId(getChannelData(channelId))
@@ -403,7 +421,7 @@ service cloud.firestore {
         && exists(channelPath(channelId))
         && (
           canAdminReadChannelDocument(channelId, getChannelData(channelId))
-          || isLegacyDedicatedTenantDocument(getChannelData(channelId))
+          || isDedicatedDefaultTenantDocument(getChannelData(channelId))
             && canAdminReadDefaultNumberCounter(counterId)
         );
     }
@@ -422,7 +440,7 @@ service cloud.firestore {
                   channelId,
                   "orders.manage"
                 )
-              || isLegacyDedicatedTenantDocument(getChannelData(channelId))
+              || isDedicatedDefaultTenantDocument(getChannelData(channelId))
                 && hasTenantId(data)
                 && isDedicatedDefaultTenant(data.tenantId)
                 && hasTenantPermission("default", "orders.manage")
@@ -437,7 +455,7 @@ service cloud.firestore {
                   channelId,
                   "quotes.manage"
                 )
-              || isLegacyDedicatedTenantDocument(getChannelData(channelId))
+              || isDedicatedDefaultTenantDocument(getChannelData(channelId))
                 && hasTenantId(data)
                 && isDedicatedDefaultTenant(data.tenantId)
                 && hasTenantPermission("default", "quotes.manage")
@@ -458,7 +476,7 @@ service cloud.firestore {
                   channelId,
                   "orders.manage"
                 )
-              || isLegacyDedicatedTenantDocument(getChannelData(channelId))
+              || isDedicatedDefaultTenantDocument(getChannelData(channelId))
                 && hasSameTenantAsChannel(channelId, request.resource.data)
                 && hasTenantPermission("default", "orders.manage")
             )
@@ -471,7 +489,7 @@ service cloud.firestore {
                   channelId,
                   "quotes.manage"
                 )
-              || isLegacyDedicatedTenantDocument(getChannelData(channelId))
+              || isDedicatedDefaultTenantDocument(getChannelData(channelId))
                 && hasSameTenantAsChannel(channelId, request.resource.data)
                 && hasTenantPermission("default", "quotes.manage")
             )
@@ -486,7 +504,7 @@ service cloud.firestore {
 
     function canManageAiInstructions(data) {
       return isSuperAdmin()
-        || canLegacyDedicatedAdminAccess(data)
+        || canDedicatedDefaultAdminAccess(data)
         || hasTenantId(data)
           && hasTenantOwnerMembership(data.tenantId);
     }
@@ -559,7 +577,7 @@ service cloud.firestore {
     function canCustomerReadCartDocument(data, userId) {
       return isUser(userId)
         && (
-          isLegacyDedicatedTenantDocument(data)
+          isDedicatedDefaultTenantDocument(data)
           || customerHasTenant(userId, data.tenantId)
         );
     }
@@ -567,7 +585,7 @@ service cloud.firestore {
     function canCustomerWriteCartDocument(userId) {
       return isUser(userId)
         && (
-          isLegacyDedicatedTenantDocument(request.resource.data)
+          isDedicatedDefaultTenantDocument(request.resource.data)
           || customerHasTenant(userId, request.resource.data.tenantId)
         );
     }
@@ -575,11 +593,11 @@ service cloud.firestore {
     function canCustomerUpdateCartDocument(userId) {
       return isUser(userId)
         && (
-          isLegacyDedicatedTenantDocument(resource.data)
+          isDedicatedDefaultTenantDocument(resource.data)
           || hasSameTenantId()
         )
         && (
-          isLegacyDedicatedTenantDocument(request.resource.data)
+          isDedicatedDefaultTenantDocument(request.resource.data)
           || customerHasTenant(userId, request.resource.data.tenantId)
         );
     }
@@ -587,7 +605,7 @@ service cloud.firestore {
     function canCustomerDeleteCartDocument(userId) {
       return isUser(userId)
         && (
-          isLegacyDedicatedTenantDocument(resource.data)
+          isDedicatedDefaultTenantDocument(resource.data)
           || customerHasTenant(userId, resource.data.tenantId)
         );
     }

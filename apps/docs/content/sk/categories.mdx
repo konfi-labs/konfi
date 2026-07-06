@@ -1,0 +1,45 @@
+---
+title: Kategórie
+description: Organizácia produktov pomocou kategórií kanála, hierarchie, SEO a prekladov.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Kategórie
+
+Kategórie organizujú produkty v katalógu kanála. Sekcia Kategórie je na stránke
+Katalóg pod Produktmi.
+
+## Zoznam kategórií
+
+- Hľadaj kategóriu podľa názvu.
+- Obnov zoznam, ak sa zmenila štruktúra katalógu.
+- Tabuľka ukazuje názov, opis, preklady, dátum vytvorenia a akcie.
+
+## Vytvorenie a úpravy
+
+- **Pridať kategóriu** vytvorí novú kategóriu.
+- Akcie riadku kategóriu upravia alebo duplikujú.
+- Formulár obsahuje názov, opis, nadradenú kategóriu a SEO.
+- Nadradené kategórie tvoria hierarchiu pre obchod a administráciu.
+
+## Ukážka editora kategórie
+
+<StoryFrame
+  id="admin-docs-examples--category-editor-sk"
+  title="Editor kategórie"
+  height={760}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Preklady
+
+- Stĺpec prekladov slúži na kontrolu jazykových verzií.
+- Preklady sú dôležité pre viacjazyčnú navigáciu obchodu.
+- Automatický preklad môže bežať na pozadí a upozorniť na chybu.
+
+## Mazanie
+
+- Maž až po kontrole, že od kategórie nezávisí žiadny produkt.
+- Priradené produkty najprv presuň do inej kategórie.
+- Na testovanie novej štruktúry je bezpečnejšie kategóriu duplikovať.

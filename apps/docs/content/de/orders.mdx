@@ -1,0 +1,65 @@
+---
+title: Aufträge
+description: Aufträge vom Eingang bis Produktion, Rechnung, Versand und Nachverfolgung verwalten.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Aufträge
+
+Der Auftrag ist der zentrale Datensatz für Produktionsarbeit. Die Startseite
+zeigt aktive Kanban- und Produktionsansichten, die Auftragsliste dient Suche und
+Sammelaktionen, und die Detailseite enthält die vollständige Historie.
+
+## Richtige Ansicht wählen
+
+- **Startseite**: Kanban und Produktion für laufende Arbeit.
+- **Aufträge**: Suche, Filter, Sortierung, Vorschau und Sammelrechnung, wenn
+  Fakturownia konfiguriert ist.
+- **Auftragsdetail**: Kunde, Frist, Ausführung, Dateien, Zahlungen, Rechnungen,
+  Versand, Notizen und Status bearbeiten.
+
+## Suchen und priorisieren
+
+- Suche über die im Suchmenü ausgewählten Felder.
+- Filtere nach Kunde, Regel-Presets, eigenen Filtern, Zeitraum und Shop-Kanal.
+- Aktualisiere die Liste, wenn andere Personen am gleichen Datensatz arbeiten.
+- Öffne Zeilenvorschauen für schnellen Datei- oder Positionskontext.
+
+## Erstellen und bearbeiten
+
+- **Neuer Auftrag** erstellt einen manuellen Auftrag.
+- Zeilenaktionen duplizieren, bearbeiten, Anhänge, Zahlungsnachweise, Notizen,
+  Reklamationen und Positionsprobleme erfassen.
+- Im Detail werden Positionen, Produktionsstatus, Priorität und Zuordnung
+  gepflegt.
+
+## Beispiel für den Auftragsablauf
+
+<StoryFrame
+  id="admin-docs-examples--order-intake-and-fulfillment-de"
+  title="Auftragserfassung und Ausführung"
+  height={960}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Status, Produktion und Kommunikation
+
+- Statuswechsel können Warnungen, Verantwortliche und Kunden-E-Mails auslösen.
+- Produktionspositionen können als in Arbeit, abgeholt, geliefert oder blockiert
+  markiert werden.
+- Druckaktionen erzeugen vollständige, produktionsbezogene oder kundenorientierte
+  Ausdrucke.
+
+## Finanzen und Versand
+
+- Mit Fakturownia sind Proforma- und VAT-Rechnungsaktionen verfügbar.
+- Zahlungsnachweise und Zahlungsdokumente liegen am Auftrag.
+- Bei Kurierintegrationen erscheinen Paket- und Tracking-Aktionen.
+
+## Vor dem Schließen
+
+- Kunde, Lieferung und Fristen prüfen.
+- Dateien und Produktionsstatus jeder Position kontrollieren.
+- Zahlung, Rechnung und Versand mit der tatsächlichen Erfüllung vergleichen.
+- Notizen, Reklamationen und Risikoanalyse bei Ausnahmen lesen.

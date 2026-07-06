@@ -1,0 +1,46 @@
+---
+title: Kategorien
+description: Produkte mit Kanalkategorien, Hierarchie, SEO und Übersetzungen organisieren.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Kategorien
+
+Kategorien strukturieren Produkte im Katalog eines Kanals. Sie stehen auf der
+Katalogseite unterhalb der Produkte.
+
+## Kategorieliste
+
+- Nach Kategorienamen suchen.
+- Aktualisieren, wenn die Struktur geändert wurde.
+- Die Tabelle zeigt Name, Beschreibung, Übersetzungsstatus, Erstellungsdatum und
+  Aktionen.
+
+## Erstellen und bearbeiten
+
+- **Kategorie hinzufügen** erstellt eine Kategorie.
+- Zeilenaktionen bearbeiten oder duplizieren Kategorien.
+- Das Formular enthält Name, Beschreibung, übergeordnete Kategorie und SEO.
+- Übergeordnete Kategorien bilden die Hierarchie für Shop und Admin-Auswahl.
+
+## Beispiel für den Kategorieeditor
+
+<StoryFrame
+  id="admin-docs-examples--category-editor-de"
+  title="Kategorieeditor"
+  height={760}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Übersetzungen
+
+- Die Übersetzungsspalte verwaltet Sprachversionen.
+- Kategorieübersetzungen sind wichtig für mehrsprachige Shop-Navigation.
+- Automatische Übersetzung kann im Hintergrund laufen und bei Fehlern warnen.
+
+## Löschen
+
+- Nur löschen, wenn keine Produkte von der Kategorie abhängen.
+- Produkte vorher in eine andere Kategorie verschieben.
+- Zum Testen neuer Strukturen ist Duplizieren sicherer als Überschreiben.

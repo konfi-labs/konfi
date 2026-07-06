@@ -215,6 +215,16 @@ export default defineMain({
     check: false,
   },
   async viteFinal(viteConfig) {
+    viteConfig.optimizeDeps = {
+      ...viteConfig.optimizeDeps,
+      exclude: Array.from(
+        new Set([
+          ...(viteConfig.optimizeDeps?.exclude ?? []),
+          "@codesandbox/sandpack-react",
+          "@mdxeditor/editor",
+        ]),
+      ),
+    };
     viteConfig.plugins = [
       disabledSandpackReactPlugin(),
       konfiAppAliasPlugin(),

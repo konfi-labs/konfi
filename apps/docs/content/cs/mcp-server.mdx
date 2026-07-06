@@ -1,0 +1,134 @@
+---
+title: Server MCP
+description: Propojení agentů AI se schválenými nástroji Konfi, seznam nástrojů, ukázkové dotazy a tvary výsledků.
+---
+
+# Server MCP
+
+Konfi vystavuje administrační server MCP na `/mcp`. Agentní klient se připojí
+přes Streamable HTTP, ověří se pomocí OAuth, zjistí nástroje povolené pro
+přihlášeného uživatele a volá je se strukturovanými vstupy.
+
+Seznam nástrojů závisí na roli, rozsazích OAuth a přístupu ke kanálu. Většina
+nástrojů je pouze pro čtení. Nástroje se zápisem ukládají návrhy ke kontrole v
+Konfi a nevytvářejí finální záznamy přímo.
+
+## Úrovně přístupu
+
+- **Základní uživatel**: kontext uživatele, kanály, čtení produktů a vysvětlení ceny.
+- **Administrátor**: provozní nástroje pro čtení a tvorba návrhů ke kontrole.
+- **Superadministrátor**: přístup administrátora plus citlivější návrhy změn
+  obchodních dat.
+
+## Skupiny nástrojů
+
+| Oblast | Nástroje | Použití |
+| --- | --- | --- |
+| Kontext a zjištění | `get_current_user_context`, `list_channels`, `list_business_resources` | Zjistit uživatele, rozsahy, viditelné kanály a obchodní zdroje. |
+| Obchodní záznamy | `search_business_records`, `query_firestore_records`, `get_business_record`, `save_business_update_draft` | Hledat, dotazovat, číst a připravit kontrolované změny povolených zdrojů. |
+| Objednávky | `search_orders`, `list_orders`, `get_order`, `get_order_by_number`, `suggest_order_items` | Najít objednávky, číst souhrny, listovat nejnovější a navrhnout položky pro návrhy. |
+| Produkty a ceny | `search_products`, `list_products`, `get_product`, `get_product_configuration_schema`, `list_product_price_rows`, `get_product_dynamic_pricing_config`, `explain_price` | Číst katalog, konfigurace, cenové řádky, dynamické ceny a vysvětlení ceny. |
+| Návrhy | `get_draft_schema`, `get_konfi_drafting_docs`, `get_draft_resource_options`, `save_draft`, `get_saved_draft` | Připravit návrhy kategorií, typů produktů, nabídek, objednávek a produktů z reálných dat Konfi. |
+| Náklady | `get_product_costs`, `list_product_cost_mappings`, `get_attribute_option_costs`, `search_cost_evidence`, `search_material_costs` | Číst schválené nákladové důkazy z Fakturownia bez změny cen. |
+| Zákazníci | `search_customers`, `get_customer` | Hledat viditelné zákazníky a číst redigované souhrny. |
+
+## Obecné zdroje
+
+Obecné nástroje pracují například s `campaigns`, `promotions`,
+`fakturowniaInvoices`, `notes`, `channelSettings`, `suppliers`, `warehouses`,
+`products`, `categories`, `orders`, `quotes` a `complaints`. Nejprve použij
+`list_business_resources`, které vrací přesný seznam, vyhledávací pole a vazbu
+na kanál.
+
+## Ukázkové dotazy
+
+Hodnoty jsou ilustrační. Skutečné výsledky závisí na účtu, rozsazích, kanálech a
+datech Konfi.
+
+### Ověřit přístup
+
+Dotaz:
+
+```text
+Zjisti, které kanály Konfi a nástroje MCP mohu používat, a shrň, jaká data můžeš bezpečně číst.
+```
+
+Typický průběh:
+
+```text
+get_current_user_context -> list_channels -> list_business_resources
+```
+
+Ukázkový výsledek:
+
+```json
+{
+  "scopes": ["channels:read", "orders:read", "products:read"],
+  "channels": [{ "id": "channel_main", "name": "Main store" }],
+  "safeSummary": "Mohu číst objednávky, produkty a schválené obchodní zdroje pro Main store. Finální záznamy nevytvářím přímo."
+}
+```
+
+### Načíst nejnovější objednávku
+
+Dotaz:
+
+```text
+Ukaž nejnovější objednávku v kanálu Main store a shrň stav, zákazníka a položky.
+```
+
+Typický průběh:
+
+```text
+list_channels -> list_orders -> get_order
+```
+
+Ukázkový výsledek:
+
+```json
+{
+  "order": {
+    "number": 10452,
+    "status": "IN_PROGRESS",
+    "customer": "Example Company",
+    "items": [{ "name": "Business cards", "quantity": 500 }]
+  },
+  "summary": "Objednávka #10452 je ve zpracování a obsahuje jednu položku vizitek."
+}
+```
+
+### Uložit návrh nabídky
+
+Dotaz:
+
+```text
+Připrav návrh nabídky pro Example Company: 500 vizitek s matnou laminací. Ulož ho ke kontrole administrátorem.
+```
+
+Typický průběh:
+
+```text
+search_customers -> search_products -> get_draft_schema -> get_draft_resource_options -> suggest_order_items -> save_draft
+```
+
+Ukázkový výsledek:
+
+```json
+{
+  "draftRunId": "mcp_draft_abc123",
+  "draftType": "quote",
+  "status": "mcp_draft",
+  "openUrl": "https://admin.example.com/cs/tools/tasks/mcp_draft_abc123",
+  "summary": "Návrh nabídky byl uložen ke kontrole. Finální nabídka nebyla vytvořena."
+}
+```
+
+## Pravidla pro agenty
+
+- Nejprve zjisti kanály a zdroje.
+- Pro kanálové nástroje preferuj `channelName` z `list_channels`.
+- Pro viditelná čísla objednávek jako `#10452` použij `get_order_by_number`.
+- Pro nejnovější objednávky použij `list_orders`.
+- Volby konfigurace produktu drž v kontextu agenta.
+- Změny navrhuj přes `save_draft` nebo `save_business_update_draft`; finální
+  akce zůstávají v Konfi na člověku.

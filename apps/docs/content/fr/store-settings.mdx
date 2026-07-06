@@ -1,0 +1,56 @@
+---
+title: Paramètres boutique
+description: Configurer achats, livraison, finalisation de commande, SEO, contenu et automatisation par canal.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Paramètres boutique
+
+Les paramètres boutique contrôlent la boutique en ligne du canal sélectionné. Ouvre
+**Configuration**, puis **Paramètres boutique**, et vérifie le canal avant
+d'enregistrer.
+
+## Onglet Achats
+
+Cet onglet est toujours disponible et couvre:
+
+- achats en boutique, minimum et maximum de commande,
+- livraison gratuite et seuil,
+- mode en construction avec message,
+- finalisation de commande, demandes de facture et politique de stock,
+- traitement express avec pourcentage de supplément,
+- prix des méthodes de livraison: transporteur, DHL, DPD, FedEx, InPost,
+  casiers, retrait sur place et livraison personnalisée.
+
+## Exemple de paramètres boutique
+
+<StoryFrame
+  id="admin-docs-examples--store-settings-fr"
+  title="Paramètres boutique"
+  height={860}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Produit personnalisé pour agent
+
+Le panneau enregistre un produit à prix unique avec prix personnalisé activé.
+Les agents peuvent l'utiliser pour des articles au prix fournisseur.
+
+## Métadonnées
+
+L'onglet Métadonnées est disponible hors environnement SaaS partagé. Il gère
+titre, description, mots-clés, données Open Graph et traductions des routes
+boutique.
+
+## Contenu
+
+L'onglet Contenu est disponible hors environnement SaaS partagé. Il gère les
+contenus des pages boutique et leurs traductions.
+
+## Enregistrement
+
+- Les paramètres sont enregistrés par canal.
+- Seuls les groupes modifiés sont écrits.
+- Les caches boutique et produit sont revalidés après les changements pertinents.
+- Utilise **Actualiser les paramètres boutique** si la page est restée ouverte longtemps.

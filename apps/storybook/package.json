@@ -16,9 +16,11 @@
     "@konfi/preview3d": "workspace:*",
     "@konfi/types": "workspace:*",
     "@konfi/utils": "workspace:*",
+    "i18next": "catalog:",
     "next": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "react-hook-form": "catalog:"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "10.4.6",

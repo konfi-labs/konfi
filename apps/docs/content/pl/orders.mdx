@@ -1,0 +1,67 @@
+---
+title: Zamówienia
+description: Obsługa zamówień od przyjęcia do produkcji, fakturowania, wysyłki i dalszej komunikacji.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Zamówienia
+
+Zamówienie jest głównym rekordem pracy produkcyjnej. Strona główna pokazuje
+aktywny Kanban i widok Produkcja, lista Zamówienia służy do wyszukiwania i
+pracy zbiorczej, a szczegóły zamówienia zawierają pełną historię jednej sprawy.
+
+## Wybór widoku
+
+- **Strona główna** pokazuje karty Kanban i Produkcja dla aktywnej pracy.
+- **Zamówienia** udostępniają wyszukiwanie, filtry, sortowanie, podgląd wierszy
+  i tryb faktury zbiorczej, gdy skonfigurowano Fakturownię.
+- **Szczegóły zamówienia** służą do edycji klienta, terminu, realizacji, plików,
+  płatności, faktur, wysyłki, notatek i statusu.
+
+## Wyszukiwanie i selekcja
+
+- Szukaj według pól wybranych w menu pól wyszukiwania.
+- Filtruj po dokładnym kliencie, presetach reguł, filtrach niestandardowych,
+  zakresie dat i zamówieniach z kanału sklepu, jeśli kanał jest dostępny.
+- Odśwież listę przed działaniem na danych, które mogły zostać zmienione przez
+  innego operatora.
+
+## Tworzenie i aktualizacja
+
+- Użyj **Nowe zamówienie** do ręcznego przyjęcia zlecenia.
+- Akcje wiersza pozwalają duplikować, edytować, dodawać załączniki, dowody
+  płatności, notatki, reklamacje i zgłoszenia problemów pozycji.
+- W szczegółach można aktualizować pozycje, statusy realizacji, priorytet i
+  przypisanie produkcyjne.
+
+## Przykład przepływu zamówienia
+
+<StoryFrame
+  id="admin-docs-examples--order-intake-and-fulfillment-pl"
+  title="Przyjęcie i realizacja zamówienia"
+  height={960}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Status, produkcja i komunikacja
+
+- Zmiana statusu może wyświetlić ostrzeżenia, wybór osoby odpowiedzialnej oraz
+  pytanie o wiadomość do klienta.
+- Pozycje produkcyjne można oznaczać jako w toku, odebrane, dostarczone albo
+  zablokowane problemem.
+- Widok szczegółów udostępnia wydruki pełne, produkcyjne i dla klienta.
+
+## Finanse i wysyłka
+
+- Przy integracji z Fakturownią dostępne są akcje proformy i faktury VAT,
+  w tym utworzenie faktury VAT z proformy.
+- Dokumenty płatności i dowody płatności są przechowywane przy zamówieniu.
+- Po skonfigurowaniu kurierów widok szczegółów pokazuje akcje paczki i śledzenia.
+
+## Przed zamknięciem
+
+- Sprawdź klienta, dane dostawy i terminy.
+- Upewnij się, że każda pozycja ma właściwe pliki i status produkcji.
+- Porównaj płatność, fakturę i wysyłkę z faktyczną realizacją.
+- Przejrzyj notatki, reklamacje i analizę ryzyka, jeśli wystąpiły wyjątki.

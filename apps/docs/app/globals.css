@@ -1,0 +1,119 @@
+html {
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+}
+
+.konfi-docs-logo {
+  display: block;
+  height: 20px;
+  width: auto;
+}
+
+.dark .konfi-docs-logo,
+html[data-theme="dark"] .konfi-docs-logo {
+  filter: invert(1);
+}
+
+.konfi-story-frame {
+  margin: 1.5rem 0;
+}
+
+.konfi-story-frame__stage {
+  position: relative;
+  min-height: 260px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  border-radius: 8px;
+  background:
+    linear-gradient(
+      110deg,
+      color-mix(in srgb, currentColor 4%, canvas) 0%,
+      color-mix(in srgb, currentColor 8%, canvas) 48%,
+      color-mix(in srgb, currentColor 4%, canvas) 100%
+    ),
+    canvas;
+}
+
+.konfi-story-frame__iframe {
+  display: block;
+  height: var(--konfi-story-frame-height);
+  width: 100%;
+  min-height: 260px;
+  border: 0;
+  background: canvas;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.konfi-story-frame[data-loaded="true"] .konfi-story-frame__iframe {
+  opacity: 1;
+}
+
+.konfi-story-frame__loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  gap: 0.75rem;
+  min-height: 260px;
+  padding: 1rem;
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      color-mix(in srgb, currentColor 7%, transparent),
+      transparent 36%
+    ),
+    canvas;
+  color: color-mix(in srgb, currentColor 72%, transparent);
+  font-size: 0.875rem;
+  text-align: center;
+  transition:
+    opacity 160ms ease,
+    visibility 160ms ease;
+}
+
+.konfi-story-frame[data-loaded="true"] .konfi-story-frame__loading {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.konfi-story-frame__spinner {
+  display: block;
+  width: 1.375rem;
+  height: 1.375rem;
+  border: 2px solid color-mix(in srgb, currentColor 18%, transparent);
+  border-top-color: currentColor;
+  border-radius: 999px;
+  animation: konfi-story-frame-spin 760ms linear infinite;
+}
+
+.konfi-story-frame__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  color: color-mix(in srgb, currentColor 72%, transparent);
+  font-size: 0.875rem;
+}
+
+@keyframes konfi-story-frame-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .konfi-story-frame__iframe,
+  .konfi-story-frame__loading {
+    transition: none;
+  }
+
+  .konfi-story-frame__spinner {
+    animation: none;
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "@konfi/docs",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "repository": "https://github.com/konfi-labs/konfi/tree/main/apps/docs",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --turbopack -p 3002",
+    "build": "next build --turbopack",
+    "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
+    "start": "next start -p 3002",
+    "lint": "oxlint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "catalog:",
+    "nextra": "4.6.1",
+    "nextra-theme-docs": "4.6.1",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "devDependencies": {
+    "@types/mdx": "2.0.14",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "pagefind": "^1.5.2",
+    "typescript": "catalog:"
+  }
+}

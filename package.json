@@ -14,6 +14,8 @@
     "agent:context": "node scripts/agent-context.mjs",
     "chakra:typegen": "chakra typegen packages/components/src/theme/index.ts --tsconfig tsconfig.json --strict",
     "dev": "dotenv turbo run dev",
+    "docs:services:dev": "node scripts/dev-docs-services.mjs",
+    "docs:services:vercel": "vercel dev -L --listen 127.0.0.1:3005",
     "storybook": "dotenv turbo run storybook --ui=stream --filter=@konfi/storybook",
     "start": "dotenv turbo run start",
     "format:check": "node scripts/format-check.mjs",
@@ -67,6 +69,7 @@
     "tsx": "^4.21.0",
     "turbo": "catalog:",
     "typescript": "catalog:",
+    "vercel": "54.18.2",
     "vitest": "catalog:",
     "vitest-axe": "catalog:"
   },

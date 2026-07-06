@@ -1,0 +1,45 @@
+---
+title: Catégories
+description: Organiser les produits avec catégories de canal, hiérarchie, SEO et traductions.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Catégories
+
+Les catégories organisent les produits dans le catalogue d'un canal. Elles sont
+disponibles sur la page Catalogue sous les Produits.
+
+## Liste des catégories
+
+- Recherche par nom de catégorie.
+- Actualise si la structure a changé.
+- Le tableau affiche nom, description, traductions, date de création et actions.
+
+## Créer et modifier
+
+- **Ajouter une catégorie** crée une catégorie.
+- Les actions de ligne modifient ou dupliquent une catégorie.
+- Le formulaire contient nom, description, catégorie parente et SEO.
+- Les catégories parentes créent la hiérarchie de navigation.
+
+## Exemple d'éditeur de catégorie
+
+<StoryFrame
+  id="admin-docs-examples--category-editor-fr"
+  title="Éditeur de catégorie"
+  height={760}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Traductions
+
+- La colonne traductions permet de gérer les versions linguistiques.
+- Les traductions sont importantes pour une navigation boutique multilingue.
+- L'auto-traduction peut s'exécuter en arrière-plan et avertir en cas d'échec.
+
+## Suppression
+
+- Supprime seulement si aucun produit ne dépend de la catégorie.
+- Déplace d'abord les produits assignés vers une autre catégorie.
+- Pour tester une structure, duplique plutôt que d'écraser une catégorie active.

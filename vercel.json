@@ -1,0 +1,134 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "docs": {
+      "root": "apps/docs",
+      "framework": "nextjs",
+      "buildCommand": "pnpm build",
+      "devCommand": "pnpm exec next dev --turbopack"
+    },
+    "storybook": {
+      "root": "apps/storybook",
+      "framework": "vite",
+      "buildCommand": "pnpm build",
+      "devCommand": "pnpm exec storybook dev --no-open --port 6006",
+      "outputDirectory": "storybook-static",
+      "routes": [
+        {
+          "src": "/storybook",
+          "transforms": [
+            {
+              "type": "request.path",
+              "op": "set",
+              "args": "/index.html"
+            }
+          ]
+        },
+        {
+          "src": "/(en|pl|de|fr|cs|sk|uk)/storybook",
+          "transforms": [
+            {
+              "type": "request.path",
+              "op": "set",
+              "args": "/index.html"
+            }
+          ]
+        },
+        {
+          "src": "/storybook/(.*)",
+          "transforms": [
+            {
+              "type": "request.path",
+              "op": "set",
+              "args": "/$1"
+            }
+          ]
+        },
+        {
+          "src": "/(en|pl|de|fr|cs|sk|uk)/storybook/(.*)",
+          "transforms": [
+            {
+              "type": "request.path",
+              "op": "set",
+              "args": "/$2"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/storybook",
+      "destination": {
+        "service": "storybook"
+      }
+    },
+    {
+      "source": "/vite-inject-mocker-entry.js",
+      "destination": {
+        "service": "storybook"
+      }
+    },
+    {
+      "source": "/@vite/:path*",
+      "destination": {
+        "service": "storybook"
+      }
+    },
+    {
+      "source": "/@id/:path*",
+      "destination": {
+        "service": "storybook"
+      }
+    },
+    {
+      "source": "/@fs/:path*",
+      "destination": {
+        "service": "storybook"
+      }
+    },
+    {
+      "source": "/node_modules/:path*",
+      "destination": {
+        "service": "storybook"
+      }
+    },
+    {
+      "source": "/.storybook/:path*",
+      "destination": {
+        "service": "storybook"
+      }
+    },
+    {
+      "source": "/src/:path*",
+      "destination": {
+        "service": "storybook"
+      }
+    },
+    {
+      "source": "/:locale(en|pl|de|fr|cs|sk|uk)/storybook",
+      "destination": {
+        "service": "storybook"
+      }
+    },
+    {
+      "source": "/storybook/:path*",
+      "destination": {
+        "service": "storybook"
+      }
+    },
+    {
+      "source": "/:locale(en|pl|de|fr|cs|sk|uk)/storybook/:path*",
+      "destination": {
+        "service": "storybook"
+      }
+    },
+    {
+      "source": "/:path*",
+      "destination": {
+        "service": "docs"
+      }
+    }
+  ]
+}

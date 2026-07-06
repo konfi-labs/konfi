@@ -1,0 +1,66 @@
+---
+title: Commandes
+description: Gérer les commandes de la prise en charge à la production, la facturation, l'expédition et le suivi.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Commandes
+
+La commande est le dossier principal du travail de production. La page d'accueil
+affiche les vues Kanban et Production, la liste Commandes sert à rechercher et
+agir en masse, et la page détail contient l'historique complet.
+
+## Choisir la bonne vue
+
+- **Accueil** affiche Kanban et Production pour le travail actif.
+- **Commandes** propose recherche, filtres, tri, aperçu de lignes et facturation
+  groupée lorsque Fakturownia est configuré.
+- **Détail de commande** permet de modifier client, délai, exécution, fichiers,
+  paiements, factures, livraison, notes et statut.
+
+## Rechercher et trier
+
+- Recherche avec les champs choisis dans le menu de recherche.
+- Filtre par client exact, préréglages de règles, filtres personnalisés, dates
+  et inclusion du canal boutique.
+- Actualise la liste si d'autres opérateurs peuvent avoir modifié les données.
+- Utilise l'aperçu de ligne pour vérifier fichiers et articles rapidement.
+
+## Créer et modifier
+
+- **Nouvelle commande** crée une commande manuelle.
+- Les actions de ligne dupliquent, modifient, ajoutent pièces jointes, preuves
+  de paiement, notes, réclamations et problèmes d'article.
+- Le détail permet de gérer articles, statut de production, priorité et
+  affectation.
+
+## Exemple de flux de commande
+
+<StoryFrame
+  id="admin-docs-examples--order-intake-and-fulfillment-fr"
+  title="Saisie et traitement de commande"
+  height={960}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Statut, production et communication
+
+- Les changements de statut peuvent afficher avertissements, choix d'acteur et
+  demandes d'e-mail client.
+- Les articles peuvent passer en production, retirés, livrés ou bloqués.
+- Des impressions complètes, production et client sont disponibles depuis le
+  détail.
+
+## Finance et livraison
+
+- Avec Fakturownia, les actions proforma et facture VAT sont disponibles.
+- Les preuves et documents de paiement restent attachés à la commande.
+- Les intégrations transporteur ajoutent les actions colis et suivi.
+
+## Avant de clôturer
+
+- Vérifie client, livraison et délais.
+- Confirme fichiers et statut de production de chaque article.
+- Compare paiement, facture et livraison avec la réalisation réelle.
+- Lis notes, réclamations et analyse de risque en cas d'exception.

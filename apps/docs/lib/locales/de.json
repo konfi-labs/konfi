@@ -1,0 +1,46 @@
+{
+  "footer": {
+    "copyright": "Konfi."
+  },
+  "lastUpdated": "Zuletzt aktualisiert",
+  "layout": {
+    "editLink": "Diese Seite bearbeiten",
+    "feedback": "Frage? Feedback geben",
+    "themeSwitch": {
+      "dark": "Dunkel",
+      "light": "Hell",
+      "system": "System"
+    },
+    "toc": {
+      "backToTop": "Nach oben",
+      "title": "Auf dieser Seite"
+    }
+  },
+  "metadata": {
+    "description": "Dokumentation für die Konfi-Plattform.",
+    "template": "%s | Konfi Docs",
+    "title": "Konfi Docs"
+  },
+  "navbar": {
+    "logo": "Konfi Docs"
+  },
+  "pageActions": {
+    "chatGptPrompt": "Lies {{url}}, damit ich Fragen dazu stellen kann.",
+    "copied": "Kopiert",
+    "copyPage": "Seite kopieren",
+    "copyPageDescription": "Seite als Markdown für KI-Werkzeuge kopieren",
+    "menuLabel": "Seitenaktionen",
+    "openInChatGPT": "In ChatGPT öffnen",
+    "openInChatGPTDescription": "Fragen zu dieser Seite stellen"
+  },
+  "search": {
+    "emptyResult": "Keine passenden Dokumente gefunden.",
+    "errorText": "Der Suchindex konnte nicht geladen werden.",
+    "loading": "Suchindex wird geladen...",
+    "placeholder": "Konfi Docs durchsuchen..."
+  },
+  "storyFrame": {
+    "loadingExample": "Beispiel wird geladen...",
+    "openExample": "Live-Beispiel öffnen"
+  }
+}

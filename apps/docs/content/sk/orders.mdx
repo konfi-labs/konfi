@@ -1,0 +1,64 @@
+---
+title: Objednávky
+description: Správa objednávok od prijatia cez výrobu, fakturáciu, dopravu a následnú komunikáciu.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Objednávky
+
+Objednávka je hlavný prevádzkový záznam pre výrobu. Domovská stránka ukazuje
+aktívny Kanban a Výrobu, stránka Objednávky slúži na hľadanie a hromadné akcie
+a detail obsahuje úplnú históriu jednej objednávky.
+
+## Správny pohľad
+
+- **Domov** ukazuje Kanban a Výrobu pre aktívnu prácu.
+- **Objednávky** ponúkajú hľadanie, filtre, triedenie, náhľad riadkov a hromadné
+  faktúry pri nastavenej Fakturownii.
+- **Detail objednávky** upravuje zákazníka, termín, realizáciu, súbory, platby,
+  faktúry, dopravu, poznámky a stav.
+
+## Hľadanie a triedenie
+
+- Hľadaj podľa polí vybraných v menu hľadania.
+- Filtruj podľa zákazníka, pravidiel, vlastných filtrov, dátumu a zahrnutia
+  kanála obchodu.
+- Obnov zoznam, ak ho mohol zmeniť iný operátor.
+- Náhľad riadku použi na rýchlu kontrolu súborov a položiek.
+
+## Vytvorenie a úpravy
+
+- **Nová objednávka** vytvorí ručnú objednávku.
+- Akcie riadku duplikujú, upravujú, pridávajú prílohy, doklady platby, poznámky,
+  reklamácie a problémy položiek.
+- V detaile sa spravujú položky, stav výroby, priorita a priradenie.
+
+## Ukážka pracovného postupu objednávky
+
+<StoryFrame
+  id="admin-docs-examples--order-intake-and-fulfillment-sk"
+  title="Prijatie a realizácia objednávky"
+  height={960}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Stav, výroba a komunikácia
+
+- Zmena stavu môže zobraziť varovania, výber zodpovednej osoby a otázku na
+  e-mail zákazníkovi.
+- Položky možno označiť ako vo výrobe, prevzaté, doručené alebo blokované.
+- Detail poskytuje úplné, výrobné a zákaznícke tlače.
+
+## Financie a doprava
+
+- Pri integrácii Fakturownia sú dostupné akcie pre proformu a VAT faktúru.
+- Doklady platby sú uložené pri objednávke.
+- Kuriérske integrácie pridávajú balíkové a sledovacie akcie.
+
+## Pred uzavretím
+
+- Over zákazníka, dopravu a termíny.
+- Skontroluj súbory a výrobný stav každej položky.
+- Porovnaj platbu, faktúru a dopravu so skutočnou realizáciou.
+- Prečítaj poznámky, reklamácie a rizikovú analýzu pri výnimkách.

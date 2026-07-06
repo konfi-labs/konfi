@@ -42,6 +42,7 @@ const tenantAProductCreatorUid = "tenant-a-product-creator";
 const tenantAOrderManagerUid = "tenant-a-order-manager";
 const tenantBAdminUid = "tenant-b-admin";
 const defaultAdminUid = "default-admin";
+const dedicatedDefaultAdminUid = "dedicated-default-admin";
 const superAdminUid = "super-admin";
 const tenantACustomerUid = "tenant-a-customer";
 const tenantBCustomerUid = "tenant-b-customer";
@@ -693,15 +694,15 @@ describeWithFirebaseEmulators("Firebase security rules", () => {
       );
     });
 
-    it("denies SaaS tenant admins fallback documents without their tenantId", async () => {
+    it("allows normal admins to bridge dedicated/default documents", async () => {
       const tenantAAdminDb = testEnv
         .authenticatedContext(tenantAAdminUid, adminToken(1))
         .firestore();
 
-      await assertFails(
+      await assertSucceeds(
         tenantAAdminDb.doc("warehouses/missing-tenant-warehouse").get(),
       );
-      await assertFails(
+      await assertSucceeds(
         tenantAAdminDb.doc("warehouses/default-warehouse").get(),
       );
       await assertFails(
@@ -712,10 +713,16 @@ describeWithFirebaseEmulators("Firebase security rules", () => {
           active: true,
         }),
       );
-      await assertFails(
+      await assertSucceeds(
         tenantAAdminDb.doc("warehouses/default-warehouse").update({
           ...tenantOwnedDocument(defaultTenant),
           name: "Default from tenant A",
+        }),
+      );
+      await assertFails(
+        tenantAAdminDb.doc("warehouses/default-warehouse").update({
+          ...tenantOwnedDocument(tenantA),
+          id: "default-warehouse",
         }),
       );
     });
@@ -1216,6 +1223,50 @@ describeWithFirebaseEmulators("Firebase security rules", () => {
       );
     });
 
+    it("allows dedicated/default admins without tenant memberships to create orders and counters", async () => {
+      const dedicatedDefaultAdminDb = testEnv
+        .authenticatedContext(dedicatedDefaultAdminUid, adminToken(1))
+        .firestore();
+      const defaultOrderPath =
+        "channels/default-channel/orders/dedicated-default-order";
+      const tenantOrderPath = `channels/${tenantA}-channel/orders/dedicated-default-tenant-a-order`;
+      const defaultOrderCounterPath =
+        "channels/default-channel/counters/orders";
+      const tenantOrderCounterPath = `channels/${tenantA}-channel/counters/orders`;
+
+      await assertSucceeds(
+        dedicatedDefaultAdminDb.doc(defaultOrderPath).set({
+          ...orderDocument(defaultTenant, `${defaultTenant}-customer`),
+          id: "dedicated-default-order",
+          number: 7001,
+        }),
+      );
+      await assertFails(
+        dedicatedDefaultAdminDb.doc(tenantOrderPath).set({
+          ...orderDocument(tenantA, tenantACustomerUid),
+          id: "dedicated-default-tenant-a-order",
+          number: 7002,
+        }),
+      );
+      await assertSucceeds(
+        dedicatedDefaultAdminDb.doc(defaultOrderCounterPath).set({
+          nextNumber: 7002,
+          tenantId: defaultTenant,
+        }),
+      );
+      await assertSucceeds(
+        dedicatedDefaultAdminDb.doc(defaultOrderCounterPath).update({
+          nextNumber: 7003,
+        }),
+      );
+      await assertFails(
+        dedicatedDefaultAdminDb.doc(tenantOrderCounterPath).set({
+          nextNumber: 7004,
+          tenantId: tenantA,
+        }),
+      );
+    });
+
     it("allows only authorized tenant admins to manage order and quote counters", async () => {
       const tenantAAdminDb = testEnv
         .authenticatedContext(tenantAAdminUid, adminToken(1))
@@ -1300,7 +1351,7 @@ describeWithFirebaseEmulators("Firebase security rules", () => {
           nextNumber: 13,
         }),
       );
-      await assertFails(tenantAAdminDb.doc(legacyOrderCounterPath).get());
+      await assertSucceeds(tenantAAdminDb.doc(legacyOrderCounterPath).get());
       await assertFails(
         tenantAAdminDb.doc(legacyOrderCounterPath).set({
           nextNumber: 1,

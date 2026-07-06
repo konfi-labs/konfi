@@ -1,0 +1,183 @@
+---
+title: Produits
+description: Maintenir produits de canal, prix, médias, traductions et liens opérationnels.
+---
+
+import { StoryFrame } from "../../components/story-frame";
+
+# Produits
+
+Les produits définissent ce que la boutique et les formulaires de commande admin
+peuvent vendre. Les données produit sont liées au canal.
+
+## Modèle produit
+
+Considère un produit comme une configuration vendable réutilisable pour un
+canal. Un produit peut aussi être exposé à d'autres canaux par des liens, mais
+son enregistrement source reste dans le canal où il a été créé.
+
+- **Canal source** contrôle l'enregistrement produit, les prix, les médias, le
+  SEO et les traductions.
+- **Canaux liés** peuvent trouver et utiliser le produit sans copie dans un
+  second catalogue.
+- **Liens client** marquent un produit comme spécifique à un compte. Dans le
+  calcul de commande, la remise globale du client n'est pas appliquée
+  automatiquement aux produits liés à ce client.
+- **Liens fournisseur et entrepôt** gardent le contexte d'achat et d'exécution
+  près du produit.
+- **Visibilité boutique** dépend de l'état actif, des dates de publication, des
+  dates d'expiration, de prix valides, des traductions et de la revalidation du
+  cache après enregistrement.
+
+## Liste des produits
+
+- Ouvre **Catalogue** puis **Produits**.
+- Recherche par nom ou actualise la liste.
+- **Gérer les images produit** ouvre les médias partagés du catalogue.
+- **Gérer les préréglages de prix dynamique** prépare les règles réutilisables.
+- **Ajouter un produit** crée un nouveau produit.
+
+## Actions produit
+
+Depuis le menu de ligne tu peux:
+
+- modifier ou dupliquer un produit,
+- créer une note,
+- ouvrir les avis,
+- lier le produit à un canal, client, fournisseur ou entrepôt,
+- supprimer le produit après vérification.
+
+## Créer un produit
+
+Utilise ce flux pour un nouveau produit qui doit être disponible dans le canal
+actif:
+
+1. Ouvre **Catalogue** -> **Produits** et vérifie le canal actif.
+2. Sélectionne **Ajouter un produit**.
+3. Renseigne nom, description, catégorie, état actif et contexte de canal.
+4. Ajoute identifiant d'URL, titre et description SEO avant publication en
+   boutique.
+5. Choisis le type de prix et complète les champs requis.
+6. Choisis type de produit, attributs, comportement du nombre de pages et limites
+   de taille ou quantité si le produit est configurable.
+7. Ajoute médias et images spécifiques au produit.
+8. Vérifie la configuration boutique et les prix de liste dans l'aperçu.
+9. Enregistre, puis contrôle traductions et visibilité boutique.
+
+## Formulaire produit
+
+Le formulaire couvre nom, description, catégorie, état actif, canal, SEO,
+images, type de prix, tables de prix, prix matrice ou seuil, prix dynamique,
+attributs, type produit, prix par nombre de pages et aperçu dans la boutique.
+
+## Exemple de formulaire produit
+
+<StoryFrame
+  id="admin-docs-examples--product-form-fr"
+  title="Formulaire produit"
+  height={900}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Flux de prix
+
+- Utilise un prix unique pour les produits simples à prix fixe.
+- Utilise des prix par volume ou par seuil lorsque le produit a des paliers de
+  quantité.
+- Utilise des prix matriciels lorsque le prix dépend d'une combinaison
+  d'attributs.
+- Utilise les prix par nombre de pages lorsque le nombre de pages modifie le
+  prix.
+- Utilise des préréglages de prix dynamique pour les règles réutilisables, puis
+  lie-les dans le formulaire produit.
+- Vérifie les prix de liste par défaut, bas et haut avant d'enregistrer les
+  produits visibles en boutique.
+
+## Exemple de paliers de prix
+
+Cet exemple montre comment les paliers de prix sont présentés lorsqu'un produit
+possède plusieurs seuils de quantité.
+
+<StoryFrame
+  id="shared-components--price-threshold-volume-cards"
+  title="Cartes de paliers de prix"
+  height={520}
+  globals="theme:light;appTheme:admin"
+/>
+
+## Lier des produits aux canaux
+
+Utilise **Lier au canal** lorsque le même produit doit être disponible dans un
+autre canal sans maintenir un doublon.
+
+1. Ouvre le menu d'actions de la ligne produit.
+2. Sélectionne **Lier au canal**.
+3. Choisis un canal cible. Le dialogue ne liste que les canaux différents du
+   canal actif.
+4. Confirme avec **Lier**.
+5. Actualise la recherche produit ou ouvre un formulaire de commande dans le
+   canal cible pour vérifier la disponibilité.
+
+Le lien met à jour la liste de canaux du produit et l'index de recherche. Il ne
+crée pas de document produit séparé dans le canal cible. Modifie le produit
+source si prix, SEO, médias ou configuration doivent changer.
+
+## Lier des produits aux clients
+
+Utilise **Lier au client** pour les produits associés à un compte précis:
+articles négociés, produits de catalogue privé ou modèles de commande
+récurrente.
+
+1. Ouvre le menu d'actions de la ligne produit.
+2. Sélectionne **Lier au client**.
+3. Recherche et sélectionne le client.
+4. Confirme avec **Lier**.
+5. Dans une nouvelle commande pour ce client, vérifie la zone des produits liés
+   et la sélection du produit.
+
+Les liens client sont stockés sur la fiche client. Ils modifient aussi la logique
+de prix: la remise globale du client n'est pas appliquée automatiquement aux
+produits liés, sauf si l'article de commande utilise sa propre remise.
+
+## Exemples de workflows
+
+### Publier un produit boutique
+
+Crée le produit, ajoute des prix valides, assigne catégorie et SEO, téléverse les
+médias, relis les traductions, puis vérifie-le dans la boutique ou dans un
+formulaire de commande du même canal.
+
+### Réutiliser un produit dans un autre canal
+
+Crée et teste le produit dans le canal source, utilise **Lier au canal**, puis
+recherche-le dans le canal cible. Les futures modifications restent sur
+l'enregistrement source.
+
+### Préparer un produit spécifique client
+
+Crée le produit avec la spécification convenue, lie-le au client et crée une
+commande de test pour vérifier sélection et comportement de remise.
+
+### Mettre à jour un produit tarifé
+
+Vérifie si le produit utilise des prix fixes, matriciels, par nombre de pages ou
+dynamiques. Mets à jour la table concernée, vérifie l'aperçu des prix,
+enregistre et confirme le calcul de commande avant les devis réels.
+
+## Traductions et boutique
+
+- Les traductions produit se gèrent dans le catalogue.
+- Un changement d'identifiant d'URL affecte l'URL produit et la mémoire cache
+  des métadonnées.
+- Prix, disponibilité, livraison et mode express influencent les listes et la
+  finalisation de commande.
+- Les produits liés à des canaux peuvent influencer recherche et formulaires de
+  commande hors du canal source; vérifie chaque canal où le produit est exposé.
+
+## Avant publication
+
+- Vérifie canal, catégorie et état actif.
+- Assure au moins un prix valide pour le type de prix choisi.
+- Relis médias, SEO et règles dynamiques avant d'enregistrer.
+- Vérifie clients et canaux liés avant de supprimer ou modifier fortement un
+  produit utilisé par d'autres workflows.
